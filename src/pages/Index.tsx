@@ -5,7 +5,8 @@ import { ProjectEditor } from "@/components/ProjectEditor";
 import { OnboardingTour } from "@/components/OnboardingTour";
 import { useOnboarding } from "@/hooks/useOnboarding";
 import { Button } from "@/components/ui/button";
-import { HelpCircle } from "lucide-react";
+import { HelpCircle, Brain, Image, Music, Zap } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { EnvironmentSwitcher } from "@/components/EnvironmentSwitcher";
 
 interface Project {
@@ -114,8 +115,13 @@ const Index = () => {
         onSkip={skipTour}
       />
 
-      {/* Header/Intro Section */}
-      <header className="relative bg-gradient-hero text-white" data-tour="welcome">
+      {/* Header/Intro Section - Dark Navy Gradient */}
+      <header 
+        id="hero"
+        className="relative text-white shadow-[0px_1px_20px_rgba(0,0,0,0.15)]" 
+        style={{ background: 'linear-gradient(135deg, #0B1623 0%, #0E213A 100%)' }}
+        data-tour="welcome"
+      >
         <div className="container mx-auto px-6 py-20">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="relative">
@@ -126,10 +132,10 @@ const Index = () => {
               />
             </div>
             <div className="text-center md:text-left">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 Nauiter Master
               </h1>
-              <p className="text-xl text-white/90 mb-6 max-w-2xl">
+              <p className="text-xl text-gray-300 mb-6 max-w-2xl">
                 AI Strategist and Digital Artist merging creativity, automation, and ethics to transform technology into art. Focused on AI Strategy, Generative Automation, and Digital Culture.
               </p>
               <div className="flex flex-wrap gap-3 justify-center md:justify-start">
@@ -148,113 +154,207 @@ const Index = () => {
         </div>
       </header>
 
-      {/* AI Tools Mastery Section */}
-      <section className="py-20 bg-background" data-tour="ai-tools">
+      {/* AI Tools Mastery Section - Dark Navy Gradient (matches hero) */}
+      <section 
+        id="ai-tools"
+        className="py-20 shadow-[0px_1px_20px_rgba(0,0,0,0.15)]" 
+        style={{ background: 'linear-gradient(135deg, #0B1623 0%, #0E213A 100%)' }}
+        data-tour="ai-tools"
+      >
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-4">AI Tools Mastery</h2>
-          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            Expertise across the AI ecosystem with practical applications and proven results
+          <h2 className="text-2xl md:text-3xl font-semibold text-white text-center mb-4">AI Tools Mastery</h2>
+          <p className="text-gray-300 text-center mb-12 max-w-2xl mx-auto">
+            Expert in AI prompt workflows and automation pipelines with practical applications
           </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-card rounded-xl p-6 shadow-md hover:shadow-glow transition-all duration-300 border border-border">
-              <div className="text-3xl mb-4">🤖</div>
-              <h3 className="font-semibold mb-2">Text AI</h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                Advanced prompt engineering with GPT, Claude, and other LLMs
-              </p>
-              <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-strength text-strength-foreground">
-                Expert
-              </div>
-            </div>
+          <TooltipProvider>
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              {/* Text AI */}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-400 ease-in-out border border-white/10">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Brain className="w-6 h-6 text-blue-400" />
+                      <h3 className="font-semibold text-white text-lg">Text AI</h3>
+                    </div>
+                    <p className="text-sm text-gray-300 mb-4">
+                      GPT, Claude, LLaMA - Advanced prompt engineering
+                    </p>
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-sm text-gray-400 mb-1">
+                        <span>Proficiency</span>
+                        <span className="text-blue-400 font-semibold">95%</span>
+                      </div>
+                      <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-1000 ease-out"
+                          style={{ width: '95%' }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
+                  <p className="max-w-xs">Expert in AI prompt workflows and automation pipelines. Specialized in conversational AI and content generation.</p>
+                </TooltipContent>
+              </Tooltip>
 
-            <div className="bg-card rounded-xl p-6 shadow-md hover:shadow-glow transition-all duration-300 border border-border">
-              <div className="text-3xl mb-4">🎨</div>
-              <h3 className="font-semibold mb-2">Image/Video AI</h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                Creative workflows with DALL-E, Midjourney, and video generation
-              </p>
-              <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-strength text-strength-foreground">
-                Expert
-              </div>
-            </div>
+              {/* Image/Video AI */}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-400 ease-in-out border border-white/10">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Image className="w-6 h-6 text-purple-400" />
+                      <h3 className="font-semibold text-white text-lg">Image/Video AI</h3>
+                    </div>
+                    <p className="text-sm text-gray-300 mb-4">
+                      Midjourney, DALL·E, RunwayML - Creative workflows
+                    </p>
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-sm text-gray-400 mb-1">
+                        <span>Proficiency</span>
+                        <span className="text-purple-400 font-semibold">90%</span>
+                      </div>
+                      <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-1000 ease-out"
+                          style={{ width: '90%' }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
+                  <p className="max-w-xs">Advanced visual content creation using cutting-edge generative AI tools for images and video production.</p>
+                </TooltipContent>
+              </Tooltip>
 
-            <div className="bg-card rounded-xl p-6 shadow-md hover:shadow-glow transition-all duration-300 border border-border">
-              <div className="text-3xl mb-4">🎵</div>
-              <h3 className="font-semibold mb-2">Audio AI</h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                Voice synthesis, music generation, and audio processing
-              </p>
-              <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-learning text-learning-foreground">
-                Learning
-              </div>
-            </div>
+              {/* Audio AI */}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-400 ease-in-out border border-white/10">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Music className="w-6 h-6 text-green-400" />
+                      <h3 className="font-semibold text-white text-lg">Audio AI</h3>
+                    </div>
+                    <p className="text-sm text-gray-300 mb-4">
+                      ElevenLabs, MusicGen - Voice & audio synthesis
+                    </p>
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-sm text-gray-400 mb-1">
+                        <span>Proficiency</span>
+                        <span className="text-green-400 font-semibold">70%</span>
+                      </div>
+                      <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full transition-all duration-1000 ease-out"
+                          style={{ width: '70%' }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
+                  <p className="max-w-xs">Growing expertise in voice synthesis, music generation, and audio processing using AI tools.</p>
+                </TooltipContent>
+              </Tooltip>
 
-            <div className="bg-card rounded-xl p-6 shadow-md hover:shadow-glow transition-all duration-300 border border-border">
-              <div className="text-3xl mb-4">⚡</div>
-              <h3 className="font-semibold mb-2">Productivity/Automation</h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                Workflow automation and AI-powered productivity solutions
-              </p>
-              <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-strength text-strength-foreground">
-                Expert
-              </div>
+              {/* Automation */}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-400 ease-in-out border border-white/10">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Zap className="w-6 h-6 text-yellow-400" />
+                      <h3 className="font-semibold text-white text-lg">Automation</h3>
+                    </div>
+                    <p className="text-sm text-gray-300 mb-4">
+                      Python, Zapier, Notion AI, Make - Workflow automation
+                    </p>
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-sm text-gray-400 mb-1">
+                        <span>Proficiency</span>
+                        <span className="text-yellow-400 font-semibold">92%</span>
+                      </div>
+                      <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-full transition-all duration-1000 ease-out"
+                          style={{ width: '92%' }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
+                  <p className="max-w-xs">Expert in AI prompt workflows and automation pipelines. Building efficient systems that scale.</p>
+                </TooltipContent>
+              </Tooltip>
             </div>
-          </div>
+          </TooltipProvider>
         </div>
       </section>
 
-      {/* Showcase Projects Section */}
-      <section className="py-20 bg-secondary/30" data-tour="projects">
+      {/* Showcase Projects Section - Light Background */}
+      <section 
+        id="projects"
+        className="py-20 shadow-[0px_1px_20px_rgba(0,0,0,0.15)]" 
+        style={{ backgroundColor: '#F7F9FB' }}
+        data-tour="projects"
+      >
         <div className="container mx-auto px-6">
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 text-center mb-12">Showcase Projects</h2>
           <ProjectEditor projects={projects} onProjectsChange={setProjects} />
         </div>
       </section>
 
-      {/* Skills & Competencies */}
-      <section className="py-20 bg-background" data-tour="skills">
+      {/* Skills & Competencies - Darker Slate */}
+      <section 
+        id="skills"
+        className="py-20 shadow-[0px_1px_20px_rgba(0,0,0,0.15)]" 
+        style={{ backgroundColor: '#121E2C' }}
+        data-tour="skills"
+      >
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">Skills & Competencies</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold text-white text-center mb-12">Skills & Competencies</h2>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div>
-              <h3 className="font-semibold mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-strength rounded-full"></div>
+              <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                 Core Strengths
               </h3>
               <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-card rounded-lg">
-                  <span>Prompt Engineering</span>
-                  <div className="w-2 h-2 bg-strength rounded-full"></div>
+                <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                  <span className="text-gray-300">Prompt Engineering</span>
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-card rounded-lg">
-                  <span>AI Ethics & Safety</span>
-                  <div className="w-2 h-2 bg-strength rounded-full"></div>
+                <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                  <span className="text-gray-300">AI Ethics & Safety</span>
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-card rounded-lg">
-                  <span>Human-AI Collaboration</span>
-                  <div className="w-2 h-2 bg-strength rounded-full"></div>
+                <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                  <span className="text-gray-300">Human-AI Collaboration</span>
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                 </div>
               </div>
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-learning rounded-full"></div>
+              <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
+                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                 Growing Areas
               </h3>
               <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-card rounded-lg">
-                  <span>Data Handling & Privacy</span>
-                  <div className="w-2 h-2 bg-learning rounded-full"></div>
+                <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                  <span className="text-gray-300">Data Handling & Privacy</span>
+                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-card rounded-lg">
-                  <span>AI Model Fine-tuning</span>
-                  <div className="w-2 h-2 bg-learning rounded-full"></div>
+                <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                  <span className="text-gray-300">AI Model Fine-tuning</span>
+                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-card rounded-lg">
-                  <span>Multi-modal AI Systems</span>
-                  <div className="w-2 h-2 bg-learning rounded-full"></div>
+                <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                  <span className="text-gray-300">Multi-modal AI Systems</span>
+                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                 </div>
               </div>
             </div>
@@ -262,51 +362,82 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Metrics Section */}
-      <section className="py-20 bg-secondary/30">
+      {/* Metrics Section - Light Background */}
+      <section 
+        id="metrics"
+        className="py-20 shadow-[0px_1px_20px_rgba(0,0,0,0.15)]" 
+        style={{ backgroundColor: '#F7F9FB' }}
+      >
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">Impact Metrics</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 text-center mb-12">Impact Metrics</h2>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="text-center">
-              <div className="text-4xl font-bold text-accent mb-2">6,900+</div>
-              <div className="text-muted-foreground">LinkedIn Followers</div>
+              <div className="text-4xl font-bold mb-2" style={{ color: '#0077B5' }}>6,900+</div>
+              <div className="text-gray-700">LinkedIn Followers</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-accent mb-2">8+</div>
-              <div className="text-muted-foreground">Years Experience</div>
+              <div className="text-4xl font-bold mb-2" style={{ color: '#0077B5' }}>8+</div>
+              <div className="text-gray-700">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-accent mb-2">3</div>
-              <div className="text-muted-foreground">Active Projects</div>
+              <div className="text-4xl font-bold mb-2" style={{ color: '#0077B5' }}>3</div>
+              <div className="text-gray-700">Active Projects</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Call-to-Action */}
-      <section className="py-20 bg-background" data-tour="contact">
+      {/* Call-to-Action - Light Background */}
+      <section 
+        id="contact"
+        className="py-20" 
+        style={{ backgroundColor: '#F7F9FB' }}
+        data-tour="contact"
+      >
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4">Let's Collaborate</h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">Let's Collaborate</h2>
+          <p className="text-gray-700 mb-8 max-w-2xl mx-auto">
             Ready to transform your business with AI? Let's discuss how we can work together.
           </p>
           
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="mailto:nauitermaster@hotmail.com" className="bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors">
+            <a 
+              href="mailto:nauitermaster@hotmail.com" 
+              className="px-6 py-3 rounded-lg font-medium transition-all duration-300"
+              style={{ backgroundColor: '#0077B5', color: 'white' }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#005885'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0077B5'}
+            >
               📧 Email Me
             </a>
-            <a href="https://www.linkedin.com/in/nauiter-master-678a71144/" target="_blank" rel="noopener noreferrer" className="border border-border px-6 py-3 rounded-lg font-medium hover:bg-secondary transition-colors">
+            <a 
+              href="https://www.linkedin.com/in/nauiter-master-678a71144/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="border-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 bg-white text-gray-900 hover:bg-gray-100"
+              style={{ borderColor: '#0077B5' }}
+              onMouseEnter={(e) => e.currentTarget.style.borderColor = '#005885'}
+              onMouseLeave={(e) => e.currentTarget.style.borderColor = '#0077B5'}
+            >
               💼 LinkedIn
             </a>
-            <a href="https://beacons.ai/nauiter.master" target="_blank" rel="noopener noreferrer" className="border border-border px-6 py-3 rounded-lg font-medium hover:bg-secondary transition-colors">
+            <a 
+              href="https://beacons.ai/nauiter.master" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="border-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 bg-white text-gray-900 hover:bg-gray-100"
+              style={{ borderColor: '#0077B5' }}
+              onMouseEnter={(e) => e.currentTarget.style.borderColor = '#005885'}
+              onMouseLeave={(e) => e.currentTarget.style.borderColor = '#0077B5'}
+            >
               🌐 My Links
             </a>
           </div>
           
-          <div className="mt-12 p-6 bg-card rounded-xl border border-border max-w-2xl mx-auto">
-            <h3 className="font-semibold mb-2">🎯 Template Ready for Customization</h3>
-            <p className="text-sm text-muted-foreground">
+          <div className="mt-12 p-6 bg-white rounded-2xl border border-gray-200 max-w-2xl mx-auto shadow-sm">
+            <h3 className="font-semibold text-gray-900 mb-2">🎯 Template Ready for Customization</h3>
+            <p className="text-sm text-gray-700">
               This template is designed to be easily customized. Replace placeholders with your own content, 
               add your projects, and update the color coding to reflect your expertise levels.
             </p>
