@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AI Portfolio Design System - Professional and Modern */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --background: 0 0% 99%;
+    --foreground: 210 11% 15%;
+    
+    /* Card System */
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
+    
+    /* AI Portfolio Specific Colors */
+    --strength: 142 76% 36%;      /* Green for mastery/strength */
+    --strength-foreground: 0 0% 100%;
+    --learning: 31 91% 51%;       /* Orange for learning */
+    --learning-foreground: 0 0% 100%;
+    --placeholder: 210 16% 82%;   /* Gray for placeholders */
+    --placeholder-foreground: 210 11% 15%;
+    
+    /* Enhanced Semantic Colors */
+    --primary: 210 11% 15%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 17% 95%;
+    --secondary-foreground: 210 11% 15%;
+    --muted: 210 17% 95%;
+    --muted-foreground: 210 11% 45%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 50%) 0%, hsl(217 91% 60%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 17% 98%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 17% 99%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(210 11% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(210 11% 15% / 0.1), 0 2px 4px -1px hsl(210 11% 15% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(210 11% 15% / 0.1), 0 4px 6px -2px hsl(210 11% 15% / 0.05);
+    --shadow-glow: 0 0 0 1px hsl(142 76% 36% / 0.05), 0 10px 25px -5px hsl(142 76% 36% / 0.1);
+    
+    /* Other tokens */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 17% 90%;
+    --input: 210 17% 90%;
+    --ring: 142 76% 36%;
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 11% 7%;
+    --foreground: 0 0% 98%;
+    --card: 210 11% 9%;
+    --card-foreground: 0 0% 98%;
+    --strength: 142 76% 40%;
+    --strength-foreground: 0 0% 100%;
+    --learning: 31 91% 55%;
+    --learning-foreground: 0 0% 100%;
+    --placeholder: 210 11% 25%;
+    --placeholder-foreground: 0 0% 80%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 210 11% 15%;
+    --secondary: 210 11% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 210 11% 12%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 142 76% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 11% 15%;
+    --input: 210 11% 15%;
+    --ring: 142 76% 40%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
+
+/* Tour highlight animation */
+.tour-highlight {
+  position: relative;
+  z-index: 55 !important;
+  box-shadow: 0 0 0 4px hsl(var(--accent) / 0.3), 0 0 20px hsl(var(--accent) / 0.2) !important;
+  border-radius: 8px !important;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
