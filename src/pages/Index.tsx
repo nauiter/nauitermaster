@@ -23,26 +23,26 @@ const Index = () => {
   const [projects, setProjects] = useState<Project[]>([
     {
       id: '1',
-      title: 'AI Content Automation System',
-      description: 'Automated content generation pipeline using GPT-4 and custom prompts',
-      impact: 'Reduced manual processing time by 80% and improved accuracy to 99.2%',
-      tools: ['GPT-4', 'Python', 'Automation'],
+      title: 'Sweet Life Animes',
+      description: 'Creative community uniting digital art, anime, and AI with exclusive content and strategies for creators',
+      impact: 'Community platform helping creators transform passion into business',
+      tools: ['AI', 'Digital Art', 'Community'],
       imageUrl: '/placeholder.svg'
     },
     {
       id: '2', 
-      title: 'Creative Asset Generator',
-      description: 'AI-powered design system for marketing materials',
-      impact: 'Generated 500+ unique assets, saving $15K in design costs',
-      tools: ['DALL-E', 'Creative'],
+      title: 'O Verme Passeia',
+      description: 'Existential and aesthetic project inspired by Texhnolyze, Ergo Proxy, and Soviet post-punk',
+      impact: 'Exploring philosophy, nihilism, and brutalist aesthetics through digital art',
+      tools: ['Philosophy', 'Digital Art', 'AI'],
       imageUrl: '/placeholder.svg'
     },
     {
       id: '3',
-      title: 'Document Analysis Pipeline', 
-      description: 'Intelligent document processing and insight extraction',
-      impact: 'Analyzed 10K+ documents in hours instead of weeks',
-      tools: ['Claude', 'Analysis'],
+      title: 'Sweet Life Academy', 
+      description: 'Educational platform teaching creators to grow and monetize with AI',
+      impact: 'Empowering creators with AI tools and strategies for digital success',
+      tools: ['AI Education', 'Automation', 'Strategy'],
       imageUrl: '/placeholder.svg'
     }
   ]);
@@ -54,7 +54,7 @@ const Index = () => {
     {
       id: 'welcome',
       title: 'Welcome to My Portfolio',
-      content: "Hi! I'm an AI specialist. Let me show you around my portfolio and highlight what I can do for your business.",
+      content: "Hi! I'm Nauiter Master, an AI Strategist and Digital Artist. Let me show you how I merge creativity, automation, and ethics to transform technology into art.",
       target: 'header',
       position: 'bottom' as const,
     },
@@ -127,20 +127,20 @@ const Index = () => {
             </div>
             <div className="text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                [Your Name]
+                Nauiter Master
               </h1>
               <p className="text-xl text-white/90 mb-6 max-w-2xl">
-                AI Specialist & Prompt Engineer helping businesses harness the power of artificial intelligence
+                AI Strategist and Digital Artist merging creativity, automation, and ethics to transform technology into art. Focused on AI Strategy, Generative Automation, and Digital Culture.
               </p>
               <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                <span className="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">
-                  Prompt Engineering
-                </span>
                 <span className="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">
                   AI Strategy
                 </span>
                 <span className="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">
-                  Automation
+                  Digital Art
+                </span>
+                <span className="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">
+                  Generative Automation
                 </span>
               </div>
             </div>
@@ -269,16 +269,16 @@ const Index = () => {
           
           <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="text-center">
-              <div className="text-4xl font-bold text-accent mb-2">500+</div>
-              <div className="text-muted-foreground">Hours Saved</div>
+              <div className="text-4xl font-bold text-accent mb-2">6,900+</div>
+              <div className="text-muted-foreground">LinkedIn Followers</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-accent mb-2">25+</div>
-              <div className="text-muted-foreground">Projects Completed</div>
+              <div className="text-4xl font-bold text-accent mb-2">8+</div>
+              <div className="text-muted-foreground">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-accent mb-2">12</div>
-              <div className="text-muted-foreground">AI Tools Mastered</div>
+              <div className="text-4xl font-bold text-accent mb-2">3</div>
+              <div className="text-muted-foreground">Active Projects</div>
             </div>
           </div>
         </div>
@@ -293,15 +293,15 @@ const Index = () => {
           </p>
           
           <div className="flex flex-wrap gap-4 justify-center">
-            <button className="bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors">
+            <a href="mailto:nauitermaster@hotmail.com" className="bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors">
               📧 Email Me
-            </button>
-            <button className="border border-border px-6 py-3 rounded-lg font-medium hover:bg-secondary transition-colors">
+            </a>
+            <a href="https://www.linkedin.com/in/nauiter-master-678a71144/" target="_blank" rel="noopener noreferrer" className="border border-border px-6 py-3 rounded-lg font-medium hover:bg-secondary transition-colors">
               💼 LinkedIn
-            </button>
-            <button className="border border-border px-6 py-3 rounded-lg font-medium hover:bg-secondary transition-colors">
-              🌐 Website
-            </button>
+            </a>
+            <a href="https://beacons.ai/nauiter.master" target="_blank" rel="noopener noreferrer" className="border border-border px-6 py-3 rounded-lg font-medium hover:bg-secondary transition-colors">
+              🌐 My Links
+            </a>
           </div>
           
           <div className="mt-12 p-6 bg-card rounded-xl border border-border max-w-2xl mx-auto">
