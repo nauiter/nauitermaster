@@ -1,6 +1,10 @@
 // AI Portfolio Template - Professional and Interactive
 import { useState } from 'react';
 import portfolioAvatar from "@/assets/portfolio-avatar.png";
+import sweetLifeAnimes from "@/assets/sweet-life-animes.png";
+import sweetLifeAcademy from "@/assets/sweet-life-academy.jpg";
+import oVermePasseia from "@/assets/o-verme-passeia.png";
+import figueiredoLaw from "@/assets/figueiredo-law.png";
 import { ProjectEditor } from "@/components/ProjectEditor";
 import { OnboardingTour } from "@/components/OnboardingTour";
 import { useOnboarding } from "@/hooks/useOnboarding";
@@ -306,6 +310,97 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Partner & Projects - Dark Navy Gradient */}
+      <section 
+        id="partners"
+        className="py-12 md:py-20 shadow-[0px_1px_20px_rgba(0,0,0,0.15)]"
+        style={{ background: 'linear-gradient(135deg, #0B1623 0%, #0E213A 100%)' }}
+      >
+        <div className="container mx-auto px-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">Creative & Strategic Ecosystem</h2>
+          
+          <TooltipProvider>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {/* Sweet Life Animes */}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a 
+                    href="#projects" 
+                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
+                  >
+                    <img 
+                      src={sweetLifeAnimes} 
+                      alt="Sweet Life Animes Logo" 
+                      className="w-full h-32 object-contain"
+                    />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
+                  <p className="max-w-xs">AI-driven anime and art community.</p>
+                </TooltipContent>
+              </Tooltip>
+
+              {/* Sweet Life Academy */}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a 
+                    href="#projects" 
+                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
+                  >
+                    <img 
+                      src={sweetLifeAcademy} 
+                      alt="Sweet Life Academy Logo" 
+                      className="w-full h-32 object-contain"
+                    />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
+                  <p className="max-w-xs">Educational and mentorship hub for AI creatives.</p>
+                </TooltipContent>
+              </Tooltip>
+
+              {/* O Verme Passeia */}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a 
+                    href="#projects" 
+                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
+                  >
+                    <img 
+                      src={oVermePasseia} 
+                      alt="O Verme Passeia Logo" 
+                      className="w-full h-32 object-contain"
+                    />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
+                  <p className="max-w-xs">Philosophical AI-art project exploring existential design.</p>
+                </TooltipContent>
+              </Tooltip>
+
+              {/* Figueiredo Law */}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a 
+                    href="#projects" 
+                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
+                  >
+                    <img 
+                      src={figueiredoLaw} 
+                      alt="Figueiredo Law Logo" 
+                      className="w-full h-32 object-contain"
+                    />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
+                  <p className="max-w-xs">Digital Law & Tech strategy collaboration.</p>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+          </TooltipProvider>
+        </div>
+      </section>
+
       {/* Skills & Competencies - Darker Slate */}
       <section 
         id="skills"
@@ -434,16 +529,20 @@ const Index = () => {
               🌐 My Links
             </a>
           </div>
-          
-          <div className="mt-12 p-6 bg-white rounded-2xl border border-gray-200 max-w-2xl mx-auto shadow-sm">
-            <h3 className="font-semibold text-gray-900 mb-2">🎯 Template Ready for Customization</h3>
-            <p className="text-sm text-gray-700">
-              This template is designed to be easily customized. Replace placeholders with your own content, 
-              add your projects, and update the color coding to reflect your expertise levels.
-            </p>
-          </div>
         </div>
       </section>
+
+      {/* Footer - Dark Navy */}
+      <footer 
+        className="border-t border-gray-700 mt-8 pt-4"
+        style={{ backgroundColor: '#0B1623' }}
+      >
+        <div className="container mx-auto px-6 py-6">
+          <p className="text-sm font-medium text-center" style={{ color: '#AAB4C2' }}>
+            © 2025 Developer — Nauiter Master | All Rights Reserved
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
