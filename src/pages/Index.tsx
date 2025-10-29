@@ -11,7 +11,6 @@ import { useOnboarding } from "@/hooks/useOnboarding";
 import { Button } from "@/components/ui/button";
 import { HelpCircle, Brain, Image, Music, Zap } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { EnvironmentSwitcher } from "@/components/EnvironmentSwitcher";
 
 interface Project {
   id: string;
@@ -95,9 +94,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Environment Switcher */}
-      <EnvironmentSwitcher currentEnvironment="production" />
-
       {/* Help button for restarting tour */}
       {hasSeenTour && (
         <Button
@@ -119,49 +115,69 @@ const Index = () => {
         onSkip={skipTour}
       />
 
-      {/* Header/Intro Section - Dark Navy Gradient */}
-      <header 
+      {/* Hero Section - Cinematic Introduction */}
+      <section 
         id="hero"
-        className="relative text-white shadow-[0px_1px_20px_rgba(0,0,0,0.15)]" 
+        className="min-h-screen flex flex-col items-center justify-center py-20 md:py-32 px-6 md:px-12 relative overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #0B1623 0%, #0E213A 100%)' }}
         data-tour="welcome"
       >
-        <div className="container mx-auto px-6 py-20">
-          <div className="flex flex-col md:flex-row items-center gap-8">
+        <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
+          {/* Profile Image */}
+          <div className="flex justify-center mb-6 motion-safe:animate-fade-in motion-safe:animation-delay-[400ms]">
             <div className="relative">
               <img 
                 src={portfolioAvatar} 
-                alt="Professional AI Specialist Profile" 
-                className="w-32 h-32 rounded-full border-4 border-white/20 shadow-lg object-cover"
+                alt="Nauiter Master" 
+                className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover ring-2 ring-[#0077B5]/60 shadow-2xl"
               />
-            </div>
-            <div className="text-center md:text-left">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Nauiter Master
-              </h1>
-              <p className="text-xl text-gray-300 mb-6 max-w-2xl">
-                AI Strategist and Digital Artist merging creativity, automation, and ethics to transform technology into art. Focused on AI Strategy, Generative Automation, and Digital Culture.
-              </p>
-              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                <span className="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">
-                  AI Strategy
-                </span>
-                <span className="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">
-                  Digital Art
-                </span>
-                <span className="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">
-                  Generative Automation
-                </span>
-              </div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#0077B5]/20 to-transparent"></div>
             </div>
           </div>
-        </div>
-      </header>
 
-      {/* AI Tools Mastery Section - Dark Navy Gradient (matches hero) */}
+          {/* Name & Titles */}
+          <div className="space-y-4 motion-safe:animate-fade-in motion-safe:animation-delay-[600ms]">
+            <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+              Nauiter Master
+            </h1>
+            <p className="text-lg md:text-xl text-[#AAB4C2] font-medium max-w-2xl mx-auto">
+              Exploring the edge between Intelligence, Art, and Automation.
+            </p>
+            <p className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto">
+              AI Strategist & Digital Artist | Systems Analyst | Founder of Sweet Life Animes & O Verme Passeia.
+            </p>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6 motion-safe:animate-fade-in motion-safe:animation-delay-[800ms]">
+            <a 
+              href="#showcase"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 border border-white/20 hover:shadow-[0_0_20px_rgba(0,119,181,0.3)]"
+            >
+              🔗 Explore Projects
+            </a>
+            <a 
+              href="https://linkedin.com/in/nauiter-master-678a71144"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-[#0077B5] hover:bg-[#006399] text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,119,181,0.5)]"
+            >
+              💼 Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+
+        {/* Decorative gradient overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-[#0B1623] pointer-events-none"></div>
+      </section>
+
+      {/* Gradient Separator */}
+      <div className="h-16 bg-gradient-to-b from-slate-800 to-slate-900"></div>
+
+      {/* AI Tools Mastery Section - Dark Navy Gradient */}
       <section 
         id="ai-tools"
-        className="py-20 shadow-[0px_1px_20px_rgba(0,0,0,0.15)]" 
+        className="py-20 motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
         style={{ background: 'linear-gradient(135deg, #0B1623 0%, #0E213A 100%)' }}
         data-tour="ai-tools"
       >
@@ -297,10 +313,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Gradient Separator */}
+      <div className="h-16 bg-gradient-to-b from-slate-800 to-[#F7F9FB]"></div>
+
       {/* Showcase Projects Section - Light Background */}
       <section 
         id="projects"
-        className="py-20 shadow-[0px_1px_20px_rgba(0,0,0,0.15)]" 
+        className="py-20 motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
         style={{ backgroundColor: '#F7F9FB' }}
         data-tour="projects"
       >
@@ -310,10 +329,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Gradient Separator */}
+      <div className="h-16 bg-gradient-to-b from-[#F7F9FB] to-slate-900"></div>
+
       {/* Partner & Projects - Dark Navy Gradient */}
       <section 
         id="partners"
-        className="py-12 md:py-20 shadow-[0px_1px_20px_rgba(0,0,0,0.15)]"
+        className="py-12 md:py-20 motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]"
         style={{ background: 'linear-gradient(135deg, #0B1623 0%, #0E213A 100%)' }}
       >
         <div className="container mx-auto px-6">
@@ -401,10 +423,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Gradient Separator */}
+      <div className="h-16 bg-gradient-to-b from-slate-900 to-[#121E2C]"></div>
+
       {/* Skills & Competencies - Darker Slate */}
       <section 
         id="skills"
-        className="py-20 shadow-[0px_1px_20px_rgba(0,0,0,0.15)]" 
+        className="py-20 motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
         style={{ backgroundColor: '#121E2C' }}
         data-tour="skills"
       >
@@ -457,10 +482,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Gradient Separator */}
+      <div className="h-16 bg-gradient-to-b from-[#121E2C] to-[#F7F9FB]"></div>
+
       {/* Metrics Section - Light Background */}
       <section 
         id="metrics"
-        className="py-20 shadow-[0px_1px_20px_rgba(0,0,0,0.15)]" 
+        className="py-20 motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
         style={{ backgroundColor: '#F7F9FB' }}
       >
         <div className="container mx-auto px-6">
@@ -483,10 +511,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Gradient Separator */}
+      <div className="h-16 bg-gradient-to-b from-[#F7F9FB] to-[#F7F9FB]"></div>
+
       {/* Call-to-Action - Light Background */}
       <section 
         id="contact"
-        className="py-20" 
+        className="py-20 motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
         style={{ backgroundColor: '#F7F9FB' }}
         data-tour="contact"
       >

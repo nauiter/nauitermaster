@@ -146,3 +146,39 @@
   border-radius: 8px !important;
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* Scroll-trigger fade-in animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation delays for staggered entrance */
+.animation-delay-\[400ms\] {
+  animation-delay: 400ms;
+}
+
+.animation-delay-\[600ms\] {
+  animation-delay: 600ms;
+}
+
+.animation-delay-\[800ms\] {
+  animation-delay: 800ms;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
