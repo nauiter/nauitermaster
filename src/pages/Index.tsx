@@ -31,7 +31,8 @@ const Index = () => {
       description: 'Creative community uniting digital art, anime, and AI with exclusive content and strategies for creators',
       impact: 'Community platform helping creators transform passion into business',
       tools: ['AI', 'Digital Art', 'Community'],
-      imageUrl: '/placeholder.svg'
+      imageUrl: sweetLifeAnimes,
+      isCustomImage: true
     },
     {
       id: '2', 
@@ -39,7 +40,8 @@ const Index = () => {
       description: 'Existential and aesthetic project inspired by Texhnolyze, Ergo Proxy, and Soviet post-punk',
       impact: 'Exploring philosophy, nihilism, and brutalist aesthetics through digital art',
       tools: ['Philosophy', 'Digital Art', 'AI'],
-      imageUrl: '/placeholder.svg'
+      imageUrl: oVermePasseia,
+      isCustomImage: true
     },
     {
       id: '3',
@@ -47,7 +49,17 @@ const Index = () => {
       description: 'Educational platform teaching creators to grow and monetize with AI',
       impact: 'Empowering creators with AI tools and strategies for digital success',
       tools: ['AI Education', 'Automation', 'Strategy'],
-      imageUrl: '/placeholder.svg'
+      imageUrl: sweetLifeAcademy,
+      isCustomImage: true
+    },
+    {
+      id: '4',
+      title: 'Figueiredo Law',
+      description: 'Digital law and AI ethics consultancy supporting creators and businesses',
+      impact: 'Bridging technology, law, and ethics in the AI era',
+      tools: ['Law', 'Ethics', 'Technology'],
+      imageUrl: figueiredoLaw,
+      isCustomImage: true
     }
   ]);
 
