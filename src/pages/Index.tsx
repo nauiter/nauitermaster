@@ -28,7 +28,7 @@ const Index = () => {
   const [init, setInit] = useState(false);
   const [linkedinFollowers] = useState(6900);
   const [yearsExperience] = useState(8);
-  const [activeProjects] = useState(3);
+  const [activeProjects] = useState(4);
   const [followerCount, setFollowerCount] = useState(0);
   const [experienceCount, setExperienceCount] = useState(0);
   const [projectCount, setProjectCount] = useState(0);
