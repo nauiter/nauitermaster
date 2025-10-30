@@ -551,7 +551,9 @@ const Index = () => {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a 
-                    href="#projects" 
+                    href="https://linktr.ee/sweetlifeanimes" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
                   >
                     <img 
@@ -570,7 +572,9 @@ const Index = () => {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a 
-                    href="#projects" 
+                    href="https://sweetlifeacademy.coursify.me/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
                   >
                     <img 
@@ -589,7 +593,9 @@ const Index = () => {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a 
-                    href="#projects" 
+                    href="https://linktr.ee/overmepasseia" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
                   >
                     <img 
@@ -608,7 +614,9 @@ const Index = () => {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a 
-                    href="#projects" 
+                    href="https://figueiredo-landing-amapa.lovable.app/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
                   >
                     <img 
