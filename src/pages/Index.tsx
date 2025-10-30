@@ -1,12 +1,13 @@
 // AI Portfolio Template - Professional and Interactive
 import { useState } from 'react';
 import portfolioAvatar from "@/assets/portfolio-avatar.png";
-import sweetLifeAnimes from "@/assets/sweet-life-animes.png";
-import sweetLifeAcademy from "@/assets/sweet-life-academy.jpg";
-import oVermePasseia from "@/assets/o-verme-passeia.png";
-import figueiredoLaw from "@/assets/figueiredo-law.png";
+import sweetLifeAnimes from "@/assets/sweet-life-animes-2.png";
+import sweetLifeAcademy from "@/assets/sweet-life-academy-2.jpg";
+import oVermePasseia from "@/assets/o-verme-passeia-2.png";
+import figueiredoLaw from "@/assets/figueiredo-law-2.png";
 import { ProjectEditor } from "@/components/ProjectEditor";
 import { OnboardingTour } from "@/components/OnboardingTour";
+import { FloatingNavbar } from "@/components/FloatingNavbar";
 import { useOnboarding } from "@/hooks/useOnboarding";
 import { Button } from "@/components/ui/button";
 import { HelpCircle, Brain, Image, Music, Zap } from "lucide-react";
@@ -106,11 +107,14 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Floating Navigation Bar */}
+      <FloatingNavbar />
+
       {/* Help button for restarting tour */}
       {hasSeenTour && (
         <Button
           onClick={startTour}
-          className="fixed top-4 right-4 z-40 bg-accent/10 text-accent hover:bg-accent/20 border-accent/20"
+          className="fixed top-20 right-4 z-40 bg-accent/10 text-accent hover:bg-accent/20 border-accent/20"
           size="sm"
           variant="outline"
         >
@@ -130,7 +134,7 @@ const Index = () => {
       {/* Hero Section - Cinematic Introduction */}
       <section 
         id="hero"
-        className="min-h-screen flex flex-col items-center justify-center py-20 md:py-32 px-6 md:px-12 relative overflow-hidden"
+        className="min-h-screen flex flex-col items-center justify-center py-20 md:py-32 px-6 md:px-12 relative overflow-hidden pt-20"
         style={{ background: 'linear-gradient(135deg, #0B1623 0%, #0E213A 100%)' }}
         data-tour="welcome"
       >
@@ -577,10 +581,40 @@ const Index = () => {
 
       {/* Footer - Dark Navy */}
       <footer 
-        className="border-t border-gray-700 mt-8 pt-4"
+        className="border-t border-gray-700 py-6"
         style={{ backgroundColor: '#0B1623' }}
       >
-        <div className="container mx-auto px-6 py-6">
+        <div className="container mx-auto px-6">
+          {/* Social Icons */}
+          <div className="flex justify-center gap-6 mb-4">
+            <a 
+              href="https://linkedin.com/in/nauiter-master-678a71144" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#AAB4C2] hover:text-[#0077B5] transition-colors text-2xl"
+              aria-label="LinkedIn"
+            >
+              💼
+            </a>
+            <a 
+              href="mailto:nauitermaster@hotmail.com"
+              className="text-[#AAB4C2] hover:text-[#0077B5] transition-colors text-2xl"
+              aria-label="Email"
+            >
+              📧
+            </a>
+            <a 
+              href="https://beacons.ai/nauiter.master"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#AAB4C2] hover:text-[#0077B5] transition-colors text-2xl"
+              aria-label="Beacons"
+            >
+              🌐
+            </a>
+          </div>
+          
+          {/* Copyright */}
           <p className="text-sm font-medium text-center" style={{ color: '#AAB4C2' }}>
             © 2025 Developer — Nauiter Master | All Rights Reserved
           </p>

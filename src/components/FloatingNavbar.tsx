@@ -1,0 +1,128 @@
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+export const FloatingNavbar = () => {
+  const [activeSection, setActiveSection] = useState('hero');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const navItems = [
+    { id: 'hero', label: 'Home' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+
+      // Get all sections
+      const sections = navItems.map(item => ({
+        id: item.id,
+        element: document.getElementById(item.id)
+      }));
+
+      // Find which section is currently in view
+      const currentSection = sections.find(section => {
+        if (section.element) {
+          const rect = section.element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+
+      if (currentSection) {
+        setActiveSection(currentSection.id);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80; // Navbar height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
+  return (
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-[#0B1623]/95 backdrop-blur-md shadow-lg' : 'bg-[#0B1623]/80 backdrop-blur-sm'
+      } border-b border-gray-700/50`}
+      style={{ animation: 'slideDown 0.5s ease-out' }}
+    >
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo/Brand */}
+          <button
+            onClick={() => scrollToSection('hero')}
+            className="text-white font-semibold text-lg hover:text-accent transition-colors"
+          >
+            Nauiter Master
+          </button>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`text-sm font-medium transition-all duration-200 relative pb-1 ${
+                  activeSection === item.id
+                    ? 'text-accent border-b-2 border-accent'
+                    : 'text-[#B8C2CC] hover:text-accent'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <Button
+            variant="ghost"
+            size="sm"
+            className="md:hidden text-white hover:text-accent"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </Button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden py-4 border-t border-gray-700/50">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors ${
+                  activeSection === item.id
+                    ? 'text-accent bg-accent/10'
+                    : 'text-[#B8C2CC] hover:text-accent hover:bg-white/5'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};
