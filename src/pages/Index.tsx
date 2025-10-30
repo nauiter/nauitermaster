@@ -91,8 +91,10 @@ const Index = () => {
       target: number,
       setter: React.Dispatch<React.SetStateAction<number>>
     ) => {
-      const speed = 150;
-      const increment = Math.ceil(target / speed);
+      const duration = 2000; // 2 seconds
+      const steps = 60;
+      const increment = target / steps;
+      const stepDuration = duration / steps;
       let current = 0;
 
       const timer = setInterval(() => {
@@ -101,9 +103,9 @@ const Index = () => {
           setter(target);
           clearInterval(timer);
         } else {
-          setter(current);
+          setter(Math.floor(current));
         }
-      }, 15);
+      }, stepDuration);
 
       return () => clearInterval(timer);
     };
@@ -112,14 +114,15 @@ const Index = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            animateCount(linkedinFollowers, setFollowerCount);
-            animateCount(yearsExperience, setExperienceCount);
-            animateCount(activeProjects, setProjectCount);
+            // Start animations with slight delays
+            setTimeout(() => animateCount(linkedinFollowers, setFollowerCount), 200);
+            setTimeout(() => animateCount(yearsExperience, setExperienceCount), 400);
+            setTimeout(() => animateCount(activeProjects, setProjectCount), 600);
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.3 } // Start earlier for better visibility
     );
 
     const metricsSection = document.getElementById("impact");
@@ -517,27 +520,27 @@ const Index = () => {
       {/* Impact Metrics Section - White Background with Animated Counters */}
       <section 
         id="impact"
-        className="py-24 bg-white text-[#0B1623] motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]"
+        className="impact-section motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]"
       >
         <div className="container mx-auto px-6">
           <h2 className="text-center text-3xl font-bold mb-10">Impact Metrics</h2>
           <div className="flex flex-wrap justify-center gap-16 text-center">
             <div className="metric">
               <div>
-                <span className="text-5xl font-extrabold text-[#0077B5]">{followerCount}</span>
-                <span className="text-5xl font-extrabold text-[#0077B5]">+</span>
+                <span className="metric-number">{followerCount}</span>
+                <span className="metric-number">+</span>
               </div>
               <p className="text-gray-600 mt-2">LinkedIn Followers</p>
             </div>
             <div className="metric">
               <div>
-                <span className="text-5xl font-extrabold text-[#0077B5]">{experienceCount}</span>
-                <span className="text-5xl font-extrabold text-[#0077B5]">+</span>
+                <span className="metric-number">{experienceCount}</span>
+                <span className="metric-number">+</span>
               </div>
               <p className="text-gray-600 mt-2">Years Experience</p>
             </div>
             <div className="metric">
-              <span className="text-5xl font-extrabold text-[#0077B5]">{projectCount}</span>
+              <span className="metric-number">{projectCount}</span>
               <p className="text-gray-600 mt-2">Active Projects</p>
             </div>
           </div>
