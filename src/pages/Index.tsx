@@ -665,11 +665,40 @@ const Index = () => {
               <img src="/icons/beacons.svg" alt="Beacons" className="w-8 h-8" />
             </a>
           </div>
-          <p className="text-gray-500 text-sm">
-            © 2025 <span className="text-[#00C4FF] font-semibold">Developer — Nauiter Master</span> | All Rights Reserved
-          </p>
         </div>
       </section>
+
+      {/* Footer - Nauiter Master Signature */}
+      <footer className="w-full bg-black text-white py-8 text-center border-t border-gray-800 relative overflow-hidden animate-fade-in-footer">
+        <div className="max-w-5xl mx-auto px-4">
+          {/* Linha principal */}
+          <p className="text-sm md:text-base tracking-wide font-light">
+            © 2025 
+            <span className="font-semibold text-[#00C4FF]"> Developer — Nauiter Master</span> | 
+            All Rights Reserved · 
+            <span className="font-medium relative inline-block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C4FF] via-[#A855F7] to-[#00C4FF] animate-glow-text">
+                Sic Mundus Creatus Est
+              </span>
+            </span>
+          </p>
+
+          {/* Linha divisória */}
+          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-gray-500/50 to-transparent mx-auto my-4"></div>
+
+          {/* Linha secundária */}
+          <p className="text-xs md:text-sm text-gray-400">
+            Developed by 
+            <span className="font-semibold text-white hover:text-[#A855F7] transition-colors duration-300">
+              {" "}Nauiter Master
+            </span>
+            . © 2025. All Rights Reserved — 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C4FF] via-[#A855F7] to-[#00C4FF] animate-glow-text">
+              {" "}Sic Mundus Creatus Est
+            </span>
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
