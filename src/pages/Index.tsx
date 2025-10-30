@@ -1,5 +1,5 @@
 // AI Portfolio Template - Professional and Interactive
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import portfolioAvatar from "@/assets/nauiter-professional.png";
 import sweetLifeAnimes from "@/assets/sweet-life-animes-2.png";
 import sweetLifeAcademy from "@/assets/sweet-life-academy-2.jpg";
@@ -22,6 +22,11 @@ interface Project {
 }
 
 const Index = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [linkedinFollowers] = useState(6900);
+  const [yearsExperience] = useState(8);
+  const [activeProjects] = useState(3);
+  
   const [projects, setProjects] = useState<Project[]>([
     {
       id: '1',
@@ -61,6 +66,128 @@ const Index = () => {
     }
   ]);
 
+  // Particles animation effect
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    interface Particle {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      radius: number;
+      opacity: number;
+    }
+
+    const particles: Particle[] = [];
+    const particleCount = 65;
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 1.5,
+        vy: (Math.random() - 0.5) * 1.5,
+        radius: Math.random() * 2 + 1,
+        opacity: Math.random() * 0.5 + 0.2
+      });
+    }
+
+    function animate() {
+      if (!canvas || !ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((particle, i) => {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+
+        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 196, 255, ${particle.opacity})`;
+        ctx.fill();
+
+        // Draw lines between nearby particles
+        particles.slice(i + 1).forEach(otherParticle => {
+          const dx = particle.x - otherParticle.x;
+          const dy = particle.y - otherParticle.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 140) {
+            ctx.beginPath();
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(otherParticle.x, otherParticle.y);
+            ctx.strokeStyle = `rgba(0, 119, 181, ${0.2 * (1 - distance / 140)})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        });
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Counter animation effect
+  useEffect(() => {
+    const counters = document.querySelectorAll("[data-count]");
+    const speed = 150;
+    
+    const animateCount = (counter: Element) => {
+      const target = +(counter.getAttribute("data-count") || "0");
+      const updateCount = () => {
+        const current = +(counter.textContent || "0");
+        const increment = Math.ceil(target / speed);
+        
+        if (current < target) {
+          counter.textContent = String(current + increment);
+          setTimeout(updateCount, 15);
+        } else {
+          counter.textContent = String(target);
+        }
+      };
+      updateCount();
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const counter = entry.target.querySelector("[data-count]");
+            if (counter) {
+              animateCount(counter);
+              observer.unobserve(entry.target);
+            }
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    document.querySelectorAll(".metric").forEach((m) => observer.observe(m));
+
+    return () => observer.disconnect();
+  }, []);
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -68,15 +195,19 @@ const Index = () => {
       <FloatingNavbar />
 
 
-      {/* Hero Section - Cinematic Introduction */}
+      {/* Hero Section - Tech Animated Background */}
       <section 
         id="hero"
-        className="min-h-screen flex flex-col items-center justify-center py-20 md:py-32 px-6 md:px-12 relative overflow-hidden pt-20"
-        style={{ 
-          background: 'radial-gradient(ellipse at top, #0B1623 0%, #13283F 100%)',
-        }}
+        className="min-h-[90vh] flex flex-col items-center justify-center py-20 md:py-32 px-6 md:px-12 relative overflow-hidden pt-20 bg-[#0B1623]"
         data-tour="welcome"
       >
+        {/* Particles Canvas Background */}
+        <canvas 
+          ref={canvasRef}
+          className="absolute inset-0 z-0"
+          style={{ background: 'radial-gradient(ellipse at top, #0B1623 0%, #13283F 100%)' }}
+        />
+        
         <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
           {/* Profile Image */}
           <div className="flex justify-center mb-6 motion-safe:animate-fade-in motion-safe:animation-delay-[200ms]">
@@ -84,7 +215,7 @@ const Index = () => {
               <img 
                 src={portfolioAvatar} 
                 alt="Nauiter Master - Professional Portrait" 
-                className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-[#0077B5]/60 shadow-lg shadow-blue-900/50 hover:scale-105 transition-transform duration-500 ease-in-out"
+                className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-[#0077B5]/70 shadow-xl hover:scale-105 transition-transform duration-500 ease-in-out"
               />
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#0077B5]/20 to-transparent"></div>
             </div>
@@ -92,38 +223,20 @@ const Index = () => {
 
           {/* Name & Titles */}
           <div className="space-y-4 motion-safe:animate-fade-in motion-safe:animation-delay-[400ms]">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight">
               Nauiter Master
             </h1>
             <p className="text-lg md:text-xl text-[#AAB4C2] font-medium max-w-2xl mx-auto">
-              Exploring the edge between <span className="text-[#0077B5]">Intelligence</span>, <span className="text-[#A855F7]">Art</span>, and <span className="text-[#00C4FF]">Automation</span>.
+              Exploring the edge between <span className="text-[#00C4FF]">Intelligence</span>, <span className="text-[#A855F7]">Art</span>, and <span className="text-[#0077B5]">Automation</span>.
             </p>
             <p className="text-base md:text-lg text-[#B8C2CC] max-w-3xl mx-auto">
               AI Strategist & Digital Artist | Systems Analyst | Founder of Sweet Life Animes & O Verme Passeia.
             </p>
           </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6 motion-safe:animate-fade-in motion-safe:animation-delay-[600ms]">
-            <a 
-              href="#projects"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#0077B5] to-[#00C4FF] text-white font-medium hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-[0_0_15px_rgba(0,119,181,0.5)]"
-            >
-              🔗 Explore Projects
-            </a>
-            <a 
-              href="https://linkedin.com/in/nauiter-master-678a71144"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#0077B5] text-[#AAB4C2] hover:text-[#00C4FF] hover:border-[#00C4FF] transition-all duration-300"
-            >
-              💼 Connect on LinkedIn
-            </a>
-          </div>
         </div>
 
         {/* Decorative gradient overlay */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-[#0B1623] pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-[#0B1623] pointer-events-none z-10"></div>
       </section>
 
       {/* Gradient Separator */}
@@ -379,7 +492,40 @@ const Index = () => {
       </section>
 
       {/* Gradient Separator */}
-      <div className="h-16 bg-gradient-to-b from-slate-900 to-[#121E2C]"></div>
+      <div className="h-16 bg-gradient-to-b from-slate-900 to-[#0B1623]"></div>
+
+      {/* Impact Metrics Section - Animated Counters */}
+      <section 
+        id="impact"
+        className="py-20 bg-gradient-to-b from-[#0B1623] via-[#0E213A] to-[#13283F] motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]"
+      >
+        <div className="container mx-auto px-6">
+          <h2 className="text-center text-3xl font-bold text-white mb-10">Impact Metrics</h2>
+          <div className="flex flex-wrap justify-center gap-10 text-center">
+            <div className="metric">
+              <div>
+                <span className="text-5xl font-extrabold text-[#00C4FF]" data-count={linkedinFollowers}>0</span>
+                <span className="text-5xl font-extrabold text-[#00C4FF]">+</span>
+              </div>
+              <p className="text-[#AAB4C2] mt-2">LinkedIn Followers</p>
+            </div>
+            <div className="metric">
+              <div>
+                <span className="text-5xl font-extrabold text-[#00C4FF]" data-count={yearsExperience}>0</span>
+                <span className="text-5xl font-extrabold text-[#00C4FF]">+</span>
+              </div>
+              <p className="text-[#AAB4C2] mt-2">Years Experience</p>
+            </div>
+            <div className="metric">
+              <span className="text-5xl font-extrabold text-[#00C4FF]" data-count={activeProjects}>0</span>
+              <p className="text-[#AAB4C2] mt-2">Active Projects</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gradient Separator */}
+      <div className="h-16 bg-gradient-to-b from-[#13283F] to-[#121E2C]"></div>
 
       {/* Skills & Competencies - Darker Slate */}
       <section 
@@ -489,38 +635,51 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer - Dark Navy */}
+      {/* Footer - Social Media Logos */}
       <footer 
-        className="bg-[#0B1623] border-t border-gray-700 py-6 text-center text-sm text-[#AAB4C2] motion-safe:animate-fade-in"
+        className="bg-[#0B1623] border-t border-gray-800 py-10 text-center text-[#AAB4C2] motion-safe:animate-fade-in"
       >
-        <div className="flex justify-center gap-6 mb-3">
+        <div className="flex justify-center gap-8 mb-6">
+          <a 
+            href="https://facebook.com/nauiter.master" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:scale-110 transition-transform duration-300"
+            aria-label="Facebook"
+          >
+            <img src="/icons/facebook.svg" alt="Facebook" className="w-7 h-7" />
+          </a>
+          <a 
+            href="https://instagram.com/nauiter.master" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:scale-110 transition-transform duration-300"
+            aria-label="Instagram"
+          >
+            <img src="/icons/instagram.svg" alt="Instagram" className="w-7 h-7" />
+          </a>
           <a 
             href="https://linkedin.com/in/nauiter-master-678a71144" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="hover:text-[#00C4FF] transition-all duration-300 text-lg"
+            className="hover:scale-110 transition-transform duration-300"
             aria-label="LinkedIn"
           >
-            💼
+            <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-7 h-7" />
           </a>
           <a 
-            href="mailto:nauiter.master@gmail.com" 
-            className="hover:text-[#00C4FF] transition-all duration-300 text-lg"
-            aria-label="Email"
-          >
-            📧
-          </a>
-          <a 
-            href="https://beacons.ai/nauitermaster" 
+            href="https://beacons.ai/nauiter.master" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="hover:text-[#00C4FF] transition-all duration-300 text-lg"
+            className="hover:scale-110 transition-transform duration-300"
             aria-label="Beacons"
           >
-            🔗
+            <img src="/icons/beacons.svg" alt="Beacons" className="w-7 h-7" />
           </a>
         </div>
-        <p>© 2025 Developer — Nauiter Master | All Rights Reserved</p>
+        <p className="text-sm">
+          © 2025 <span className="text-[#00C4FF] font-semibold">Developer — Nauiter Master</span> | All Rights Reserved
+        </p>
       </footer>
     </div>
   );
