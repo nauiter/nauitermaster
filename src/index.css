@@ -239,6 +239,81 @@
   100% { text-shadow: 0 0 3px hsl(var(--bronze) / 0.2); }
 }
 
+/* 🔒 Bloqueio total de edição de projetos */
+[class*="edit"], [class*="delete"], [class*="x-icon"], 
+[data-action="edit"], [data-action="delete"],
+button[aria-label*="edit"], button[aria-label*="remove"] {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+.project-card, .showcase-item {
+  pointer-events: none;
+}
+
+.project-card a, .showcase-item a {
+  pointer-events: auto;
+}
+
+/* 🎨 Showcase Projects - Padronização de Imagens */
+.showcase-item img {
+  object-fit: cover;
+  height: 220px;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  filter: brightness(0.95);
+  transition: filter 0.3s ease;
+}
+
+.showcase-item:hover img {
+  filter: brightness(1.1);
+}
+
+.showcase-item {
+  background: rgba(255,255,255,0.92);
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.showcase-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+}
+
+/* 🧠 Ecosystem - Blur e Iluminação Dinâmica */
+.ecosystem-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+.ecosystem-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 12px rgba(0,196,255,0.25);
+}
+
+/* 📈 Impact Metrics - Polimento Visual */
+.impact-section {
+  border-top: 1px solid rgba(0,0,0,0.05);
+  background: #ffffff;
+  padding: 80px 0;
+}
+
+.metric-number {
+  color: #00b5ff;
+  font-size: 2rem;
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+
+.metric-number:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 6px rgba(0,181,255,0.4);
+}
+
 /* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
