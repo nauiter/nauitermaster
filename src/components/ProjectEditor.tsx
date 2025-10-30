@@ -7,6 +7,14 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Plus, X, Globe, Upload, Edit2 } from "lucide-react";
+import { z } from "zod";
+
+const urlSchema = z.string().url().max(2048).refine(
+  (url) => url.startsWith('http://') || url.startsWith('https://'),
+  { message: 'Only HTTP/HTTPS URLs allowed' }
+);
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
 interface Project {
   id: string;
@@ -41,20 +49,39 @@ export const ProjectEditor = ({ projects, onProjectsChange }: ProjectEditorProps
   const handleUrlFetch = async () => {
     if (!formData.websiteUrl) return;
     
+    // Validate URL format
+    try {
+      urlSchema.parse(formData.websiteUrl);
+    } catch (error) {
+      toast({
+        title: "Invalid URL",
+        description: "Please enter a valid HTTP or HTTPS URL (max 2048 characters)",
+        variant: "destructive",
+        duration: 5000,
+      });
+      return;
+    }
+    
     setIsLoading(true);
     try {
-      console.log('Fetching metadata for:', formData.websiteUrl);
+      if (import.meta.env.DEV) {
+        console.log('Fetching metadata for:', formData.websiteUrl);
+      }
       
       // Get metadata and screenshot with better parameters for full page capture
       const response = await fetch(`https://api.microlink.io/?url=${encodeURIComponent(formData.websiteUrl)}&screenshot=true&screenshot.fullPage=true&screenshot.waitFor=3000&viewport.width=1920&viewport.height=1080&viewport.deviceScaleFactor=2`);
       const data = await response.json();
       
-      console.log('API Response:', data);
+      if (import.meta.env.DEV) {
+        console.log('API Response:', data);
+      }
       
       if (data.status === 'success' && data.data) {
         const { title, description, screenshot, image, logo } = data.data;
         
-        console.log('Extracted data:', { title, description, screenshot: screenshot?.url, image: image?.url });
+        if (import.meta.env.DEV) {
+          console.log('Extracted data:', { title, description, screenshot: screenshot?.url, image: image?.url });
+        }
         
         setFormData(prev => ({
           ...prev,
@@ -69,14 +96,15 @@ export const ProjectEditor = ({ projects, onProjectsChange }: ProjectEditorProps
           duration: 3000,
         });
       } else {
-        console.error('API returned error or no data:', data);
         throw new Error(data.message || 'No data received from website');
       }
     } catch (error) {
-      console.error('URL fetch error:', error);
+      if (import.meta.env.DEV) {
+        console.error('URL fetch error:', error);
+      }
       toast({
         title: "Error",
-        description: `Failed to fetch website data: ${error instanceof Error ? error.message : 'Unknown error'}. You can still add project details manually.`,
+        description: "Failed to fetch website data. You can still add project details manually.",
         variant: "destructive",
         duration: 5000,
       });
@@ -88,6 +116,18 @@ export const ProjectEditor = ({ projects, onProjectsChange }: ProjectEditorProps
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
+      // Validate file size
+      if (file.size > MAX_FILE_SIZE) {
+        toast({
+          title: "File too large",
+          description: "Image must be less than 5MB",
+          variant: "destructive",
+          duration: 5000,
+        });
+        event.target.value = ''; // Reset input
+        return;
+      }
+      
       const reader = new FileReader();
       reader.onload = (e) => {
         setFormData(prev => ({
@@ -244,6 +284,7 @@ export const ProjectEditor = ({ projects, onProjectsChange }: ProjectEditorProps
                   placeholder="Amazing AI Project"
                   value={formData.title}
                   onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
+                  maxLength={100}
                 />
               </div>
 
@@ -254,6 +295,7 @@ export const ProjectEditor = ({ projects, onProjectsChange }: ProjectEditorProps
                   placeholder="Brief description of what this project does..."
                   value={formData.description}
                   onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+                  maxLength={500}
                 />
               </div>
 
@@ -263,6 +305,7 @@ export const ProjectEditor = ({ projects, onProjectsChange }: ProjectEditorProps
                   placeholder="e.g., Reduced processing time by 80% and improved accuracy to 99.2%"
                   value={formData.impact}
                   onChange={(e) => setFormData(prev => ({ ...prev, impact: e.target.value }))}
+                  maxLength={200}
                 />
               </div>
 
