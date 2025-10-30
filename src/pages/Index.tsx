@@ -668,11 +668,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer - Nauiter Master Signature */}
-      <footer className="w-full bg-black text-white py-8 text-center border-t border-gray-800 relative overflow-hidden animate-fade-in-footer">
+      {/* Footer - Nauiter Master Signature (Versão Corrigida e Única) */}
+<footer id="nauiter-footer" className="w-full bg-black text-white py-8 text-center border-t border-gray-800 relative overflow-hidden animate-fade-in-footer">
         <div className="max-w-5xl mx-auto px-4">
-          {/* Linha principal */}
-          <p className="text-sm md:text-base tracking-wide font-light">
+          {/* Linha principal única */}
+          <p className="text-sm md:text-base tracking-wide font-light leading-relaxed">
             © 2025 
             <span className="font-semibold text-[#00C4FF]"> Developer — Nauiter Master</span> | 
             All Rights Reserved · 
@@ -686,8 +686,8 @@ const Index = () => {
           {/* Linha divisória */}
           <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-gray-500/50 to-transparent mx-auto my-4"></div>
 
-          {/* Linha secundária */}
-          <p className="text-xs md:text-sm text-gray-400">
+          {/* Linha secundária (integrada e sem duplicação) */}
+          <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
             Developed by 
             <span className="font-semibold text-white hover:text-[#A855F7] transition-colors duration-300">
               {" "}Nauiter Master

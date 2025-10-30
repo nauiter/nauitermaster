@@ -182,11 +182,18 @@
   animation-delay: 800ms;
 }
 
+/* Footer specific styles */
+#nauiter-footer * {
+  z-index: 10;
+  position: relative;
+}
+
 /* Footer fade-in animation */
 .animate-fade-in-footer {
   opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInFooter 1.5s ease-out forwards 0.3s;
+  transform: translateY(12px);
+  animation: fadeInFooter 1.2s ease-out forwards 0.4s;
+  will-change: opacity, transform;
 }
 
 @keyframes fadeInFooter {
@@ -196,20 +203,20 @@
   }
 }
 
-/* Glow text animation for "Sic Mundus Creatus Est" */
+/* Glow text animation for "Sic Mundus Creatus Est" (refined) */
 .animate-glow-text {
-  animation: glowText 3s ease-in-out infinite;
+  animation: glowText 3.5s ease-in-out infinite;
 }
 
 @keyframes glowText {
   0% { 
-    filter: brightness(1) drop-shadow(0 0 4px rgba(168, 85, 247, 0.3)); 
+    filter: brightness(1) drop-shadow(0 0 3px rgba(168, 85, 247, 0.2)); 
   }
   50% { 
-    filter: brightness(1.4) drop-shadow(0 0 10px rgba(0, 196, 255, 0.8)); 
+    filter: brightness(1.5) drop-shadow(0 0 10px rgba(0, 196, 255, 0.8)); 
   }
   100% { 
-    filter: brightness(1) drop-shadow(0 0 4px rgba(168, 85, 247, 0.3)); 
+    filter: brightness(1) drop-shadow(0 0 3px rgba(168, 85, 247, 0.2)); 
   }
 }
 
