@@ -45,6 +45,9 @@ export const ProjectEditor = ({ projects, onProjectsChange }: ProjectEditorProps
     websiteUrl: '',
     imageUrl: ''
   });
+  
+  // Only show editing controls in development mode
+  const isEditing = import.meta.env.DEV;
 
   const handleUrlFetch = async () => {
     if (!formData.websiteUrl) return;
@@ -214,122 +217,124 @@ export const ProjectEditor = ({ projects, onProjectsChange }: ProjectEditorProps
             Real-world applications demonstrating measurable impact and innovation
           </p>
         </div>
-        <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
-            <DialogHeader>
-              <DialogTitle>
-                {editingProject ? 'Edit Project' : 'Add New Project'}
-              </DialogTitle>
-              <p className="text-sm text-muted-foreground">
-                {editingProject ? 'Update your project details' : 'Create a new project by entering a URL or manually adding details'}
-              </p>
-            </DialogHeader>
-            
-            <div className="flex-1 overflow-y-auto px-1">
-              <form onSubmit={handleSubmit} className="space-y-4 pb-4">
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Website URL (Optional)</label>
-                <div className="flex gap-2">
+        {isEditing && (
+          <Dialog open={isOpen} onOpenChange={setIsOpen}>
+            <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
+              <DialogHeader>
+                <DialogTitle>
+                  {editingProject ? 'Edit Project' : 'Add New Project'}
+                </DialogTitle>
+                <p className="text-sm text-muted-foreground">
+                  {editingProject ? 'Update your project details' : 'Create a new project by entering a URL or manually adding details'}
+                </p>
+              </DialogHeader>
+              
+              <div className="flex-1 overflow-y-auto px-1">
+                <form onSubmit={handleSubmit} className="space-y-4 pb-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Website URL (Optional)</label>
+                  <div className="flex gap-2">
+                    <Input
+                      type="url"
+                      placeholder="https://example.com"
+                      value={formData.websiteUrl}
+                      onChange={(e) => setFormData(prev => ({ ...prev, websiteUrl: e.target.value }))}
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={handleUrlFetch}
+                      disabled={!formData.websiteUrl || isLoading}
+                    >
+                      <Globe className="w-4 h-4 mr-2" />
+                      {isLoading ? 'Fetching...' : 'Fetch'}
+                    </Button>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Auto-populate title, description, and screenshot from website
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Custom Image Upload</label>
+                  <div className="flex items-center gap-2">
+                    <Input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      className="file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-accent file:text-accent-foreground hover:file:bg-accent/90"
+                    />
+                    <Upload className="w-4 h-4 text-muted-foreground" />
+                  </div>
+                  {formData.imageUrl && (
+                    <div className="mt-2">
+                      <img 
+                        src={formData.imageUrl} 
+                        alt="Website preview" 
+                        className="w-full h-auto max-h-80 object-contain rounded-lg border bg-muted"
+                        style={{ aspectRatio: '1.91/1' }}
+                      />
+                      <p className="text-xs text-muted-foreground mt-1 text-center">
+                        Preview as it appears in social media and search results
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Project Title *</label>
                   <Input
-                    type="url"
-                    placeholder="https://example.com"
-                    value={formData.websiteUrl}
-                    onChange={(e) => setFormData(prev => ({ ...prev, websiteUrl: e.target.value }))}
+                    required
+                    placeholder="Amazing AI Project"
+                    value={formData.title}
+                    onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
+                    maxLength={100}
                   />
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={handleUrlFetch}
-                    disabled={!formData.websiteUrl || isLoading}
-                  >
-                    <Globe className="w-4 h-4 mr-2" />
-                    {isLoading ? 'Fetching...' : 'Fetch'}
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Description *</label>
+                  <Textarea
+                    required
+                    placeholder="Brief description of what this project does..."
+                    value={formData.description}
+                    onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+                    maxLength={500}
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Impact Statement</label>
+                  <Input
+                    placeholder="e.g., Reduced processing time by 80% and improved accuracy to 99.2%"
+                    value={formData.impact}
+                    onChange={(e) => setFormData(prev => ({ ...prev, impact: e.target.value }))}
+                    maxLength={200}
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Tools Used</label>
+                  <Input
+                    placeholder="GPT-4, Python, React (comma-separated)"
+                    value={formData.tools}
+                    onChange={(e) => setFormData(prev => ({ ...prev, tools: e.target.value }))}
+                  />
+                </div>
+
+                <div className="flex gap-2 pt-4">
+                  <Button type="submit" className="flex-1">
+                    {editingProject ? 'Update Project' : 'Add Project'}
+                  </Button>
+                  <Button type="button" variant="outline" onClick={() => setIsOpen(false)}>
+                    Cancel
                   </Button>
                 </div>
-                <p className="text-xs text-muted-foreground">
-                  Auto-populate title, description, and screenshot from website
-                </p>
+              </form>
               </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Custom Image Upload</label>
-                <div className="flex items-center gap-2">
-                  <Input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    className="file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-accent file:text-accent-foreground hover:file:bg-accent/90"
-                  />
-                  <Upload className="w-4 h-4 text-muted-foreground" />
-                </div>
-                {formData.imageUrl && (
-                  <div className="mt-2">
-                    <img 
-                      src={formData.imageUrl} 
-                      alt="Website preview" 
-                      className="w-full h-auto max-h-80 object-contain rounded-lg border bg-muted"
-                      style={{ aspectRatio: '1.91/1' }}
-                    />
-                    <p className="text-xs text-muted-foreground mt-1 text-center">
-                      Preview as it appears in social media and search results
-                    </p>
-                  </div>
-                )}
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Project Title *</label>
-                <Input
-                  required
-                  placeholder="Amazing AI Project"
-                  value={formData.title}
-                  onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
-                  maxLength={100}
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Description *</label>
-                <Textarea
-                  required
-                  placeholder="Brief description of what this project does..."
-                  value={formData.description}
-                  onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
-                  maxLength={500}
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Impact Statement</label>
-                <Input
-                  placeholder="e.g., Reduced processing time by 80% and improved accuracy to 99.2%"
-                  value={formData.impact}
-                  onChange={(e) => setFormData(prev => ({ ...prev, impact: e.target.value }))}
-                  maxLength={200}
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Tools Used</label>
-                <Input
-                  placeholder="GPT-4, Python, React (comma-separated)"
-                  value={formData.tools}
-                  onChange={(e) => setFormData(prev => ({ ...prev, tools: e.target.value }))}
-                />
-              </div>
-
-              <div className="flex gap-2 pt-4">
-                <Button type="submit" className="flex-1">
-                  {editingProject ? 'Update Project' : 'Add Project'}
-                </Button>
-                <Button type="button" variant="outline" onClick={() => setIsOpen(false)}>
-                  Cancel
-                </Button>
-              </div>
-            </form>
-            </div>
-          </DialogContent>
-        </Dialog>
+            </DialogContent>
+          </Dialog>
+        )}
       </div>
 
       {/* Projects Grid */}
@@ -351,26 +356,28 @@ export const ProjectEditor = ({ projects, onProjectsChange }: ProjectEditorProps
                   </div>
                 )}
               </div>
-              <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="flex gap-1">
-                  <Button
-                    size="sm"
-                    variant="secondary"
-                    onClick={() => handleEdit(project)}
-                    className="h-8 w-8 p-0"
-                  >
-                    <Edit2 className="w-3 h-3" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="destructive"
-                    onClick={() => handleDelete(project.id)}
-                    className="h-8 w-8 p-0"
-                  >
-                    <X className="w-3 h-3" />
-                  </Button>
+              {isEditing && (
+                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="flex gap-1">
+                    <Button
+                      size="sm"
+                      variant="secondary"
+                      onClick={() => handleEdit(project)}
+                      className="h-8 w-8 p-0"
+                    >
+                      <Edit2 className="w-3 h-3" />
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="destructive"
+                      onClick={() => handleDelete(project.id)}
+                      className="h-8 w-8 p-0"
+                    >
+                      <X className="w-3 h-3" />
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
             
             <div className="p-6">
