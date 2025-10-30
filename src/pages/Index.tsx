@@ -6,11 +6,8 @@ import sweetLifeAcademy from "@/assets/sweet-life-academy-2.jpg";
 import oVermePasseia from "@/assets/o-verme-passeia-2.png";
 import figueiredoLaw from "@/assets/figueiredo-law-2.png";
 import { ProjectEditor } from "@/components/ProjectEditor";
-import { OnboardingTour } from "@/components/OnboardingTour";
 import { FloatingNavbar } from "@/components/FloatingNavbar";
-import { useOnboarding } from "@/hooks/useOnboarding";
-import { Button } from "@/components/ui/button";
-import { HelpCircle, Brain, Image, Music, Zap } from "lucide-react";
+import { Brain, Image, Music, Zap } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface Project {
@@ -64,111 +61,12 @@ const Index = () => {
     }
   ]);
 
-  const { hasSeenTour, isTourOpen, startTour, completeTour, skipTour } = useOnboarding();
-
-  // Animated counter effect
-  useEffect(() => {
-    const counters = document.querySelectorAll(".counter");
-    const animateCounter = (counter: Element) => {
-      const target = parseInt(counter.getAttribute("data-count") || "0");
-      let current = 0;
-      const increment = target / 100;
-      const duration = 2000;
-      const stepTime = duration / 100;
-
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          counter.textContent = target.toString();
-          clearInterval(timer);
-        } else {
-          counter.textContent = Math.ceil(current).toString();
-        }
-      }, stepTime);
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const counter = entry.target;
-            animateCounter(counter);
-            observer.unobserve(counter);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    counters.forEach((counter) => observer.observe(counter));
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Tour steps configuration
-  const tourSteps = [
-    {
-      id: 'welcome',
-      title: 'Welcome to My Portfolio',
-      content: "Hi! I'm Nauiter Master, an AI Strategist and Digital Artist. Let me show you how I merge creativity, automation, and ethics to transform technology into art.",
-      target: 'header',
-      position: 'bottom' as const,
-    },
-    {
-      id: 'expertise',
-      title: 'AI Tools Expertise',
-      content: 'Here you can see my mastery level across different AI tools and platforms. The color coding shows my expertise levels.',
-      target: '[data-tour="ai-tools"]',
-      position: 'bottom' as const,
-    },
-    {
-      id: 'projects',
-      title: 'Featured Projects',
-      content: 'These are some of my key projects with real business impact. Click on any project to see more details.',
-      target: '[data-tour="projects"]',
-      position: 'top' as const,
-    },
-    {
-      id: 'skills',
-      title: 'Skills & Competencies',
-      content: 'My core strengths and areas where I\'m actively learning and growing. This shows my commitment to continuous improvement.',
-      target: '[data-tour="skills"]',
-      position: 'top' as const,
-    },
-    {
-      id: 'contact',
-      title: 'Let\'s Connect',
-      content: 'Ready to work together? Use these buttons to get in touch. I\'d love to discuss how AI can transform your business.',
-      target: '[data-tour="contact"]',
-      position: 'top' as const,
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">
       {/* Floating Navigation Bar */}
       <FloatingNavbar />
 
-      {/* Help button for restarting tour */}
-      {hasSeenTour && (
-        <Button
-          onClick={startTour}
-          className="fixed top-20 right-4 z-40 bg-accent/10 text-accent hover:bg-accent/20 border-accent/20"
-          size="sm"
-          variant="outline"
-        >
-          <HelpCircle className="w-4 h-4 mr-2" />
-          Tour
-        </Button>
-      )}
-
-      {/* Onboarding Tour */}
-      <OnboardingTour
-        steps={tourSteps}
-        isOpen={isTourOpen}
-        onComplete={completeTour}
-        onSkip={skipTour}
-      />
 
       {/* Hero Section - Cinematic Introduction */}
       <section 
@@ -481,40 +379,7 @@ const Index = () => {
       </section>
 
       {/* Gradient Separator */}
-      <div className="h-16 bg-gradient-to-b from-slate-900 to-[#F7F9FB]"></div>
-
-      {/* Impact Metrics - Animated Counters */}
-      <section 
-        id="impact" 
-        className="py-16 bg-[#F7F9FB] text-center motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-[#0B1623]">Impact Metrics</h2>
-        <div className="flex flex-wrap justify-center gap-10 md:gap-16 max-w-5xl mx-auto px-4">
-          <div className="metric flex flex-col items-center">
-            <div className="text-5xl md:text-6xl font-extrabold text-[#0077B5] mb-2">
-              <span className="counter" data-count="6900">0</span>
-              <span>+</span>
-            </div>
-            <p className="text-[#374151] text-base md:text-lg font-medium">LinkedIn Followers</p>
-          </div>
-          <div className="metric flex flex-col items-center">
-            <div className="text-5xl md:text-6xl font-extrabold text-[#0077B5] mb-2">
-              <span className="counter" data-count="8">0</span>
-              <span>+</span>
-            </div>
-            <p className="text-[#374151] text-base md:text-lg font-medium">Years Experience</p>
-          </div>
-          <div className="metric flex flex-col items-center">
-            <div className="text-5xl md:text-6xl font-extrabold text-[#0077B5] mb-2">
-              <span className="counter" data-count="3">0</span>
-            </div>
-            <p className="text-[#374151] text-base md:text-lg font-medium">Active Projects</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Gradient Separator */}
-      <div className="h-16 bg-gradient-to-b from-[#F7F9FB] to-[#121E2C]"></div>
+      <div className="h-16 bg-gradient-to-b from-slate-900 to-[#121E2C]"></div>
 
       {/* Skills & Competencies - Darker Slate */}
       <section 
@@ -574,35 +439,6 @@ const Index = () => {
 
       {/* Gradient Separator */}
       <div className="h-16 bg-gradient-to-b from-[#121E2C] to-[#F7F9FB]"></div>
-
-      {/* Metrics Section - Light Background */}
-      <section 
-        id="metrics"
-        className="py-20 motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
-        style={{ backgroundColor: '#F7F9FB' }}
-      >
-        <div className="container mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 text-center mb-12">Impact Metrics</h2>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2" style={{ color: '#0077B5' }}>6,900+</div>
-              <div className="text-gray-700">LinkedIn Followers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2" style={{ color: '#0077B5' }}>8+</div>
-              <div className="text-gray-700">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2" style={{ color: '#0077B5' }}>3</div>
-              <div className="text-gray-700">Active Projects</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Gradient Separator */}
-      <div className="h-16 bg-gradient-to-b from-[#F7F9FB] to-[#F7F9FB]"></div>
 
       {/* Call-to-Action - Light Background */}
       <section 
