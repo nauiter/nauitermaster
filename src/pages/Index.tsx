@@ -408,15 +408,128 @@ const Index = () => {
       {/* Showcase Projects Section - White Background */}
       <section 
         id="projects"
-        className="py-20 bg-white motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
+        className="py-20 bg-gradient-to-b from-white to-[#f8fafc] motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
         data-tour="projects"
       >
         <div className="container mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#0B1623] text-center mb-4">Showcase Projects</h2>
-          <p className="text-center text-gray-500 mb-12">
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 text-center mb-4">Showcase Projects</h2>
+          <p className="text-center text-gray-600 mb-10">
             Exploring the intersection of technology, design, and creativity.
           </p>
-          <ProjectEditor projects={projects} onProjectsChange={setProjects} />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Sweet Life Animes */}
+            <a 
+              href="https://linktr.ee/sweetlifeanimes" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group"
+            >
+              <img 
+                src={sweetLifeAnimes} 
+                alt="Sweet Life Animes" 
+                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
+              />
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Sweet Life Animes</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Creative community uniting digital art, anime, and AI with exclusive content and strategies for creators.
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs text-white">
+                  <span className="bg-indigo-600 px-2 py-1 rounded-md">AI</span>
+                  <span className="bg-pink-600 px-2 py-1 rounded-md">Digital Art</span>
+                  <span className="bg-purple-600 px-2 py-1 rounded-md">Community</span>
+                </div>
+                <p className="mt-4 text-xs text-gray-500 italic">
+                  Impact: Helping creators transform passion into business.
+                </p>
+              </div>
+            </a>
+
+            {/* O Verme Passeia */}
+            <a 
+              href="https://linktr.ee/overmepasseia" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group"
+            >
+              <img 
+                src={oVermePasseia} 
+                alt="O Verme Passeia"
+                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
+              />
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">O Verme Passeia</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Existential and aesthetic project inspired by Texhnolyze, Ergo Proxy, and Soviet post-punk.
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs text-white">
+                  <span className="bg-gray-800 px-2 py-1 rounded-md">Philosophy</span>
+                  <span className="bg-indigo-700 px-2 py-1 rounded-md">Digital Art</span>
+                  <span className="bg-blue-700 px-2 py-1 rounded-md">AI</span>
+                </div>
+                <p className="mt-4 text-xs text-gray-500 italic">
+                  Impact: Exploring philosophy, nihilism, and brutalist aesthetics through digital art.
+                </p>
+              </div>
+            </a>
+
+            {/* Sweet Life Academy */}
+            <a 
+              href="https://sweetlifeacademy.coursify.me/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group"
+            >
+              <img 
+                src={sweetLifeAcademy} 
+                alt="Sweet Life Academy"
+                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
+              />
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Sweet Life Academy</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Educational platform empowering creators to grow and monetize with AI strategies.
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs text-white">
+                  <span className="bg-blue-600 px-2 py-1 rounded-md">AI Education</span>
+                  <span className="bg-yellow-600 px-2 py-1 rounded-md">Automation</span>
+                  <span className="bg-violet-700 px-2 py-1 rounded-md">Strategy</span>
+                </div>
+                <p className="mt-4 text-xs text-gray-500 italic">
+                  Impact: Empowering creators with AI tools and strategies for success.
+                </p>
+              </div>
+            </a>
+
+            {/* Figueiredo Law */}
+            <a 
+              href="https://figueiredo-landing-amapa.lovable.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group"
+            >
+              <img 
+                src={figueiredoLaw} 
+                alt="Figueiredo Law"
+                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
+              />
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Figueiredo Law</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Digital law firm & AI-driven consultancy supporting creators and businesses.
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs text-white">
+                  <span className="bg-red-700 px-2 py-1 rounded-md">Law</span>
+                  <span className="bg-gray-700 px-2 py-1 rounded-md">Ethics</span>
+                  <span className="bg-orange-700 px-2 py-1 rounded-md">Technology</span>
+                </div>
+                <p className="mt-4 text-xs text-gray-500 italic">
+                  Impact: Bridging technology, law, and ethics in the AI era.
+                </p>
+              </div>
+            </a>
+          </div>
         </div>
       </section>
 
