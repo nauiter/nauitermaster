@@ -338,17 +338,20 @@ export const ProjectEditor = ({ projects, onProjectsChange }: ProjectEditorProps
       </div>
 
       {/* Projects Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6 max-w-7xl mx-auto">
         {projects.map((project) => (
-          <Card key={project.id} className="overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group">
+          <Card key={project.id} className="relative rounded-2xl overflow-hidden shadow-xl bg-white/40 backdrop-blur-lg border border-gray-100 hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 group">
             <div className="relative">
-              <div className="h-60 bg-placeholder flex items-center justify-center overflow-hidden rounded-t-xl">
+              <div className="h-64 bg-muted flex items-center justify-center overflow-hidden relative group">
                 {project.imageUrl ? (
-                  <img 
-                    src={project.imageUrl} 
-                    alt={project.title}
-                    className="w-full h-full object-contain bg-muted"
-                  />
+                  <>
+                    <img 
+                      src={project.imageUrl} 
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                  </>
                 ) : (
                   <div className="text-center">
                     <span className="text-placeholder-foreground text-sm">No Image</span>
@@ -382,7 +385,7 @@ export const ProjectEditor = ({ projects, onProjectsChange }: ProjectEditorProps
             
             <div className="p-6">
               <div className="flex items-start justify-between mb-2">
-                <h3 className="font-semibold line-clamp-2">{project.title}</h3>
+                <h3 className="font-semibold text-[#0B1623] text-xl line-clamp-2">{project.title}</h3>
                 {project.websiteUrl && (
                   <a 
                     href={project.websiteUrl} 
@@ -396,7 +399,7 @@ export const ProjectEditor = ({ projects, onProjectsChange }: ProjectEditorProps
               </div>
               
               {project.description && (
-                <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                <p className="text-sm text-gray-600 mb-4 line-clamp-2">
                   {project.description}
                 </p>
               )}

@@ -1,5 +1,8 @@
 // AI Portfolio Template - Professional and Interactive
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import type { Container, Engine } from "@tsparticles/engine";
 import portfolioAvatar from "@/assets/nauiter-professional.png";
 import sweetLifeAnimes from "@/assets/sweet-life-animes-2.png";
 import sweetLifeAcademy from "@/assets/sweet-life-academy-2.jpg";
@@ -22,10 +25,13 @@ interface Project {
 }
 
 const Index = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [init, setInit] = useState(false);
   const [linkedinFollowers] = useState(6900);
   const [yearsExperience] = useState(8);
   const [activeProjects] = useState(3);
+  const [followerCount, setFollowerCount] = useState(0);
+  const [experienceCount, setExperienceCount] = useState(0);
+  const [projectCount, setProjectCount] = useState(0);
   
   const [projects, setProjects] = useState<Project[]>([
     {
@@ -66,127 +72,67 @@ const Index = () => {
     }
   ]);
 
-  // Particles animation effect
+  // Initialize particles
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    initParticlesEngine(async (engine: Engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    interface Particle {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      radius: number;
-      opacity: number;
-    }
-
-    const particles: Particle[] = [];
-    const particleCount = 65;
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 1.5,
-        vy: (Math.random() - 0.5) * 1.5,
-        radius: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2
-      });
-    }
-
-    function animate() {
-      if (!canvas || !ctx) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach((particle, i) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 196, 255, ${particle.opacity})`;
-        ctx.fill();
-
-        // Draw lines between nearby particles
-        particles.slice(i + 1).forEach(otherParticle => {
-          const dx = particle.x - otherParticle.x;
-          const dy = particle.y - otherParticle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 140) {
-            ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(0, 119, 181, ${0.2 * (1 - distance / 140)})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
-          }
-        });
-      });
-
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+  const particlesLoaded = useCallback(async (container?: Container) => {
+    console.log(container);
   }, []);
 
   // Counter animation effect
   useEffect(() => {
-    const counters = document.querySelectorAll("[data-count]");
-    const speed = 150;
-    
-    const animateCount = (counter: Element) => {
-      const target = +(counter.getAttribute("data-count") || "0");
-      const updateCount = () => {
-        const current = +(counter.textContent || "0");
-        const increment = Math.ceil(target / speed);
-        
-        if (current < target) {
-          counter.textContent = String(current + increment);
-          setTimeout(updateCount, 15);
+    const animateCount = (
+      target: number,
+      setter: React.Dispatch<React.SetStateAction<number>>
+    ) => {
+      const speed = 150;
+      const increment = Math.ceil(target / speed);
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          setter(target);
+          clearInterval(timer);
         } else {
-          counter.textContent = String(target);
+          setter(current);
         }
-      };
-      updateCount();
+      }, 15);
+
+      return () => clearInterval(timer);
     };
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const counter = entry.target.querySelector("[data-count]");
-            if (counter) {
-              animateCount(counter);
-              observer.unobserve(entry.target);
-            }
+            animateCount(linkedinFollowers, setFollowerCount);
+            animateCount(yearsExperience, setExperienceCount);
+            animateCount(activeProjects, setProjectCount);
+            observer.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.6 }
     );
 
-    document.querySelectorAll(".metric").forEach((m) => observer.observe(m));
+    const metricsSection = document.getElementById("impact");
+    if (metricsSection) {
+      observer.observe(metricsSection);
+    }
 
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      if (metricsSection) {
+        observer.unobserve(metricsSection);
+      }
+    };
+  }, [linkedinFollowers, yearsExperience, activeProjects]);
 
 
   return (
@@ -198,15 +144,87 @@ const Index = () => {
       {/* Hero Section - Tech Animated Background */}
       <section 
         id="hero"
-        className="min-h-[90vh] flex flex-col items-center justify-center py-20 md:py-32 px-6 md:px-12 relative overflow-hidden pt-20 bg-[#0B1623]"
+        className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden"
         data-tour="welcome"
       >
-        {/* Particles Canvas Background */}
-        <canvas 
-          ref={canvasRef}
-          className="absolute inset-0 z-0"
-          style={{ background: 'radial-gradient(ellipse at top, #0B1623 0%, #13283F 100%)' }}
-        />
+        {/* Particles Background */}
+        {init && (
+          <Particles
+            id="tsparticles"
+            particlesLoaded={particlesLoaded}
+            className="absolute inset-0 z-0"
+            options={{
+              background: {
+                color: {
+                  value: "#0B1623",
+                },
+              },
+              fpsLimit: 120,
+              interactivity: {
+                events: {
+                  onHover: {
+                    enable: true,
+                    mode: "grab",
+                  },
+                  resize: {
+                    enable: true,
+                  },
+                },
+                modes: {
+                  grab: {
+                    distance: 150,
+                    links: {
+                      opacity: 0.4,
+                    },
+                  },
+                },
+              },
+              particles: {
+                color: {
+                  value: "#00C4FF",
+                },
+                links: {
+                  color: "#0077B5",
+                  distance: 140,
+                  enable: true,
+                  opacity: 0.2,
+                  width: 1,
+                },
+                move: {
+                  direction: "none",
+                  enable: true,
+                  outModes: {
+                    default: "out",
+                  },
+                  random: false,
+                  speed: 1.5,
+                  straight: false,
+                },
+                number: {
+                  density: {
+                    enable: true,
+                  },
+                  value: 65,
+                },
+                opacity: {
+                  value: { min: 0.1, max: 0.3 },
+                  animation: {
+                    enable: true,
+                    speed: 1,
+                    sync: false,
+                  },
+                },
+                shape: {
+                  type: "circle",
+                },
+                size: {
+                  value: { min: 1, max: 3 },
+                },
+              },
+              detectRetina: true,
+            }}
+          />
+        )}
         
         <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
           {/* Profile Image */}
@@ -384,15 +402,17 @@ const Index = () => {
       {/* Gradient Separator */}
       <div className="h-16 bg-gradient-to-b from-slate-800 to-[#F7F9FB]"></div>
 
-      {/* Showcase Projects Section - Light Background */}
+      {/* Showcase Projects Section - White Background */}
       <section 
         id="projects"
-        className="py-20 motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
-        style={{ backgroundColor: '#F7F9FB' }}
+        className="py-20 bg-white motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
         data-tour="projects"
       >
         <div className="container mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 text-center mb-12">Showcase Projects</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#0B1623] text-center mb-4">Showcase Projects</h2>
+          <p className="text-center text-gray-500 mb-12">
+            Exploring the intersection of technology, design, and creativity.
+          </p>
           <ProjectEditor projects={projects} onProjectsChange={setProjects} />
         </div>
       </section>
@@ -494,31 +514,31 @@ const Index = () => {
       {/* Gradient Separator */}
       <div className="h-16 bg-gradient-to-b from-slate-900 to-[#0B1623]"></div>
 
-      {/* Impact Metrics Section - Animated Counters */}
+      {/* Impact Metrics Section - White Background with Animated Counters */}
       <section 
         id="impact"
-        className="py-20 bg-gradient-to-b from-[#0B1623] via-[#0E213A] to-[#13283F] motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]"
+        className="py-24 bg-white text-[#0B1623] motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]"
       >
         <div className="container mx-auto px-6">
-          <h2 className="text-center text-3xl font-bold text-white mb-10">Impact Metrics</h2>
-          <div className="flex flex-wrap justify-center gap-10 text-center">
+          <h2 className="text-center text-3xl font-bold mb-10">Impact Metrics</h2>
+          <div className="flex flex-wrap justify-center gap-16 text-center">
             <div className="metric">
               <div>
-                <span className="text-5xl font-extrabold text-[#00C4FF]" data-count={linkedinFollowers}>0</span>
-                <span className="text-5xl font-extrabold text-[#00C4FF]">+</span>
+                <span className="text-5xl font-extrabold text-[#0077B5]">{followerCount}</span>
+                <span className="text-5xl font-extrabold text-[#0077B5]">+</span>
               </div>
-              <p className="text-[#AAB4C2] mt-2">LinkedIn Followers</p>
+              <p className="text-gray-600 mt-2">LinkedIn Followers</p>
             </div>
             <div className="metric">
               <div>
-                <span className="text-5xl font-extrabold text-[#00C4FF]" data-count={yearsExperience}>0</span>
-                <span className="text-5xl font-extrabold text-[#00C4FF]">+</span>
+                <span className="text-5xl font-extrabold text-[#0077B5]">{experienceCount}</span>
+                <span className="text-5xl font-extrabold text-[#0077B5]">+</span>
               </div>
-              <p className="text-[#AAB4C2] mt-2">Years Experience</p>
+              <p className="text-gray-600 mt-2">Years Experience</p>
             </div>
             <div className="metric">
-              <span className="text-5xl font-extrabold text-[#00C4FF]" data-count={activeProjects}>0</span>
-              <p className="text-[#AAB4C2] mt-2">Active Projects</p>
+              <span className="text-5xl font-extrabold text-[#0077B5]">{projectCount}</span>
+              <p className="text-gray-600 mt-2">Active Projects</p>
             </div>
           </div>
         </div>
@@ -586,101 +606,70 @@ const Index = () => {
       {/* Gradient Separator */}
       <div className="h-16 bg-gradient-to-b from-[#121E2C] to-[#F7F9FB]"></div>
 
-      {/* Call-to-Action - Light Background */}
+      {/* Contact Section - Dark Background */}
       <section 
         id="contact"
-        className="py-20 motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
-        style={{ backgroundColor: '#F7F9FB' }}
+        className="py-16 bg-[#0B1623] text-center motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
         data-tour="contact"
       >
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">Let's Collaborate</h2>
-          <p className="text-gray-700 mb-8 max-w-2xl mx-auto">
-            Ready to transform your business with AI? Let's discuss how we can work together.
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-8 text-white">Let's Collaborate</h2>
+          <p className="text-gray-400 mb-8">
+            Ready to transform your business with AI? Let's connect!
           </p>
           
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex justify-center gap-8 mb-10">
             <a 
               href="mailto:nauitermaster@hotmail.com" 
-              className="px-6 py-3 rounded-lg font-medium transition-all duration-300"
-              style={{ backgroundColor: '#0077B5', color: 'white' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#005885'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0077B5'}
+              target="_blank"
+              rel="noopener noreferrer" 
+              className="hover:scale-110 transition-transform duration-300"
+              aria-label="Email"
             >
-              📧 Email Me
+              <img src="/icons/email.svg" alt="Email" className="w-8 h-8" />
             </a>
             <a 
-              href="https://www.linkedin.com/in/nauiter-master-678a71144/" 
+              href="https://facebook.com/nauiter.master" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="border-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 bg-white text-gray-900 hover:bg-gray-100"
-              style={{ borderColor: '#0077B5' }}
-              onMouseEnter={(e) => e.currentTarget.style.borderColor = '#005885'}
-              onMouseLeave={(e) => e.currentTarget.style.borderColor = '#0077B5'}
+              className="hover:scale-110 transition-transform duration-300"
+              aria-label="Facebook"
             >
-              💼 LinkedIn
+              <img src="/icons/facebook.svg" alt="Facebook" className="w-8 h-8" />
+            </a>
+            <a 
+              href="https://instagram.com/nauiter.master" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:scale-110 transition-transform duration-300"
+              aria-label="Instagram"
+            >
+              <img src="/icons/instagram.svg" alt="Instagram" className="w-8 h-8" />
+            </a>
+            <a 
+              href="https://linkedin.com/in/nauiter-master-678a71144" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:scale-110 transition-transform duration-300"
+              aria-label="LinkedIn"
+            >
+              <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-8 h-8" />
             </a>
             <a 
               href="https://beacons.ai/nauiter.master" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="border-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 bg-white text-gray-900 hover:bg-gray-100"
-              style={{ borderColor: '#0077B5' }}
-              onMouseEnter={(e) => e.currentTarget.style.borderColor = '#005885'}
-              onMouseLeave={(e) => e.currentTarget.style.borderColor = '#0077B5'}
+              className="hover:scale-110 transition-transform duration-300"
+              aria-label="Beacons"
             >
-              🌐 My Links
+              <img src="/icons/beacons.svg" alt="Beacons" className="w-8 h-8" />
             </a>
           </div>
+          <p className="text-gray-500 text-sm">
+            © 2025 <span className="text-[#00C4FF] font-semibold">Developer — Nauiter Master</span> | All Rights Reserved
+          </p>
         </div>
       </section>
-
-      {/* Footer - Social Media Logos */}
-      <footer 
-        className="bg-[#0B1623] border-t border-gray-800 py-10 text-center text-[#AAB4C2] motion-safe:animate-fade-in"
-      >
-        <div className="flex justify-center gap-8 mb-6">
-          <a 
-            href="https://facebook.com/nauiter.master" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hover:scale-110 transition-transform duration-300"
-            aria-label="Facebook"
-          >
-            <img src="/icons/facebook.svg" alt="Facebook" className="w-7 h-7" />
-          </a>
-          <a 
-            href="https://instagram.com/nauiter.master" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hover:scale-110 transition-transform duration-300"
-            aria-label="Instagram"
-          >
-            <img src="/icons/instagram.svg" alt="Instagram" className="w-7 h-7" />
-          </a>
-          <a 
-            href="https://linkedin.com/in/nauiter-master-678a71144" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hover:scale-110 transition-transform duration-300"
-            aria-label="LinkedIn"
-          >
-            <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-7 h-7" />
-          </a>
-          <a 
-            href="https://beacons.ai/nauiter.master" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hover:scale-110 transition-transform duration-300"
-            aria-label="Beacons"
-          >
-            <img src="/icons/beacons.svg" alt="Beacons" className="w-7 h-7" />
-          </a>
-        </div>
-        <p className="text-sm">
-          © 2025 <span className="text-[#00C4FF] font-semibold">Developer — Nauiter Master</span> | All Rights Reserved
-        </p>
-      </footer>
     </div>
   );
 };

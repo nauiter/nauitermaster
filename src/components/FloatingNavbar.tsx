@@ -10,7 +10,7 @@ export const FloatingNavbar = () => {
   const navItems = [
     { id: 'hero', label: 'Home' },
     { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
+    { id: 'impact', label: 'Metrics' },
     { id: 'contact', label: 'Contact' },
   ];
 
@@ -61,17 +61,16 @@ export const FloatingNavbar = () => {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#0B1623]/95 backdrop-blur-md shadow-lg' : 'bg-[#0B1623]/80 backdrop-blur-sm'
-      } border-b border-gray-700/50`}
-      style={{ animation: 'slideDown 0.5s ease-out' }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0B1623]/80 backdrop-blur-xl border-b border-[#1E2A38] ${
+        isScrolled ? 'shadow-lg' : ''
+      }`}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo/Brand */}
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-white font-semibold text-lg hover:text-accent transition-colors"
+            className="text-white font-semibold text-lg hover:text-[#00C4FF] transition-colors"
           >
             Nauiter Master
           </button>
@@ -82,11 +81,16 @@ export const FloatingNavbar = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-all duration-200 relative pb-1 ${
+                className={`text-sm font-medium transition-all duration-200 ${
                   activeSection === item.id
-                    ? 'text-accent border-b-2 border-accent'
-                    : 'text-[#B8C2CC] hover:text-accent'
+                    ? 'text-[#A855F7]'
+                    : 'text-[#B8C2CC] hover:text-[#00C4FF]'
                 }`}
+                style={
+                  activeSection === item.id
+                    ? { textShadow: '0 0 8px rgba(168, 85, 247, 0.6)' }
+                    : {}
+                }
               >
                 {item.label}
               </button>
@@ -113,9 +117,14 @@ export const FloatingNavbar = () => {
                 onClick={() => scrollToSection(item.id)}
                 className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors ${
                   activeSection === item.id
-                    ? 'text-accent bg-accent/10'
-                    : 'text-[#B8C2CC] hover:text-accent hover:bg-white/5'
+                    ? 'text-[#A855F7] bg-[#A855F7]/10'
+                    : 'text-[#B8C2CC] hover:text-[#00C4FF] hover:bg-white/5'
                 }`}
+                style={
+                  activeSection === item.id
+                    ? { textShadow: '0 0 8px rgba(168, 85, 247, 0.6)' }
+                    : {}
+                }
               >
                 {item.label}
               </button>
