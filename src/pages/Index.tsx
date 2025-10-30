@@ -1,6 +1,6 @@
 // AI Portfolio Template - Professional and Interactive
-import { useState } from 'react';
-import portfolioAvatar from "@/assets/portfolio-avatar.png";
+import { useState, useEffect } from 'react';
+import portfolioAvatar from "@/assets/nauiter-professional.png";
 import sweetLifeAnimes from "@/assets/sweet-life-animes-2.png";
 import sweetLifeAcademy from "@/assets/sweet-life-academy-2.jpg";
 import oVermePasseia from "@/assets/o-verme-passeia-2.png";
@@ -65,6 +65,45 @@ const Index = () => {
   ]);
 
   const { hasSeenTour, isTourOpen, startTour, completeTour, skipTour } = useOnboarding();
+
+  // Animated counter effect
+  useEffect(() => {
+    const counters = document.querySelectorAll(".counter");
+    const animateCounter = (counter: Element) => {
+      const target = parseInt(counter.getAttribute("data-count") || "0");
+      let current = 0;
+      const increment = target / 100;
+      const duration = 2000;
+      const stepTime = duration / 100;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          counter.textContent = target.toString();
+          clearInterval(timer);
+        } else {
+          counter.textContent = Math.ceil(current).toString();
+        }
+      }, stepTime);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            animateCounter(counter);
+            observer.unobserve(counter);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+
+    return () => observer.disconnect();
+  }, []);
 
   // Tour steps configuration
   const tourSteps = [
@@ -135,40 +174,42 @@ const Index = () => {
       <section 
         id="hero"
         className="min-h-screen flex flex-col items-center justify-center py-20 md:py-32 px-6 md:px-12 relative overflow-hidden pt-20"
-        style={{ background: 'linear-gradient(135deg, #0B1623 0%, #0E213A 100%)' }}
+        style={{ 
+          background: 'radial-gradient(ellipse at top, #0B1623 0%, #13283F 100%)',
+        }}
         data-tour="welcome"
       >
         <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
           {/* Profile Image */}
-          <div className="flex justify-center mb-6 motion-safe:animate-fade-in motion-safe:animation-delay-[400ms]">
+          <div className="flex justify-center mb-6 motion-safe:animate-fade-in motion-safe:animation-delay-[200ms]">
             <div className="relative">
               <img 
                 src={portfolioAvatar} 
-                alt="Nauiter Master" 
-                className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover ring-2 ring-[#0077B5]/60 shadow-2xl"
+                alt="Nauiter Master - Professional Portrait" 
+                className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-[#0077B5]/60 shadow-lg shadow-blue-900/50 hover:scale-105 transition-transform duration-500 ease-in-out"
               />
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#0077B5]/20 to-transparent"></div>
             </div>
           </div>
 
           {/* Name & Titles */}
-          <div className="space-y-4 motion-safe:animate-fade-in motion-safe:animation-delay-[600ms]">
-            <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+          <div className="space-y-4 motion-safe:animate-fade-in motion-safe:animation-delay-[400ms]">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
               Nauiter Master
             </h1>
             <p className="text-lg md:text-xl text-[#AAB4C2] font-medium max-w-2xl mx-auto">
-              Exploring the edge between Intelligence, Art, and Automation.
+              Exploring the edge between <span className="text-[#0077B5]">Intelligence</span>, <span className="text-[#A855F7]">Art</span>, and <span className="text-[#00C4FF]">Automation</span>.
             </p>
-            <p className="text-base md:text-lg text-gray-400 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-[#B8C2CC] max-w-3xl mx-auto">
               AI Strategist & Digital Artist | Systems Analyst | Founder of Sweet Life Animes & O Verme Passeia.
             </p>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6 motion-safe:animate-fade-in motion-safe:animation-delay-[800ms]">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6 motion-safe:animate-fade-in motion-safe:animation-delay-[600ms]">
             <a 
-              href="#showcase"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 border border-white/20 hover:shadow-[0_0_20px_rgba(0,119,181,0.3)]"
+              href="#projects"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#0077B5] to-[#00C4FF] text-white font-medium hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-[0_0_15px_rgba(0,119,181,0.5)]"
             >
               🔗 Explore Projects
             </a>
@@ -176,7 +217,7 @@ const Index = () => {
               href="https://linkedin.com/in/nauiter-master-678a71144"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-[#0077B5] hover:bg-[#006399] text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,119,181,0.5)]"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#0077B5] text-[#AAB4C2] hover:text-[#00C4FF] hover:border-[#00C4FF] transition-all duration-300"
             >
               💼 Connect on LinkedIn
             </a>
@@ -440,7 +481,40 @@ const Index = () => {
       </section>
 
       {/* Gradient Separator */}
-      <div className="h-16 bg-gradient-to-b from-slate-900 to-[#121E2C]"></div>
+      <div className="h-16 bg-gradient-to-b from-slate-900 to-[#F7F9FB]"></div>
+
+      {/* Impact Metrics - Animated Counters */}
+      <section 
+        id="impact" 
+        className="py-16 bg-[#F7F9FB] text-center motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-[#0B1623]">Impact Metrics</h2>
+        <div className="flex flex-wrap justify-center gap-10 md:gap-16 max-w-5xl mx-auto px-4">
+          <div className="metric flex flex-col items-center">
+            <div className="text-5xl md:text-6xl font-extrabold text-[#0077B5] mb-2">
+              <span className="counter" data-count="6900">0</span>
+              <span>+</span>
+            </div>
+            <p className="text-[#374151] text-base md:text-lg font-medium">LinkedIn Followers</p>
+          </div>
+          <div className="metric flex flex-col items-center">
+            <div className="text-5xl md:text-6xl font-extrabold text-[#0077B5] mb-2">
+              <span className="counter" data-count="8">0</span>
+              <span>+</span>
+            </div>
+            <p className="text-[#374151] text-base md:text-lg font-medium">Years Experience</p>
+          </div>
+          <div className="metric flex flex-col items-center">
+            <div className="text-5xl md:text-6xl font-extrabold text-[#0077B5] mb-2">
+              <span className="counter" data-count="3">0</span>
+            </div>
+            <p className="text-[#374151] text-base md:text-lg font-medium">Active Projects</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Gradient Separator */}
+      <div className="h-16 bg-gradient-to-b from-[#F7F9FB] to-[#121E2C]"></div>
 
       {/* Skills & Competencies - Darker Slate */}
       <section 
@@ -581,44 +655,36 @@ const Index = () => {
 
       {/* Footer - Dark Navy */}
       <footer 
-        className="border-t border-gray-700 py-6"
-        style={{ backgroundColor: '#0B1623' }}
+        className="bg-[#0B1623] border-t border-gray-700 py-6 text-center text-sm text-[#AAB4C2] motion-safe:animate-fade-in"
       >
-        <div className="container mx-auto px-6">
-          {/* Social Icons */}
-          <div className="flex justify-center gap-6 mb-4">
-            <a 
-              href="https://linkedin.com/in/nauiter-master-678a71144" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#AAB4C2] hover:text-[#0077B5] transition-colors text-2xl"
-              aria-label="LinkedIn"
-            >
-              💼
-            </a>
-            <a 
-              href="mailto:nauitermaster@hotmail.com"
-              className="text-[#AAB4C2] hover:text-[#0077B5] transition-colors text-2xl"
-              aria-label="Email"
-            >
-              📧
-            </a>
-            <a 
-              href="https://beacons.ai/nauiter.master"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#AAB4C2] hover:text-[#0077B5] transition-colors text-2xl"
-              aria-label="Beacons"
-            >
-              🌐
-            </a>
-          </div>
-          
-          {/* Copyright */}
-          <p className="text-sm font-medium text-center" style={{ color: '#AAB4C2' }}>
-            © 2025 Developer — Nauiter Master | All Rights Reserved
-          </p>
+        <div className="flex justify-center gap-6 mb-3">
+          <a 
+            href="https://linkedin.com/in/nauiter-master-678a71144" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:text-[#00C4FF] transition-all duration-300 text-lg"
+            aria-label="LinkedIn"
+          >
+            💼
+          </a>
+          <a 
+            href="mailto:nauiter.master@gmail.com" 
+            className="hover:text-[#00C4FF] transition-all duration-300 text-lg"
+            aria-label="Email"
+          >
+            📧
+          </a>
+          <a 
+            href="https://beacons.ai/nauitermaster" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:text-[#00C4FF] transition-all duration-300 text-lg"
+            aria-label="Beacons"
+          >
+            🔗
+          </a>
         </div>
+        <p>© 2025 Developer — Nauiter Master | All Rights Reserved</p>
       </footer>
     </div>
   );
