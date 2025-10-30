@@ -46,8 +46,8 @@ export const ProjectEditor = ({ projects, onProjectsChange }: ProjectEditorProps
     imageUrl: ''
   });
   
-  // Only show editing controls in development mode
-  const isEditing = import.meta.env.DEV;
+  // Disable editing controls completely in production
+  const isEditing = false; // Set to true only during development
 
   const handleUrlFetch = async () => {
     if (!formData.websiteUrl) return;
