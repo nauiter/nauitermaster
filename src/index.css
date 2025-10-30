@@ -182,6 +182,14 @@
   animation-delay: 800ms;
 }
 
+/* Bronze theme tokens */
+:root {
+  --bronze: 15 34% 58%; /* #b8806e */
+  --bronze-soft: 17 47% 67%; /* #d29a84 */
+  --footer-bg: 0 0% 5%; /* #0e0e0e */
+  --footer-text: 0 0% 86%; /* #dcdcdc */
+}
+
 /* Footer specific styles */
 #nauiter-footer * {
   z-index: 10;
@@ -218,6 +226,17 @@
   100% { 
     filter: brightness(1) drop-shadow(0 0 3px rgba(168, 85, 247, 0.2)); 
   }
+}
+
+/* Bronze glow animation */
+.animate-bronze-glow {
+  animation: bronzeGlow 4s ease-in-out infinite;
+}
+
+@keyframes bronzeGlow {
+  0% { text-shadow: 0 0 3px hsl(var(--bronze) / 0.2); }
+  50% { text-shadow: 0 0 10px hsl(var(--bronze-soft) / 0.6); }
+  100% { text-shadow: 0 0 3px hsl(var(--bronze) / 0.2); }
 }
 
 /* Respect user motion preferences */
