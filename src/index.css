@@ -247,11 +247,17 @@ button[aria-label*="edit"], button[aria-label*="remove"] {
   pointer-events: none !important;
 }
 
-.project-card, .showcase-item {
+/* Keep project editor cards non-interactive; allow showcase cards to be clickable */
+.project-card {
   pointer-events: none;
 }
 
-.project-card a, .showcase-item a {
+.project-card a {
+  pointer-events: auto;
+}
+
+/* Ensure Showcase cards remain clickable */
+.showcase-item {
   pointer-events: auto;
 }
 
