@@ -280,14 +280,14 @@ const Index = () => {
             </p>
             
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 motion-safe:animate-fade-in motion-safe:animation-delay-[600ms]">
               <Button 
                 asChild
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow hover:shadow-glow-strong transition-all duration-300"
-                aria-label="Download CV"
+                aria-label="Download Nauiter Master's CV in PDF format"
               >
-                <a href="/cv-nauiter-master.pdf" download>
+                <a href="/Nauiter_Master_Profile.pdf" download="Nauiter_Master_Profile.pdf">
                   <Download className="mr-2 h-5 w-5" />
                   Download CV
                 </a>
@@ -297,7 +297,7 @@ const Index = () => {
                 size="lg"
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary/10 transition-all duration-300"
-                aria-label="View Projects"
+                aria-label="View Nauiter Master's portfolio projects"
               >
                 <a href="#projects">
                   <ArrowRight className="mr-2 h-5 w-5" />
@@ -803,12 +803,12 @@ const Index = () => {
           </p>
           
           {/* Call to Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10 motion-safe:animate-fade-in motion-safe:animation-delay-[200ms]">
             <Button 
               asChild
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow hover:shadow-glow-strong transition-all duration-300"
-              aria-label="Book a discovery call"
+              aria-label="Book a discovery call with Nauiter Master"
             >
               <a href="mailto:nauitermaster@hotmail.com?subject=Discovery Call Request">
                 <Calendar className="mr-2 h-5 w-5" />
@@ -820,9 +820,9 @@ const Index = () => {
               size="lg"
               variant="outline"
               className="border-primary text-primary hover:bg-primary/10 transition-all duration-300"
-              aria-label="Download CV"
+              aria-label="Download Nauiter Master's CV in PDF format"
             >
-              <a href="/cv-nauiter-master.pdf" download>
+              <a href="/Nauiter_Master_Profile.pdf" download="Nauiter_Master_Profile.pdf">
                 <Download className="mr-2 h-5 w-5" />
                 Download CV
               </a>
