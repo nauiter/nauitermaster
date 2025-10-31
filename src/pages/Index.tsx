@@ -53,6 +53,7 @@ const Index = () => {
       impact: 'Exploring philosophy, nihilism, and brutalist aesthetics through digital art',
       tools: ['Philosophy', 'Digital Art', 'AI'],
       imageUrl: oVermePasseia,
+      websiteUrl: 'https://overmepasseia.lovable.app',
       isCustomImage: true
     },
     {
