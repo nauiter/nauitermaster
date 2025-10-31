@@ -3,7 +3,8 @@ import { useState, useEffect, useCallback } from 'react';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import type { Container, Engine } from "@tsparticles/engine";
-import { Mail, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Mail, Facebook, Instagram, Linkedin, Download, Calendar, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import portfolioAvatar from "@/assets/nauiter-professional.png";
 import sweetLifeAnimes from "@/assets/sweet-life-animes-2.png";
 import sweetLifeAcademy from "@/assets/sweet-life-academy-2.jpg";
@@ -142,6 +143,27 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* SEO Structured Data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Nauiter Master",
+          "jobTitle": "AI Strategist & Digital Artist",
+          "description": "AI Strategist & Digital Artist specializing in prompt engineering, automation, and creative AI applications",
+          "url": window.location.href,
+          "sameAs": [
+            "https://linkedin.com/in/nauiter-master-678a71144",
+            "https://instagram.com/nauiter.master",
+            "https://facebook.com/nauiter.master",
+            "https://beacons.ai/nauiter.master"
+          ],
+          "knowsAbout": ["Artificial Intelligence", "Digital Art", "Prompt Engineering", "AI Automation", "Creative AI"],
+          "alumniOf": "Systems Analysis",
+          "email": "nauitermaster@hotmail.com"
+        })
+      }} />
+      
       {/* Floating Navigation Bar */}
       <FloatingNavbar />
 
@@ -237,24 +259,52 @@ const Index = () => {
             <div className="relative">
               <img 
                 src={portfolioAvatar} 
-                alt="Nauiter Master - Professional Portrait" 
-                className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-[#0077B5]/70 shadow-xl hover:scale-105 transition-transform duration-500 ease-in-out"
+                alt="Nauiter Master - AI Strategist and Digital Artist professional portrait"
+                loading="eager"
+                className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-primary/70 shadow-glow hover:scale-105 transition-transform duration-500 ease-in-out"
               />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#0077B5]/20 to-transparent"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-transparent"></div>
             </div>
           </div>
 
           {/* Name & Titles */}
-          <div className="space-y-4 motion-safe:animate-fade-in motion-safe:animation-delay-[400ms]">
+          <div className="space-y-6 motion-safe:animate-fade-in motion-safe:animation-delay-[400ms]">
             <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight">
               Nauiter Master
             </h1>
             <p className="text-lg md:text-xl text-[#AAB4C2] font-medium max-w-2xl mx-auto">
-              Exploring the edge between <span className="text-[#00C4FF]">Intelligence</span>, <span className="text-[#A855F7]">Art</span>, and <span className="text-[#0077B5]">Automation</span>.
+              Exploring the edge between <span className="text-primary">Intelligence</span>, <span className="text-accent">Art</span>, and <span className="text-primary">Automation</span>.
             </p>
             <p className="text-base md:text-lg text-[#B8C2CC] max-w-3xl mx-auto">
               AI Strategist & Digital Artist | Systems Analyst | Founder of Sweet Life Animes & O Verme Passeia.
             </p>
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+              <Button 
+                asChild
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow hover:shadow-glow-strong transition-all duration-300"
+                aria-label="Download CV"
+              >
+                <a href="/cv-nauiter-master.pdf" download>
+                  <Download className="mr-2 h-5 w-5" />
+                  Download CV
+                </a>
+              </Button>
+              <Button 
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary/10 transition-all duration-300"
+                aria-label="View Projects"
+              >
+                <a href="#projects">
+                  <ArrowRight className="mr-2 h-5 w-5" />
+                  View My Projects
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -265,7 +315,7 @@ const Index = () => {
       {/* Gradient Separator */}
       <div className="h-16 bg-gradient-to-b from-slate-800 to-slate-900"></div>
 
-      {/* AI Tools Mastery Section - Dark Navy Gradient */}
+      {/* AI Tools Mastery Section - Dark Navy Gradient with Glassmorphism */}
       <section 
         id="ai-tools"
         className="py-20 motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
@@ -283,9 +333,9 @@ const Index = () => {
               {/* Text AI */}
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-400 ease-in-out border border-white/10">
+                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 hover:bg-white/15 transition-all duration-400 ease-in-out border border-white/10 motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.1s_forwards]">
                     <div className="flex items-center gap-3 mb-4">
-                      <Brain className="w-6 h-6 text-blue-400" />
+                      <Brain className="w-6 h-6 text-primary" />
                       <h3 className="font-semibold text-white text-lg">Text AI</h3>
                     </div>
                     <p className="text-sm text-gray-300 mb-4">
@@ -294,11 +344,11 @@ const Index = () => {
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm text-gray-400 mb-1">
                         <span>Proficiency</span>
-                        <span className="text-blue-400 font-semibold">95%</span>
+                        <span className="text-primary font-semibold">95%</span>
                       </div>
                       <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
                         <div 
-                          className="h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-1000 ease-out"
+                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out shadow-glow"
                           style={{ width: '95%' }}
                         ></div>
                       </div>
@@ -313,9 +363,9 @@ const Index = () => {
               {/* Image/Video AI */}
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-400 ease-in-out border border-white/10">
+                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 hover:bg-white/15 transition-all duration-400 ease-in-out border border-white/10 motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.2s_forwards]">
                     <div className="flex items-center gap-3 mb-4">
-                      <Image className="w-6 h-6 text-purple-400" />
+                      <Image className="w-6 h-6 text-primary" />
                       <h3 className="font-semibold text-white text-lg">Image/Video AI</h3>
                     </div>
                     <p className="text-sm text-gray-300 mb-4">
@@ -324,11 +374,11 @@ const Index = () => {
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm text-gray-400 mb-1">
                         <span>Proficiency</span>
-                        <span className="text-purple-400 font-semibold">90%</span>
+                        <span className="text-primary font-semibold">90%</span>
                       </div>
                       <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
                         <div 
-                          className="h-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-1000 ease-out"
+                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out shadow-glow"
                           style={{ width: '90%' }}
                         ></div>
                       </div>
@@ -343,9 +393,9 @@ const Index = () => {
               {/* Audio AI */}
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-400 ease-in-out border border-white/10">
+                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 hover:bg-white/15 transition-all duration-400 ease-in-out border border-white/10 motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.3s_forwards]">
                     <div className="flex items-center gap-3 mb-4">
-                      <Music className="w-6 h-6 text-green-400" />
+                      <Music className="w-6 h-6 text-primary" />
                       <h3 className="font-semibold text-white text-lg">Audio AI</h3>
                     </div>
                     <p className="text-sm text-gray-300 mb-4">
@@ -354,11 +404,11 @@ const Index = () => {
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm text-gray-400 mb-1">
                         <span>Proficiency</span>
-                        <span className="text-green-400 font-semibold">70%</span>
+                        <span className="text-primary font-semibold">70%</span>
                       </div>
                       <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
                         <div 
-                          className="h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full transition-all duration-1000 ease-out"
+                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out shadow-glow"
                           style={{ width: '70%' }}
                         ></div>
                       </div>
@@ -373,9 +423,9 @@ const Index = () => {
               {/* Automation */}
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/10 transition-all duration-400 ease-in-out border border-white/10">
+                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 hover:bg-white/15 transition-all duration-400 ease-in-out border border-white/10 motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.4s_forwards]">
                     <div className="flex items-center gap-3 mb-4">
-                      <Zap className="w-6 h-6 text-yellow-400" />
+                      <Zap className="w-6 h-6 text-primary" />
                       <h3 className="font-semibold text-white text-lg">Automation</h3>
                     </div>
                     <p className="text-sm text-gray-300 mb-4">
@@ -384,11 +434,11 @@ const Index = () => {
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm text-gray-400 mb-1">
                         <span>Proficiency</span>
-                        <span className="text-yellow-400 font-semibold">92%</span>
+                        <span className="text-primary font-semibold">92%</span>
                       </div>
                       <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
                         <div 
-                          className="h-full bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-full transition-all duration-1000 ease-out"
+                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out shadow-glow"
                           style={{ width: '92%' }}
                         ></div>
                       </div>
@@ -425,11 +475,13 @@ const Index = () => {
               href="https://linktr.ee/sweetlifeanimes" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group"
+              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.1s_forwards]"
+              aria-label="Visit Sweet Life Animes project"
             >
               <img 
                 src={sweetLifeAnimes} 
-                alt="Sweet Life Animes" 
+                alt="Sweet Life Animes - Creative community for digital art and anime"
+                loading="lazy"
                 className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
               />
               <div className="p-6">
@@ -453,11 +505,13 @@ const Index = () => {
               href="https://linktr.ee/overmepasseia" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group"
+              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.2s_forwards]"
+              aria-label="Visit O Verme Passeia project"
             >
               <img 
                 src={oVermePasseia} 
-                alt="O Verme Passeia"
+                alt="O Verme Passeia - Existential digital art project"
+                loading="lazy"
                 className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
               />
               <div className="p-6">
@@ -481,11 +535,13 @@ const Index = () => {
               href="https://sweetlifeacademy.coursify.me/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group"
+              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.3s_forwards]"
+              aria-label="Visit Sweet Life Academy educational platform"
             >
               <img 
                 src={sweetLifeAcademy} 
-                alt="Sweet Life Academy"
+                alt="Sweet Life Academy - AI education and creator empowerment"
+                loading="lazy"
                 className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
               />
               <div className="p-6">
@@ -509,11 +565,13 @@ const Index = () => {
               href="https://figueiredo-landing-amapa.lovable.app/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group"
+              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.4s_forwards]"
+              aria-label="Visit Figueiredo Law consultancy"
             >
               <img 
                 src={figueiredoLaw} 
-                alt="Figueiredo Law"
+                alt="Figueiredo Law - Digital law and AI ethics consultancy"
+                loading="lazy"
                 className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
               />
               <div className="p-6">
@@ -673,7 +731,7 @@ const Index = () => {
       {/* Gradient Separator */}
       <div className="h-16 bg-gradient-to-b from-[#13283F] to-[#121E2C]"></div>
 
-      {/* Skills & Competencies - Darker Slate */}
+      {/* Skills & Competencies - Darker Slate with Glassmorphism */}
       <section 
         id="skills"
         className="py-20 motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
@@ -686,42 +744,42 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div>
               <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
                 Core Strengths
               </h3>
               <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                <div className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.1s_forwards]">
                   <span className="text-gray-300">Prompt Engineering</span>
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-primary rounded-full shadow-glow"></div>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                <div className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.2s_forwards]">
                   <span className="text-gray-300">AI Ethics & Safety</span>
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-primary rounded-full shadow-glow"></div>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                <div className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.3s_forwards]">
                   <span className="text-gray-300">Human-AI Collaboration</span>
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-primary rounded-full shadow-glow"></div>
                 </div>
               </div>
             </div>
 
             <div>
               <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                <div className="w-2 h-2 bg-accent rounded-full"></div>
                 Growing Areas
               </h3>
               <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                <div className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.1s_forwards]">
                   <span className="text-gray-300">Data Handling & Privacy</span>
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-accent rounded-full shadow-glow"></div>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                <div className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.2s_forwards]">
                   <span className="text-gray-300">AI Model Fine-tuning</span>
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-accent rounded-full shadow-glow"></div>
                 </div>
-                <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                <div className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.3s_forwards]">
                   <span className="text-gray-300">Multi-modal AI Systems</span>
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-accent rounded-full shadow-glow"></div>
                 </div>
               </div>
             </div>
@@ -739,18 +797,46 @@ const Index = () => {
         data-tour="contact"
       >
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-8 text-white">Let's Collaborate</h2>
-          <p className="text-gray-400 mb-8">
-            Ready to transform your business with AI? Let's connect!
+          <h2 className="text-3xl font-bold mb-6 text-white">Let's Collaborate</h2>
+          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+            Ready to transform your business with AI? Let's connect and discuss how we can work together!
           </p>
           
-          <div className="flex justify-center gap-8 mb-10">
+          {/* Call to Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+            <Button 
+              asChild
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow hover:shadow-glow-strong transition-all duration-300"
+              aria-label="Book a discovery call"
+            >
+              <a href="mailto:nauitermaster@hotmail.com?subject=Discovery Call Request">
+                <Calendar className="mr-2 h-5 w-5" />
+                Book a Discovery Call
+              </a>
+            </Button>
+            <Button 
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary/10 transition-all duration-300"
+              aria-label="Download CV"
+            >
+              <a href="/cv-nauiter-master.pdf" download>
+                <Download className="mr-2 h-5 w-5" />
+                Download CV
+              </a>
+            </Button>
+          </div>
+          
+          {/* Social Media Links */}
+          <div className="flex justify-center gap-8">
             <a 
               href="mailto:nauitermaster@hotmail.com" 
               target="_blank"
               rel="noopener noreferrer" 
-              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-all duration-300"
-              aria-label="Email"
+              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(0,196,255,0.6)] transition-all duration-300"
+              aria-label="Contact via email - nauitermaster@hotmail.com"
             >
               <Mail className="w-8 h-8" />
             </a>
@@ -758,8 +844,8 @@ const Index = () => {
               href="https://facebook.com/nauiter.master" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-all duration-300"
-              aria-label="Facebook"
+              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(0,196,255,0.6)] transition-all duration-300"
+              aria-label="Follow on Facebook - Nauiter Master"
             >
               <Facebook className="w-8 h-8" />
             </a>
@@ -767,8 +853,8 @@ const Index = () => {
               href="https://instagram.com/nauiter.master" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-all duration-300"
-              aria-label="Instagram"
+              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(0,196,255,0.6)] transition-all duration-300"
+              aria-label="Follow on Instagram - @nauiter.master"
             >
               <Instagram className="w-8 h-8" />
             </a>
@@ -776,8 +862,8 @@ const Index = () => {
               href="https://linkedin.com/in/nauiter-master-678a71144" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-all duration-300"
-              aria-label="LinkedIn"
+              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(0,196,255,0.6)] transition-all duration-300"
+              aria-label="Connect on LinkedIn - Nauiter Master"
             >
               <Linkedin className="w-8 h-8" />
             </a>
@@ -785,10 +871,10 @@ const Index = () => {
               href="https://beacons.ai/nauiter.master" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-all duration-300"
-              aria-label="Beacons"
+              className="hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(0,196,255,0.6)] transition-all duration-300"
+              aria-label="Visit Beacons profile - Nauiter Master all links"
             >
-              <img src={beaconsWhite} alt="Beacons" className="w-8 h-8" />
+              <img src={beaconsWhite} alt="Beacons - All social links" className="w-8 h-8" loading="lazy" />
             </a>
           </div>
         </div>

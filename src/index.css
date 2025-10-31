@@ -8,7 +8,7 @@
 
 @layer base {
   :root {
-    /* Nauiter Master Brand Colors */
+    /* Nauiter Master Brand Colors - Unified #00C4FF Accent */
     --background: 0 0% 99%;
     --foreground: 210 11% 15%;
     
@@ -16,13 +16,13 @@
     --card: 0 0% 100%;
     --card-foreground: 210 11% 15%;
     
-    /* Primary Brand - LinkedIn Blue */
-    --primary: 201 96% 36%;  /* #0077B5 */
+    /* Primary Brand - Cyan #00C4FF */
+    --primary: 194 100% 50%;  /* #00C4FF */
     --primary-foreground: 0 0% 100%;
     
-    /* Accent - Violet for Creative Elements */
-    --accent: 271 68% 61%;  /* #A855F7 */
-    --accent-foreground: 0 0% 100%;
+    /* Accent - Lighter Cyan for highlights */
+    --accent: 194 100% 70%;  /* Lighter #00C4FF variant */
+    --accent-foreground: 210 11% 15%;
     
     /* Secondary & Muted */
     --secondary: 210 17% 95%;
@@ -43,14 +43,15 @@
     
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(217 45% 10%) 0%, hsl(217 40% 16%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(201 96% 36%) 0%, hsl(271 68% 61%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(194 100% 50%) 0%, hsl(194 100% 70%) 100%);
+    --gradient-glassmorphic: linear-gradient(135deg, rgba(0, 196, 255, 0.1) 0%, rgba(0, 196, 255, 0.05) 100%);
     
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(210 11% 15% / 0.05);
     --shadow-md: 0 4px 6px -1px hsl(210 11% 15% / 0.1), 0 2px 4px -1px hsl(210 11% 15% / 0.06);
     --shadow-lg: 0 10px 15px -3px hsl(210 11% 15% / 0.1), 0 4px 6px -2px hsl(210 11% 15% / 0.05);
-    --shadow-glow-blue: 0 0 20px hsl(201 96% 36% / 0.3);
-    --shadow-glow-violet: 0 0 20px hsl(271 68% 61% / 0.3);
+    --shadow-glow: 0 0 20px hsl(194 100% 50% / 0.3);
+    --shadow-glow-strong: 0 0 30px hsl(194 100% 50% / 0.5);
     
     /* Other tokens */
     --destructive: 0 84% 60%;
@@ -75,10 +76,10 @@
     --foreground: 0 0% 98%;
     --card: 210 11% 9%;
     --card-foreground: 0 0% 98%;
-    --primary: 201 96% 40%;
+    --primary: 194 100% 50%;
     --primary-foreground: 0 0% 100%;
-    --accent: 271 68% 65%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 194 100% 70%;
+    --accent-foreground: 210 11% 15%;
     --secondary: 210 11% 12%;
     --secondary-foreground: 0 0% 98%;
     --muted: 210 11% 12%;
