@@ -3,11 +3,13 @@ import { useState, useEffect, useCallback } from 'react';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import type { Container, Engine } from "@tsparticles/engine";
+import { Mail, Facebook, Instagram, Linkedin } from "lucide-react";
 import portfolioAvatar from "@/assets/nauiter-professional.png";
 import sweetLifeAnimes from "@/assets/sweet-life-animes-2.png";
 import sweetLifeAcademy from "@/assets/sweet-life-academy-2.jpg";
 import oVermePasseia from "@/assets/o-verme-passeia-2.png";
 import figueiredoLaw from "@/assets/figueiredo-law-2.png";
+import beaconsWhite from "@/assets/beacons-white.png";
 import { ProjectEditor } from "@/components/ProjectEditor";
 import { FloatingNavbar } from "@/components/FloatingNavbar";
 import { Brain, Image, Music, Zap } from "lucide-react";
@@ -747,46 +749,46 @@ const Index = () => {
               href="mailto:nauitermaster@hotmail.com" 
               target="_blank"
               rel="noopener noreferrer" 
-              className="hover:scale-110 transition-transform duration-300"
+              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-all duration-300"
               aria-label="Email"
             >
-              <img src="/icons/email.svg" alt="Email" className="w-8 h-8" />
+              <Mail className="w-8 h-8" />
             </a>
             <a 
               href="https://facebook.com/nauiter.master" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="hover:scale-110 transition-transform duration-300"
+              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-all duration-300"
               aria-label="Facebook"
             >
-              <img src="/icons/facebook.svg" alt="Facebook" className="w-8 h-8" />
+              <Facebook className="w-8 h-8" />
             </a>
             <a 
               href="https://instagram.com/nauiter.master" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="hover:scale-110 transition-transform duration-300"
+              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-all duration-300"
               aria-label="Instagram"
             >
-              <img src="/icons/instagram.svg" alt="Instagram" className="w-8 h-8" />
+              <Instagram className="w-8 h-8" />
             </a>
             <a 
               href="https://linkedin.com/in/nauiter-master-678a71144" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="hover:scale-110 transition-transform duration-300"
+              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-all duration-300"
               aria-label="LinkedIn"
             >
-              <img src="/icons/linkedin.svg" alt="LinkedIn" className="w-8 h-8" />
+              <Linkedin className="w-8 h-8" />
             </a>
             <a 
               href="https://beacons.ai/nauiter.master" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="hover:scale-110 transition-transform duration-300"
+              className="hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-all duration-300"
               aria-label="Beacons"
             >
-              <img src="/icons/beacons.svg" alt="Beacons" className="w-8 h-8" />
+              <img src={beaconsWhite} alt="Beacons" className="w-8 h-8" />
             </a>
           </div>
         </div>
