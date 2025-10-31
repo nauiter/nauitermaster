@@ -883,11 +883,11 @@ const Index = () => {
       {/* Footer - Nauiter Master Signature */}
       <footer
         id="nauiter-footer"
-        className="w-full bg-[hsl(var(--footer-bg))] text-white py-8 text-center border-t border-white/10 relative overflow-hidden animate-fade-in-footer"
+        className="w-full bg-[hsl(var(--footer-bg))] text-white py-6 text-center border-t border-white/5 relative overflow-hidden animate-fade-in-footer shadow-[0_-2px_10px_rgba(0,0,0,0.4)]"
       >
         <div className="container mx-auto px-4">
           {/* Linha principal */}
-          <p className="text-[clamp(0.85rem,1vw,1rem)] leading-relaxed">
+          <p className="text-[clamp(0.85rem,1vw,1rem)] leading-relaxed opacity-90">
             © 2025{" "}
             <strong className="text-white font-semibold tracking-wide transition-colors duration-300 hover:text-[hsl(var(--bronze-soft))]">
               Developer — Nauiter Master
@@ -896,7 +896,7 @@ const Index = () => {
           </p>
 
           {/* Linha de assinatura */}
-          <span className="block mt-2 text-[0.85rem] italic text-white opacity-70 animate-bronze-glow">
+          <span className="block mt-2 text-[0.85rem] italic text-white/70 animate-bronze-glow">
             Sic Mundus Creatus Est
           </span>
         </div>
