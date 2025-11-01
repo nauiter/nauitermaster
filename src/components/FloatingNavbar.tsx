@@ -15,30 +15,39 @@ export const FloatingNavbar = () => {
   ];
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
 
-      // Get all sections
-      const sections = navItems.map(item => ({
-        id: item.id,
-        element: document.getElementById(item.id)
-      }));
+          // Get all sections
+          const sections = navItems.map(item => ({
+            id: item.id,
+            element: document.getElementById(item.id)
+          }));
 
-      // Find which section is currently in view
-      const currentSection = sections.find(section => {
-        if (section.element) {
-          const rect = section.element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
+          // Find which section is currently in view
+          const currentSection = sections.find(section => {
+            if (section.element) {
+              const rect = section.element.getBoundingClientRect();
+              return rect.top <= 100 && rect.bottom >= 100;
+            }
+            return false;
+          });
 
-      if (currentSection) {
-        setActiveSection(currentSection.id);
+          if (currentSection) {
+            setActiveSection(currentSection.id);
+          }
+
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Check initial position
 
     return () => window.removeEventListener('scroll', handleScroll);

@@ -44,90 +44,112 @@ export const OnboardingTour: React.FC<OnboardingTourProps> = ({
   useEffect(() => {
     if (!isOpen || steps.length === 0) return;
 
+    let rafId: number | null = null;
+    let resizeTicking = false;
+    let scrollTicking = false;
+
     const updateTooltipPosition = () => {
       const target = document.querySelector(steps[currentStep].target);
       if (!target) return;
 
-      const rect = target.getBoundingClientRect();
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-      
-      // Get viewport dimensions
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-      const modalWidth = 384; // max-w-sm = 24rem = 384px
-      const modalHeight = 300; // estimated modal height
-      
-      let top = 0;
-      let left = 0;
+      rafId = window.requestAnimationFrame(() => {
+        const rect = target.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        
+        // Get viewport dimensions
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        const modalWidth = 384; // max-w-sm = 24rem = 384px
+        const modalHeight = 300; // estimated modal height
+        
+        let top = 0;
+        let left = 0;
 
-      switch (steps[currentStep].position) {
-        case 'top':
-          top = rect.top + scrollTop - modalHeight - 20;
-          left = rect.left + scrollLeft + rect.width / 2;
-          break;
-        case 'bottom':
-          top = rect.bottom + scrollTop + 20;
-          left = rect.left + scrollLeft + rect.width / 2;
-          break;
-        case 'left':
-          top = rect.top + scrollTop + rect.height / 2;
-          left = rect.left + scrollLeft - modalWidth - 20;
-          break;
-        case 'right':
-          top = rect.top + scrollTop + rect.height / 2;
-          left = rect.right + scrollLeft + 20;
-          break;
-      }
+        switch (steps[currentStep].position) {
+          case 'top':
+            top = rect.top + scrollTop - modalHeight - 20;
+            left = rect.left + scrollLeft + rect.width / 2;
+            break;
+          case 'bottom':
+            top = rect.bottom + scrollTop + 20;
+            left = rect.left + scrollLeft + rect.width / 2;
+            break;
+          case 'left':
+            top = rect.top + scrollTop + rect.height / 2;
+            left = rect.left + scrollLeft - modalWidth - 20;
+            break;
+          case 'right':
+            top = rect.top + scrollTop + rect.height / 2;
+            left = rect.right + scrollLeft + 20;
+            break;
+        }
 
-      // Ensure modal stays within viewport bounds
-      const padding = 20;
-      
-      // Constrain horizontal position
-      if (left + modalWidth > viewportWidth + scrollLeft) {
-        left = viewportWidth + scrollLeft - modalWidth - padding;
-      }
-      if (left < scrollLeft + padding) {
-        left = scrollLeft + padding;
-      }
-      
-      // Constrain vertical position
-      if (top + modalHeight > viewportHeight + scrollTop) {
-        top = viewportHeight + scrollTop - modalHeight - padding;
-      }
-      if (top < scrollTop + padding) {
-        top = scrollTop + padding;
-      }
+        // Ensure modal stays within viewport bounds
+        const padding = 20;
+        
+        // Constrain horizontal position
+        if (left + modalWidth > viewportWidth + scrollLeft) {
+          left = viewportWidth + scrollLeft - modalWidth - padding;
+        }
+        if (left < scrollLeft + padding) {
+          left = scrollLeft + padding;
+        }
+        
+        // Constrain vertical position
+        if (top + modalHeight > viewportHeight + scrollTop) {
+          top = viewportHeight + scrollTop - modalHeight - padding;
+        }
+        if (top < scrollTop + padding) {
+          top = scrollTop + padding;
+        }
 
-      // Ensure modal is always visible
-      top = Math.max(scrollTop + 20, Math.min(top, scrollTop + viewportHeight - 400));
-      left = Math.max(scrollLeft + 20, Math.min(left, scrollLeft + viewportWidth - 400));
+        // Ensure modal is always visible
+        top = Math.max(scrollTop + 20, Math.min(top, scrollTop + viewportHeight - 400));
+        left = Math.max(scrollLeft + 20, Math.min(left, scrollLeft + viewportWidth - 400));
 
-      setTooltipPosition({ top, left });
+        setTooltipPosition({ top, left });
 
-      // Scroll element into view
+        resizeTicking = false;
+        scrollTicking = false;
+      });
+    };
+
+    // Initial position update
+    updateTooltipPosition();
+
+    // Scroll element into view once
+    const target = document.querySelector(steps[currentStep].target);
+    if (target) {
+      target.classList.add('tour-highlight');
       target.scrollIntoView({ 
         behavior: 'smooth', 
         block: 'center',
         inline: 'center'
       });
-    };
-
-    updateTooltipPosition();
-
-    // Add highlight to target element
-    const target = document.querySelector(steps[currentStep].target);
-    if (target) {
-      target.classList.add('tour-highlight');
     }
 
-    const handleResize = () => updateTooltipPosition();
-    const handleScroll = () => updateTooltipPosition();
+    const handleResize = () => {
+      if (!resizeTicking) {
+        updateTooltipPosition();
+        resizeTicking = true;
+      }
+    };
 
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      if (!scrollTicking) {
+        updateTooltipPosition();
+        scrollTicking = true;
+      }
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);
       
