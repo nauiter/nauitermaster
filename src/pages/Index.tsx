@@ -1,9 +1,10 @@
 // AI Portfolio Template - Professional and Interactive
-import { useState, useEffect, useCallback } from 'react';
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
+import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import type { Container, Engine } from "@tsparticles/engine";
 import { Mail, Facebook, Instagram, Linkedin, Download, Calendar, ArrowRight } from "lucide-react";
+
+// Lazy load particles to reduce initial bundle size
+const Particles = lazy(() => import("@tsparticles/react"));
 import { Button } from "@/components/ui/button";
 import portfolioAvatar from "@/assets/nauiter-professional.png";
 import sweetLifeAnimes from "@/assets/sweet-life-animes-2.png";
@@ -76,13 +77,19 @@ const Index = () => {
     }
   ]);
 
-  // Initialize particles
+  // Initialize particles with dynamic import
   useEffect(() => {
-    initParticlesEngine(async (engine: Engine) => {
-      await loadSlim(engine);
-    }).then(() => {
+    const initParticles = async () => {
+      const { initParticlesEngine } = await import("@tsparticles/react");
+      const { loadSlim } = await import("@tsparticles/slim");
+      
+      await initParticlesEngine(async (engine: Engine) => {
+        await loadSlim(engine);
+      });
       setInit(true);
-    });
+    };
+    
+    initParticles();
   }, []);
 
   const particlesLoaded = useCallback(async (container?: Container) => {
@@ -177,11 +184,12 @@ const Index = () => {
       >
         {/* Particles Background */}
         {init && (
-          <Particles
-            id="tsparticles"
-            particlesLoaded={particlesLoaded}
-            className="absolute inset-0 z-0"
-            options={{
+          <Suspense fallback={<div className="absolute inset-0 z-0 bg-[#0B1623]" />}>
+            <Particles
+              id="tsparticles"
+              particlesLoaded={particlesLoaded}
+              className="absolute inset-0 z-0"
+              options={{
               background: {
                 color: {
                   value: "#0B1623",
@@ -251,7 +259,8 @@ const Index = () => {
               },
               detectRetina: true,
             }}
-          />
+            />
+          </Suspense>
         )}
         
         <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
