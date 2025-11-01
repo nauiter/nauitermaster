@@ -262,6 +262,10 @@ const Index = () => {
                 src={portfolioAvatar} 
                 alt="Nauiter Master - AI Strategist and Digital Artist professional portrait"
                 loading="eager"
+                fetchPriority="high"
+                width="224"
+                height="224"
+                decoding="async"
                 className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-primary/70 shadow-glow hover:scale-105 transition-transform duration-500 ease-in-out"
               />
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-transparent"></div>
@@ -483,6 +487,9 @@ const Index = () => {
                 src={sweetLifeAnimes} 
                 alt="Sweet Life Animes - Creative community for digital art and anime"
                 loading="lazy"
+                width="408"
+                height="220"
+                decoding="async"
                 className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
               />
               <div className="p-6">
@@ -513,6 +520,9 @@ const Index = () => {
                 src={oVermePasseia} 
                 alt="O Verme Passeia - Existential digital art project"
                 loading="lazy"
+                width="408"
+                height="220"
+                decoding="async"
                 className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
               />
               <div className="p-6">
@@ -543,6 +553,9 @@ const Index = () => {
                 src={sweetLifeAcademy} 
                 alt="Sweet Life Academy - AI education and creator empowerment"
                 loading="lazy"
+                width="408"
+                height="220"
+                decoding="async"
                 className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
               />
               <div className="p-6">
@@ -573,6 +586,9 @@ const Index = () => {
                 src={figueiredoLaw} 
                 alt="Figueiredo Law - Digital law and AI ethics consultancy"
                 loading="lazy"
+                width="408"
+                height="220"
+                decoding="async"
                 className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
               />
               <div className="p-6">
