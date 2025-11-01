@@ -503,7 +503,7 @@ const Index = () => {
 
             {/* O Verme Passeia */}
             <a 
-              href="https://linktr.ee/overmepasseia" 
+              href="https://overmepasseia.lovable.app" 
               target="_blank" 
               rel="noopener noreferrer"
               className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.2s_forwards]"
@@ -654,7 +654,7 @@ const Index = () => {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a 
-                    href="https://linktr.ee/overmepasseia" 
+                    href="https://overmepasseia.lovable.app" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
