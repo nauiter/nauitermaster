@@ -473,7 +473,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Sweet Life Animes */}
             <a 
-              href="https://linktr.ee/sweetlifeanimes" 
+              href="https://sweetlifeanimes.lovable.app" 
               target="_blank" 
               rel="noopener noreferrer"
               className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.1s_forwards]"
