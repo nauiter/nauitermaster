@@ -11,7 +11,7 @@ import sweetLifeAnimes from "@/assets/sweet-life-animes-2.png";
 import sweetLifeAcademy from "@/assets/sweet-life-academy-2.jpg";
 import oVermePasseia from "@/assets/o-verme-passeia-2.png";
 import figueiredoLaw from "@/assets/figueiredo-law-2.png";
-import clickNoPoint from "@/assets/click-no-point.png";
+import clickNoPoint from "@/assets/click-no-point-button.jpg";
 import beaconsWhite from "@/assets/beacons-white.png";
 import { ProjectEditor } from "@/components/ProjectEditor";
 import { FloatingNavbar } from "@/components/FloatingNavbar";
