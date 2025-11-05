@@ -11,6 +11,7 @@ import sweetLifeAnimes from "@/assets/sweet-life-animes-2.png";
 import sweetLifeAcademy from "@/assets/sweet-life-academy-2.jpg";
 import oVermePasseia from "@/assets/o-verme-passeia-2.png";
 import figueiredoLaw from "@/assets/figueiredo-law-2.png";
+import clickNoPoint from "@/assets/click-no-point.png";
 import beaconsWhite from "@/assets/beacons-white.png";
 import { ProjectEditor } from "@/components/ProjectEditor";
 import { FloatingNavbar } from "@/components/FloatingNavbar";
@@ -32,7 +33,7 @@ const Index = () => {
   const [init, setInit] = useState(false);
   const [linkedinFollowers] = useState(5750);
   const [yearsExperience] = useState(6);
-  const [activeProjects] = useState(3);
+  const [activeProjects] = useState(5);
   const [followerCount, setFollowerCount] = useState(0);
   const [experienceCount, setExperienceCount] = useState(0);
   const [projectCount, setProjectCount] = useState(0);
@@ -615,6 +616,39 @@ const Index = () => {
                 </p>
               </div>
             </a>
+
+            {/* Click No Point */}
+            <a 
+              href="https://click-no-point.lovable.app" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.5s_forwards]"
+              aria-label="Visit Click No Point comedy project"
+            >
+              <img 
+                src={clickNoPoint} 
+                alt="Click No Point - Comedy and creative humor project"
+                loading="lazy"
+                width="408"
+                height="220"
+                decoding="async"
+                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
+              />
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Click No Point</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  A creative comedy project exploring irony, timing, and absurd humor in the digital era.
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs text-white">
+                  <span className="bg-amber-600 px-2 py-1 rounded-md">Comedy</span>
+                  <span className="bg-rose-600 px-2 py-1 rounded-md">Humor</span>
+                  <span className="bg-cyan-700 px-2 py-1 rounded-md">Creative Media</span>
+                </div>
+                <p className="mt-4 text-xs text-gray-500 italic">
+                  Impact: Blending humor, simplicity, and reflection in the digital space.
+                </p>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -727,12 +761,13 @@ const Index = () => {
                     href="https://click-no-point.lovable.app" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in flex items-center justify-center"
+                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
                   >
-                    <div className="text-center">
-                      <p className="text-4xl mb-2">🎭</p>
-                      <p className="text-white font-semibold text-sm">Click No Point</p>
-                    </div>
+                    <img 
+                      src={clickNoPoint} 
+                      alt="Click No Point Logo" 
+                      className="w-full h-32 object-contain"
+                    />
                   </a>
                 </TooltipTrigger>
                 <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
