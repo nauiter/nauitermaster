@@ -30,9 +30,9 @@ interface Project {
 
 const Index = () => {
   const [init, setInit] = useState(false);
-  const [linkedinFollowers] = useState(6900);
-  const [yearsExperience] = useState(8);
-  const [activeProjects] = useState(4);
+  const [linkedinFollowers] = useState(5750);
+  const [yearsExperience] = useState(6);
+  const [activeProjects] = useState(3);
   const [followerCount, setFollowerCount] = useState(0);
   const [experienceCount, setExperienceCount] = useState(0);
   const [projectCount, setProjectCount] = useState(0);
@@ -629,10 +629,13 @@ const Index = () => {
         style={{ background: 'linear-gradient(135deg, #0B1623 0%, #0E213A 100%)' }}
       >
         <div className="container mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">Creative & Strategic Ecosystem</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-6">Creative & Strategic Ecosystem</h2>
+          <p className="text-gray-300 text-center mb-12 max-w-3xl mx-auto">
+            Exploring diverse intersections of art, technology, and storytelling — now including comedy.
+          </p>
           
           <TooltipProvider>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
               {/* Sweet Life Animes */}
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -714,6 +717,26 @@ const Index = () => {
                 </TooltipTrigger>
                 <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
                   <p className="max-w-xs">Digital Law & Tech strategy collaboration.</p>
+                </TooltipContent>
+              </Tooltip>
+
+              {/* Click No Point */}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a 
+                    href="https://click-no-point.lovable.app" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in flex items-center justify-center"
+                  >
+                    <div className="text-center">
+                      <p className="text-4xl mb-2">🎭</p>
+                      <p className="text-white font-semibold text-sm">Click No Point</p>
+                    </div>
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
+                  <p className="max-w-xs">A comedic project exploring irony, timing, and digital humor.</p>
                 </TooltipContent>
               </Tooltip>
             </div>
