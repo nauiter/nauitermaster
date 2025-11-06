@@ -12,6 +12,8 @@ import sweetLifeAcademy from "@/assets/sweet-life-academy-2.jpg";
 import oVermePasseia from "@/assets/o-verme-passeia-2.png";
 import figueiredoLaw from "@/assets/figueiredo-law-2.png";
 import clickNoPoint from "@/assets/click-no-point-button.jpg";
+import pomodoroTimer from "@/assets/pomodoro-timer.png";
+import decisionDie from "@/assets/decision-die.png";
 import beaconsWhite from "@/assets/beacons-white.png";
 import { ProjectEditor } from "@/components/ProjectEditor";
 import { FloatingNavbar } from "@/components/FloatingNavbar";
@@ -33,7 +35,7 @@ const Index = () => {
   const [init, setInit] = useState(false);
   const [linkedinFollowers] = useState(5750);
   const [yearsExperience] = useState(6);
-  const [activeProjects] = useState(5);
+  const [activeProjects] = useState(7);
   const [followerCount, setFollowerCount] = useState(0);
   const [experienceCount, setExperienceCount] = useState(0);
   const [projectCount, setProjectCount] = useState(0);
@@ -649,6 +651,72 @@ const Index = () => {
                 </p>
               </div>
             </a>
+
+            {/* Pomodoro Project */}
+            <a 
+              href="https://time-craft-clock.lovable.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.6s_forwards]"
+              aria-label="Visit Pomodoro Project time-management tool"
+            >
+              <img 
+                src={pomodoroTimer} 
+                alt="Pomodoro Project - Minimalist time-management tool"
+                loading="lazy"
+                width="408"
+                height="220"
+                decoding="async"
+                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
+              />
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Pomodoro Project</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  A minimalist time-management tool inspired by the Pomodoro Technique, blending focus and visual clarity.
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs text-white">
+                  <span className="bg-green-600 px-2 py-1 rounded-md">Productivity</span>
+                  <span className="bg-indigo-600 px-2 py-1 rounded-md">Design</span>
+                  <span className="bg-teal-700 px-2 py-1 rounded-md">Focus</span>
+                </div>
+                <p className="mt-4 text-xs text-gray-500 italic">
+                  Impact: Encouraging mindful productivity through simple design.
+                </p>
+              </div>
+            </a>
+
+            {/* Decision Die */}
+            <a 
+              href="https://decisiondie.lovable.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.7s_forwards]"
+              aria-label="Visit Decision Die playful decision tool"
+            >
+              <img 
+                src={decisionDie} 
+                alt="Decision Die - Playful decision-making tool"
+                loading="lazy"
+                width="408"
+                height="220"
+                decoding="async"
+                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
+              />
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Decision Die</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  A playful project that transforms everyday choices into a fun visual experience using a digital decision die.
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs text-white">
+                  <span className="bg-purple-600 px-2 py-1 rounded-md">Creativity</span>
+                  <span className="bg-pink-600 px-2 py-1 rounded-md">Decision</span>
+                  <span className="bg-blue-700 px-2 py-1 rounded-md">Game Design</span>
+                </div>
+                <p className="mt-4 text-xs text-gray-500 italic">
+                  Impact: Turning uncertainty into creativity through design.
+                </p>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -669,7 +737,7 @@ const Index = () => {
           </p>
           
           <TooltipProvider>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-7 gap-6 max-w-6xl mx-auto">
               {/* Sweet Life Animes */}
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -772,6 +840,48 @@ const Index = () => {
                 </TooltipTrigger>
                 <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
                   <p className="max-w-xs">A comedic project exploring irony, timing, and digital humor.</p>
+                </TooltipContent>
+              </Tooltip>
+
+              {/* Pomodoro Project */}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a 
+                    href="https://time-craft-clock.lovable.app/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
+                  >
+                    <img 
+                      src={pomodoroTimer} 
+                      alt="Pomodoro Project Logo" 
+                      className="w-full h-32 object-contain"
+                    />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
+                  <p className="max-w-xs">A minimalist time-management tool inspired by the Pomodoro Technique.</p>
+                </TooltipContent>
+              </Tooltip>
+
+              {/* Decision Die */}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a 
+                    href="https://decisiondie.lovable.app/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
+                  >
+                    <img 
+                      src={decisionDie} 
+                      alt="Decision Die Logo" 
+                      className="w-full h-32 object-contain"
+                    />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
+                  <p className="max-w-xs">A playful project transforming choices into creativity through design.</p>
                 </TooltipContent>
               </Tooltip>
             </div>
