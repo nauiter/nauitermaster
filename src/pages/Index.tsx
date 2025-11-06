@@ -17,6 +17,7 @@ import decisionDie from "@/assets/decision-die.png";
 import beaconsWhite from "@/assets/beacons-white.png";
 import { ProjectEditor } from "@/components/ProjectEditor";
 import { FloatingNavbar } from "@/components/FloatingNavbar";
+import { EcosystemCarousel } from "@/components/EcosystemCarousel";
 import { Brain, Image, Music, Zap } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
@@ -736,156 +737,52 @@ const Index = () => {
             Exploring diverse intersections of art, technology, and storytelling — now including comedy.
           </p>
           
-          <TooltipProvider>
-            <div className="grid grid-cols-2 md:grid-cols-7 gap-6 max-w-6xl mx-auto">
-              {/* Sweet Life Animes */}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a 
-                    href="https://sweetlifeanimes.lovable.app" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
-                  >
-                    <img 
-                      src={sweetLifeAnimes} 
-                      alt="Sweet Life Animes Logo" 
-                      className="w-full h-32 object-contain"
-                    />
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
-                  <p className="max-w-xs">AI-driven anime and art community.</p>
-                </TooltipContent>
-              </Tooltip>
-
-              {/* Sweet Life Academy */}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a 
-                    href="https://sweetlifeacademy.coursify.me/" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
-                  >
-                    <img 
-                      src={sweetLifeAcademy} 
-                      alt="Sweet Life Academy Logo" 
-                      className="w-full h-32 object-contain"
-                    />
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
-                  <p className="max-w-xs">Educational and mentorship hub for AI creatives.</p>
-                </TooltipContent>
-              </Tooltip>
-
-              {/* O Verme Passeia */}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a 
-                    href="https://overmepasseia.lovable.app" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
-                  >
-                    <img 
-                      src={oVermePasseia} 
-                      alt="O Verme Passeia Logo" 
-                      className="w-full h-32 object-contain"
-                    />
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
-                  <p className="max-w-xs">Philosophical AI-art project exploring existential design.</p>
-                </TooltipContent>
-              </Tooltip>
-
-              {/* Figueiredo Law */}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a 
-                    href="https://figueiredo-landing-amapa.lovable.app/" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
-                  >
-                    <img 
-                      src={figueiredoLaw} 
-                      alt="Figueiredo Law Logo" 
-                      className="w-full h-32 object-contain"
-                    />
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
-                  <p className="max-w-xs">Digital Law & Tech strategy collaboration.</p>
-                </TooltipContent>
-              </Tooltip>
-
-              {/* Click No Point */}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a 
-                    href="https://click-no-point.lovable.app" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
-                  >
-                    <img 
-                      src={clickNoPoint} 
-                      alt="Click No Point Logo" 
-                      className="w-full h-32 object-contain"
-                    />
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
-                  <p className="max-w-xs">A comedic project exploring irony, timing, and digital humor.</p>
-                </TooltipContent>
-              </Tooltip>
-
-              {/* Pomodoro Project */}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a 
-                    href="https://time-craft-clock.lovable.app/" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
-                  >
-                    <img 
-                      src={pomodoroTimer} 
-                      alt="Pomodoro Project Logo" 
-                      className="w-full h-32 object-contain"
-                    />
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
-                  <p className="max-w-xs">A minimalist time-management tool inspired by the Pomodoro Technique.</p>
-                </TooltipContent>
-              </Tooltip>
-
-              {/* Decision Die */}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a 
-                    href="https://decisiondie.lovable.app/" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-slate-900 p-4 rounded-xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,119,181,0.3)] motion-safe:animate-fade-in"
-                  >
-                    <img 
-                      src={decisionDie} 
-                      alt="Decision Die Logo" 
-                      className="w-full h-32 object-contain"
-                    />
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
-                  <p className="max-w-xs">A playful project transforming choices into creativity through design.</p>
-                </TooltipContent>
-              </Tooltip>
-            </div>
-          </TooltipProvider>
+          <EcosystemCarousel 
+            projects={[
+              {
+                name: "Sweet Life Animes",
+                purpose: "Empowering digital artists and creative communities.",
+                image: sweetLifeAnimes,
+                url: "https://sweetlifeanimes.lovable.app"
+              },
+              {
+                name: "O Verme Passeia",
+                purpose: "Exploring philosophy and aesthetics through design.",
+                image: oVermePasseia,
+                url: "https://overmepasseia.lovable.app"
+              },
+              {
+                name: "Sweet Life Academy",
+                purpose: "Helping creators grow with strategy and knowledge.",
+                image: sweetLifeAcademy,
+                url: "https://sweetlifeacademy.coursify.me/"
+              },
+              {
+                name: "Figueiredo Law",
+                purpose: "Bridging law, technology, and ethics.",
+                image: figueiredoLaw,
+                url: "https://figueiredo-landing-amapa.lovable.app/"
+              },
+              {
+                name: "Click No Point",
+                purpose: "Finding humor in simplicity and digital irony.",
+                image: clickNoPoint,
+                url: "https://click-no-point.lovable.app"
+              },
+              {
+                name: "Pomodoro Project",
+                purpose: "Encouraging focus and mindful productivity.",
+                image: pomodoroTimer,
+                url: "https://time-craft-clock.lovable.app/"
+              },
+              {
+                name: "Decision Die",
+                purpose: "Turning choices into playful design moments.",
+                image: decisionDie,
+                url: "https://decisiondie.lovable.app/"
+              }
+            ]}
+          />
         </div>
       </section>
 
