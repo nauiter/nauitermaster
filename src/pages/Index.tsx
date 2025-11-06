@@ -508,7 +508,7 @@ const Index = () => {
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Sweet Life Animes</h3>
                 <p className="text-sm text-gray-600 mb-4">
-                  Creative community uniting digital art, anime, and AI with exclusive content and strategies for creators.
+                  Empowering digital artists and creative communities.
                 </p>
                 <div className="flex flex-wrap gap-2 text-xs text-white">
                   <span className="bg-indigo-600 px-2 py-1 rounded-md">AI</span>
@@ -541,7 +541,7 @@ const Index = () => {
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">O Verme Passeia</h3>
                 <p className="text-sm text-gray-600 mb-4">
-                  Existential and aesthetic project inspired by Texhnolyze, Ergo Proxy, and Soviet post-punk.
+                  Exploring philosophy and aesthetics through design.
                 </p>
                 <div className="flex flex-wrap gap-2 text-xs text-white">
                   <span className="bg-gray-800 px-2 py-1 rounded-md">Philosophy</span>
@@ -574,7 +574,7 @@ const Index = () => {
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Sweet Life Academy</h3>
                 <p className="text-sm text-gray-600 mb-4">
-                  Educational platform empowering creators to grow and monetize with AI strategies.
+                  Helping creators grow with strategy and knowledge.
                 </p>
                 <div className="flex flex-wrap gap-2 text-xs text-white">
                   <span className="bg-blue-600 px-2 py-1 rounded-md">AI Education</span>
@@ -957,15 +957,6 @@ const Index = () => {
               aria-label="Connect on LinkedIn - Nauiter Master"
             >
               <Linkedin className="w-8 h-8" />
-            </a>
-            <a 
-              href="https://beacons.ai/nauiter.master" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(0,196,255,0.6)] transition-all duration-300"
-              aria-label="Visit Beacons profile - Nauiter Master all links"
-            >
-              <img src={beaconsWhite} alt="Beacons - All social links" className="w-8 h-8" loading="lazy" />
             </a>
           </div>
         </div>
