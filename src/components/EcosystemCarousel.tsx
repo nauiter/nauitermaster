@@ -27,7 +27,7 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
   }, [api]);
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4">
+    <div className="w-full max-w-6xl mx-auto px-6 md:px-10 lg:px-14">
       <Carousel
         setApi={setApi}
         opts={{
@@ -42,9 +42,9 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
         ]}
         className="w-full"
       >
-        <CarouselContent className="-ml-4">
+        <CarouselContent className="-ml-3">
           {projects.map((project, index) => (
-            <CarouselItem key={index} className="pl-4 md:basis-1/3">
+            <CarouselItem key={index} className="pl-3 md:basis-1/3">
               <a
                 href={project.url}
                 target="_blank"
