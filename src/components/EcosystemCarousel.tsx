@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import type { CarouselApi } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -27,7 +27,7 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
   }, [api]);
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-12">
+    <div className="w-full max-w-6xl mx-auto px-4">
       <Carousel
         setApi={setApi}
         opts={{
@@ -37,7 +37,7 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
         plugins={[
           Autoplay({
             delay: 5000,
-            stopOnInteraction: true,
+            stopOnInteraction: false,
           }),
         ]}
         className="w-full"
@@ -51,7 +51,7 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
                 rel="noopener noreferrer"
                 className="block group"
               >
-                <div className="bg-slate-900 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,119,181,0.4)]">
+                <div className="bg-slate-900 rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,119,181,0.4)] border-[1.5px] border-white/40">
                   {/* Image Container */}
                   <div className="p-4 flex items-center justify-center h-40 bg-slate-900">
                     <img
@@ -75,9 +75,6 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        
-        <CarouselPrevious className="bg-slate-800 border-slate-700 text-white hover:bg-slate-700 hover:text-white -left-6" />
-        <CarouselNext className="bg-slate-800 border-slate-700 text-white hover:bg-slate-700 hover:text-white -right-6" />
       </Carousel>
     </div>
   );
