@@ -35,7 +35,7 @@ interface Project {
 const Index = () => {
   const [init, setInit] = useState(false);
   const [linkedinFollowers] = useState(5750);
-  const [yearsExperience] = useState(6);
+  const [yearsExperience] = useState(14);
   const [activeProjects] = useState(7);
   const [followerCount, setFollowerCount] = useState(0);
   const [experienceCount, setExperienceCount] = useState(0);
