@@ -974,7 +974,7 @@ const Index = () => {
             <strong className="text-white font-semibold tracking-wide transition-colors duration-300 hover:text-[hsl(var(--bronze-soft))]">
               Developer — Nauiter Master
             </strong>{" "}
-            | Todos os direitos reservados
+            | All Rights Reserved
           </p>
 
           {/* Linha de assinatura */}
