@@ -392,9 +392,9 @@ const Index = () => {
           {/* Two Groups Layout */}
           <div className="mt-12 max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
             {/* Creative AI Group */}
-            <div>
+            <div className="flex flex-col">
               <h3 className="text-left text-[#7A5FFF] font-semibold mb-4 text-lg">Creative AI</h3>
-              <div className="space-y-4">
+              <div className="grid grid-rows-2 gap-4 flex-1">
                 {/* Text AI Card */}
                 <motion.div
                   whileHover={{ scale: 1.03 }}
@@ -402,13 +402,13 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#7A5FFF]/30 transition-all"
+                  className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#7A5FFF]/30 transition-all flex flex-col"
                 >
                   <div className="flex items-center gap-3 mb-2 text-white">
                     <Brain className="w-6 h-6 text-[#7A5FFF]" />
                     <h4 className="font-semibold text-lg">Text AI</h4>
                   </div>
-                  <p className="text-gray-400 text-sm mb-3">
+                  <p className="text-gray-400 text-sm mb-3 flex-1">
                     GPTs, Claude, Llama — advanced prompt engineering & ideation workflows.
                   </p>
                   <div className="space-y-1">
@@ -432,13 +432,13 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#7A5FFF]/30 transition-all"
+                  className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#7A5FFF]/30 transition-all flex flex-col"
                 >
                   <div className="flex items-center gap-3 mb-2 text-white">
                     <Image className="w-6 h-6 text-[#7A5FFF]" />
                     <h4 className="font-semibold text-lg">Image / Video AI</h4>
                   </div>
-                  <p className="text-gray-400 text-sm mb-3">
+                  <p className="text-gray-400 text-sm mb-3 flex-1">
                     Midjourney, Leonardo, Runway — creative workflow efficiency.
                   </p>
                   <div className="space-y-1">
@@ -457,10 +457,9 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Technical AI Group */}
-            <div>
+            <div className="flex flex-col">
               <h3 className="text-left text-[#00C4FF] font-semibold mb-4 text-lg">Technical AI</h3>
-              <div className="space-y-4">
+              <div className="grid grid-rows-2 gap-4 flex-1">
                 {/* Audio AI Card */}
                 <motion.div
                   whileHover={{ scale: 1.03 }}
@@ -468,13 +467,13 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#00C4FF]/30 transition-all"
+                  className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#00C4FF]/30 transition-all flex flex-col"
                 >
                   <div className="flex items-center gap-3 mb-2 text-white">
                     <Music className="w-6 h-6 text-[#00C4FF]" />
                     <h4 className="font-semibold text-lg">Audio AI</h4>
                   </div>
-                  <p className="text-gray-400 text-sm mb-3">
+                  <p className="text-gray-400 text-sm mb-3 flex-1">
                     ElevenLabs, MusicLM — Voice & sound synthesis for storytelling.
                   </p>
                   <div className="space-y-1">
@@ -498,13 +497,13 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#00C4FF]/30 transition-all"
+                  className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#00C4FF]/30 transition-all flex flex-col"
                 >
                   <div className="flex items-center gap-3 mb-2 text-white">
                     <Zap className="w-6 h-6 text-[#00C4FF]" />
                     <h4 className="font-semibold text-lg">Automation</h4>
                   </div>
-                  <p className="text-gray-400 text-sm mb-3">
+                  <p className="text-gray-400 text-sm mb-3 flex-1">
                     Python, Zapier, Make — Workflow automation & efficiency.
                   </p>
                   <div className="space-y-1">
