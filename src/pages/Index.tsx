@@ -1,7 +1,8 @@
 // AI Portfolio Template - Professional and Interactive
 import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import type { Container, Engine } from "@tsparticles/engine";
-import { Mail, Facebook, Instagram, Linkedin, Download, Calendar, ArrowRight } from "lucide-react";
+import { Mail, Facebook, Instagram, Linkedin, Download, Calendar, ArrowRight, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Lazy load particles to reduce initial bundle size
 const Particles = lazy(() => import("@tsparticles/react"));
@@ -268,9 +269,18 @@ const Index = () => {
         )}
         
         <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
-          {/* Profile Image */}
-          <div className="flex justify-center mb-6 motion-safe:animate-fade-in motion-safe:animation-delay-[200ms]">
-            <div className="relative">
+          {/* Profile Image with Enhanced Glow */}
+          <motion.div 
+            className="flex justify-center mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <motion.div 
+              className="relative"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
               <img 
                 src={portfolioAvatar} 
                 alt="Nauiter Master - AI Strategist and Digital Artist professional portrait"
@@ -279,51 +289,78 @@ const Index = () => {
                 width="224"
                 height="224"
                 decoding="async"
-                className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-primary/70 shadow-glow hover:scale-105 transition-transform duration-500 ease-in-out"
+                className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover ring-2 ring-[#6366F1] shadow-[0_0_30px_#6366F180,0_0_60px_#8B5CF640] transition-all duration-500 ease-in-out"
               />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-transparent"></div>
-            </div>
-          </div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#8B5CF6]/20 via-[#6366F1]/10 to-transparent pointer-events-none"></div>
+            </motion.div>
+          </motion.div>
 
-          {/* Name & Titles */}
-          <div className="space-y-6 motion-safe:animate-fade-in motion-safe:animation-delay-[400ms]">
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight">
+          {/* Name & Titles with Gradient Typography */}
+          <motion.div 
+            className="space-y-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.2, ease: "easeOut" }}
+          >
+            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6] via-[#6366F1] to-[#06B6D4]">
               Nauiter Master
             </h1>
-            <p className="text-lg md:text-xl text-[#AAB4C2] font-medium max-w-2xl mx-auto">
-              Exploring the edge between <span className="text-primary">Intelligence</span>, <span className="text-accent">Art</span>, and <span className="text-primary">Automation</span>.
+            <p className="text-lg md:text-xl text-[#C7D2FE]/90 font-medium max-w-2xl mx-auto">
+              Exploring the edge between <span className="text-[#7A5FFF]">Intelligence</span>, <span className="text-[#00C4FF]">Art</span>, and <span className="text-[#5DE4FF]">Automation</span>.
             </p>
-            <p className="text-base md:text-lg text-[#B8C2CC] max-w-3xl mx-auto">
-              AI Strategist & Digital Artist | Systems Analyst | Founder of Sweet Life Animes & O Verme Passeia.
+            <p className="text-sm md:text-base text-gray-400/80 max-w-3xl mx-auto">
+              AI Strategist & Digital Artist | Founder of Sweet Life Animes & O Verme Passeia
             </p>
             
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 motion-safe:animate-fade-in motion-safe:animation-delay-[600ms]">
+            {/* CTA Buttons with Enhanced Styling */}
+            <motion.div 
+              className="flex flex-wrap justify-center gap-4 mt-8"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+            >
               <Button 
                 asChild
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow hover:shadow-glow-strong transition-all duration-300"
-                aria-label="Download Nauiter Master's CV in PDF format"
+                className="bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-white font-semibold px-8 py-3 rounded-full shadow-lg shadow-[#7A5FFF]/30 hover:shadow-xl hover:shadow-[#00C4FF]/40 transition-all duration-300 hover:scale-105 group border border-transparent"
               >
-                <a href="/Nauiter_Master_Profile.pdf" download="Nauiter_Master_Profile.pdf">
-                  <Download className="mr-2 h-5 w-5" />
+                <a 
+                  href="/Nauiter_Master_Profile.pdf" 
+                  download="Nauiter_Master_Profile.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <Download className="w-5 h-5 group-hover:animate-bounce" />
                   Download CV
                 </a>
               </Button>
+              
               <Button 
                 asChild
-                size="lg"
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary/10 transition-all duration-300"
-                aria-label="View Nauiter Master's portfolio projects"
+                size="lg"
+                className="border border-[#7A5FFF]/50 text-white/90 hover:bg-white/10 hover:border-[#7A5FFF] backdrop-blur-sm transition-all duration-300 hover:scale-105 px-8 py-3 rounded-full group"
               >
-                <a href="#projects">
-                  <ArrowRight className="mr-2 h-5 w-5" />
+                <a 
+                  href="#projects" 
+                  className="flex items-center gap-2"
+                >
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   View My Projects
                 </a>
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
+          
+          {/* Scroll Cue */}
+          <motion.div
+            className="absolute bottom-20 left-1/2 -translate-x-1/2 text-gray-500/60"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          >
+            <ChevronDown className="w-7 h-7" />
+          </motion.div>
         </div>
 
         {/* Decorative gradient overlay */}
