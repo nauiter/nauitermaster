@@ -338,9 +338,8 @@ const Index = () => {
               
               <Button 
                 asChild
-                variant="outline"
                 size="lg"
-                className="border border-[#7A5FFF]/50 text-white/90 hover:bg-white/10 hover:border-[#7A5FFF] backdrop-blur-sm transition-all duration-300 hover:scale-105 px-8 py-3 rounded-full group"
+                className="bg-white/90 text-gray-900 font-semibold px-8 py-3 rounded-full border border-gray-200/50 shadow-md hover:bg-white hover:shadow-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm group"
               >
                 <a 
                   href="#projects" 
@@ -373,139 +372,157 @@ const Index = () => {
       {/* AI Tools Mastery Section - Dark Navy Gradient with Glassmorphism */}
       <section 
         id="ai-tools"
-        className="py-20 motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
-        style={{ background: 'linear-gradient(135deg, #0B1623 0%, #0E213A 100%)' }}
+        className="relative z-10 py-24 bg-gradient-to-b from-[#0A1A2F] to-[#0C1222]" 
         data-tour="ai-tools"
       >
         <div className="container mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-semibold text-white text-center mb-4">AI Tools Mastery</h2>
-          <p className="text-gray-300 text-center mb-12 max-w-2xl mx-auto">
-            Expert in AI prompt workflows and automation pipelines with practical applications
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-center mb-3"
+          >
+            AI Tools Mastery
+          </motion.h2>
+          <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+            Expert in AI prompt workflows and automation pipelines for creative expression.
           </p>
           
-          <TooltipProvider>
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              {/* Text AI */}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 hover:bg-white/15 transition-all duration-400 ease-in-out border border-white/10 motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.1s_forwards]">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Brain className="w-6 h-6 text-primary" />
-                      <h3 className="font-semibold text-white text-lg">Text AI</h3>
+          {/* Two Groups Layout */}
+          <div className="mt-12 max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+            {/* Creative AI Group */}
+            <div>
+              <h3 className="text-left text-[#7A5FFF] font-semibold mb-4 text-lg">Creative AI</h3>
+              <div className="space-y-4">
+                {/* Text AI Card */}
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#7A5FFF]/30 transition-all"
+                >
+                  <div className="flex items-center gap-3 mb-2 text-white">
+                    <Brain className="w-6 h-6 text-[#7A5FFF]" />
+                    <h4 className="font-semibold text-lg">Text AI</h4>
+                  </div>
+                  <p className="text-gray-400 text-sm mb-3">
+                    GPTs, Claude, Llama — advanced prompt engineering & ideation workflows.
+                  </p>
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-sm text-gray-400">
+                      <span>Proficiency</span>
+                      <span className="text-[#7A5FFF] font-semibold">98%</span>
                     </div>
-                    <p className="text-sm text-gray-300 mb-4">
-                      GPT, Claude, LLaMA - Advanced prompt engineering
-                    </p>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm text-gray-400 mb-1">
-                        <span>Proficiency</span>
-                        <span className="text-primary font-semibold">95%</span>
-                      </div>
-                      <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
-                        <div 
-                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out shadow-glow"
-                          style={{ width: '95%' }}
-                        ></div>
-                      </div>
+                    <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                      <div
+                        className="h-2 rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] transition-all duration-1000"
+                        style={{ width: '98%' }}
+                      ></div>
                     </div>
                   </div>
-                </TooltipTrigger>
-                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
-                  <p className="max-w-xs">Expert in AI prompt workflows and automation pipelines. Specialized in conversational AI and content generation.</p>
-                </TooltipContent>
-              </Tooltip>
+                </motion.div>
 
-              {/* Image/Video AI */}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 hover:bg-white/15 transition-all duration-400 ease-in-out border border-white/10 motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.2s_forwards]">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Image className="w-6 h-6 text-primary" />
-                      <h3 className="font-semibold text-white text-lg">Image/Video AI</h3>
+                {/* Image/Video AI Card */}
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#7A5FFF]/30 transition-all"
+                >
+                  <div className="flex items-center gap-3 mb-2 text-white">
+                    <Image className="w-6 h-6 text-[#7A5FFF]" />
+                    <h4 className="font-semibold text-lg">Image / Video AI</h4>
+                  </div>
+                  <p className="text-gray-400 text-sm mb-3">
+                    Midjourney, Leonardo, Runway — creative workflow efficiency.
+                  </p>
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-sm text-gray-400">
+                      <span>Proficiency</span>
+                      <span className="text-[#7A5FFF] font-semibold">95%</span>
                     </div>
-                    <p className="text-sm text-gray-300 mb-4">
-                      Midjourney, DALL·E, RunwayML - Creative workflows
-                    </p>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm text-gray-400 mb-1">
-                        <span>Proficiency</span>
-                        <span className="text-primary font-semibold">90%</span>
-                      </div>
-                      <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
-                        <div 
-                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out shadow-glow"
-                          style={{ width: '90%' }}
-                        ></div>
-                      </div>
+                    <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                      <div
+                        className="h-2 rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] transition-all duration-1000"
+                        style={{ width: '95%' }}
+                      ></div>
                     </div>
                   </div>
-                </TooltipTrigger>
-                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
-                  <p className="max-w-xs">Advanced visual content creation using cutting-edge generative AI tools for images and video production.</p>
-                </TooltipContent>
-              </Tooltip>
-
-              {/* Audio AI */}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 hover:bg-white/15 transition-all duration-400 ease-in-out border border-white/10 motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.3s_forwards]">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Music className="w-6 h-6 text-primary" />
-                      <h3 className="font-semibold text-white text-lg">Audio AI</h3>
-                    </div>
-                    <p className="text-sm text-gray-300 mb-4">
-                      ElevenLabs, MusicGen - Voice & audio synthesis
-                    </p>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm text-gray-400 mb-1">
-                        <span>Proficiency</span>
-                        <span className="text-primary font-semibold">70%</span>
-                      </div>
-                      <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
-                        <div 
-                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out shadow-glow"
-                          style={{ width: '70%' }}
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </TooltipTrigger>
-                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
-                  <p className="max-w-xs">Growing expertise in voice synthesis, music generation, and audio processing using AI tools.</p>
-                </TooltipContent>
-              </Tooltip>
-
-              {/* Automation */}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 hover:bg-white/15 transition-all duration-400 ease-in-out border border-white/10 motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.4s_forwards]">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Zap className="w-6 h-6 text-primary" />
-                      <h3 className="font-semibold text-white text-lg">Automation</h3>
-                    </div>
-                    <p className="text-sm text-gray-300 mb-4">
-                      Python, Zapier, Notion AI, Make - Workflow automation
-                    </p>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm text-gray-400 mb-1">
-                        <span>Proficiency</span>
-                        <span className="text-primary font-semibold">92%</span>
-                      </div>
-                      <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
-                        <div 
-                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out shadow-glow"
-                          style={{ width: '92%' }}
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </TooltipTrigger>
-                <TooltipContent side="top" className="bg-gray-900 text-white border-gray-700">
-                  <p className="max-w-xs">Expert in AI prompt workflows and automation pipelines. Building efficient systems that scale.</p>
-                </TooltipContent>
-              </Tooltip>
+                </motion.div>
+              </div>
             </div>
-          </TooltipProvider>
+
+            {/* Technical AI Group */}
+            <div>
+              <h3 className="text-left text-[#00C4FF] font-semibold mb-4 text-lg">Technical AI</h3>
+              <div className="space-y-4">
+                {/* Audio AI Card */}
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#00C4FF]/30 transition-all"
+                >
+                  <div className="flex items-center gap-3 mb-2 text-white">
+                    <Music className="w-6 h-6 text-[#00C4FF]" />
+                    <h4 className="font-semibold text-lg">Audio AI</h4>
+                  </div>
+                  <p className="text-gray-400 text-sm mb-3">
+                    ElevenLabs, MusicLM — Voice & sound synthesis for storytelling.
+                  </p>
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-sm text-gray-400">
+                      <span>Proficiency</span>
+                      <span className="text-[#00C4FF] font-semibold">90%</span>
+                    </div>
+                    <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                      <div
+                        className="h-2 rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] transition-all duration-1000"
+                        style={{ width: '90%' }}
+                      ></div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Automation Card */}
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#00C4FF]/30 transition-all"
+                >
+                  <div className="flex items-center gap-3 mb-2 text-white">
+                    <Zap className="w-6 h-6 text-[#00C4FF]" />
+                    <h4 className="font-semibold text-lg">Automation</h4>
+                  </div>
+                  <p className="text-gray-400 text-sm mb-3">
+                    Python, Zapier, Make — Workflow automation & efficiency.
+                  </p>
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-sm text-gray-400">
+                      <span>Proficiency</span>
+                      <span className="text-[#00C4FF] font-semibold">92%</span>
+                    </div>
+                    <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                      <div
+                        className="h-2 rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] transition-all duration-1000"
+                        style={{ width: '92%' }}
+                      ></div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
