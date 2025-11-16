@@ -528,249 +528,221 @@ const Index = () => {
       {/* Gradient Separator */}
       <div className="h-16 bg-gradient-to-b from-slate-800 to-[#F7F9FB]"></div>
 
-      {/* Showcase Projects Section - White Background */}
-      <section 
-        id="projects"
-        className="py-20 bg-gradient-to-b from-white to-[#f8fafc] motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
-        data-tour="projects"
-      >
-        <div className="container mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 text-center mb-4">Showcase Projects</h2>
-          <p className="text-center text-gray-600 mb-10">
-            Exploring the intersection of technology, design, and creativity.
+      {/* Showcase Projects Section */}
+      <section id="projects" className="py-24 bg-gradient-to-b from-[#0C1222] to-[#05010E]" data-tour="projects">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
+          >
+            Showcase Projects
+          </motion.h2>
+          <p className="text-gray-400 mt-2 text-sm md:text-base">
+            Exploring the intersection of technology, design, and creativity — one vision at a time.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Sweet Life Animes */}
-            <a 
-              href="https://sweetlifeanimes.lovable.app" 
-              target="_blank" 
+          {/* Creative Universe */}
+          <h3 className="text-left mt-12 mb-6 font-semibold text-[#7A5FFF] uppercase tracking-widest text-sm">
+            Creative Universe
+          </h3>
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <motion.a
+              href="https://sweetlifeanimes.lovable.app"
+              target="_blank"
               rel="noopener noreferrer"
-              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.1s_forwards]"
-              aria-label="Visit Sweet Life Animes project"
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 150 }}
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <img 
-                src={sweetLifeAnimes} 
-                alt="Sweet Life Animes - Creative community for digital art and anime"
-                loading="lazy"
-                width="408"
-                height="220"
-                decoding="async"
-                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Sweet Life Animes</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  Empowering digital artists and creative communities.
-                </p>
-                <div className="flex flex-wrap gap-2 text-xs text-white">
-                  <span className="bg-indigo-600 px-2 py-1 rounded-md">AI</span>
-                  <span className="bg-pink-600 px-2 py-1 rounded-md">Digital Art</span>
-                  <span className="bg-purple-600 px-2 py-1 rounded-md">Community</span>
-                </div>
-                <p className="mt-4 text-xs text-gray-500 italic">
-                  Impact: Helping creators transform passion into business.
-                </p>
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={sweetLifeAnimes}
+                  alt="Sweet Life Animes"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-pink-500/40 to-fuchsia-400/40 opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
-            </a>
+              <div className="p-4 text-left">
+                <h4 className="font-semibold text-white mb-1">Sweet Life Animes</h4>
+                <p className="text-gray-400 text-sm mb-2">Empowering digital artists and creative communities.</p>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">AI</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Digital Art</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Community</span>
+                </div>
+              </div>
+            </motion.a>
 
-            {/* O Verme Passeia */}
-            <a 
-              href="https://overmepasseia.lovable.app" 
-              target="_blank" 
+            <motion.a
+              href="https://sweetlifeacademy.lovable.app"
+              target="_blank"
               rel="noopener noreferrer"
-              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.2s_forwards]"
-              aria-label="Visit O Verme Passeia project"
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 150 }}
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <img 
-                src={oVermePasseia} 
-                alt="O Verme Passeia - Existential digital art project"
-                loading="lazy"
-                width="408"
-                height="220"
-                decoding="async"
-                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">O Verme Passeia</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  Exploring philosophy and aesthetics through design.
-                </p>
-                <div className="flex flex-wrap gap-2 text-xs text-white">
-                  <span className="bg-gray-800 px-2 py-1 rounded-md">Philosophy</span>
-                  <span className="bg-indigo-700 px-2 py-1 rounded-md">Digital Art</span>
-                  <span className="bg-blue-700 px-2 py-1 rounded-md">AI</span>
-                </div>
-                <p className="mt-4 text-xs text-gray-500 italic">
-                  Impact: Exploring philosophy, nihilism, and brutalist aesthetics through digital art.
-                </p>
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={sweetLifeAcademy}
+                  alt="Sweet Life Academy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-500/40 to-cyan-400/40 opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
-            </a>
+              <div className="p-4 text-left">
+                <h4 className="font-semibold text-white mb-1">Sweet Life Academy</h4>
+                <p className="text-gray-400 text-sm mb-2">Helping creators grow with AI strategy and education.</p>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">AI Education</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Automation</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Strategy</span>
+                </div>
+              </div>
+            </motion.a>
 
-            {/* Sweet Life Academy */}
-            <a 
-              href="https://sweetlifeacademy.coursify.me/" 
-              target="_blank" 
+            <motion.a
+              href="https://overmepasseia.lovable.app"
+              target="_blank"
               rel="noopener noreferrer"
-              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.3s_forwards]"
-              aria-label="Visit Sweet Life Academy educational platform"
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 150 }}
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <img 
-                src={sweetLifeAcademy} 
-                alt="Sweet Life Academy - AI education and creator empowerment"
-                loading="lazy"
-                width="408"
-                height="220"
-                decoding="async"
-                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Sweet Life Academy</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  Helping creators grow with strategy and knowledge.
-                </p>
-                <div className="flex flex-wrap gap-2 text-xs text-white">
-                  <span className="bg-blue-600 px-2 py-1 rounded-md">AI Education</span>
-                  <span className="bg-yellow-600 px-2 py-1 rounded-md">Automation</span>
-                  <span className="bg-violet-700 px-2 py-1 rounded-md">Strategy</span>
-                </div>
-                <p className="mt-4 text-xs text-gray-500 italic">
-                  Impact: Empowering creators with AI tools and strategies for success.
-                </p>
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={oVermePasseia}
+                  alt="O Verme Passeia"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-amber-600/40 to-zinc-600/40 opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
-            </a>
+              <div className="p-4 text-left">
+                <h4 className="font-semibold text-white mb-1">O Verme Passeia</h4>
+                <p className="text-gray-400 text-sm mb-2">Exploring philosophy and aesthetics through design.</p>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Philosophy</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Digital Art</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">AI</span>
+                </div>
+              </div>
+            </motion.a>
+          </div>
 
-            {/* Figueiredo Law */}
-            <a 
-              href="https://figueiredo-landing-amapa.lovable.app/" 
-              target="_blank" 
+          {/* Experimental Concepts */}
+          <h3 className="text-left mt-6 mb-6 font-semibold text-[#00C4FF] uppercase tracking-widest text-sm">
+            Experimental Concepts
+          </h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            <motion.a
+              href="https://clicknopoint.lovable.app"
+              target="_blank"
               rel="noopener noreferrer"
-              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.4s_forwards]"
-              aria-label="Visit Figueiredo Law consultancy"
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 150 }}
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <img 
-                src={figueiredoLaw} 
-                alt="Figueiredo Law - Digital law and AI ethics consultancy"
-                loading="lazy"
-                width="408"
-                height="220"
-                decoding="async"
-                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Figueiredo Law</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  Digital law firm & AI-driven consultancy supporting creators and businesses.
-                </p>
-                <div className="flex flex-wrap gap-2 text-xs text-white">
-                  <span className="bg-red-700 px-2 py-1 rounded-md">Law</span>
-                  <span className="bg-gray-700 px-2 py-1 rounded-md">Ethics</span>
-                  <span className="bg-orange-700 px-2 py-1 rounded-md">Technology</span>
-                </div>
-                <p className="mt-4 text-xs text-gray-500 italic">
-                  Impact: Bridging technology, law, and ethics in the AI era.
-                </p>
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={clickNoPoint}
+                  alt="Click No Point"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-orange-500/40 to-red-400/40 opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
-            </a>
+              <div className="p-4 text-left">
+                <h4 className="font-semibold text-white mb-1">Click No Point</h4>
+                <p className="text-gray-400 text-sm mb-2">Creative comedy exploring irony and absurdity in the digital era.</p>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Comedy</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Humor</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Creative Media</span>
+                </div>
+              </div>
+            </motion.a>
 
-            {/* Click No Point */}
-            <a 
-              href="https://click-no-point.lovable.app" 
-              target="_blank" 
+            <motion.a
+              href="https://time-craft-clock.lovable.app/"
+              target="_blank"
               rel="noopener noreferrer"
-              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.5s_forwards]"
-              aria-label="Visit Click No Point comedy project"
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 150 }}
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <img 
-                src={clickNoPoint} 
-                alt="Click No Point - Comedy and creative humor project"
-                loading="lazy"
-                width="408"
-                height="220"
-                decoding="async"
-                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Click No Point</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  A creative comedy project exploring irony, timing, and absurd humor in the digital era.
-                </p>
-                <div className="flex flex-wrap gap-2 text-xs text-white">
-                  <span className="bg-amber-600 px-2 py-1 rounded-md">Comedy</span>
-                  <span className="bg-rose-600 px-2 py-1 rounded-md">Humor</span>
-                  <span className="bg-cyan-700 px-2 py-1 rounded-md">Creative Media</span>
-                </div>
-                <p className="mt-4 text-xs text-gray-500 italic">
-                  Impact: Blending humor, simplicity, and reflection in the digital space.
-                </p>
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={pomodoroTimer}
+                  alt="Pomodoro Project"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-green-500/40 to-lime-400/40 opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
-            </a>
+              <div className="p-4 text-left">
+                <h4 className="font-semibold text-white mb-1">Pomodoro Project</h4>
+                <p className="text-gray-400 text-sm mb-2">A minimalist AI-driven time management experiment.</p>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Productivity</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Design</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Focus</span>
+                </div>
+              </div>
+            </motion.a>
 
-            {/* Pomodoro Project */}
-            <a 
-              href="https://time-craft-clock.lovable.app/" 
-              target="_blank" 
+            <motion.a
+              href="https://figueiredolaw.lovable.app"
+              target="_blank"
               rel="noopener noreferrer"
-              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.6s_forwards]"
-              aria-label="Visit Pomodoro Project time-management tool"
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 150 }}
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <img 
-                src={pomodoroTimer} 
-                alt="Pomodoro Project - Minimalist time-management tool"
-                loading="lazy"
-                width="408"
-                height="220"
-                decoding="async"
-                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Pomodoro Project</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  A minimalist time-management tool inspired by the Pomodoro Technique, blending focus and visual clarity.
-                </p>
-                <div className="flex flex-wrap gap-2 text-xs text-white">
-                  <span className="bg-green-600 px-2 py-1 rounded-md">Productivity</span>
-                  <span className="bg-indigo-600 px-2 py-1 rounded-md">Design</span>
-                  <span className="bg-teal-700 px-2 py-1 rounded-md">Focus</span>
-                </div>
-                <p className="mt-4 text-xs text-gray-500 italic">
-                  Impact: Encouraging mindful productivity through simple design.
-                </p>
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={figueiredoLaw}
+                  alt="Figueiredo Law"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-rose-600/40 to-gray-500/40 opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
-            </a>
+              <div className="p-4 text-left">
+                <h4 className="font-semibold text-white mb-1">Figueiredo Law</h4>
+                <p className="text-gray-400 text-sm mb-2">AI consultancy connecting law, ethics, and technology.</p>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Law</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Ethics</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Technology</span>
+                </div>
+              </div>
+            </motion.a>
 
-            {/* Decision Die */}
-            <a 
-              href="https://decisiondie.lovable.app/" 
-              target="_blank" 
+            <motion.a
+              href="https://decisiondie.lovable.app/"
+              target="_blank"
               rel="noopener noreferrer"
-              className="showcase-item block overflow-hidden rounded-2xl shadow-lg bg-white/95 backdrop-blur-md hover:shadow-xl transition duration-300 group motion-safe:opacity-0 motion-safe:translate-y-4 motion-safe:[animation:fadeInUp_0.5s_ease-out_0.7s_forwards]"
-              aria-label="Visit Decision Die playful decision tool"
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 150 }}
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <img 
-                src={decisionDie} 
-                alt="Decision Die - Playful decision-making tool"
-                loading="lazy"
-                width="408"
-                height="220"
-                decoding="async"
-                className="w-full h-56 object-cover transition duration-300 group-hover:brightness-110"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Decision Die</h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  A playful project that transforms everyday choices into a fun visual experience using a digital decision die.
-                </p>
-                <div className="flex flex-wrap gap-2 text-xs text-white">
-                  <span className="bg-purple-600 px-2 py-1 rounded-md">Creativity</span>
-                  <span className="bg-pink-600 px-2 py-1 rounded-md">Decision</span>
-                  <span className="bg-blue-700 px-2 py-1 rounded-md">Game Design</span>
-                </div>
-                <p className="mt-4 text-xs text-gray-500 italic">
-                  Impact: Turning uncertainty into creativity through design.
-                </p>
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={decisionDie}
+                  alt="Decision Die"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/40 to-green-400/40 opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
-            </a>
+              <div className="p-4 text-left">
+                <h4 className="font-semibold text-white mb-1">Decision Die</h4>
+                <p className="text-gray-400 text-sm mb-2">A playful AI experiment to simulate random creativity.</p>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Game</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">AI</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Design</span>
+                </div>
+              </div>
+            </motion.a>
           </div>
         </div>
       </section>
