@@ -276,23 +276,20 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <motion.div 
-              className="relative"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <img 
-                src={portfolioAvatar} 
-                alt="Nauiter Master - AI Strategist and Digital Artist professional portrait"
-                loading="eager"
-                fetchPriority="high"
-                width="224"
-                height="224"
-                decoding="async"
-                className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover ring-2 ring-[#6366F1] shadow-[0_0_30px_#6366F180,0_0_60px_#8B5CF640] transition-all duration-500 ease-in-out"
-              />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#8B5CF6]/20 via-[#6366F1]/10 to-transparent pointer-events-none"></div>
-            </motion.div>
+            <motion.img 
+              src={portfolioAvatar} 
+              alt="Portrait of Nauiter Master — AI Strategist and Digital Artist"
+              loading="eager"
+              fetchPriority="high"
+              width="224"
+              height="224"
+              decoding="async"
+              whileHover={{ scale: 1.04, rotate: 0.5 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover ring-2 ring-[#6366F1] shadow-[0_0_30px_#6366F180,0_0_60px_#8B5CF640]"
+            />
           </motion.div>
 
           {/* Name & Titles with Gradient Typography */}
@@ -305,8 +302,10 @@ const Index = () => {
             <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6] via-[#6366F1] to-[#06B6D4]">
               Nauiter Master
             </h1>
-            <p className="text-lg md:text-xl text-[#C7D2FE]/90 font-medium max-w-2xl mx-auto">
-              Exploring the edge between <span className="text-[#7A5FFF]">Intelligence</span>, <span className="text-[#00C4FF]">Art</span>, and <span className="text-[#5DE4FF]">Automation</span>.
+            <p className="mt-3 text-gray-300 leading-snug tracking-wide">
+              Exploring the edge between <span className="text-[#7A5FFF]">Intelligence</span>,{" "}
+              <span className="text-[#00C4FF]">Art</span>, and{" "}
+              <span className="text-[#5DE4FF]">Automation</span>.
             </p>
             <p className="text-sm md:text-base text-gray-400/80 max-w-3xl mx-auto">
               AI Strategist & Digital Artist | Founder of Sweet Life Animes & O Verme Passeia
@@ -390,7 +389,7 @@ const Index = () => {
           </p>
           
           {/* Two Groups Layout */}
-          <div className="mt-12 max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+          <div className="mt-14 max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
             {/* Creative AI Group */}
             <div className="flex flex-col">
               <h3 className="text-left text-[#7A5FFF] font-semibold mb-4 text-lg">Creative AI</h3>
@@ -553,25 +552,25 @@ const Index = () => {
               href="https://sweetlifeanimes.lovable.app"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.03, y: -5 }}
               transition={{ type: "spring", stiffness: 150 }}
-              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <div className="aspect-video overflow-hidden">
+              <div className="aspect-video relative overflow-hidden">
                 <img
                   src={sweetLifeAnimes}
-                  alt="Sweet Life Animes"
+                  alt="Sweet Life Animes project thumbnail"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-pink-500/40 to-fuchsia-400/40 opacity-40 group-hover:opacity-60 transition-all"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white mb-1">Sweet Life Animes</h4>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">Sweet Life Animes</h4>
                 <p className="text-gray-400 text-sm mb-2">Empowering digital artists and creative communities.</p>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">AI</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Digital Art</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Community</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">AI</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Digital Art</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Community</span>
                 </div>
               </div>
             </motion.a>
@@ -580,25 +579,25 @@ const Index = () => {
               href="https://sweetlifeacademy.lovable.app"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.03, y: -5 }}
               transition={{ type: "spring", stiffness: 150 }}
-              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <div className="aspect-video overflow-hidden">
+              <div className="aspect-video relative overflow-hidden">
                 <img
                   src={sweetLifeAcademy}
-                  alt="Sweet Life Academy"
+                  alt="Sweet Life Academy project thumbnail"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-500/40 to-cyan-400/40 opacity-40 group-hover:opacity-60 transition-all"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white mb-1">Sweet Life Academy</h4>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">Sweet Life Academy</h4>
                 <p className="text-gray-400 text-sm mb-2">Helping creators grow with AI strategy and education.</p>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">AI Education</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Automation</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Strategy</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">AI Education</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Automation</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Strategy</span>
                 </div>
               </div>
             </motion.a>
@@ -607,25 +606,25 @@ const Index = () => {
               href="https://overmepasseia.lovable.app"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.03, y: -5 }}
               transition={{ type: "spring", stiffness: 150 }}
-              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <div className="aspect-video overflow-hidden">
+              <div className="aspect-video relative overflow-hidden">
                 <img
                   src={oVermePasseia}
-                  alt="O Verme Passeia"
+                  alt="O Verme Passeia project thumbnail"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-amber-600/40 to-zinc-600/40 opacity-40 group-hover:opacity-60 transition-all"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white mb-1">O Verme Passeia</h4>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">O Verme Passeia</h4>
                 <p className="text-gray-400 text-sm mb-2">Exploring philosophy and aesthetics through design.</p>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Philosophy</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Digital Art</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">AI</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Philosophy</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Digital Art</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">AI</span>
                 </div>
               </div>
             </motion.a>
@@ -640,25 +639,25 @@ const Index = () => {
               href="https://clicknopoint.lovable.app"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.03, y: -5 }}
               transition={{ type: "spring", stiffness: 150 }}
-              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <div className="aspect-video overflow-hidden">
+              <div className="aspect-video relative overflow-hidden">
                 <img
                   src={clickNoPoint}
-                  alt="Click No Point"
+                  alt="Click No Point project thumbnail"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-orange-500/40 to-red-400/40 opacity-40 group-hover:opacity-60 transition-all"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white mb-1">Click No Point</h4>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">Click No Point</h4>
                 <p className="text-gray-400 text-sm mb-2">Creative comedy exploring irony and absurdity in the digital era.</p>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Comedy</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Humor</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Creative Media</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Comedy</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Humor</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Creative Media</span>
                 </div>
               </div>
             </motion.a>
@@ -667,25 +666,25 @@ const Index = () => {
               href="https://time-craft-clock.lovable.app/"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.03, y: -5 }}
               transition={{ type: "spring", stiffness: 150 }}
-              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <div className="aspect-video overflow-hidden">
+              <div className="aspect-video relative overflow-hidden">
                 <img
                   src={pomodoroTimer}
-                  alt="Pomodoro Project"
+                  alt="Pomodoro Project thumbnail"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-green-500/40 to-lime-400/40 opacity-40 group-hover:opacity-60 transition-all"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white mb-1">Pomodoro Project</h4>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">Pomodoro Project</h4>
                 <p className="text-gray-400 text-sm mb-2">A minimalist AI-driven time management experiment.</p>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Productivity</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Design</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Focus</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Productivity</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Design</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Focus</span>
                 </div>
               </div>
             </motion.a>
@@ -694,25 +693,25 @@ const Index = () => {
               href="https://figueiredolaw.lovable.app"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.03, y: -5 }}
               transition={{ type: "spring", stiffness: 150 }}
-              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <div className="aspect-video overflow-hidden">
+              <div className="aspect-video relative overflow-hidden">
                 <img
                   src={figueiredoLaw}
-                  alt="Figueiredo Law"
+                  alt="Figueiredo Law project thumbnail"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-rose-600/40 to-gray-500/40 opacity-40 group-hover:opacity-60 transition-all"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white mb-1">Figueiredo Law</h4>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">Figueiredo Law</h4>
                 <p className="text-gray-400 text-sm mb-2">AI consultancy connecting law, ethics, and technology.</p>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Law</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Ethics</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Technology</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Law</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Ethics</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Technology</span>
                 </div>
               </div>
             </motion.a>
@@ -721,25 +720,25 @@ const Index = () => {
               href="https://decisiondie.lovable.app/"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.03, y: -5 }}
               transition={{ type: "spring", stiffness: 150 }}
-              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <div className="aspect-video overflow-hidden">
+              <div className="aspect-video relative overflow-hidden">
                 <img
                   src={decisionDie}
-                  alt="Decision Die"
+                  alt="Decision Die project thumbnail"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/40 to-green-400/40 opacity-40 group-hover:opacity-60 transition-all"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white mb-1">Decision Die</h4>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">Decision Die</h4>
                 <p className="text-gray-400 text-sm mb-2">A playful AI experiment to simulate random creativity.</p>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Game</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">AI</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md">Design</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Game</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">AI</span>
+                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Design</span>
                 </div>
               </div>
             </motion.a>
