@@ -824,41 +824,91 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Gradient Separator */}
-      <div className="h-16 bg-gradient-to-b from-slate-900 to-[#0B1623]"></div>
-
-      {/* Impact Metrics Section - White Background with Animated Counters */}
+      {/* Impact Metrics Section - Cosmic Design */}
       <section 
         id="impact"
-        className="impact-section motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]"
+        className="relative py-24 bg-gradient-to-b from-[#0A1A2F] to-[#0C1222] text-center"
       >
-        <div className="container mx-auto px-6">
-          <h2 className="text-center text-3xl font-bold mb-10">Impact Metrics</h2>
-          <div className="flex flex-wrap justify-center gap-16 text-center">
-            <div className="metric">
-              <div>
-                <span className="metric-number">{followerCount}</span>
-                <span className="metric-number">+</span>
-              </div>
-              <p className="text-gray-600 mt-2">LinkedIn Followers</p>
-            </div>
-            <div className="metric">
-              <div>
-                <span className="metric-number">{experienceCount}</span>
-                <span className="metric-number">+</span>
-              </div>
-              <p className="text-gray-600 mt-2">Years Experience</p>
-            </div>
-            <div className="metric">
-              <span className="metric-number">{projectCount}</span>
-              <p className="text-gray-600 mt-2">Active Projects</p>
-            </div>
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
+          >
+            Impact Metrics
+          </motion.h2>
+          <p className="text-gray-400 mt-2 max-w-2xl mx-auto">
+            Expressing creativity through data — each number tells part of the story.
+          </p>
+
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            {/* AI Visuals Generated */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-xl transition-all"
+            >
+              <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
+                200<span className="text-3xl">+</span>
+              </h3>
+              <p className="text-gray-300 text-sm">AI Visuals Generated</p>
+            </motion.div>
+
+            {/* Creative Ecosystems Built */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ scale: 1.05 }}
+              className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-xl transition-all"
+            >
+              <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
+                10<span className="text-3xl">+</span>
+              </h3>
+              <p className="text-gray-300 text-sm">Creative Ecosystems Built</p>
+            </motion.div>
+
+            {/* AI-Driven Brands */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              whileHover={{ scale: 1.05 }}
+              className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-xl transition-all"
+            >
+              <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
+                7
+              </h3>
+              <p className="text-gray-300 text-sm">AI-Driven Brands</p>
+            </motion.div>
+
+            {/* Ideas in Motion */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-xl transition-all"
+            >
+              <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
+                ∞
+              </h3>
+              <p className="text-gray-300 text-sm">Ideas in Motion</p>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Gradient Separator */}
-      <div className="h-16 bg-gradient-to-b from-[#13283F] to-[#121E2C]"></div>
+      <div className="h-16 bg-gradient-to-b from-[#0C1222] to-[#121E2C]"></div>
 
       {/* Skills & Competencies - Darker Slate with Glassmorphism */}
       <section 
