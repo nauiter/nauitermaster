@@ -765,43 +765,57 @@ const Index = () => {
             projects={[
               {
                 name: "Sweet Life Animes",
-                purpose: "Empowering digital artists and creative communities.",
+                purpose: "Empowering digital artists and storytellers.",
+                type: "Creative Brand",
+                color: "from-pink-500 to-fuchsia-400",
                 image: sweetLifeAnimes,
-                url: "https://sweetlifeanimes.lovable.app"
-              },
-              {
-                name: "O Verme Passeia",
-                purpose: "Exploring philosophy and aesthetics through design.",
-                image: oVermePasseia,
-                url: "https://overmepasseia.lovable.app"
+                url: "https://sweetlifeanimes.lovable.app/"
               },
               {
                 name: "Sweet Life Academy",
-                purpose: "Helping creators grow with strategy and knowledge.",
+                purpose: "AI education and automation for creators.",
+                type: "AI Education",
+                color: "from-purple-500 to-cyan-400",
                 image: sweetLifeAcademy,
                 url: "https://sweetlifeacademy.coursify.me/"
               },
               {
-                name: "Figueiredo Law",
-                purpose: "Bridging law, technology, and ethics.",
-                image: figueiredoLaw,
-                url: "https://figueiredo-landing-amapa.lovable.app/"
+                name: "O Verme Passeia",
+                purpose: "Exploring philosophy and aesthetics through design.",
+                type: "Art & Philosophy",
+                color: "from-amber-500 to-yellow-400",
+                image: oVermePasseia,
+                url: "https://overmepasseia.lovable.app"
               },
               {
                 name: "Click No Point",
-                purpose: "Finding humor in simplicity and digital irony.",
+                purpose: "Comedy and humor in the digital era.",
+                type: "Humor & Media",
+                color: "from-orange-500 to-red-400",
                 image: clickNoPoint,
                 url: "https://click-no-point.lovable.app"
               },
               {
                 name: "Pomodoro Project",
-                purpose: "Encouraging focus and mindful productivity.",
+                purpose: "Mindful productivity and focus tools.",
+                type: "Design Tool",
+                color: "from-green-500 to-lime-400",
                 image: pomodoroTimer,
                 url: "https://time-craft-clock.lovable.app/"
               },
               {
+                name: "Figueiredo Law",
+                purpose: "Law, technology, and AI ethics consultancy.",
+                type: "Ethics & AI",
+                color: "from-rose-600 to-gray-500",
+                image: figueiredoLaw,
+                url: "https://figueiredo-landing-amapa.lovable.app/"
+              },
+              {
                 name: "Decision Die",
                 purpose: "Turning choices into playful design moments.",
+                type: "Game & Experiment",
+                color: "from-emerald-500 to-green-400",
                 image: decisionDie,
                 url: "https://decisiondie.lovable.app/"
               }
