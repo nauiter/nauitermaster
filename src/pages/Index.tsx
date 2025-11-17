@@ -966,88 +966,92 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Gradient Separator */}
-      <div className="h-16 bg-gradient-to-b from-[#121E2C] to-[#F7F9FB]"></div>
-
-      {/* Contact Section - Dark Background */}
-      <section 
+      {/* Contact & Collaboration CTA */}
+      <section
         id="contact"
-        className="py-16 bg-[#0B1623] text-center motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]" 
-        data-tour="contact"
+        className="relative py-28 bg-gradient-to-b from-[#05010E] via-[#0A1A2F] to-[#0C1222] text-center overflow-hidden"
       >
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-6 text-white">Let's Collaborate</h2>
-          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Ready to transform your business with AI? Let's connect and discuss how we can work together!
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="relative z-10 max-w-3xl mx-auto px-6"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
+            Let's Co-Create the Future
+          </h2>
+          <p className="text-gray-400 mt-4 text-lg max-w-2xl mx-auto">
+            If your vision connects with mine — let's build something extraordinary.
           </p>
-          
-          {/* Call to Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10 motion-safe:animate-fade-in motion-safe:animation-delay-[200ms]">
-            <Button 
-              asChild
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow hover:shadow-glow-strong transition-all duration-300"
-              aria-label="Book a discovery call with Nauiter Master"
+
+          {/* CTA Buttons */}
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <motion.a
+              href="mailto:nauitermaster@hotmail.com?subject=Let's Collaborate"
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-white font-medium shadow-lg hover:shadow-[0_0_20px_rgba(122,95,255,0.5)] transition-all"
             >
-              <a href="mailto:nauitermaster@hotmail.com?subject=Discovery Call Request">
-                <Calendar className="mr-2 h-5 w-5" />
-                Book a Discovery Call
-              </a>
-            </Button>
-            <Button 
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary/10 transition-all duration-300"
-              aria-label="Download Nauiter Master's CV in PDF format"
+              <Mail size={18} /> Let's Collaborate
+            </motion.a>
+            <motion.a
+              href="#projects"
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center gap-2 px-6 py-3 rounded-full border border-[#7A5FFF80] text-white/90 hover:bg-white/10 transition-all"
             >
-              <a href="/Nauiter_Master_Profile.pdf" download="Nauiter_Master_Profile.pdf">
-                <Download className="mr-2 h-5 w-5" />
-                Download CV
-              </a>
-            </Button>
+              <ArrowRight size={18} /> View My Work Again
+            </motion.a>
           </div>
-          
-          {/* Social Media Links */}
-          <div className="flex justify-center gap-8">
-            <a 
-              href="mailto:nauitermaster@hotmail.com" 
+
+          {/* Social Links */}
+          <div className="flex justify-center gap-6 mt-12 text-gray-400">
+            <motion.a
+              href="mailto:nauitermaster@hotmail.com"
               target="_blank"
-              rel="noopener noreferrer" 
-              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(0,196,255,0.6)] transition-all duration-300"
-              aria-label="Contact via email - nauitermaster@hotmail.com"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, color: "#7A5FFF" }}
+              className="transition-colors"
+              aria-label="Contact via email"
             >
-              <Mail className="w-8 h-8" />
-            </a>
-            <a 
-              href="https://facebook.com/nauiter.master" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(0,196,255,0.6)] transition-all duration-300"
-              aria-label="Follow on Facebook - Nauiter Master"
+              <Mail size={24} />
+            </motion.a>
+            <motion.a
+              href="https://facebook.com/nauiter.master"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, color: "#00C4FF" }}
+              className="transition-colors"
+              aria-label="Follow on Facebook"
             >
-              <Facebook className="w-8 h-8" />
-            </a>
-            <a 
-              href="https://instagram.com/nauiter.master" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(0,196,255,0.6)] transition-all duration-300"
-              aria-label="Follow on Instagram - @nauiter.master"
+              <Facebook size={24} />
+            </motion.a>
+            <motion.a
+              href="https://instagram.com/nauiter.master"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, color: "#7A5FFF" }}
+              className="transition-colors"
+              aria-label="Follow on Instagram"
             >
-              <Instagram className="w-8 h-8" />
-            </a>
-            <a 
-              href="https://linkedin.com/in/nauiter-master-678a71144" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-white hover:opacity-70 hover:drop-shadow-[0_0_8px_rgba(0,196,255,0.6)] transition-all duration-300"
-              aria-label="Connect on LinkedIn - Nauiter Master"
+              <Instagram size={24} />
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com/in/nauiter-master-678a71144"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, color: "#00C4FF" }}
+              className="transition-colors"
+              aria-label="Connect on LinkedIn"
             >
-              <Linkedin className="w-8 h-8" />
-            </a>
+              <Linkedin size={24} />
+            </motion.a>
           </div>
-        </div>
+
+          {/* Footer Line */}
+          <p className="text-gray-500 text-sm mt-10">
+            © {new Date().getFullYear()} Nauiter Master — Crafted with AI & Imagination.
+          </p>
+        </motion.div>
       </section>
 
       {/* Footer - Nauiter Master Signature */}
