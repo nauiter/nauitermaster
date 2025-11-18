@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
+        border: "hsl(var(--border) / 0.15)",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
@@ -22,6 +22,9 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+        },
+        violet: {
+          DEFAULT: "hsl(var(--violet-primary))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -47,18 +50,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // AI Portfolio specific colors
-        strength: {
-          DEFAULT: "hsl(var(--strength))",
-          foreground: "hsl(var(--strength-foreground))",
-        },
-        learning: {
-          DEFAULT: "hsl(var(--learning))",
-          foreground: "hsl(var(--learning-foreground))",
-        },
-        placeholder: {
-          DEFAULT: "hsl(var(--placeholder))",
-          foreground: "hsl(var(--placeholder-foreground))",
+        cosmic: {
+          deep: "hsl(var(--cosmic-deep))",
+          medium: "hsl(var(--cosmic-medium))",
+          base: "hsl(var(--cosmic-base))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -75,15 +70,16 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
-        'gradient-hero': 'var(--gradient-hero)',
-        'gradient-card': 'var(--gradient-card)',
-        'gradient-subtle': 'var(--gradient-subtle)',
+        'gradient-primary': 'linear-gradient(135deg, hsl(257 100% 68%) 0%, hsl(194 100% 50%) 100%)',
+        'gradient-accent': 'linear-gradient(135deg, hsl(194 100% 50%) 0%, hsl(191 100% 68%) 50%, hsl(257 100% 68%) 100%)',
+        'gradient-cosmic': 'linear-gradient(180deg, hsl(257 64% 5%) 0%, hsl(212 56% 11%) 50%, hsl(214 47% 9%) 100%)',
       },
       boxShadow: {
-        'sm': 'var(--shadow-sm)',
-        'md': 'var(--shadow-md)',
-        'lg': 'var(--shadow-lg)',
-        'glow': 'var(--shadow-glow)',
+        'base': '0 0 20px hsl(0 0% 0% / 0.15)',
+        'glow': '0 0 25px hsl(257 100% 68% / 0.35)',
+        'glow-cyan': '0 0 25px hsl(194 100% 50% / 0.35)',
+        'inner-ambient': 'inset 0 0 8px hsl(0 0% 100% / 0.03)',
+        'particle': '0 0 4px hsl(194 100% 50% / 0.35)',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -92,25 +88,37 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0", opacity: "0" },
+          to: { height: "var(--radix-accordion-content-height)", opacity: "1" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)", opacity: "1" },
+          to: { height: "0", opacity: "0" },
+        },
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { boxShadow: "0 0 20px hsl(257 100% 68% / 0.3)" },
+          "50%": { boxShadow: "0 0 40px hsl(257 100% 68% / 0.5)" },
+        },
+        "drift": {
+          from: { backgroundPosition: "0% 0%" },
+          to: { backgroundPosition: "100% 100%" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in-up": "fade-in-up 0.8s cubic-bezier(0.33, 1, 0.68, 1)",
+        "fade-in": "fade-in 0.8s cubic-bezier(0.33, 1, 0.68, 1)",
+        "glow-pulse": "glow-pulse 4s ease-in-out infinite",
+        "drift": "drift 60s linear infinite",
       },
     },
   },
