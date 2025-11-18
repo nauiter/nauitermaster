@@ -8,7 +8,7 @@
 
 @layer base {
   :root {
-    /* Nauiter Master Brand Colors - Unified #00C4FF Accent */
+    /* Nauiter Master Cosmic Design System */
     --background: 0 0% 99%;
     --foreground: 210 11% 15%;
     
@@ -16,12 +16,13 @@
     --card: 0 0% 100%;
     --card-foreground: 210 11% 15%;
     
-    /* Primary Brand - Cyan #00C4FF */
+    /* Primary Gradient - Violet to Cyan (#7A5FFF to #00C4FF) */
     --primary: 194 100% 50%;  /* #00C4FF */
     --primary-foreground: 0 0% 100%;
+    --violet-primary: 257 100% 68%;  /* #7A5FFF */
     
-    /* Accent - Lighter Cyan for highlights */
-    --accent: 194 100% 70%;  /* Lighter #00C4FF variant */
+    /* Accent Gradient */
+    --accent: 194 100% 70%;  /* Lighter cyan */
     --accent-foreground: 210 11% 15%;
     
     /* Secondary & Muted */
@@ -30,28 +31,29 @@
     --muted: 210 17% 95%;
     --muted-foreground: 210 11% 45%;
     
-    /* Navy Background */
-    --navy-dark: 217 45% 10%;  /* #0B1623 */
-    --navy-medium: 217 40% 16%; /* #0E213A */
-    
-    /* Light Background */
-    --light-bg: 210 33% 98%;  /* #F7F9FB */
+    /* Cosmic Background (#05010E → #0A1A2F → #0C1222) */
+    --cosmic-deep: 257 64% 5%;      /* #05010E */
+    --cosmic-medium: 212 56% 11%;   /* #0A1A2F */
+    --cosmic-base: 214 47% 9%;      /* #0C1222 */
     
     /* Text Colors */
-    --text-light: 210 14% 73%;  /* #B8C2CC */
-    --text-dark: 210 11% 23%;   /* #374151 */
+    --text-base: 240 5% 90%;        /* #E4E4E7 */
+    --text-secondary: 240 5% 63%;   /* #A1A1AA */
+    
+    /* Glow & Border */
+    --glow-violet: 257 100% 68%;    /* #7A5FFF with alpha */
+    --border-subtle: 0 0% 100%;     /* White 15% alpha */
+    
+    /* Shadows - Soft and floating */
+    --shadow-base: 0 0 20px hsl(0 0% 0% / 0.15);
+    --shadow-glow: 0 0 25px hsl(257 100% 68% / 0.35);
+    --shadow-inner: inset 0 0 8px hsl(0 0% 100% / 0.03);
+    --shadow-particle: drop-shadow(0 0 4px hsl(194 100% 50% / 0.35));
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(217 45% 10%) 0%, hsl(217 40% 16%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(194 100% 50%) 0%, hsl(194 100% 70%) 100%);
-    --gradient-glassmorphic: linear-gradient(135deg, rgba(0, 196, 255, 0.1) 0%, rgba(0, 196, 255, 0.05) 100%);
-    
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(210 11% 15% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(210 11% 15% / 0.1), 0 2px 4px -1px hsl(210 11% 15% / 0.06);
-    --shadow-lg: 0 10px 15px -3px hsl(210 11% 15% / 0.1), 0 4px 6px -2px hsl(210 11% 15% / 0.05);
-    --shadow-glow: 0 0 20px hsl(194 100% 50% / 0.3);
-    --shadow-glow-strong: 0 0 30px hsl(194 100% 50% / 0.5);
+    --gradient-primary: linear-gradient(135deg, hsl(257 100% 68%) 0%, hsl(194 100% 50%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(194 100% 50%) 0%, hsl(191 100% 68%) 50%, hsl(257 100% 68%) 100%);
+    --gradient-cosmic: linear-gradient(180deg, hsl(257 64% 5%) 0%, hsl(212 56% 11%) 50%, hsl(214 47% 9%) 100%);
     
     /* Other tokens */
     --destructive: 0 84% 60%;
@@ -72,31 +74,32 @@
   }
 
   .dark {
-    --background: 210 11% 7%;
-    --foreground: 0 0% 98%;
-    --card: 210 11% 9%;
-    --card-foreground: 0 0% 98%;
+    --background: 257 64% 5%;       /* Cosmic deep */
+    --foreground: 240 5% 90%;       /* Text base */
+    --card: 214 47% 9%;
+    --card-foreground: 240 5% 90%;
     --primary: 194 100% 50%;
     --primary-foreground: 0 0% 100%;
+    --violet-primary: 257 100% 68%;
     --accent: 194 100% 70%;
-    --accent-foreground: 210 11% 15%;
-    --secondary: 210 11% 12%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 210 11% 12%;
-    --muted-foreground: 0 0% 65%;
+    --accent-foreground: 240 5% 90%;
+    --secondary: 212 56% 11%;
+    --secondary-foreground: 240 5% 90%;
+    --muted: 212 56% 11%;
+    --muted-foreground: 240 5% 63%;
     --destructive: 0 62% 45%;
     --destructive-foreground: 0 0% 98%;
-    --border: 210 11% 15%;
-    --input: 210 11% 15%;
-    --ring: 201 96% 40%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --border: 0 0% 100%;
+    --input: 212 56% 11%;
+    --ring: 257 100% 68%;
+    --sidebar-background: 214 47% 9%;
+    --sidebar-foreground: 240 5% 90%;
+    --sidebar-primary: 257 100% 68%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 212 56% 11%;
+    --sidebar-accent-foreground: 240 5% 90%;
+    --sidebar-border: 0 0% 100%;
+    --sidebar-ring: 257 100% 68%;
   }
 }
 
