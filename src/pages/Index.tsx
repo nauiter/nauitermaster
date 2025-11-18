@@ -1046,11 +1046,6 @@ const Index = () => {
               <Linkedin size={24} />
             </motion.a>
           </div>
-
-          {/* Footer Line */}
-          <p className="text-gray-500 text-sm mt-10">
-            © {new Date().getFullYear()} Nauiter Master — Crafted with AI & Imagination.
-          </p>
         </motion.div>
       </section>
 
