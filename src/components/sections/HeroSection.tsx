@@ -3,7 +3,7 @@ import type { Container, Engine } from "@tsparticles/engine";
 import { Download, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import portfolioAvatar from "@/assets/nauiter-professional.png";
+import portfolioAvatar from "@/assets/portfolio-avatar.webp";
 import { useLanguage } from "@/hooks/useLanguage";
 import { PARTICLES_OPTIONS } from "@/lib/particlesConfig";
 import { METRICS } from "@/lib/constants";
