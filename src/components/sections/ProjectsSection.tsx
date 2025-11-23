@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
+import { LazyImage } from "@/components/LazyImage";
 import sweetLifeAnimes from "@/assets/sweet-life-animes.webp";
 import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
 import oVermePasseia from "@/assets/o-verme-passeia.webp";
@@ -53,10 +54,10 @@ export const ProjectsSection = () => {
             className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
           >
             <div className="aspect-video relative overflow-hidden">
-              <img
+              <LazyImage
                 src={sweetLifeAnimes}
                 alt="Sweet Life Animes project thumbnail"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
             </div>
@@ -102,10 +103,10 @@ export const ProjectsSection = () => {
             className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
           >
             <div className="aspect-video relative overflow-hidden">
-              <img
+              <LazyImage
                 src={sweetLifeAcademy}
                 alt="Sweet Life Academy project thumbnail"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
             </div>
@@ -151,10 +152,10 @@ export const ProjectsSection = () => {
             className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
           >
             <div className="aspect-video relative overflow-hidden">
-              <img
+              <LazyImage
                 src={oVermePasseia}
                 alt="O Verme Passeia project thumbnail"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
             </div>
@@ -215,10 +216,10 @@ export const ProjectsSection = () => {
             className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
           >
             <div className="aspect-video relative overflow-hidden">
-              <img
+              <LazyImage
                 src={figueiredoLaw}
                 alt="Figueiredo Law project thumbnail"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
             </div>
