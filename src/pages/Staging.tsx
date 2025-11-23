@@ -1,6 +1,6 @@
 // Staging Environment - Safe Testing Area
 import { useState } from 'react';
-import portfolioAvatar from "@/assets/portfolio-avatar.png";
+import portfolioAvatar from "@/assets/portfolio-avatar.webp";
 import { ProjectEditor } from "@/components/ProjectEditor";
 import { Button } from "@/components/ui/button";
 import { TestTube } from "lucide-react";
