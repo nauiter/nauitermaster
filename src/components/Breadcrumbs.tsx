@@ -60,7 +60,7 @@ export const Breadcrumbs = () => {
       />
 
       {/* Visual Breadcrumbs */}
-      <nav aria-label="Breadcrumb" className="py-4 px-6 bg-gradient-to-r from-slate-900/50 to-purple-900/30 backdrop-blur-sm">
+      <nav aria-label="Breadcrumb" className="py-4 px-6">
         <ol className="flex items-center space-x-2 text-sm max-w-6xl mx-auto">
           {breadcrumbs.map((crumb, index) => (
             <li key={crumb.path} className="flex items-center">
