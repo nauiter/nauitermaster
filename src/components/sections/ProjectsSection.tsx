@@ -12,45 +12,39 @@ export const ProjectsSection = () => {
   } = useLanguage();
   return <section id="projects" className="py-24 bg-gradient-to-b from-[#0C1222] to-[#05010E]" data-tour="projects">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <AnimatePresence mode="wait">
-          <motion.h2
-            key={`projects-title-${language}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
-          >
-            {t.projects.title}
-          </motion.h2>
-        </AnimatePresence>
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={`projects-subtitle-${language}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-            className="text-gray-400 mt-2 max-w-2xl mx-auto mb-12"
-          >
-            {t.projects.subtitle}
-          </motion.p>
-        </AnimatePresence>
+        <motion.h2
+          key={`projects-title-${language}`}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
+        >
+          {t.projects.title}
+        </motion.h2>
+
+        <motion.p
+          key={`projects-subtitle-${language}`}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-gray-400 mt-2 max-w-2xl mx-auto mb-12"
+        >
+          {t.projects.subtitle}
+        </motion.p>
 
         {/* Creative Universe */}
-        <AnimatePresence mode="wait">
-          <motion.h3 key={language} initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} exit={{
-          opacity: 0
-        }} transition={{
-          duration: 0.3
-        }} className="text-left mt-12 mb-6 font-semibold text-[#7A5FFF] uppercase tracking-widest text-sm">
-            {t.projects.creativeUniverse}
-          </motion.h3>
-        </AnimatePresence>
+        <motion.h3 
+          key={`creative-universe-${language}`}
+          initial={{ opacity: 0 }} 
+          whileInView={{ opacity: 1 }} 
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }} 
+          className="text-left mt-12 mb-6 font-semibold text-[#7A5FFF] uppercase tracking-widest text-sm"
+        >
+          {t.projects.creativeUniverse}
+        </motion.h3>
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           <motion.a href="https://sweetlifeanimes.lovable.app" target="_blank" rel="noopener noreferrer" whileHover={{
           scale: 1.03,
@@ -195,19 +189,16 @@ export const ProjectsSection = () => {
         </div>
 
         {/* Experimental Concepts */}
-        <AnimatePresence mode="wait">
-          <motion.h3 key={language} initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} exit={{
-          opacity: 0
-        }} transition={{
-          duration: 0.3
-        }} className="text-left mt-6 mb-6 font-semibold text-[#00C4FF] uppercase tracking-widest text-sm">
-            {t.projects.experimentalConcepts}
-          </motion.h3>
-        </AnimatePresence>
+        <motion.h3 
+          key={`experimental-${language}`}
+          initial={{ opacity: 0 }} 
+          whileInView={{ opacity: 1 }} 
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-left mt-6 mb-6 font-semibold text-[#00C4FF] uppercase tracking-widest text-sm"
+        >
+          {t.projects.experimentalConcepts}
+        </motion.h3>
         <div className="grid md:grid-cols-3 gap-6">
           <motion.a href="https://figueiredolaw.lovable.app" target="_blank" rel="noopener noreferrer" whileHover={{
           scale: 1.03,
