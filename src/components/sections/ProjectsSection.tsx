@@ -220,14 +220,62 @@ export const ProjectsSection = () => {
           <CarouselNext className="right-0 translate-x-12 bg-white/10 border-white/20 hover:bg-white/20 backdrop-blur-md" />
         </Carousel>
 
-        {/* Carousel Indicators */}
-        <div className="flex justify-center gap-2 mt-8">
-          {projects.map((_, index) => (
-            <div
-              key={index}
-              className="w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition-all cursor-pointer"
+        {/* Progress Counter */}
+        <div className="mt-12 max-w-md mx-auto">
+          {/* Counter Text */}
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="text-gray-400 text-sm font-medium">
+              {language === 'pt' ? 'Projeto' : 'Project'}
+            </span>
+            <div className="flex items-center gap-2">
+              <motion.span
+                key={current}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
+              >
+                {current + 1}
+              </motion.span>
+              <span className="text-gray-500 text-xl">/</span>
+              <span className="text-gray-400 text-xl font-semibold">
+                {projects.length}
+              </span>
+            </div>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="relative w-full h-1.5 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm">
+            <motion.div
+              className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] rounded-full shadow-lg shadow-[#7A5FFF]/50"
+              initial={{ width: "0%" }}
+              animate={{ 
+                width: `${((current + 1) / projects.length) * 100}%` 
+              }}
+              transition={{ 
+                duration: 0.5,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
             />
-          ))}
+          </div>
+
+          {/* Project Indicators Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {projects.map((_, index) => (
+              <motion.button
+                key={index}
+                onClick={() => api?.scrollTo(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  current === index 
+                    ? 'w-8 bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]' 
+                    : 'w-2 bg-white/30 hover:bg-white/50'
+                }`}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+                aria-label={`${language === 'pt' ? 'Ir para projeto' : 'Go to project'} ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
