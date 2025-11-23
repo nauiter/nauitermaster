@@ -360,6 +360,37 @@ button[aria-label*="edit"], button[aria-label*="remove"] {
   text-shadow: 0 0 6px rgba(0,181,255,0.4);
 }
 
+/* Section Titles - Force Visibility & Accessibility */
+section h2 {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Projects Section Title - SEO Critical */
+#projects h2 {
+  opacity: 1 !important;
+  visibility: visible !important;
+  min-height: 3rem;
+  font-weight: 700;
+}
+
+/* Responsive Typography for Section Titles */
+@media (max-width: 768px) {
+  section h2 {
+    font-size: 1.875rem !important; /* 30px */
+    line-height: 2.25rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  section h2 {
+    font-size: 3rem !important; /* 48px */
+    line-height: 1.2;
+  }
+}
+
 /* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -370,3 +401,4 @@ button[aria-label*="edit"], button[aria-label*="remove"] {
     transition-duration: 0.01ms !important;
   }
 }
+

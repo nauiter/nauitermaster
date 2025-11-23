@@ -83,23 +83,26 @@ export const ProjectsSection = () => {
       data-tour="projects"
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
+        {/* Header - SEO Critical Section */}
         <div className="text-center mb-16">
-          <motion.h2
-            key={`projects-title-${language}`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          {/* Main Title H2 - Always Visible for SEO */}
+          <h2
             className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-4"
+            style={{ 
+              opacity: 1,
+              visibility: 'visible',
+              display: 'block'
+            }}
           >
-            {t.projects.title}
-          </motion.h2>
+            {language === 'pt' ? 'Projetos em Destaque' : 'Showcase Projects'}
+          </h2>
 
+          {/* Subtitle with animation */}
           <motion.p
             key={`projects-subtitle-${language}`}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-gray-400 text-lg max-w-2xl mx-auto"
           >
