@@ -627,16 +627,44 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
           >
-            Showcase Projects
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={language}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {t.projects.title}
+              </motion.span>
+            </AnimatePresence>
           </motion.h2>
-          <p className="text-gray-400 mt-2 text-sm md:text-base">
-            Exploring the intersection of technology, design, and creativity — one vision at a time.
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={language}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-gray-400 mt-2 text-sm md:text-base"
+            >
+              {t.projects.subtitle}
+            </motion.p>
+          </AnimatePresence>
 
           {/* Creative Universe */}
-          <h3 className="text-left mt-12 mb-6 font-semibold text-[#7A5FFF] uppercase tracking-widest text-sm">
-            Creative Universe
-          </h3>
+          <AnimatePresence mode="wait">
+            <motion.h3
+              key={language}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-left mt-12 mb-6 font-semibold text-[#7A5FFF] uppercase tracking-widest text-sm"
+            >
+              {t.projects.creativeUniverse}
+            </motion.h3>
+          </AnimatePresence>
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <motion.a
               href="https://sweetlifeanimes.lovable.app"
@@ -655,12 +683,34 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white drop-shadow-md mb-1">Sweet Life Animes</h4>
-                <p className="text-gray-400 text-sm mb-2">Empowering digital artists and creative communities.</p>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.sweetLifeAnimes.title}</h4>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={language}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-gray-400 text-sm mb-2"
+                  >
+                    {t.projects.sweetLifeAnimes.description}
+                  </motion.p>
+                </AnimatePresence>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">AI</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Digital Art</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Community</span>
+                  {t.projects.sweetLifeAnimes.tools.map((tool) => (
+                    <AnimatePresence mode="wait" key={tool}>
+                      <motion.span
+                        key={`${language}-${tool}`}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.2 }}
+                        className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors"
+                      >
+                        {tool}
+                      </motion.span>
+                    </AnimatePresence>
+                  ))}
                 </div>
               </div>
             </motion.a>
@@ -682,12 +732,34 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white drop-shadow-md mb-1">Sweet Life Academy</h4>
-                <p className="text-gray-400 text-sm mb-2">Helping creators grow with AI strategy and education.</p>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.sweetLifeAcademy.title}</h4>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={language}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-gray-400 text-sm mb-2"
+                  >
+                    {t.projects.sweetLifeAcademy.description}
+                  </motion.p>
+                </AnimatePresence>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">AI Education</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Automation</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Strategy</span>
+                  {t.projects.sweetLifeAcademy.tools.map((tool) => (
+                    <AnimatePresence mode="wait" key={tool}>
+                      <motion.span
+                        key={`${language}-${tool}`}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.2 }}
+                        className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors"
+                      >
+                        {tool}
+                      </motion.span>
+                    </AnimatePresence>
+                  ))}
                 </div>
               </div>
             </motion.a>
@@ -709,21 +781,52 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white drop-shadow-md mb-1">O Verme Passeia</h4>
-                <p className="text-gray-400 text-sm mb-2">Exploring philosophy and aesthetics through design.</p>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.oVermePasseia.title}</h4>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={language}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-gray-400 text-sm mb-2"
+                  >
+                    {t.projects.oVermePasseia.description}
+                  </motion.p>
+                </AnimatePresence>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Philosophy</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Digital Art</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">AI</span>
+                  {t.projects.oVermePasseia.tools.map((tool) => (
+                    <AnimatePresence mode="wait" key={tool}>
+                      <motion.span
+                        key={`${language}-${tool}`}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.2 }}
+                        className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors"
+                      >
+                        {tool}
+                      </motion.span>
+                    </AnimatePresence>
+                  ))}
                 </div>
               </div>
             </motion.a>
           </div>
 
           {/* Experimental Concepts */}
-          <h3 className="text-left mt-6 mb-6 font-semibold text-[#00C4FF] uppercase tracking-widest text-sm">
-            Experimental Concepts
-          </h3>
+          <AnimatePresence mode="wait">
+            <motion.h3
+              key={language}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-left mt-6 mb-6 font-semibold text-[#00C4FF] uppercase tracking-widest text-sm"
+            >
+              {t.projects.experimentalConcepts}
+            </motion.h3>
+          </AnimatePresence>
           <div className="grid md:grid-cols-3 gap-6">
             <motion.a
               href="https://clicknopoint.lovable.app"
@@ -742,12 +845,34 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white drop-shadow-md mb-1">Click No Point</h4>
-                <p className="text-gray-400 text-sm mb-2">Creative comedy exploring irony and absurdity in the digital era.</p>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.clickNoPoint.title}</h4>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={language}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-gray-400 text-sm mb-2"
+                  >
+                    {t.projects.clickNoPoint.description}
+                  </motion.p>
+                </AnimatePresence>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Comedy</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Humor</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Creative Media</span>
+                  {t.projects.clickNoPoint.tools.map((tool) => (
+                    <AnimatePresence mode="wait" key={tool}>
+                      <motion.span
+                        key={`${language}-${tool}`}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.2 }}
+                        className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors"
+                      >
+                        {tool}
+                      </motion.span>
+                    </AnimatePresence>
+                  ))}
                 </div>
               </div>
             </motion.a>
@@ -769,12 +894,34 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white drop-shadow-md mb-1">Pomodoro Project</h4>
-                <p className="text-gray-400 text-sm mb-2">A minimalist AI-driven time management experiment.</p>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.pomodoroProject.title}</h4>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={language}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-gray-400 text-sm mb-2"
+                  >
+                    {t.projects.pomodoroProject.description}
+                  </motion.p>
+                </AnimatePresence>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Productivity</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Design</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Focus</span>
+                  {t.projects.pomodoroProject.tools.map((tool) => (
+                    <AnimatePresence mode="wait" key={tool}>
+                      <motion.span
+                        key={`${language}-${tool}`}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.2 }}
+                        className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors"
+                      >
+                        {tool}
+                      </motion.span>
+                    </AnimatePresence>
+                  ))}
                 </div>
               </div>
             </motion.a>
@@ -796,12 +943,34 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white drop-shadow-md mb-1">Figueiredo Law</h4>
-                <p className="text-gray-400 text-sm mb-2">AI consultancy connecting law, ethics, and technology.</p>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.figueiredoLaw.title}</h4>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={language}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-gray-400 text-sm mb-2"
+                  >
+                    {t.projects.figueiredoLaw.description}
+                  </motion.p>
+                </AnimatePresence>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Law</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Ethics</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Technology</span>
+                  {t.projects.figueiredoLaw.tools.map((tool) => (
+                    <AnimatePresence mode="wait" key={tool}>
+                      <motion.span
+                        key={`${language}-${tool}`}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.2 }}
+                        className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors"
+                      >
+                        {tool}
+                      </motion.span>
+                    </AnimatePresence>
+                  ))}
                 </div>
               </div>
             </motion.a>
@@ -823,12 +992,34 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
               </div>
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-white drop-shadow-md mb-1">Decision Die</h4>
-                <p className="text-gray-400 text-sm mb-2">A playful AI experiment to simulate random creativity.</p>
+                <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.decisionDie.title}</h4>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={language}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-gray-400 text-sm mb-2"
+                  >
+                    {t.projects.decisionDie.description}
+                  </motion.p>
+                </AnimatePresence>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Game</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">AI</span>
-                  <span className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">Design</span>
+                  {t.projects.decisionDie.tools.map((tool) => (
+                    <AnimatePresence mode="wait" key={tool}>
+                      <motion.span
+                        key={`${language}-${tool}`}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.2 }}
+                        className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors"
+                      >
+                        {tool}
+                      </motion.span>
+                    </AnimatePresence>
+                  ))}
                 </div>
               </div>
             </motion.a>
@@ -846,10 +1037,30 @@ const Index = () => {
         style={{ background: 'linear-gradient(135deg, #0B1623 0%, #0E213A 100%)' }}
       >
         <div className="container mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-6">Creative & Strategic Ecosystem</h2>
-          <p className="text-gray-300 text-center mb-12 max-w-3xl mx-auto">
-            Exploring diverse intersections of art, technology, and storytelling — now including comedy.
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.h2
+              key={language}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-2xl md:text-3xl font-bold text-white text-center mb-6"
+            >
+              {t.ecosystem.title}
+            </motion.h2>
+          </AnimatePresence>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={language}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-gray-300 text-center mb-12 max-w-3xl mx-auto"
+            >
+              {t.ecosystem.subtitle}
+            </motion.p>
+          </AnimatePresence>
           
           <EcosystemCarousel 
             projects={[
@@ -927,11 +1138,30 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
           >
-            Impact Metrics
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={language}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {t.impact.title}
+              </motion.span>
+            </AnimatePresence>
           </motion.h2>
-          <p className="text-gray-400 mt-2 max-w-2xl mx-auto">
-            Expressing creativity through data — each number tells part of the story.
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={language}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-gray-400 mt-2 max-w-2xl mx-auto"
+            >
+              {t.impact.subtitle}
+            </motion.p>
+          </AnimatePresence>
 
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {/* AI Visuals Generated */}
@@ -946,7 +1176,18 @@ const Index = () => {
               <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
                 200<span className="text-3xl">+</span>
               </h3>
-              <p className="text-gray-300 text-sm">AI Visuals Generated</p>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={language}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-gray-300 text-sm"
+                >
+                  {t.impact.aiVisualsGenerated}
+                </motion.p>
+              </AnimatePresence>
             </motion.div>
 
             {/* Creative Ecosystems Built */}
@@ -961,7 +1202,18 @@ const Index = () => {
               <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
                 10<span className="text-3xl">+</span>
               </h3>
-              <p className="text-gray-300 text-sm">Creative Ecosystems Built</p>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={language}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-gray-300 text-sm"
+                >
+                  {t.impact.ecosystemsBuilt}
+                </motion.p>
+              </AnimatePresence>
             </motion.div>
 
             {/* AI-Driven Brands */}
@@ -976,7 +1228,18 @@ const Index = () => {
               <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
                 7
               </h3>
-              <p className="text-gray-300 text-sm">AI-Driven Brands</p>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={language}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-gray-300 text-sm"
+                >
+                  {t.impact.aiDrivenBrands}
+                </motion.p>
+              </AnimatePresence>
             </motion.div>
 
             {/* Ideas in Motion */}
@@ -991,7 +1254,18 @@ const Index = () => {
               <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
                 ∞
               </h3>
-              <p className="text-gray-300 text-sm">Ideas in Motion</p>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={language}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-gray-300 text-sm"
+                >
+                  {t.impact.ideasInMotion}
+                </motion.p>
+              </AnimatePresence>
             </motion.div>
           </div>
         </div>
@@ -1068,12 +1342,30 @@ const Index = () => {
           transition={{ duration: 0.8 }}
           className="relative z-10 max-w-3xl mx-auto px-6"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
-            Let's Co-Create the Future
-          </h2>
-          <p className="text-gray-400 mt-4 text-lg max-w-2xl mx-auto">
-            If your vision connects with mine — let's build something extraordinary.
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.h2
+              key={language}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
+            >
+              {t.contact.title}
+            </motion.h2>
+          </AnimatePresence>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={language}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-gray-400 mt-4 text-lg max-w-2xl mx-auto"
+            >
+              {t.contact.subtitle}
+            </motion.p>
+          </AnimatePresence>
 
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -1082,14 +1374,36 @@ const Index = () => {
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-white font-medium shadow-lg hover:shadow-[0_0_20px_rgba(122,95,255,0.5)] transition-all"
             >
-              <Mail size={18} /> Let's Collaborate
+              <Mail size={18} />
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={language}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {t.contact.bookCall}
+                </motion.span>
+              </AnimatePresence>
             </motion.a>
             <motion.a
               href="#projects"
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2 px-6 py-3 rounded-full border border-[#7A5FFF80] text-white/90 hover:bg-white/10 transition-all"
             >
-              <ArrowRight size={18} /> View My Work Again
+              <ArrowRight size={18} />
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={language}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {t.hero.viewProjects}
+                </motion.span>
+              </AnimatePresence>
             </motion.a>
           </div>
 
