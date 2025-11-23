@@ -78,7 +78,7 @@ export const SectionParticles = ({
   }, []);
 
   return (
-    <div ref={containerRef} className="absolute inset-0 pointer-events-none overflow-hidden">
+    <div ref={containerRef} className="absolute inset-0 pointer-events-none overflow-hidden z-0">
       {particles.map((particle) => (
         <ParticleElement
           key={particle.id}

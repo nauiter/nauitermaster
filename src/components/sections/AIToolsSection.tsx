@@ -28,7 +28,7 @@ export const AIToolsSection = () => {
     >
       {/* Parallax Background Pattern */}
       <div 
-        className="absolute inset-0 opacity-30 pointer-events-none"
+        className="absolute inset-0 opacity-30 pointer-events-none z-0"
         style={{
           backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(122, 95, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0, 196, 255, 0.08) 0%, transparent 50%)',
           transform: `translateY(${parallaxOffset}px)`,

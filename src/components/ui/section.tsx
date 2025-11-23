@@ -146,7 +146,7 @@ export const Section = forwardRef<HTMLElement, SectionProps>(({
         />
       )}
 
-      <div className={cn(containerWidthClass, paddingXClass, 'mx-auto relative z-10', containerClassName)}>
+      <div className={cn(containerWidthClass, paddingXClass, 'mx-auto relative z-20', containerClassName)}>
         {/* Section Title */}
         {showTitle && <SectionTitle {...title} />}
 
