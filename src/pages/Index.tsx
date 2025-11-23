@@ -115,76 +115,43 @@ const Index = () => {
       {/* Gradient Separator */}
       <div className="h-16 bg-gradient-to-b from-[#F7F9FB] to-slate-900"></div>
 
-      {/* Partner & Projects - Dark Navy Gradient */}
-      <section 
-        id="partners"
-        className="py-12 md:py-20 motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]"
-        style={{ background: 'linear-gradient(135deg, #0B1623 0%, #0E213A 100%)' }}
-      >
-        <div className="container mx-auto px-6">
-          <AnimatePresence mode="wait">
-            <motion.h2
-              key={language}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="text-2xl md:text-3xl font-bold text-white text-center mb-6"
-            >
-              {t.ecosystem.title}
-            </motion.h2>
-          </AnimatePresence>
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={language}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="text-gray-300 text-center mb-12 max-w-3xl mx-auto"
-            >
-              {t.ecosystem.subtitle}
-            </motion.p>
-          </AnimatePresence>
-          
-          <EcosystemCarousel 
-            projects={[
-              {
-                name: "Sweet Life Animes",
-                purpose: "Empowering digital artists and storytellers.",
-                type: "Creative Brand",
-                color: "from-pink-500 to-fuchsia-400",
-                image: sweetLifeAnimes,
-                url: "https://sweetlifeanimes.lovable.app/"
-              },
-              {
-                name: "Sweet Life Academy",
-                purpose: "AI education and automation for creators.",
-                type: "AI Education",
-                color: "from-purple-500 to-cyan-400",
-                image: sweetLifeAcademy,
-                url: "https://sweetlifeacademy.coursify.me/"
-              },
-              {
-                name: "O Verme Passeia",
-                purpose: "Exploring philosophy and aesthetics through design.",
-                type: "Art & Philosophy",
-                color: "from-amber-500 to-yellow-400",
-                image: oVermePasseia,
-                url: "https://overmepasseia.lovable.app"
-              },
-              {
-                name: "Figueiredo Law",
-                purpose: "Law, technology, and AI ethics consultancy.",
-                type: "Ethics & AI",
-                color: "from-rose-600 to-gray-500",
-                image: figueiredoLaw,
-                url: "https://figueiredo-landing-amapa.lovable.app/"
-              }
-            ]}
-          />
-        </div>
-      </section>
+      {/* Creative & Strategic Ecosystem */}
+      <EcosystemCarousel 
+        projects={[
+          {
+            name: "Sweet Life Animes",
+            purpose: "Empowering digital artists and storytellers.",
+            type: "Creative Brand",
+            color: "from-pink-500 to-fuchsia-400",
+            image: sweetLifeAnimes,
+            url: "https://sweetlifeanimes.lovable.app/"
+          },
+          {
+            name: "Sweet Life Academy",
+            purpose: "AI education and automation for creators.",
+            type: "AI Education",
+            color: "from-purple-500 to-cyan-400",
+            image: sweetLifeAcademy,
+            url: "https://sweetlifeacademy.coursify.me/"
+          },
+          {
+            name: "O Verme Passeia",
+            purpose: "Exploring philosophy and aesthetics through design.",
+            type: "Art & Philosophy",
+            color: "from-amber-500 to-yellow-400",
+            image: oVermePasseia,
+            url: "https://overmepasseia.lovable.app"
+          },
+          {
+            name: "Figueiredo Law",
+            purpose: "Law, technology, and AI ethics consultancy.",
+            type: "Ethics & AI",
+            color: "from-rose-600 to-gray-500",
+            image: figueiredoLaw,
+            url: "https://figueiredo-landing-amapa.lovable.app/"
+          }
+        ]}
+      />
 
       {/* Impact Metrics Section */}
       <ImpactMetrics />
