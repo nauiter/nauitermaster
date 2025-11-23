@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
+import { SectionTitle } from "@/components/ui/section-title";
 
 interface EcosystemProject {
   name: string;
@@ -23,30 +24,14 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
       className="relative py-28 bg-gradient-to-b from-[#05010E] via-[#0A1A2F] to-[#0C1222] overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <AnimatePresence mode="wait">
-          <motion.h2
-            key={`ecosystem-title-${language}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
-          >
-            {t.ecosystem.title}
-          </motion.h2>
-        </AnimatePresence>
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={`ecosystem-subtitle-${language}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-            className="text-gray-400 mt-2 max-w-2xl mx-auto"
-          >
-            {t.ecosystem.subtitle}
-          </motion.p>
-        </AnimatePresence>
+        {/* Header - Using SectionTitle Component */}
+        <SectionTitle
+          title={t.ecosystem.title}
+          subtitle={t.ecosystem.subtitle}
+          align="center"
+          gradient="primary"
+          dataAttr="ecosystem-title"
+        />
 
         {/* Projects Grid */}
         <div className="relative mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">

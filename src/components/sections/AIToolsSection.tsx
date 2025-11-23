@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Brain, Image, Music, Zap } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { SectionTitle } from "@/components/ui/section-title";
 
 export const AIToolsSection = () => {
   const { t, language } = useLanguage();
@@ -12,37 +13,14 @@ export const AIToolsSection = () => {
       data-tour="ai-tools"
     >
       <div className="container mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-center mb-3"
-        >
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={language}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {t.aiTools.title}
-            </motion.span>
-          </AnimatePresence>
-        </motion.h2>
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={language}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="text-gray-400 text-center mb-12 max-w-2xl mx-auto"
-          >
-            {t.aiTools.subtitle}
-          </motion.p>
-        </AnimatePresence>
+        {/* Header - Using SectionTitle Component */}
+        <SectionTitle
+          title={t.aiTools.title}
+          subtitle={t.aiTools.subtitle}
+          align="center"
+          gradient="primary"
+          dataAttr="ai-tools-title"
+        />
         
         {/* Two Groups Layout */}
         <div className="mt-14 max-w-5xl mx-auto grid md:grid-cols-2 gap-10">

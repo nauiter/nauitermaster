@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
+import { SectionTitle } from "@/components/ui/section-title";
 
 export const SkillsSection = () => {
   const { t, language } = useLanguage();
@@ -12,18 +13,14 @@ export const SkillsSection = () => {
       data-tour="skills"
     >
       <div className="container mx-auto px-6">
-        <AnimatePresence mode="wait">
-          <motion.h2
-            key={`skills-title-${language}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="text-2xl md:text-3xl font-semibold text-white text-center mb-12"
-          >
-            {t.skills.title}
-          </motion.h2>
-        </AnimatePresence>
+        {/* Header - Using SectionTitle Component */}
+        <SectionTitle
+          title={t.skills.title}
+          align="center"
+          gradient="primary"
+          dataAttr="skills-title"
+          className="mb-12"
+        />
         
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div>
