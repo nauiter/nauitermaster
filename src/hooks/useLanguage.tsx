@@ -11,10 +11,45 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 const LANGUAGE_STORAGE_KEY = 'nauiter-portfolio-language';
 
-// IP Geolocation detection
+// Browser language detection
+const detectLanguageFromBrowser = (): Language | null => {
+  try {
+    // Get browser language (e.g., 'pt-BR', 'en-US', 'pt')
+    const browserLang = navigator.language || (navigator as any).userLanguage;
+    
+    if (!browserLang) return null;
+    
+    // Extract language code (pt-BR -> pt, en-US -> en)
+    const langCode = browserLang.toLowerCase().split('-')[0];
+    
+    // Check if it's Portuguese
+    if (langCode === 'pt') {
+      return 'pt';
+    }
+    
+    // Default to English for other languages
+    if (langCode === 'en') {
+      return 'en';
+    }
+    
+    return null;
+  } catch (error) {
+    console.error('Failed to detect browser language:', error);
+    return null;
+  }
+};
+
+// IP Geolocation detection (fallback)
 const detectLanguageFromIP = async (): Promise<Language> => {
   try {
-    const response = await fetch('https://ipapi.co/json/');
+    const response = await fetch('https://ipapi.co/json/', {
+      signal: AbortSignal.timeout(3000), // 3 second timeout
+    });
+    
+    if (!response.ok) {
+      throw new Error('IP detection failed');
+    }
+    
     const data = await response.json();
     
     // Check if country is Brazil (PT) or Portuguese-speaking country
@@ -37,16 +72,33 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const initializeLanguage = async () => {
-      // Check localStorage first
+      // Priority 1: Check localStorage (user's explicit preference)
       const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY) as Language | null;
       
       if (stored && (stored === 'en' || stored === 'pt')) {
         setLanguageState(stored);
-      } else {
-        // Detect from IP if no stored preference
-        const detected = await detectLanguageFromIP();
-        setLanguageState(detected);
-        localStorage.setItem(LANGUAGE_STORAGE_KEY, detected);
+        setIsInitialized(true);
+        return;
+      }
+      
+      // Priority 2: Check browser language (fast, no API call)
+      const browserLang = detectLanguageFromBrowser();
+      if (browserLang) {
+        setLanguageState(browserLang);
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, browserLang);
+        setIsInitialized(true);
+        return;
+      }
+      
+      // Priority 3: Try IP geolocation (slower, but location-based)
+      try {
+        const ipLang = await detectLanguageFromIP();
+        setLanguageState(ipLang);
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, ipLang);
+      } catch (error) {
+        // Priority 4: Final fallback to English
+        setLanguageState('en');
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, 'en');
       }
       
       setIsInitialized(true);
