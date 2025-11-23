@@ -183,17 +183,6 @@ const Index = () => {
         </div>
       </footer>
 
-      {/* Script para fixar footer globalmente */}
-      <script dangerouslySetInnerHTML={{
-        __html: `
-          document.addEventListener("DOMContentLoaded", () => {
-            const footer = document.querySelector("#nauiter-footer");
-            if (footer && footer.parentNode !== document.body) {
-              document.body.appendChild(footer);
-            }
-          });
-        `
-      }} />
     </div>
   );
 };

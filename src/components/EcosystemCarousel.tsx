@@ -48,31 +48,8 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
           </motion.p>
         </AnimatePresence>
 
-        {/* Central Node */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative mx-auto mt-16 w-40 h-40 rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] flex items-center justify-center shadow-[0_0_40px_rgba(122,95,255,0.35)] animate-pulse"
-        >
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={`central-node-${language}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="text-white font-semibold text-lg text-center px-4"
-              title={t.ecosystem.centralNode}
-            >
-              Nauiter Master
-            </motion.span>
-          </AnimatePresence>
-        </motion.div>
-
-        {/* Orbiting Nodes */}
-        <div className="relative mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        {/* Projects Grid */}
+        <div className="relative mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {projects.map((node, i) => (
             <motion.a
               key={i}
