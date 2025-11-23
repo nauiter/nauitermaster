@@ -88,7 +88,8 @@ export const ProjectsSection = () => {
           <motion.h2
             key={`projects-title-${language}`}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-4"
           >
@@ -133,7 +134,7 @@ export const ProjectsSection = () => {
                   <div className="relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-sm shadow-2xl hover:shadow-[#7A5FFF]/20 transition-all duration-500 group">
                     {/* Image Section with Parallax */}
                     <motion.div
-                      key={`image-${current}-${index}`}
+                      key={`image-${index}`}
                       initial={{ opacity: 0, x: 100, scale: 1.1 }}
                       animate={{ 
                         opacity: current === index ? 1 : 0,
@@ -163,7 +164,7 @@ export const ProjectsSection = () => {
 
                     {/* Content Section with Parallax */}
                     <motion.div
-                      key={`content-${current}-${index}`}
+                      key={`content-${index}`}
                       initial={{ opacity: 0, y: 50 }}
                       animate={{ 
                         opacity: current === index ? 1 : 0,
