@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/hooks/useLanguage";
 import { CookieConsent } from "@/components/CookieConsent";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LanguageRedirect } from "@/components/LanguageRedirect";
+import { LegalPageRedirect } from "@/components/LegalPageRedirect";
 import Index from "./pages/Index";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
@@ -27,13 +28,21 @@ const App = () => (
             {/* Root path - Auto-redirect to /pt or /en based on language detection */}
             <Route path="/" element={<LanguageRedirect />} />
             
-            {/* Language-specific routes */}
+            {/* Language-specific homepage routes */}
             <Route path="/pt" element={<Index forcedLanguage="pt" />} />
             <Route path="/en" element={<Index forcedLanguage="en" />} />
             
-            {/* Legal pages */}
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-use" element={<TermsOfUse />} />
+            {/* Legal pages - Generic routes (redirect to language-specific) */}
+            <Route path="/privacy-policy" element={<LegalPageRedirect pagePath="privacy-policy" />} />
+            <Route path="/terms-of-use" element={<LegalPageRedirect pagePath="terms-of-use" />} />
+            
+            {/* Legal pages - Portuguese routes */}
+            <Route path="/pt/privacy-policy" element={<PrivacyPolicy forcedLanguage="pt" />} />
+            <Route path="/pt/terms-of-use" element={<TermsOfUse forcedLanguage="pt" />} />
+            
+            {/* Legal pages - English routes */}
+            <Route path="/en/privacy-policy" element={<PrivacyPolicy forcedLanguage="en" />} />
+            <Route path="/en/terms-of-use" element={<TermsOfUse forcedLanguage="en" />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

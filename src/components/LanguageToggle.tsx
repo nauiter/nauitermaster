@@ -14,14 +14,18 @@ export const LanguageToggle = () => {
     setLanguage(newLang);
     
     // Navigate to the language-specific route
-    // Preserve current page structure (homepage, privacy, terms)
+    // Preserve current page structure
     if (location.pathname === '/pt' || location.pathname === '/en' || location.pathname === '/') {
+      // Homepage
       navigate(`/${newLang}`, { replace: true });
     } else if (location.pathname.includes('/privacy-policy')) {
-      navigate('/privacy-policy');
+      // Privacy Policy page
+      navigate(`/${newLang}/privacy-policy`, { replace: true });
     } else if (location.pathname.includes('/terms-of-use')) {
-      navigate('/terms-of-use');
+      // Terms of Use page
+      navigate(`/${newLang}/terms-of-use`, { replace: true });
     } else {
+      // Fallback to homepage with language
       navigate(`/${newLang}`);
     }
   };

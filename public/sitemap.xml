@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
+  <!-- ========================= -->
+  <!-- HOMEPAGE URLS -->
+  <!-- ========================= -->
+  
   <!-- Homepage - Root (auto-detection) -->
   <url>
     <loc>https://nauitermaster.lovable.app/</loc>
@@ -35,22 +39,74 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Privacy Policy Page -->
+  <!-- ========================= -->
+  <!-- PRIVACY POLICY URLS -->
+  <!-- ========================= -->
+
+  <!-- Privacy Policy - Generic (redirects) -->
   <url>
     <loc>https://nauitermaster.lovable.app/privacy-policy</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.lovable.app/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.lovable.app/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.lovable.app/pt/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.lovable.app/en/privacy-policy" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.lovable.app/privacy-policy" />
     <lastmod>2025-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-  <!-- Terms of Use Page -->
+  <!-- Privacy Policy - Portuguese Version -->
+  <url>
+    <loc>https://nauitermaster.lovable.app/pt/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.lovable.app/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.lovable.app/pt/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.lovable.app/privacy-policy" />
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Privacy Policy - English Version -->
+  <url>
+    <loc>https://nauitermaster.lovable.app/en/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.lovable.app/pt/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.lovable.app/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.lovable.app/privacy-policy" />
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- ========================= -->
+  <!-- TERMS OF USE URLS -->
+  <!-- ========================= -->
+
+  <!-- Terms of Use - Generic (redirects) -->
   <url>
     <loc>https://nauitermaster.lovable.app/terms-of-use</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.lovable.app/terms-of-use" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.lovable.app/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.lovable.app/pt/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.lovable.app/en/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.lovable.app/terms-of-use" />
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Terms of Use - Portuguese Version -->
+  <url>
+    <loc>https://nauitermaster.lovable.app/pt/terms-of-use</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.lovable.app/en/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.lovable.app/pt/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.lovable.app/terms-of-use" />
+    <lastmod>2025-01-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Terms of Use - English Version -->
+  <url>
+    <loc>https://nauitermaster.lovable.app/en/terms-of-use</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.lovable.app/pt/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.lovable.app/en/terms-of-use" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.lovable.app/terms-of-use" />
     <lastmod>2025-01-23</lastmod>
     <changefreq>monthly</changefreq>

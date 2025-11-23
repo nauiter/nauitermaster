@@ -208,13 +208,13 @@ const Index = ({ forcedLanguage }: IndexProps) => {
               </AnimatePresence>
               <div className="flex flex-col gap-2">
                 <Link 
-                  to="/privacy-policy" 
+                  to={`/${language}/privacy-policy`}
                   className="text-gray-400 hover:text-[#00C4FF] transition-colors text-sm"
                 >
                   {language === 'pt' ? 'Política de Privacidade' : 'Privacy Policy'}
                 </Link>
                 <Link 
-                  to="/terms-of-use" 
+                  to={`/${language}/terms-of-use`}
                   className="text-gray-400 hover:text-[#00C4FF] transition-colors text-sm"
                 >
                   {language === 'pt' ? 'Termos de Uso' : 'Terms of Use'}

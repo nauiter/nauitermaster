@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -5,8 +6,19 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
-export default function TermsOfUse() {
-  const { t } = useLanguage();
+interface TermsOfUseProps {
+  forcedLanguage?: 'pt' | 'en';
+}
+
+export default function TermsOfUse({ forcedLanguage }: TermsOfUseProps) {
+  const { t, language, setLanguage } = useLanguage();
+
+  // Force language if specified in route
+  React.useEffect(() => {
+    if (forcedLanguage && language !== forcedLanguage) {
+      setLanguage(forcedLanguage);
+    }
+  }, [forcedLanguage, language, setLanguage]);
 
   const sections = [
     t.lgpd.terms.sections.terms,
@@ -23,7 +35,7 @@ export default function TermsOfUse() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <Link to="/">
+          <Link to={language === 'pt' ? '/pt' : '/en'}>
             <Button
               variant="ghost"
               className="mb-8 hover:bg-white/5 text-muted-foreground"
