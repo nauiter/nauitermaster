@@ -8,10 +8,10 @@ import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { useLanguage } from "@/hooks/useLanguage";
-import sweetLifeAnimes from "@/assets/sweet-life-animes-2.png";
-import sweetLifeAcademy from "@/assets/sweet-life-academy-2.jpg";
-import oVermePasseia from "@/assets/o-verme-passeia-2.png";
-import figueiredoLaw from "@/assets/figueiredo-law-2.png";
+import sweetLifeAnimes from "@/assets/sweet-life-animes.webp";
+import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
+import oVermePasseia from "@/assets/o-verme-passeia.webp";
+import figueiredoLaw from "@/assets/figueiredo-law.webp";
 
 const Index = () => {
   const { t, language } = useLanguage();
