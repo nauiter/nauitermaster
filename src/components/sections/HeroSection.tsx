@@ -18,6 +18,7 @@ export const HeroSection = () => {
   const [layer1, layer2, layer3] = useMultiLayerParallax(sectionRef, 3);
   
   useEffect(() => {
+    // Defer particle initialization until after LCP to reduce render blocking
     const initParticles = async () => {
       const { initParticlesEngine } = await import("@tsparticles/react");
       const { loadSlim } = await import("@tsparticles/slim");
@@ -28,7 +29,12 @@ export const HeroSection = () => {
       setInit(true);
     };
     
-    initParticles();
+    // Delay particle initialization to prioritize LCP image rendering
+    const timer = setTimeout(() => {
+      initParticles();
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   const particlesLoaded = useCallback(async (container?: Container) => {
@@ -81,12 +87,12 @@ export const HeroSection = () => {
       )}
       
       <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
-        {/* Profile Image with Enhanced Glow */}
+        {/* Profile Image with Enhanced Glow - Optimized for LCP */}
         <motion.div 
           className="flex justify-center mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
           <motion.img
             src={portfolioAvatar}
@@ -102,6 +108,8 @@ export const HeroSection = () => {
             }}
             transition={{ type: "spring", stiffness: 200 }}
             loading="eager"
+            fetchPriority="high"
+            decoding="async"
             width={224}
             height={224}
           />
