@@ -26,6 +26,31 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* SEO Structured Data - Person */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Nauiter Master",
+          "jobTitle": language === 'pt' ? "Estrategista de IA e Artista Digital" : "AI Strategist & Digital Artist",
+          "description": language === 'pt' 
+            ? "Estrategista de IA e artista digital especializado em prompt engineering, automação e aplicações criativas de IA"
+            : "AI Strategist & Digital Artist specializing in prompt engineering, automation, and creative AI applications",
+          "url": "https://nauitermaster.lovable.app",
+          "sameAs": [
+            "https://linkedin.com/in/nauiter-master-678a71144",
+            "https://instagram.com/nauiter.master",
+            "https://facebook.com/nauiter.master",
+            "https://beacons.ai/nauiter.master"
+          ],
+          "knowsAbout": language === 'pt'
+            ? ["Inteligência Artificial", "Arte Digital", "Prompt Engineering", "Automação com IA", "IA Criativa"]
+            : ["Artificial Intelligence", "Digital Art", "Prompt Engineering", "AI Automation", "Creative AI"],
+          "alumniOf": language === 'pt' ? "Análise de Sistemas" : "Systems Analysis",
+          "email": "nauitermaster@hotmail.com"
+        })
+      }} />
+      
       <FloatingNavbar />
       
       <AnimatePresence mode="wait">
