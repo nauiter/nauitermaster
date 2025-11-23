@@ -402,58 +402,43 @@ section h2 {
   }
 }
 
-/* === SECTION TRANSITIONS - Seamless Blending === */
+/* === SECTION TRANSITIONS - Seamless Blending with Glassmorphism === */
 @layer utilities {
   /* Remove all gaps between sections */
   section {
     position: relative;
     margin: 0 !important;
-    padding-top: 0 !important;
   }
 
   section + section {
-    margin-top: -2px !important; /* Overlap to prevent any gaps */
+    margin-top: -2px !important;
   }
 
-  /* Seamless gradient blending overlays */
-  .section-blend::before {
+  /* Glassmorphism separator lines between sections */
+  section::after {
     content: '';
     position: absolute;
-    top: -80px;
-    left: 0;
-    right: 0;
-    height: 160px;
+    bottom: 0;
+    left: 5%;
+    right: 5%;
+    height: 1px;
     background: linear-gradient(
-      to bottom,
+      90deg,
       transparent 0%,
-      rgba(0, 0, 0, 0.015) 30%,
-      rgba(0, 0, 0, 0.03) 70%,
-      rgba(0, 0, 0, 0.05) 100%
+      rgba(255, 255, 255, 0.08) 20%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0.08) 80%,
+      transparent 100%
     );
+    box-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.05),
+      0 0 40px rgba(122, 95, 255, 0.03);
     pointer-events: none;
-    z-index: 0;
+    z-index: 5;
   }
 
-  .section-blend::after {
-    content: '';
-    position: absolute;
-    bottom: -80px;
-    left: 0;
-    right: 0;
-    height: 160px;
-    background: linear-gradient(
-      to top,
-      transparent 0%,
-      rgba(0, 0, 0, 0.015) 30%,
-      rgba(0, 0, 0, 0.03) 70%,
-      rgba(0, 0, 0, 0.05) 100%
-    );
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Enhanced blending for cosmic sections */
-  .section-cosmic-blend::before {
+  /* Enhanced glassmorphism for cosmic sections */
+  .section-cosmic-glass::before {
     content: '';
     position: absolute;
     top: 0;
@@ -462,31 +447,66 @@ section h2 {
     height: 200px;
     background: linear-gradient(
       to bottom,
-      rgba(5, 1, 14, 0) 0%,
-      rgba(10, 26, 47, 0.15) 25%,
-      rgba(12, 18, 34, 0.35) 60%,
-      rgba(12, 18, 34, 0.6) 100%
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(10, 26, 47, 0.15) 40%,
+      rgba(12, 18, 34, 0.3) 100%
     );
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     pointer-events: none;
     z-index: 0;
+    opacity: 0.6;
   }
 
-  .section-cosmic-blend::after {
+  /* Glowing border effect for section transitions */
+  .section-glow-border::before {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: -1px;
     left: 0;
     right: 0;
-    height: 200px;
+    height: 2px;
     background: linear-gradient(
-      to top,
-      rgba(5, 1, 14, 0) 0%,
-      rgba(10, 26, 47, 0.15) 25%,
-      rgba(12, 18, 34, 0.35) 60%,
-      rgba(12, 18, 34, 0.6) 100%
+      90deg,
+      transparent 0%,
+      rgba(122, 95, 255, 0.3) 25%,
+      rgba(0, 196, 255, 0.3) 50%,
+      rgba(122, 95, 255, 0.3) 75%,
+      transparent 100%
     );
+    filter: blur(4px);
     pointer-events: none;
-    z-index: 0;
+    z-index: 5;
+  }
+
+  /* Frosted glass card effect for content separation */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Subtle depth layers */
+  .depth-layer-1 {
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .depth-layer-2 {
+    box-shadow: 
+      0 8px 24px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .depth-layer-3 {
+    box-shadow: 
+      0 12px 32px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
   }
 }
 
