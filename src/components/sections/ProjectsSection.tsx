@@ -12,24 +12,12 @@ export const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 bg-gradient-to-b from-[#0C1222] to-[#05010E]" data-tour="projects">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <motion.h2 
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold mb-4"
-        >
-          <span className="bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] bg-clip-text text-transparent">
-            {t.projects.title}
-          </span>
-        </motion.h2>
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-gray-400 mt-2 text-sm md:text-base mb-12"
-        >
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] bg-clip-text text-transparent">
+          {t.projects.title}
+        </h2>
+        <p className="text-gray-400 mt-2 text-sm md:text-base mb-12">
           {t.projects.subtitle}
-        </motion.p>
+        </p>
 
         {/* Creative Universe */}
         <AnimatePresence mode="wait">
