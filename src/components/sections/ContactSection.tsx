@@ -1,33 +1,33 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Facebook, Instagram, Linkedin, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
-import { SectionTitle } from "@/components/ui/section-title";
+import { Section } from "@/components/ui/section";
 import { SOCIAL_LINKS } from "@/lib/constants";
 
 export const ContactSection = () => {
   const { t, language } = useLanguage();
 
   return (
-    <section
+    <Section
       id="contact"
-      className="relative py-28 bg-gradient-to-b from-[#05010E] via-[#0A1A2F] to-[#0C1222] text-center overflow-hidden"
+      title={{
+        title: t.contact.title,
+        subtitle: t.contact.subtitle,
+        align: "center",
+        gradient: "primary",
+      }}
+      background="cosmic"
+      containerWidth="3xl"
+      paddingY="xl"
+      className="text-center overflow-hidden"
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-3xl mx-auto px-6"
+        className="relative z-10"
       >
-        {/* Header - Using SectionTitle Component */}
-        <SectionTitle
-          title={t.contact.title}
-          subtitle={t.contact.subtitle}
-          align="center"
-          gradient="primary"
-          dataAttr="contact-title"
-        />
-
         {/* CTA Buttons */}
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <motion.a
@@ -112,6 +112,6 @@ export const ContactSection = () => {
           </motion.a>
         </div>
       </motion.div>
-    </section>
+    </Section>
   );
 };
