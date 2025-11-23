@@ -67,14 +67,23 @@ const Index = ({ forcedLanguage }: IndexProps) => {
       {/* Hero Section */}
       <HeroSection />
 
+      {/* Gradient Separator */}
+      <div className="h-16 bg-gradient-to-b from-slate-800 to-slate-900"></div>
+
       {/* AI Tools Mastery Section */}
       <AIToolsSection />
+
+      {/* Gradient Separator */}
+      <div className="h-16 bg-gradient-to-b from-slate-800 to-[#F7F9FB]"></div>
 
       {/* Showcase Projects Section */}
       <ProjectsSection />
 
+      {/* Gradient Separator */}
+      <div className="h-16 bg-gradient-to-b from-[#F7F9FB] to-slate-900"></div>
+
       {/* Creative & Strategic Ecosystem */}
-      <EcosystemCarousel
+      <EcosystemCarousel 
         projects={[
           {
             name: "Sweet Life Animes",
@@ -113,6 +122,9 @@ const Index = ({ forcedLanguage }: IndexProps) => {
 
       {/* Impact Metrics Section */}
       <ImpactMetrics />
+
+      {/* Gradient Separator */}
+      <div className="h-16 bg-gradient-to-b from-[#0C1222] to-[#121E2C]"></div>
 
       {/* Skills & Competencies Section */}
       <SkillsSection />
