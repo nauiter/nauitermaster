@@ -60,8 +60,8 @@ export const Breadcrumbs = () => {
       />
 
       {/* Visual Breadcrumbs */}
-      <nav aria-label="Breadcrumb" className="py-4 px-6">
-        <ol className="flex items-center space-x-2 text-sm max-w-6xl mx-auto">
+      <nav aria-label="Breadcrumb" className="py-4 px-6 bg-transparent">
+        <ol className="flex items-center space-x-2 text-sm max-w-6xl mx-auto bg-transparent">
           {breadcrumbs.map((crumb, index) => (
             <li key={crumb.path} className="flex items-center">
               {index > 0 && (
