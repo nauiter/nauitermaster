@@ -34,6 +34,7 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
       className="overflow-hidden text-center"
       showParticles={true}
       particleColor="secondary"
+      particleMagneticStrength={70}
     >
       {/* Projects Grid */}
       <div className="relative mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">

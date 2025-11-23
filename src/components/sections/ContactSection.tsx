@@ -22,6 +22,7 @@ export const ContactSection = () => {
       className="text-center overflow-hidden"
       showParticles={true}
       particleColor="primary"
+      particleMagneticStrength={80}
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
