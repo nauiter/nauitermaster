@@ -96,7 +96,7 @@ export const SectionTitle = ({
       >
         <Tag
           className={cn(
-            'text-3xl md:text-5xl font-bold mb-4',
+            'text-3xl md:text-5xl font-bold mb-8',
             baseGradientClass,
             titleClassName
           )}
