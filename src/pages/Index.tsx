@@ -1,5 +1,6 @@
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FloatingNavbar } from "@/components/FloatingNavbar";
 import { EcosystemCarousel } from "@/components/EcosystemCarousel";
 import { ImpactMetrics } from "@/components/sections/ImpactMetrics";
@@ -20,12 +21,33 @@ import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
 import oVermePasseia from "@/assets/o-verme-passeia.webp";
 import figueiredoLaw from "@/assets/figueiredo-law.webp";
 
-const Index = () => {
-  const { t, language } = useLanguage();
+interface IndexProps {
+  forcedLanguage?: 'pt' | 'en';
+}
+
+const Index = ({ forcedLanguage }: IndexProps) => {
+  const { t, language, setLanguage } = useLanguage();
   const isLoading = usePageLoading(800);
+
+  // Force language if specified in route
+  React.useEffect(() => {
+    if (forcedLanguage && language !== forcedLanguage) {
+      setLanguage(forcedLanguage);
+    }
+  }, [forcedLanguage, language, setLanguage]);
+
+  const location = useLocation();
+  const currentPath = location.pathname;
+  const baseUrl = 'https://nauitermaster.lovable.app';
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Hreflang Tags for SEO */}
+      <link rel="canonical" href={`${baseUrl}${currentPath}`} />
+      <link rel="alternate" hrefLang="pt-BR" href={`${baseUrl}/pt`} />
+      <link rel="alternate" hrefLang="en" href={`${baseUrl}/en`} />
+      <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/`} />
+      
       {/* SEO Structured Data - Person */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({

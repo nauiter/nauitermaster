@@ -24,6 +24,8 @@ const App = () => (
           <Breadcrumbs />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/pt" element={<Index forcedLanguage="pt" />} />
+            <Route path="/en" element={<Index forcedLanguage="en" />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-use" element={<TermsOfUse />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
