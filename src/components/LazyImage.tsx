@@ -6,9 +6,10 @@ interface LazyImageProps {
   alt: string;
   className?: string;
   blurDataURL?: string;
+  loading?: "lazy" | "eager";
 }
 
-export const LazyImage = ({ src, alt, className = "", blurDataURL }: LazyImageProps) => {
+export const LazyImage = ({ src, alt, className = "", blurDataURL, loading = "lazy" }: LazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
@@ -25,7 +26,7 @@ export const LazyImage = ({ src, alt, className = "", blurDataURL }: LazyImagePr
       <motion.img
         src={src}
         alt={alt}
-        loading="lazy"
+        loading={loading}
         className="w-full h-full object-cover"
         initial={{ opacity: 0, scale: 1.1 }}
         animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 1.1 }}

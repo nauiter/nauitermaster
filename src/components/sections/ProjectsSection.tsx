@@ -56,7 +56,7 @@ export const ProjectsSection = () => {
             <div className="aspect-video relative overflow-hidden">
               <LazyImage
                 src={sweetLifeAnimes}
-                alt="Sweet Life Animes project thumbnail"
+                alt="Sweet Life Animes - Projeto de arte digital criado com IA focado em empoderar artistas digitais e storytellers | Digital art project created with AI focused on empowering digital artists and storytellers"
                 className="w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
@@ -105,7 +105,7 @@ export const ProjectsSection = () => {
             <div className="aspect-video relative overflow-hidden">
               <LazyImage
                 src={sweetLifeAcademy}
-                alt="Sweet Life Academy project thumbnail"
+                alt="Sweet Life Academy - Plataforma de educação em IA e automação para criadores digitais | AI education and automation platform for digital creators"
                 className="w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
@@ -154,7 +154,7 @@ export const ProjectsSection = () => {
             <div className="aspect-video relative overflow-hidden">
               <LazyImage
                 src={oVermePasseia}
-                alt="O Verme Passeia project thumbnail"
+                alt="O Verme Passeia - Projeto explorando filosofia e estética através do design digital | Project exploring philosophy and aesthetics through digital design"
                 className="w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
@@ -218,7 +218,7 @@ export const ProjectsSection = () => {
             <div className="aspect-video relative overflow-hidden">
               <LazyImage
                 src={figueiredoLaw}
-                alt="Figueiredo Law project thumbnail"
+                alt="Figueiredo Law - Consultoria em direito, tecnologia e ética de IA | Law, technology and AI ethics consultancy"
                 className="w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
