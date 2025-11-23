@@ -106,74 +106,87 @@ export const ProjectsSection = () => {
           </motion.p>
         </div>
 
-        {/* Carousel */}
-        <Carousel
-          setApi={setApi}
-          opts={{
-            align: "center",
-            loop: true,
-            dragFree: false,
-            containScroll: "trimSnaps",
-            skipSnaps: false,
-            duration: 25,
-          }}
-          plugins={[
-            Autoplay({
-              delay: 6500,
-              stopOnInteraction: true,
-              stopOnMouseEnter: true,
-            }),
-          ]}
-          className="w-full max-w-5xl mx-auto"
-        >
-          <CarouselContent>
+        {/* Carousel with Fade Effect */}
+        <div className="relative w-full max-w-5xl mx-auto">
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "center",
+              loop: true,
+              dragFree: false,
+              containScroll: false,
+              skipSnaps: false,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 6500,
+                stopOnInteraction: true,
+                stopOnMouseEnter: true,
+              }),
+            ]}
+            className="w-full overflow-visible"
+          >
+          <CarouselContent className="-ml-0">
             {projects.map((project, index) => (
-              <CarouselItem key={index}>
-                <div className="p-4">
-                  <div className="relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-sm shadow-2xl hover:shadow-[#7A5FFF]/20 transition-all duration-500 group">
-                    {/* Image Section with Parallax */}
-                    <motion.div
-                      key={`image-${current}-${index}`}
-                      initial={{ opacity: 0, x: 100, scale: 1.1 }}
-                      animate={{ 
-                        opacity: current === index ? 1 : 0,
-                        x: current === index ? 0 : -100,
-                        scale: current === index ? 1 : 1.1
-                      }}
-                      transition={{ 
-                        duration: 0.9,
-                        ease: [0.25, 0.46, 0.45, 0.94]
-                      }}
-                      className="relative aspect-video md:aspect-[21/9] overflow-hidden"
-                    >
+              <CarouselItem key={index} className="pl-0 basis-full">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ 
+                    opacity: current === index ? 1 : 0,
+                    scale: current === index ? 1 : 0.95,
+                    zIndex: current === index ? 10 : 0
+                  }}
+                  transition={{ 
+                    opacity: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+                    scale: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
+                  }}
+                  className="absolute inset-0 w-full"
+                  style={{ 
+                    pointerEvents: current === index ? 'auto' : 'none'
+                  }}
+                >
+                  <div className="p-4">
+                  <div className="relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-sm shadow-2xl hover:shadow-[#7A5FFF]/20 transition-all duration-500">
+                    {/* Image Section with Fade */}
+                    <div className="relative aspect-video md:aspect-[21/9] overflow-hidden">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 1.05 }}
+                        animate={{ 
+                          opacity: 1,
+                          scale: 1
+                        }}
+                        transition={{ 
+                          duration: 1.2,
+                          ease: [0.25, 0.46, 0.45, 0.94]
+                        }}
+                        className="w-full h-full"
+                      >
                       <LazyImage
                         src={project.image}
                         alt={project.alt}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0C1222] via-transparent to-transparent opacity-60"></div>
                       
                       {/* Category Badge */}
                       <div className="absolute top-6 left-6">
-                        <span className={`inline-block px-4 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-sm font-semibold ${project.categoryColor} uppercase tracking-wider`}>
+                        <motion.span 
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.3 }}
+                          className={`inline-block px-4 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-sm font-semibold ${project.categoryColor} uppercase tracking-wider`}
+                        >
                           {project.category}
-                        </span>
+                        </motion.span>
                       </div>
                     </motion.div>
+                    </div>
 
-                    {/* Content Section with Parallax */}
+                    {/* Content Section with Fade */}
                     <motion.div
-                      key={`content-${current}-${index}`}
-                      initial={{ opacity: 0, y: 50 }}
-                      animate={{ 
-                        opacity: current === index ? 1 : 0,
-                        y: current === index ? 0 : 30
-                      }}
-                      transition={{ 
-                        duration: 0.6,
-                        delay: 0.2,
-                        ease: [0.25, 0.46, 0.45, 0.94]
-                      }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
                       className="p-8 md:p-10"
                     >
                       {/* Title */}
@@ -199,7 +212,10 @@ export const ProjectsSection = () => {
                       </div>
 
                       {/* CTA Button */}
-                      <a
+                      <motion.a
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.6 }}
                         href={project.url}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -207,18 +223,22 @@ export const ProjectsSection = () => {
                       >
                         <ExternalLink size={20} />
                         <span>{language === 'pt' ? 'Visitar Projeto' : 'Visit Project'}</span>
-                      </a>
+                      </motion.a>
                     </motion.div>
                   </div>
                 </div>
+                </motion.div>
               </CarouselItem>
             ))}
           </CarouselContent>
 
           {/* Navigation Arrows */}
-          <CarouselPrevious className="left-0 -translate-x-12 bg-white/10 border-white/20 hover:bg-white/20 backdrop-blur-md" />
-          <CarouselNext className="right-0 translate-x-12 bg-white/10 border-white/20 hover:bg-white/20 backdrop-blur-md" />
+          <div className="relative z-20">
+            <CarouselPrevious className="left-0 -translate-x-12 bg-white/10 border-white/20 hover:bg-white/20 backdrop-blur-md" />
+            <CarouselNext className="right-0 translate-x-12 bg-white/10 border-white/20 hover:bg-white/20 backdrop-blur-md" />
+          </div>
         </Carousel>
+        </div>
 
         {/* Progress Counter */}
         <div className="mt-12 max-w-md mx-auto">
