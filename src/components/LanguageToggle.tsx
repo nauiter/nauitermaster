@@ -1,13 +1,28 @@
 import { motion } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Language } from '@/lib/translations';
 
 export const LanguageToggle = () => {
   const { language, setLanguage } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleToggle = (lang: Language) => {
-    if (lang !== language) {
-      setLanguage(lang);
+  const handleToggle = (newLang: Language) => {
+    if (newLang === language) return;
+    
+    setLanguage(newLang);
+    
+    // Navigate to the language-specific route
+    // Preserve current page structure (homepage, privacy, terms)
+    if (location.pathname === '/pt' || location.pathname === '/en' || location.pathname === '/') {
+      navigate(`/${newLang}`, { replace: true });
+    } else if (location.pathname.includes('/privacy-policy')) {
+      navigate('/privacy-policy');
+    } else if (location.pathname.includes('/terms-of-use')) {
+      navigate('/terms-of-use');
+    } else {
+      navigate(`/${newLang}`);
     }
   };
 
