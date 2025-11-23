@@ -1,5 +1,11 @@
 export type Language = 'en' | 'pt';
 
+export interface ProjectData {
+  title: string;
+  description: string;
+  tools: string[];
+}
+
 export interface Translations {
   // Hero Section
   hero: {
@@ -48,6 +54,13 @@ export interface Translations {
     experimentalConcepts: string;
     visitWebsite: string;
     tools: string;
+    sweetLifeAnimes: ProjectData;
+    sweetLifeAcademy: ProjectData;
+    oVermePasseia: ProjectData;
+    clickNoPoint: ProjectData;
+    pomodoroProject: ProjectData;
+    figueiredoLaw: ProjectData;
+    decisionDie: ProjectData;
   };
   // Ecosystem Section
   ecosystem: {
@@ -119,6 +132,41 @@ export const translations: Record<Language, Translations> = {
       experimentalConcepts: 'Experimental Concepts',
       visitWebsite: 'Visit Website',
       tools: 'Tools',
+      sweetLifeAnimes: {
+        title: 'Sweet Life Animes',
+        description: 'Empowering digital artists and creative communities.',
+        tools: ['AI', 'Digital Art', 'Community'],
+      },
+      sweetLifeAcademy: {
+        title: 'Sweet Life Academy',
+        description: 'Helping creators grow with AI strategy and education.',
+        tools: ['AI Education', 'Automation', 'Strategy'],
+      },
+      oVermePasseia: {
+        title: 'O Verme Passeia',
+        description: 'Exploring philosophy and aesthetics through design.',
+        tools: ['Philosophy', 'Digital Art', 'AI'],
+      },
+      clickNoPoint: {
+        title: 'Click No Point',
+        description: 'Creative comedy exploring irony and absurdity in the digital era.',
+        tools: ['Comedy', 'Humor', 'Creative Media'],
+      },
+      pomodoroProject: {
+        title: 'Pomodoro Project',
+        description: 'A minimalist AI-driven time management experiment.',
+        tools: ['Productivity', 'Design', 'Focus'],
+      },
+      figueiredoLaw: {
+        title: 'Figueiredo Law',
+        description: 'AI consultancy connecting law, ethics, and technology.',
+        tools: ['Law', 'Ethics', 'Technology'],
+      },
+      decisionDie: {
+        title: 'Decision Die',
+        description: 'A playful AI experiment to simulate random creativity.',
+        tools: ['Game', 'AI', 'Design'],
+      },
     },
     ecosystem: {
       title: 'Creative & Strategic Ecosystem',
@@ -185,6 +233,41 @@ export const translations: Record<Language, Translations> = {
       experimentalConcepts: 'Conceitos Experimentais',
       visitWebsite: 'Visitar Website',
       tools: 'Ferramentas',
+      sweetLifeAnimes: {
+        title: 'Sweet Life Animes',
+        description: 'Empoderando artistas digitais e comunidades criativas.',
+        tools: ['IA', 'Arte Digital', 'Comunidade'],
+      },
+      sweetLifeAcademy: {
+        title: 'Sweet Life Academy',
+        description: 'Ajudando criadores a crescer com estratégia e educação em IA.',
+        tools: ['Educação IA', 'Automação', 'Estratégia'],
+      },
+      oVermePasseia: {
+        title: 'O Verme Passeia',
+        description: 'Explorando filosofia e estética através do design.',
+        tools: ['Filosofia', 'Arte Digital', 'IA'],
+      },
+      clickNoPoint: {
+        title: 'Click No Point',
+        description: 'Comédia criativa explorando ironia e absurdo na era digital.',
+        tools: ['Comédia', 'Humor', 'Mídia Criativa'],
+      },
+      pomodoroProject: {
+        title: 'Projeto Pomodoro',
+        description: 'Um experimento minimalista de gestão de tempo impulsionado por IA.',
+        tools: ['Produtividade', 'Design', 'Foco'],
+      },
+      figueiredoLaw: {
+        title: 'Figueiredo Law',
+        description: 'Consultoria em IA conectando direito, ética e tecnologia.',
+        tools: ['Direito', 'Ética', 'Tecnologia'],
+      },
+      decisionDie: {
+        title: 'Decision Die',
+        description: 'Um experimento lúdico de IA para simular criatividade aleatória.',
+        tools: ['Jogo', 'IA', 'Design'],
+      },
     },
     ecosystem: {
       title: 'Ecossistema Criativo & Estratégico',
