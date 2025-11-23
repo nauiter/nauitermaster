@@ -85,6 +85,86 @@ export interface Translations {
     email: string;
     followMe: string;
   };
+  // LGPD / Privacy Section
+  lgpd: {
+    banner: {
+      title: string;
+      description: string;
+      acceptAll: string;
+      rejectNonEssential: string;
+      managePreferences: string;
+      privacyLink: string;
+    };
+    preferences: {
+      title: string;
+      description: string;
+      essential: {
+        title: string;
+        description: string;
+      };
+      analytics: {
+        title: string;
+        description: string;
+      };
+      marketing: {
+        title: string;
+        description: string;
+      };
+      savePreferences: string;
+      cancel: string;
+    };
+    privacy: {
+      title: string;
+      lastUpdated: string;
+      sections: {
+        introduction: {
+          title: string;
+          content: string;
+        };
+        dataCollection: {
+          title: string;
+          content: string;
+        };
+        cookies: {
+          title: string;
+          content: string;
+        };
+        dataRetention: {
+          title: string;
+          content: string;
+        };
+        sharing: {
+          title: string;
+          content: string;
+        };
+        rights: {
+          title: string;
+          content: string;
+        };
+      };
+    };
+    terms: {
+      title: string;
+      sections: {
+        terms: {
+          title: string;
+          content: string;
+        };
+        license: {
+          title: string;
+          content: string;
+        };
+        disclaimer: {
+          title: string;
+          content: string;
+        };
+        limitations: {
+          title: string;
+          content: string;
+        };
+      };
+    };
+  };
 }
 
 export const translations: Record<Language, Translations> = {
@@ -188,6 +268,85 @@ export const translations: Record<Language, Translations> = {
       email: 'Email',
       followMe: 'Follow Me',
     },
+    lgpd: {
+      banner: {
+        title: 'Privacy & Cookies',
+        description: 'We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. You can manage your preferences at any time.',
+        acceptAll: 'Accept All',
+        rejectNonEssential: 'Reject Non-Essential',
+        managePreferences: 'Manage Preferences',
+        privacyLink: 'Privacy Policy',
+      },
+      preferences: {
+        title: 'Cookie Preferences',
+        description: 'Choose which types of cookies you want to allow. Essential cookies cannot be disabled as they are necessary for the website to function.',
+        essential: {
+          title: 'Essential Cookies',
+          description: 'Required for basic site functionality. These cannot be disabled.',
+        },
+        analytics: {
+          title: 'Analytics Cookies',
+          description: 'Help us understand how visitors interact with our website by collecting and reporting information anonymously.',
+        },
+        marketing: {
+          title: 'Marketing Cookies',
+          description: 'Used to track visitors across websites to display relevant and engaging advertisements.',
+        },
+        savePreferences: 'Save Preferences',
+        cancel: 'Cancel',
+      },
+      privacy: {
+        title: 'Privacy Policy',
+        lastUpdated: 'Last updated',
+        sections: {
+          introduction: {
+            title: '1. Introduction',
+            content: 'Your privacy is important to us. It is Nauiter Master\'s policy to respect your privacy regarding any information we may collect from the Nauiter Master website and other sites we own and operate.',
+          },
+          dataCollection: {
+            title: '2. Data Collection',
+            content: 'We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we\'re collecting it and how it will be used.',
+          },
+          cookies: {
+            title: '3. Use of Cookies',
+            content: 'We use cookies to improve the browsing experience, analyze site traffic, and personalize content. You can manage your cookie preferences at any time through our consent manager.',
+          },
+          dataRetention: {
+            title: '4. Data Retention',
+            content: 'We only retain collected information for as long as necessary to provide you with your requested service. When we store data, we protect it within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use, or modification.',
+          },
+          sharing: {
+            title: '5. Sharing',
+            content: 'We don\'t share any personally identifying information publicly or with third parties, except when required by law.',
+          },
+          rights: {
+            title: '6. Your Rights (LGPD)',
+            content: 'You have the right to request access, correction, or deletion of your personal data. Contact us to exercise these rights.',
+          },
+        },
+      },
+      terms: {
+        title: 'Terms of Use',
+        sections: {
+          terms: {
+            title: '1. Terms',
+            content: 'By accessing the Nauiter Master website, you agree to comply with these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.',
+          },
+          license: {
+            title: '2. Use License',
+            content: 'Permission is granted to temporarily download one copy of the materials (information or software) on Nauiter Master\'s website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.',
+          },
+          disclaimer: {
+            title: '3. Disclaimer',
+            content: 'The materials on Nauiter Master\'s website are provided on an \'as is\' basis. Nauiter Master makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.',
+          },
+          limitations: {
+            title: '4. Limitations',
+            content: 'In no event shall Nauiter Master or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Nauiter Master\'s website.',
+          },
+        },
+      },
+    },
   },
   pt: {
     hero: {
@@ -288,6 +447,85 @@ export const translations: Record<Language, Translations> = {
       bookCall: 'Agendar uma Chamada',
       email: 'Email',
       followMe: 'Me Siga',
+    },
+    lgpd: {
+      banner: {
+        title: 'Privacidade & Cookies',
+        description: 'Utilizamos cookies para melhorar sua experiência de navegação, analisar o tráfego do site e personalizar conteúdo. Você pode gerenciar suas preferências a qualquer momento.',
+        acceptAll: 'Aceitar Todos',
+        rejectNonEssential: 'Rejeitar Não Essenciais',
+        managePreferences: 'Gerenciar Preferências',
+        privacyLink: 'Política de Privacidade',
+      },
+      preferences: {
+        title: 'Preferências de Cookies',
+        description: 'Escolha quais tipos de cookies você deseja permitir. Cookies essenciais não podem ser desativados, pois são necessários para o funcionamento do site.',
+        essential: {
+          title: 'Cookies Essenciais',
+          description: 'Necessários para a funcionalidade básica do site. Não podem ser desativados.',
+        },
+        analytics: {
+          title: 'Cookies Analíticos',
+          description: 'Nos ajudam a entender como os visitantes interagem com nosso site coletando e reportando informações anonimamente.',
+        },
+        marketing: {
+          title: 'Cookies de Marketing',
+          description: 'Usados para rastrear visitantes em websites para exibir anúncios relevantes e envolventes.',
+        },
+        savePreferences: 'Salvar Preferências',
+        cancel: 'Cancelar',
+      },
+      privacy: {
+        title: 'Política de Privacidade',
+        lastUpdated: 'Última atualização',
+        sections: {
+          introduction: {
+            title: '1. Introdução',
+            content: 'A sua privacidade é importante para nós. É política do Nauiter Master respeitar a sua privacidade em relação a qualquer informação que possamos coletar no site Nauiter Master, e outros sites que possuímos e operamos.',
+          },
+          dataCollection: {
+            title: '2. Coleta de Dados',
+            content: 'Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.',
+          },
+          cookies: {
+            title: '3. Uso de Cookies',
+            content: 'Utilizamos cookies para melhorar a experiência de navegação, analisar o tráfego do site e personalizar conteúdo. Você pode gerenciar suas preferências de cookies a qualquer momento através do nosso gerenciador de consentimento.',
+          },
+          dataRetention: {
+            title: '4. Retenção de Dados',
+            content: 'Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.',
+          },
+          sharing: {
+            title: '5. Compartilhamento',
+            content: 'Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.',
+          },
+          rights: {
+            title: '6. Seus Direitos (LGPD)',
+            content: 'Você tem o direito de solicitar o acesso, correção ou exclusão de seus dados pessoais. Entre em contato conosco para exercer esses direitos.',
+          },
+        },
+      },
+      terms: {
+        title: 'Termos de Uso',
+        sections: {
+          terms: {
+            title: '1. Termos',
+            content: 'Ao acessar ao site Nauiter Master, concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis e concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis.',
+          },
+          license: {
+            title: '2. Uso de Licença',
+            content: 'É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no site Nauiter Master, apenas para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título.',
+          },
+          disclaimer: {
+            title: '3. Isenção de responsabilidade',
+            content: 'Os materiais no site da Nauiter Master são fornecidos "como estão". Nauiter Master não oferece garantias, expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, incluindo, sem limitação, garantias implícitas ou condições de comercialização, adequação a um fim específico ou não violação de propriedade intelectual ou outra violação de direitos.',
+          },
+          limitations: {
+            title: '4. Limitações',
+            content: 'Em nenhum caso o Nauiter Master ou seus fornecedores serão responsáveis por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar os materiais em Nauiter Master.',
+          },
+        },
+      },
     },
   },
 };
