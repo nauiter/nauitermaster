@@ -14,6 +14,9 @@ export interface Translations {
     description: string;
     downloadCV: string;
     viewProjects: string;
+    linkedinFollowers: string;
+    yearsExperience: string;
+    activeProjects: string;
   };
   // Navigation
   nav: {
@@ -181,6 +184,9 @@ export const translations: Record<Language, Translations> = {
       description: 'AI Strategist & Digital Artist | Founder of Sweet Life Animes & O Verme Passeia',
       downloadCV: 'Download CV',
       viewProjects: 'View My Projects',
+      linkedinFollowers: 'LinkedIn Followers',
+      yearsExperience: 'Years Experience',
+      activeProjects: 'Active Projects',
     },
     nav: {
       home: 'Home',
@@ -366,6 +372,9 @@ export const translations: Record<Language, Translations> = {
       description: 'Estrategista de IA & Artista Digital | Fundador de Sweet Life Animes & O Verme Passeia',
       downloadCV: 'Baixar CV',
       viewProjects: 'Ver Meus Projetos',
+      linkedinFollowers: 'Seguidores LinkedIn',
+      yearsExperience: 'Anos de Experiência',
+      activeProjects: 'Projetos Ativos',
     },
     nav: {
       home: 'Início',
