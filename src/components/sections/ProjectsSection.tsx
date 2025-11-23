@@ -119,7 +119,7 @@ export const ProjectsSection = () => {
           }}
           plugins={[
             Autoplay({
-              delay: 5000,
+              delay: 6500,
               stopOnInteraction: true,
               stopOnMouseEnter: true,
             }),
