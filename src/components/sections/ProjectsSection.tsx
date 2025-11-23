@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { LazyImage } from "@/components/LazyImage";
-import { SectionTitle } from "@/components/ui/section-title";
+import { Section } from "@/components/ui/section";
 import { ExternalLink } from "lucide-react";
 import {
   Carousel,
@@ -78,20 +78,19 @@ export const ProjectsSection = () => {
   ];
 
   return (
-    <section
+    <Section
       id="projects"
-      className="py-24 bg-gradient-to-b from-[#0C1222] to-[#05010E]"
-      data-tour="projects"
+      title={{
+        title: language === 'pt' ? 'Projetos em Destaque' : 'Showcase Projects',
+        subtitle: t.projects.subtitle,
+        gradient: "primary",
+        align: "center",
+      }}
+      background="gradient-dark"
+      containerWidth="7xl"
+      paddingY="lg"
+      dataTour="projects"
     >
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header - Using SectionTitle Component */}
-        <SectionTitle
-          title={language === 'pt' ? 'Projetos em Destaque' : 'Showcase Projects'}
-          subtitle={t.projects.subtitle}
-          align="center"
-          gradient="primary"
-          dataAttr="projects-title"
-        />
 
         {/* Carousel */}
         <Carousel
@@ -264,7 +263,6 @@ export const ProjectsSection = () => {
             ))}
           </div>
         </div>
-      </div>
-    </section>
+    </Section>
   );
 };
