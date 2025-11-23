@@ -145,10 +145,10 @@ const Index = () => {
       <ContactSection />
 
       {/* Footer */}
-      <footer className="relative bg-gradient-to-b from-[#05010E] to-[#000000] border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-12">
+      <footer className="relative bg-gradient-to-b from-[#05010E] to-[#000000]">
+        <div className="max-w-6xl mx-auto px-6 py-6">
           {/* Top Section - Links & Info */}
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div className="grid md:grid-cols-3 gap-6 mb-4">
             {/* Brand Column */}
             <div className="text-center md:text-left">
               <h3 className="text-xl font-bold bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] bg-clip-text text-transparent mb-3">
@@ -220,11 +220,8 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="border-t border-white/10 mb-6"></div>
-
           {/* Bottom Section - Copyright */}
-          <div className="text-center space-y-2">
+          <div className="text-center space-y-1 mt-4">
             <p className="text-gray-400 text-sm">
               © 2025 <span className="text-white font-semibold">Developer — Nauiter Master</span> | All Rights Reserved
             </p>
