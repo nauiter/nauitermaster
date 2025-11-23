@@ -32,6 +32,8 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
       paddingY="xl"
       dataTour="ecosystem"
       className="overflow-hidden text-center"
+      showParticles={true}
+      particleColor="secondary"
     >
       {/* Projects Grid */}
       <div className="relative mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
