@@ -1,248 +1,193 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
 import { LazyImage } from "@/components/LazyImage";
+import { ExternalLink } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import sweetLifeAnimes from "@/assets/sweet-life-animes.webp";
 import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
 import oVermePasseia from "@/assets/o-verme-passeia.webp";
 import figueiredoLaw from "@/assets/figueiredo-law.webp";
+
 export const ProjectsSection = () => {
-  const {
-    t,
-    language
-  } = useLanguage();
-  return <section id="projects" className="py-24 bg-gradient-to-b from-[#0C1222] to-[#05010E]" data-tour="projects">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <motion.h2
-          key={`projects-title-${language}`}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
-        >
-          {t.projects.title}
-        </motion.h2>
+  const { t, language } = useLanguage();
 
-        <motion.p
-          key={`projects-subtitle-${language}`}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-gray-400 mt-2 max-w-2xl mx-auto mb-12"
-        >
-          {t.projects.subtitle}
-        </motion.p>
+  const projects = [
+    {
+      image: sweetLifeAnimes,
+      alt: "Sweet Life Animes - Projeto de arte digital criado com IA focado em empoderar artistas digitais e storytellers | Digital art project created with AI focused on empowering digital artists and storytellers",
+      title: t.projects.sweetLifeAnimes.title,
+      description: t.projects.sweetLifeAnimes.description,
+      tools: t.projects.sweetLifeAnimes.tools,
+      url: "https://sweetlifeanimes.lovable.app",
+      category: t.projects.creativeUniverse,
+      categoryColor: "text-[#7A5FFF]",
+    },
+    {
+      image: sweetLifeAcademy,
+      alt: "Sweet Life Academy - Plataforma de educação em IA e automação para criadores digitais | AI education and automation platform for digital creators",
+      title: t.projects.sweetLifeAcademy.title,
+      description: t.projects.sweetLifeAcademy.description,
+      tools: t.projects.sweetLifeAcademy.tools,
+      url: "https://sweetlifeacademy.lovable.app",
+      category: t.projects.creativeUniverse,
+      categoryColor: "text-[#7A5FFF]",
+    },
+    {
+      image: oVermePasseia,
+      alt: "O Verme Passeia - Projeto explorando filosofia e estética através do design digital | Project exploring philosophy and aesthetics through digital design",
+      title: t.projects.oVermePasseia.title,
+      description: t.projects.oVermePasseia.description,
+      tools: t.projects.oVermePasseia.tools,
+      url: "https://overmepasseia.lovable.app",
+      category: t.projects.creativeUniverse,
+      categoryColor: "text-[#7A5FFF]",
+    },
+    {
+      image: figueiredoLaw,
+      alt: "Figueiredo Law - Consultoria em direito, tecnologia e ética de IA | Law, technology and AI ethics consultancy",
+      title: t.projects.figueiredoLaw.title,
+      description: t.projects.figueiredoLaw.description,
+      tools: t.projects.figueiredoLaw.tools,
+      url: "https://figueiredolaw.lovable.app",
+      category: t.projects.experimentalConcepts,
+      categoryColor: "text-[#00C4FF]",
+    },
+  ];
 
-        {/* Creative Universe */}
-        <motion.h3 
-          key={`creative-universe-${language}`}
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
-          transition={{ duration: 0.5 }} 
-          className="text-left mt-12 mb-6 font-semibold text-[#7A5FFF] uppercase tracking-widest text-sm"
-        >
-          {t.projects.creativeUniverse}
-        </motion.h3>
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <motion.a href="https://sweetlifeanimes.lovable.app" target="_blank" rel="noopener noreferrer" whileHover={{
-          scale: 1.03,
-          y: -5
-        }} transition={{
-          type: "spring",
-          stiffness: 150
-        }} className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-            <div className="aspect-video relative overflow-hidden">
-              <LazyImage src={sweetLifeAnimes} alt="Sweet Life Animes - Projeto de arte digital criado com IA focado em empoderar artistas digitais e storytellers | Digital art project created with AI focused on empowering digital artists and storytellers" className="w-full h-full" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
-            </div>
-            <div className="p-4 text-left">
-              <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.sweetLifeAnimes.title}</h4>
-              <AnimatePresence mode="wait">
-                <motion.p key={language} initial={{
-                opacity: 0
-              }} animate={{
-                opacity: 1
-              }} exit={{
-                opacity: 0
-              }} transition={{
-                duration: 0.2
-              }} className="text-gray-400 text-sm mb-2">
-                  {t.projects.sweetLifeAnimes.description}
-                </motion.p>
-              </AnimatePresence>
-              <div className="flex flex-wrap gap-2 text-xs">
-                {t.projects.sweetLifeAnimes.tools.map(tool => <AnimatePresence mode="wait" key={tool}>
-                    <motion.span key={`${language}-${tool}`} initial={{
-                  opacity: 0,
-                  scale: 0.9
-                }} animate={{
-                  opacity: 1,
-                  scale: 1
-                }} exit={{
-                  opacity: 0,
-                  scale: 0.9
-                }} transition={{
-                  duration: 0.2
-                }} className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">
-                      {tool}
-                    </motion.span>
-                  </AnimatePresence>)}
-              </div>
-            </div>
-          </motion.a>
+  return (
+    <section
+      id="projects"
+      className="py-24 bg-gradient-to-b from-[#0C1222] to-[#05010E]"
+      data-tour="projects"
+    >
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.h2
+            key={`projects-title-${language}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-4"
+          >
+            {t.projects.title}
+          </motion.h2>
 
-          <motion.a href="https://sweetlifeacademy.lovable.app" target="_blank" rel="noopener noreferrer" whileHover={{
-          scale: 1.03,
-          y: -5
-        }} transition={{
-          type: "spring",
-          stiffness: 150
-        }} className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-            <div className="aspect-video relative overflow-hidden">
-              <LazyImage src={sweetLifeAcademy} alt="Sweet Life Academy - Plataforma de educação em IA e automação para criadores digitais | AI education and automation platform for digital creators" className="w-full h-full" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
-            </div>
-            <div className="p-4 text-left">
-              <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.sweetLifeAcademy.title}</h4>
-              <AnimatePresence mode="wait">
-                <motion.p key={language} initial={{
-                opacity: 0
-              }} animate={{
-                opacity: 1
-              }} exit={{
-                opacity: 0
-              }} transition={{
-                duration: 0.2
-              }} className="text-gray-400 text-sm mb-2">
-                  {t.projects.sweetLifeAcademy.description}
-                </motion.p>
-              </AnimatePresence>
-              <div className="flex flex-wrap gap-2 text-xs">
-                {t.projects.sweetLifeAcademy.tools.map(tool => <AnimatePresence mode="wait" key={tool}>
-                    <motion.span key={`${language}-${tool}`} initial={{
-                  opacity: 0,
-                  scale: 0.9
-                }} animate={{
-                  opacity: 1,
-                  scale: 1
-                }} exit={{
-                  opacity: 0,
-                  scale: 0.9
-                }} transition={{
-                  duration: 0.2
-                }} className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">
-                      {tool}
-                    </motion.span>
-                  </AnimatePresence>)}
-              </div>
-            </div>
-          </motion.a>
-
-          <motion.a href="https://overmepasseia.lovable.app" target="_blank" rel="noopener noreferrer" whileHover={{
-          scale: 1.03,
-          y: -5
-        }} transition={{
-          type: "spring",
-          stiffness: 150
-        }} className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-            <div className="aspect-video relative overflow-hidden">
-              <LazyImage src={oVermePasseia} alt="O Verme Passeia - Projeto explorando filosofia e estética através do design digital | Project exploring philosophy and aesthetics through digital design" className="w-full h-full" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
-            </div>
-            <div className="p-4 text-left">
-              <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.oVermePasseia.title}</h4>
-              <AnimatePresence mode="wait">
-                <motion.p key={language} initial={{
-                opacity: 0
-              }} animate={{
-                opacity: 1
-              }} exit={{
-                opacity: 0
-              }} transition={{
-                duration: 0.2
-              }} className="text-gray-400 text-sm mb-2">
-                  {t.projects.oVermePasseia.description}
-                </motion.p>
-              </AnimatePresence>
-              <div className="flex flex-wrap gap-2 text-xs">
-                {t.projects.oVermePasseia.tools.map(tool => <AnimatePresence mode="wait" key={tool}>
-                    <motion.span key={`${language}-${tool}`} initial={{
-                  opacity: 0,
-                  scale: 0.9
-                }} animate={{
-                  opacity: 1,
-                  scale: 1
-                }} exit={{
-                  opacity: 0,
-                  scale: 0.9
-                }} transition={{
-                  duration: 0.2
-                }} className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">
-                      {tool}
-                    </motion.span>
-                  </AnimatePresence>)}
-              </div>
-            </div>
-          </motion.a>
+          <motion.p
+            key={`projects-subtitle-${language}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-gray-400 text-lg max-w-2xl mx-auto"
+          >
+            {t.projects.subtitle}
+          </motion.p>
         </div>
 
-        {/* Experimental Concepts */}
-        <motion.h3 
-          key={`experimental-${language}`}
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
-          transition={{ duration: 0.5 }}
-          className="text-left mt-6 mb-6 font-semibold text-[#00C4FF] uppercase tracking-widest text-sm"
+        {/* Carousel */}
+        <Carousel
+          opts={{
+            align: "center",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 5000,
+              stopOnInteraction: true,
+            }),
+          ]}
+          className="w-full max-w-5xl mx-auto"
         >
-          {t.projects.experimentalConcepts}
-        </motion.h3>
-        <div className="grid md:grid-cols-3 gap-6">
-          <motion.a href="https://figueiredolaw.lovable.app" target="_blank" rel="noopener noreferrer" whileHover={{
-          scale: 1.03,
-          y: -5
-        }} transition={{
-          type: "spring",
-          stiffness: 150
-        }} className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-            <div className="aspect-video relative overflow-hidden">
-              <LazyImage src={figueiredoLaw} alt="Figueiredo Law - Consultoria em direito, tecnologia e ética de IA | Law, technology and AI ethics consultancy" className="w-full h-full" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
-            </div>
-            <div className="p-4 text-left">
-              <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.figueiredoLaw.title}</h4>
-              <AnimatePresence mode="wait">
-                <motion.p key={language} initial={{
-                opacity: 0
-              }} animate={{
-                opacity: 1
-              }} exit={{
-                opacity: 0
-              }} transition={{
-                duration: 0.2
-              }} className="text-gray-400 text-sm mb-2">
-                  {t.projects.figueiredoLaw.description}
-                </motion.p>
-              </AnimatePresence>
-              <div className="flex flex-wrap gap-2 text-xs">
-                {t.projects.figueiredoLaw.tools.map(tool => <AnimatePresence mode="wait" key={tool}>
-                    <motion.span key={`${language}-${tool}`} initial={{
-                  opacity: 0,
-                  scale: 0.9
-                }} animate={{
-                  opacity: 1,
-                  scale: 1
-                }} exit={{
-                  opacity: 0,
-                  scale: 0.9
-                }} transition={{
-                  duration: 0.2
-                }} className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors">
-                      {tool}
-                    </motion.span>
-                  </AnimatePresence>)}
-              </div>
-            </div>
-          </motion.a>
+          <CarouselContent>
+            {projects.map((project, index) => (
+              <CarouselItem key={index}>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="p-4"
+                >
+                  <div className="relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-sm shadow-2xl hover:shadow-[#7A5FFF]/20 transition-all duration-500 group">
+                    {/* Image Section */}
+                    <div className="relative aspect-video md:aspect-[21/9] overflow-hidden">
+                      <LazyImage
+                        src={project.image}
+                        alt={project.alt}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0C1222] via-transparent to-transparent opacity-60"></div>
+                      
+                      {/* Category Badge */}
+                      <div className="absolute top-6 left-6">
+                        <span className={`inline-block px-4 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-sm font-semibold ${project.categoryColor} uppercase tracking-wider`}>
+                          {project.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="p-8 md:p-10">
+                      {/* Title */}
+                      <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 mb-4">
+                        {project.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-gray-400 text-base md:text-lg mb-6 leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      {/* Tools */}
+                      <div className="flex flex-wrap gap-2 mb-8">
+                        {project.tools.map((tool, toolIndex) => (
+                          <span
+                            key={toolIndex}
+                            className="px-3 py-1.5 rounded-full bg-white/10 text-gray-300 text-sm backdrop-blur-md border border-white/10 hover:bg-white/20 hover:border-white/30 transition-all duration-300"
+                          >
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* CTA Button */}
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-white font-semibold hover:shadow-lg hover:shadow-[#7A5FFF]/50 transform hover:scale-105 transition-all duration-300"
+                      >
+                        <ExternalLink size={20} />
+                        <span>{language === 'pt' ? 'Visitar Projeto' : 'Visit Project'}</span>
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          {/* Navigation Arrows */}
+          <CarouselPrevious className="left-0 -translate-x-12 bg-white/10 border-white/20 hover:bg-white/20 backdrop-blur-md" />
+          <CarouselNext className="right-0 translate-x-12 bg-white/10 border-white/20 hover:bg-white/20 backdrop-blur-md" />
+        </Carousel>
+
+        {/* Carousel Indicators */}
+        <div className="flex justify-center gap-2 mt-8">
+          {projects.map((_, index) => (
+            <div
+              key={index}
+              className="w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition-all cursor-pointer"
+            />
+          ))}
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
