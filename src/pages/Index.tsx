@@ -1,7 +1,7 @@
 // AI Portfolio Template - Professional and Interactive
 import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import type { Container, Engine } from "@tsparticles/engine";
-import { Mail, Facebook, Instagram, Linkedin, Download, Calendar, ArrowRight, ChevronDown } from "lucide-react";
+import { Mail, Facebook, Instagram, Linkedin, Download, ArrowRight, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Lazy load particles to reduce initial bundle size
@@ -12,76 +12,19 @@ import sweetLifeAnimes from "@/assets/sweet-life-animes-2.png";
 import sweetLifeAcademy from "@/assets/sweet-life-academy-2.jpg";
 import oVermePasseia from "@/assets/o-verme-passeia-2.png";
 import figueiredoLaw from "@/assets/figueiredo-law-2.png";
-// Removed unused imports: clickNoPoint, pomodoroTimer, decisionDie
-import beaconsWhite from "@/assets/beacons-white.png";
-import { ProjectEditor } from "@/components/ProjectEditor";
 import { FloatingNavbar } from "@/components/FloatingNavbar";
 import { EcosystemCarousel } from "@/components/EcosystemCarousel";
+import { ImpactMetrics } from "@/components/sections/ImpactMetrics";
 import { Brain, Image, Music, Zap } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useLanguage } from "@/hooks/useLanguage";
+import { PARTICLES_OPTIONS } from "@/lib/particlesConfig";
+import { METRICS, SOCIAL_LINKS, PROJECT_URLS } from "@/lib/constants";
 
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  impact: string;
-  tools: string[];
-  imageUrl?: string;
-  websiteUrl?: string;
-  isCustomImage?: boolean;
-}
 
 const Index = () => {
   const { t, language } = useLanguage();
   const [init, setInit] = useState(false);
-  const [linkedinFollowers] = useState(5750);
-  const [yearsExperience] = useState(14);
-  const [activeProjects] = useState(4); // Updated from 7 to 4 (removed Decision Die, Pomodoro, Click No Point)
-  const [followerCount, setFollowerCount] = useState(0);
-  const [experienceCount, setExperienceCount] = useState(0);
-  const [projectCount, setProjectCount] = useState(0);
   
-  const [projects, setProjects] = useState<Project[]>([
-    {
-      id: '1',
-      title: 'Sweet Life Animes',
-      description: 'Creative community uniting digital art, anime, and AI with exclusive content and strategies for creators',
-      impact: 'Community platform helping creators transform passion into business',
-      tools: ['AI', 'Digital Art', 'Community'],
-      imageUrl: sweetLifeAnimes,
-      isCustomImage: true
-    },
-    {
-      id: '2', 
-      title: 'O Verme Passeia',
-      description: 'Existential and aesthetic project inspired by Texhnolyze, Ergo Proxy, and Soviet post-punk',
-      impact: 'Exploring philosophy, nihilism, and brutalist aesthetics through digital art',
-      tools: ['Philosophy', 'Digital Art', 'AI'],
-      imageUrl: oVermePasseia,
-      websiteUrl: 'https://overmepasseia.lovable.app',
-      isCustomImage: true
-    },
-    {
-      id: '3',
-      title: 'Sweet Life Academy', 
-      description: 'Educational platform teaching creators to grow and monetize with AI',
-      impact: 'Empowering creators with AI tools and strategies for digital success',
-      tools: ['AI Education', 'Automation', 'Strategy'],
-      imageUrl: sweetLifeAcademy,
-      isCustomImage: true
-    },
-    {
-      id: '4',
-      title: 'Figueiredo Law',
-      description: 'Digital law and AI ethics consultancy supporting creators and businesses',
-      impact: 'Bridging technology, law, and ethics in the AI era',
-      tools: ['Law', 'Ethics', 'Technology'],
-      imageUrl: figueiredoLaw,
-      isCustomImage: true
-    }
-  ]);
-
   // Initialize particles with dynamic import
   useEffect(() => {
     const initParticles = async () => {
@@ -98,60 +41,8 @@ const Index = () => {
   }, []);
 
   const particlesLoaded = useCallback(async (container?: Container) => {
-    console.log(container);
+    console.log('Particles loaded successfully');
   }, []);
-
-  // Counter animation effect
-  useEffect(() => {
-    const animateCount = (
-      target: number,
-      setter: React.Dispatch<React.SetStateAction<number>>
-    ) => {
-      const duration = 2000; // 2 seconds
-      const steps = 60;
-      const increment = target / steps;
-      const stepDuration = duration / steps;
-      let current = 0;
-
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          setter(target);
-          clearInterval(timer);
-        } else {
-          setter(Math.floor(current));
-        }
-      }, stepDuration);
-
-      return () => clearInterval(timer);
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Start animations with slight delays
-            setTimeout(() => animateCount(linkedinFollowers, setFollowerCount), 200);
-            setTimeout(() => animateCount(yearsExperience, setExperienceCount), 400);
-            setTimeout(() => animateCount(activeProjects, setProjectCount), 600);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 } // Start earlier for better visibility
-    );
-
-    const metricsSection = document.getElementById("impact");
-    if (metricsSection) {
-      observer.observe(metricsSection);
-    }
-
-    return () => {
-      if (metricsSection) {
-        observer.unobserve(metricsSection);
-      }
-    };
-  }, [linkedinFollowers, yearsExperience, activeProjects]);
 
 
   return (
@@ -194,76 +85,7 @@ const Index = () => {
               id="tsparticles"
               particlesLoaded={particlesLoaded}
               className="absolute inset-0 z-0"
-              options={{
-              background: {
-                color: {
-                  value: "#0B1623",
-                },
-              },
-              fpsLimit: 120,
-              interactivity: {
-                events: {
-                  onHover: {
-                    enable: true,
-                    mode: "grab",
-                  },
-                  resize: {
-                    enable: true,
-                  },
-                },
-                modes: {
-                  grab: {
-                    distance: 150,
-                    links: {
-                      opacity: 0.4,
-                    },
-                  },
-                },
-              },
-              particles: {
-                color: {
-                  value: "#00C4FF",
-                },
-                links: {
-                  color: "#0077B5",
-                  distance: 140,
-                  enable: true,
-                  opacity: 0.2,
-                  width: 1,
-                },
-                move: {
-                  direction: "none",
-                  enable: true,
-                  outModes: {
-                    default: "out",
-                  },
-                  random: false,
-                  speed: 1.5,
-                  straight: false,
-                },
-                number: {
-                  density: {
-                    enable: true,
-                  },
-                  value: 65,
-                },
-                opacity: {
-                  value: { min: 0.1, max: 0.3 },
-                  animation: {
-                    enable: true,
-                    speed: 1,
-                    sync: false,
-                  },
-                },
-                shape: {
-                  type: "circle",
-                },
-                size: {
-                  value: { min: 1, max: 3 },
-                },
-              },
-              detectRetina: true,
-            }}
+              options={PARTICLES_OPTIONS}
             />
           </Suspense>
         )}
@@ -953,151 +775,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Impact Metrics Section - Cosmic Design */}
-      <section 
-        id="impact"
-        className="relative py-24 bg-gradient-to-b from-[#0A1A2F] to-[#0C1222] text-center"
-      >
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
-          >
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={language}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {t.impact.title}
-              </motion.span>
-            </AnimatePresence>
-          </motion.h2>
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={language}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="text-gray-400 mt-2 max-w-2xl mx-auto"
-            >
-              {t.impact.subtitle}
-            </motion.p>
-          </AnimatePresence>
-
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {/* AI Visuals Generated */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-xl transition-all"
-            >
-              <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
-                200<span className="text-3xl">+</span>
-              </h3>
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={language}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="text-gray-300 text-sm"
-                >
-                  {t.impact.aiVisualsGenerated}
-                </motion.p>
-              </AnimatePresence>
-            </motion.div>
-
-            {/* Creative Ecosystems Built */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ scale: 1.05 }}
-              className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-xl transition-all"
-            >
-              <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
-                10<span className="text-3xl">+</span>
-              </h3>
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={language}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="text-gray-300 text-sm"
-                >
-                  {t.impact.ecosystemsBuilt}
-                </motion.p>
-              </AnimatePresence>
-            </motion.div>
-
-            {/* AI-Driven Brands */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              whileHover={{ scale: 1.05 }}
-              className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-xl transition-all"
-            >
-              <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
-                4
-              </h3>
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={language}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="text-gray-300 text-sm"
-                >
-                  {t.impact.aiDrivenBrands}
-                </motion.p>
-              </AnimatePresence>
-            </motion.div>
-
-            {/* Ideas in Motion */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              whileHover={{ scale: 1.05 }}
-              className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-xl transition-all"
-            >
-              <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
-                ∞
-              </h3>
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={language}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="text-gray-300 text-sm"
-                >
-                  {t.impact.ideasInMotion}
-                </motion.p>
-              </AnimatePresence>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {/* Impact Metrics Section - Refactored Component */}
+      <ImpactMetrics />
 
       {/* Gradient Separator */}
       <div className="h-16 bg-gradient-to-b from-[#0C1222] to-[#121E2C]"></div>
@@ -1198,7 +877,7 @@ const Index = () => {
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <motion.a
-              href="mailto:nauitermaster@hotmail.com?subject=Let's Collaborate"
+              href={SOCIAL_LINKS.EMAIL}
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-white font-medium shadow-lg hover:shadow-[0_0_20px_rgba(122,95,255,0.5)] transition-all"
             >
@@ -1238,7 +917,7 @@ const Index = () => {
           {/* Social Links */}
           <div className="flex justify-center gap-6 mt-12 text-gray-400">
             <motion.a
-              href="mailto:nauitermaster@hotmail.com"
+              href={SOCIAL_LINKS.EMAIL}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, color: "#7A5FFF" }}
@@ -1248,7 +927,7 @@ const Index = () => {
               <Mail size={24} />
             </motion.a>
             <motion.a
-              href="https://facebook.com/nauiter.master"
+              href={SOCIAL_LINKS.FACEBOOK}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, color: "#00C4FF" }}
@@ -1258,7 +937,7 @@ const Index = () => {
               <Facebook size={24} />
             </motion.a>
             <motion.a
-              href="https://instagram.com/nauiter.master"
+              href={SOCIAL_LINKS.INSTAGRAM}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, color: "#7A5FFF" }}
@@ -1268,7 +947,7 @@ const Index = () => {
               <Instagram size={24} />
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/nauiter-master-678a71144"
+              href={SOCIAL_LINKS.LINKEDIN}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, color: "#00C4FF" }}
