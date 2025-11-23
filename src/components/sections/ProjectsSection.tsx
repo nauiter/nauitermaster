@@ -24,7 +24,7 @@ export const ProjectsSection = () => {
           y: -20
         }} transition={{
           duration: 0.3
-        }} className="text-3xl md:text-4xl font-bold bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-slate-50">
+        }} className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
             {t.projects.title}
           </motion.h2>
         </AnimatePresence>
