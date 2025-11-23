@@ -789,14 +789,34 @@ const Index = () => {
         data-tour="skills"
       >
         <div className="container mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-semibold text-white text-center mb-12">Skills & Competencies</h2>
+          <AnimatePresence mode="wait">
+            <motion.h2
+              key={`skills-title-${language}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="text-2xl md:text-3xl font-semibold text-white text-center mb-12"
+            >
+              {t.skills.title}
+            </motion.h2>
+          </AnimatePresence>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div>
-              <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                Core Strengths
-              </h3>
+              <AnimatePresence mode="wait">
+                <motion.h3
+                  key={`core-strengths-${language}`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.3 }}
+                  className="font-semibold text-white mb-4 flex items-center gap-2"
+                >
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  {t.skills.coreStrengths}
+                </motion.h3>
+              </AnimatePresence>
               <div className="space-y-3">
                 <div className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.1s_forwards]">
                   <span className="text-gray-300">Prompt Engineering</span>
@@ -814,10 +834,19 @@ const Index = () => {
             </div>
 
             <div>
-              <h3 className="font-semibold text-white mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-accent rounded-full"></div>
-                Growing Areas
-              </h3>
+              <AnimatePresence mode="wait">
+                <motion.h3
+                  key={`growing-areas-${language}`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.3 }}
+                  className="font-semibold text-white mb-4 flex items-center gap-2"
+                >
+                  <div className="w-2 h-2 bg-accent rounded-full"></div>
+                  {t.skills.growingAreas}
+                </motion.h3>
+              </AnimatePresence>
               <div className="space-y-3">
                 <div className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.1s_forwards]">
                   <span className="text-gray-300">Data Handling & Privacy</span>

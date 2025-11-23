@@ -68,6 +68,12 @@ export interface Translations {
     subtitle: string;
     centralNode: string;
   };
+  // Skills Section
+  skills: {
+    title: string;
+    coreStrengths: string;
+    growingAreas: string;
+  };
   // Impact Metrics Section
   impact: {
     title: string;
@@ -253,6 +259,11 @@ export const translations: Record<Language, Translations> = {
       subtitle: 'An interconnected network of brands, projects, and ideas.',
       centralNode: 'Creator, Strategist & AI Visionary',
     },
+    skills: {
+      title: 'Skills & Competencies',
+      coreStrengths: 'Core Strengths',
+      growingAreas: 'Growing Areas',
+    },
     impact: {
       title: 'Impact Metrics',
       subtitle: 'Expressing creativity through data - each number tells part of the story.',
@@ -432,6 +443,11 @@ export const translations: Record<Language, Translations> = {
       title: 'Ecossistema Criativo & Estratégico',
       subtitle: 'Uma rede interconectada de marcas, projetos e ideias.',
       centralNode: 'Criador, Estrategista & Visionário de IA',
+    },
+    skills: {
+      title: 'Habilidades & Competências',
+      coreStrengths: 'Forças Principais',
+      growingAreas: 'Áreas em Crescimento',
     },
     impact: {
       title: 'Métricas de Impacto',
