@@ -15,8 +15,7 @@ export const ProjectsSection = () => {
         <motion.h2
           key={`projects-title-${language}`}
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
         >
@@ -26,8 +25,7 @@ export const ProjectsSection = () => {
         <motion.p
           key={`projects-subtitle-${language}`}
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-gray-400 mt-2 max-w-2xl mx-auto mb-12"
         >
@@ -38,8 +36,7 @@ export const ProjectsSection = () => {
         <motion.h3 
           key={`creative-universe-${language}`}
           initial={{ opacity: 0 }} 
-          whileInView={{ opacity: 1 }} 
-          viewport={{ once: true }}
+          animate={{ opacity: 1 }} 
           transition={{ duration: 0.5 }} 
           className="text-left mt-12 mb-6 font-semibold text-[#7A5FFF] uppercase tracking-widest text-sm"
         >
@@ -192,8 +189,7 @@ export const ProjectsSection = () => {
         <motion.h3 
           key={`experimental-${language}`}
           initial={{ opacity: 0 }} 
-          whileInView={{ opacity: 1 }} 
-          viewport={{ once: true }}
+          animate={{ opacity: 1 }} 
           transition={{ duration: 0.5 }}
           className="text-left mt-6 mb-6 font-semibold text-[#00C4FF] uppercase tracking-widest text-sm"
         >
