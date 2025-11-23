@@ -278,54 +278,6 @@
   --footer-text: 0 0% 86%; /* #dcdcdc */
 }
 
-/* Footer specific styles */
-#nauiter-footer * {
-  z-index: 10;
-  position: relative;
-}
-
-/* Footer fade-in animation */
-.animate-fade-in-footer {
-  opacity: 0;
-  transform: translateY(12px);
-  animation: fadeInFooter 1.2s ease-out forwards 0.4s;
-  will-change: opacity, transform;
-}
-
-@keyframes fadeInFooter {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Glow text animation for "Sic Mundus Creatus Est" (refined) */
-.animate-glow-text {
-  animation: glowText 3.5s ease-in-out infinite;
-}
-
-@keyframes glowText {
-  0% { 
-    filter: brightness(1) drop-shadow(0 0 3px rgba(168, 85, 247, 0.2)); 
-  }
-  50% { 
-    filter: brightness(1.5) drop-shadow(0 0 10px rgba(0, 196, 255, 0.8)); 
-  }
-  100% { 
-    filter: brightness(1) drop-shadow(0 0 3px rgba(168, 85, 247, 0.2)); 
-  }
-}
-
-/* Bronze glow animation */
-.animate-bronze-glow {
-  animation: bronzeGlow 4s ease-in-out infinite;
-}
-
-@keyframes bronzeGlow {
-  0% { text-shadow: 0 0 3px hsl(var(--bronze) / 0.2); }
-  50% { text-shadow: 0 0 10px hsl(var(--bronze-soft) / 0.6); }
-  100% { text-shadow: 0 0 3px hsl(var(--bronze) / 0.2); }
-}
 
 /* 🔒 Bloqueio total de edição de projetos */
 [class*="edit"], [class*="delete"], [class*="x-icon"], 

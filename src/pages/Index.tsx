@@ -146,8 +146,7 @@ const Index = () => {
 
       {/* Footer - Nauiter Master Signature */}
       <footer
-        id="nauiter-footer"
-        className="w-full bg-[hsl(var(--footer-bg))] text-white py-6 text-center border-t border-white/5 relative overflow-hidden animate-fade-in-footer shadow-[0_-2px_10px_rgba(0,0,0,0.4)]"
+        className="w-full bg-[#0D0D0D] text-white py-6 text-center border-t border-white/10"
       >
         <div className="container mx-auto px-4">
           {/* Links LGPD */}
@@ -177,7 +176,7 @@ const Index = () => {
           </p>
 
           {/* Linha de assinatura */}
-          <span className="block mt-2 text-[0.85rem] italic text-white/70 animate-bronze-glow">
+          <span className="block mt-2 text-[0.85rem] italic text-white/60">
             Sic Mundus Creatus Est
           </span>
         </div>
