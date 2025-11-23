@@ -12,13 +12,30 @@ export const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 bg-gradient-to-b from-[#0C1222] to-[#05010E]" data-tour="projects">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        {/* Main Title - Static, Always Visible */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-          {t.projects.title}
-        </h2>
-        <p className="text-gray-400 mt-2 text-sm md:text-base mb-12">
-          {t.projects.subtitle}
-        </p>
+        <AnimatePresence mode="wait">
+          <motion.h2
+            key={`projects-title-${language}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
+          >
+            {t.projects.title}
+          </motion.h2>
+        </AnimatePresence>
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={`projects-subtitle-${language}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+            className="text-gray-400 mt-2 max-w-2xl mx-auto mb-12"
+          >
+            {t.projects.subtitle}
+          </motion.p>
+        </AnimatePresence>
 
         {/* Creative Universe */}
         <AnimatePresence mode="wait">
