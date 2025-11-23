@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, forwardRef } from 'react';
 import { SectionTitle, SectionTitleProps } from '@/components/ui/section-title';
 import { SectionParticles } from '@/components/ui/section-particles';
 import { cn } from '@/lib/utils';
@@ -102,7 +102,7 @@ const paddingXVariants = {
  *   <ProjectsGrid />
  * </Section>
  */
-export const Section = ({
+export const Section = forwardRef<HTMLElement, SectionProps>(({
   id,
   title,
   children,
@@ -118,7 +118,7 @@ export const Section = ({
   showParticles = false,
   particleColor = 'primary',
   particleMagneticStrength = 60,
-}: SectionProps) => {
+}, ref) => {
   const bgClass = background === 'custom' ? backgroundClassName : backgroundVariants[background];
   const containerWidthClass = containerWidths[containerWidth];
   const paddingYClass = paddingYVariants[paddingY];
@@ -126,6 +126,7 @@ export const Section = ({
 
   return (
     <section
+      ref={ref}
       id={id}
       className={cn(
         bgClass,
@@ -154,4 +155,6 @@ export const Section = ({
       </div>
     </section>
   );
-};
+});
+
+Section.displayName = 'Section';
