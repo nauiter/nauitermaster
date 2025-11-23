@@ -103,7 +103,7 @@ export const SectionTitle = ({
       >
         <Tag
           className={cn(
-            'text-3xl md:text-5xl font-bold mb-8',
+            'text-3xl md:text-5xl font-bold mb-8 py-2 leading-tight md:leading-snug',
             baseGradientClass,
             titleClassName
           )}
