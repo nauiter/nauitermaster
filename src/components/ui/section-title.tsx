@@ -93,6 +93,13 @@ export const SectionTitle = ({
         initial={{ opacity: 0, y: 30 }}
         animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        style={{
+          willChange: 'opacity, transform',
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden',
+          WebkitFontSmoothing: 'antialiased',
+          MozOsxFontSmoothing: 'grayscale',
+        }}
       >
         <Tag
           className={cn(
@@ -104,6 +111,8 @@ export const SectionTitle = ({
             opacity: 1,
             visibility: 'visible',
             display: 'block',
+            transform: 'translateZ(0)',
+            backfaceVisibility: 'hidden',
           }}
         >
           {icon && <span className="inline-flex items-center mr-3">{icon}</span>}
@@ -125,6 +134,11 @@ export const SectionTitle = ({
                 align === 'right' && 'ml-auto',
                 subtitleClassName
               )}
+              style={{
+                willChange: 'opacity, transform',
+                transform: 'translateZ(0)',
+                backfaceVisibility: 'hidden',
+              }}
             >
               {subtitle}
             </motion.p>

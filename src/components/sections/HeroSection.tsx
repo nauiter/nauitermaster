@@ -121,8 +121,21 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
+          style={{
+            willChange: 'opacity, transform',
+            transform: 'translateZ(0)',
+            backfaceVisibility: 'hidden',
+          }}
         >
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+          <h1 
+            className="text-3xl md:text-5xl font-bold leading-tight"
+            style={{
+              transform: 'translateZ(0)',
+              backfaceVisibility: 'hidden',
+              WebkitFontSmoothing: 'antialiased',
+              MozOsxFontSmoothing: 'grayscale',
+            }}
+          >
             <span className="block text-white mb-2">Nauiter Master</span>
             <span className="block text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] via-[#A855F7] to-[#00C4FF]">
               {t.hero.subtitle}
