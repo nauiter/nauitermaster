@@ -121,7 +121,7 @@ export const Section = ({
         bgClass,
         paddingYClass,
         'relative overflow-hidden',
-        background === 'cosmic' && 'section-cosmic-blend',
+        background === 'cosmic' && 'section-cosmic-glass section-glow-border',
         className
       )}
       data-tour={dataTour}
