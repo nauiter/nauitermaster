@@ -53,10 +53,10 @@ const containerWidths = {
 
 const paddingYVariants = {
   none: 'py-0',
-  sm: 'py-12',
-  md: 'py-16',
-  lg: 'py-24',
-  xl: 'py-32',
+  sm: 'py-8',
+  md: 'py-12',
+  lg: 'py-16',
+  xl: 'py-24',
 };
 
 const paddingXVariants = {
@@ -117,7 +117,13 @@ export const Section = ({
   return (
     <section
       id={id}
-      className={cn(bgClass, paddingYClass, 'relative overflow-hidden', className)}
+      className={cn(
+        bgClass,
+        paddingYClass,
+        'relative overflow-hidden',
+        background === 'cosmic' && 'section-cosmic-blend',
+        className
+      )}
       data-tour={dataTour}
     >
       <div className={cn(containerWidthClass, paddingXClass, 'mx-auto relative z-10', containerClassName)}>
