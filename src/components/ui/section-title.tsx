@@ -85,7 +85,7 @@ export const SectionTitle = ({
   return (
     <div 
       ref={titleRef}
-      className={cn(alignmentClasses[align], 'mb-16', className)}
+      className={cn(alignmentClasses[align], 'mb-16 relative z-20', className)}
       data-section-title={dataAttr}
     >
       {/* Main Title - Animated entrance with Intersection Observer */}

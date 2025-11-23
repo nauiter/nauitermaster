@@ -98,7 +98,7 @@ export const ProjectsSection = () => {
     >
       {/* Parallax Background Layers */}
       <div 
-        className="absolute inset-0 opacity-20 pointer-events-none"
+        className="absolute inset-0 opacity-20 pointer-events-none z-0"
         style={{
           background: 'radial-gradient(ellipse at 30% 40%, rgba(122, 95, 255, 0.2) 0%, transparent 60%)',
           transform: `translateY(${layer1}px)`,
@@ -106,7 +106,7 @@ export const ProjectsSection = () => {
         }}
       />
       <div 
-        className="absolute inset-0 opacity-15 pointer-events-none"
+        className="absolute inset-0 opacity-15 pointer-events-none z-0"
         style={{
           background: 'radial-gradient(ellipse at 70% 60%, rgba(0, 196, 255, 0.15) 0%, transparent 60%)',
           transform: `translateY(${layer2}px)`,
