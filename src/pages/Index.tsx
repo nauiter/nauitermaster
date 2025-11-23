@@ -73,30 +73,6 @@ const Index = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-      {/* SEO Structured Data */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Nauiter Master",
-          "jobTitle": "AI Strategist & Digital Artist",
-          "description": "AI Strategist & Digital Artist specializing in prompt engineering, automation, and creative AI applications",
-          "url": window.location.href,
-          "sameAs": [
-            "https://linkedin.com/in/nauiter-master-678a71144",
-            "https://instagram.com/nauiter.master",
-            "https://facebook.com/nauiter.master",
-            "https://beacons.ai/nauiter.master"
-          ],
-          "knowsAbout": ["Artificial Intelligence", "Digital Art", "Prompt Engineering", "AI Automation", "Creative AI"],
-          "alumniOf": "Systems Analysis",
-          "email": "nauitermaster@hotmail.com"
-        })
-      }} />
-      
-      {/* Floating Navigation Bar */}
-      <FloatingNavbar />
-
       {/* Hero Section */}
       <HeroSection />
 
@@ -175,34 +151,69 @@ const Index = () => {
               <h3 className="text-xl font-bold bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] bg-clip-text text-transparent mb-3">
                 Nauiter Master
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                AI Strategist & Digital Artist<br />
-                Transforming ideas into reality through AI and creativity.
-              </p>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={language}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-gray-400 text-sm leading-relaxed"
+                >
+                  {language === 'pt' 
+                    ? 'Estrategista de IA & Artista Digital' 
+                    : 'AI Strategist & Digital Artist'}<br />
+                  {language === 'pt'
+                    ? 'Transformando ideias em realidade através de IA e criatividade.'
+                    : 'Transforming ideas into reality through AI and creativity.'}
+                </motion.p>
+              </AnimatePresence>
             </div>
 
             {/* Quick Links */}
             <div className="text-center">
-              <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Legal</h4>
+              <AnimatePresence mode="wait">
+                <motion.h4
+                  key={language}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-white font-semibold mb-3 text-sm uppercase tracking-wider"
+                >
+                  {language === 'pt' ? 'Legal' : 'Legal'}
+                </motion.h4>
+              </AnimatePresence>
               <div className="flex flex-col gap-2">
                 <Link 
                   to="/privacy-policy" 
                   className="text-gray-400 hover:text-[#00C4FF] transition-colors text-sm"
                 >
-                  Política de Privacidade
+                  {language === 'pt' ? 'Política de Privacidade' : 'Privacy Policy'}
                 </Link>
                 <Link 
                   to="/terms-of-use" 
                   className="text-gray-400 hover:text-[#00C4FF] transition-colors text-sm"
                 >
-                  Termos de Uso
+                  {language === 'pt' ? 'Termos de Uso' : 'Terms of Use'}
                 </Link>
               </div>
             </div>
 
             {/* Social Links */}
             <div className="text-center md:text-right">
-              <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Connect</h4>
+              <AnimatePresence mode="wait">
+                <motion.h4
+                  key={language}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-white font-semibold mb-3 text-sm uppercase tracking-wider"
+                >
+                  {language === 'pt' ? 'Conectar' : 'Connect'}
+                </motion.h4>
+              </AnimatePresence>
               <div className="flex justify-center md:justify-end gap-4">
                 <a 
                   href="https://linkedin.com/in/nauiter-master-678a71144"

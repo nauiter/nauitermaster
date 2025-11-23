@@ -132,14 +132,44 @@ export const AIToolsSection = () => {
               >
                 <div className="flex items-center gap-3 mb-2">
                   <Image className="w-6 h-6 text-[#7A5FFF]" />
-                  <h4 className="font-semibold text-lg text-white">Image / Video AI</h4>
+                  <AnimatePresence mode="wait">
+                    <motion.h4
+                      key={language}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="font-semibold text-lg text-white"
+                    >
+                      {t.aiTools.imageVideoAI.title}
+                    </motion.h4>
+                  </AnimatePresence>
                 </div>
-                <p className="text-gray-400 text-sm mb-3 flex-1">
-                  Midjourney, Leonardo, Runway — creative workflow efficiency.
-                </p>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={language}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-gray-400 text-sm mb-3 flex-1"
+                  >
+                    {t.aiTools.imageVideoAI.description}
+                  </motion.p>
+                </AnimatePresence>
                 <div className="space-y-1">
                   <div className="flex justify-between text-sm text-gray-400">
-                    <span>Proficiency</span>
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={language}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {t.aiTools.proficiency}
+                      </motion.span>
+                    </AnimatePresence>
                     <span className="text-[#7A5FFF] font-semibold">95%</span>
                   </div>
                   <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
@@ -155,7 +185,18 @@ export const AIToolsSection = () => {
 
           {/* Technical AI Group */}
           <div className="flex flex-col">
-            <h3 className="text-left text-[#00C4FF] font-semibold mb-4 text-lg">Technical AI</h3>
+            <AnimatePresence mode="wait">
+              <motion.h3
+                key={language}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-left text-[#00C4FF] font-semibold mb-4 text-lg"
+              >
+                {t.aiTools.technicalAI}
+              </motion.h3>
+            </AnimatePresence>
             <div className="grid grid-rows-2 gap-4 flex-1">
               {/* Audio AI Card */}
               <motion.div
@@ -168,14 +209,44 @@ export const AIToolsSection = () => {
               >
                 <div className="flex items-center gap-3 mb-2">
                   <Music className="w-6 h-6 text-[#00C4FF]" />
-                  <h4 className="font-semibold text-lg text-white">Audio AI</h4>
+                  <AnimatePresence mode="wait">
+                    <motion.h4
+                      key={language}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="font-semibold text-lg text-white"
+                    >
+                      {t.aiTools.audioAI.title}
+                    </motion.h4>
+                  </AnimatePresence>
                 </div>
-                <p className="text-gray-400 text-sm mb-3 flex-1">
-                  ElevenLabs, MusicLM — Voice & sound synthesis for storytelling.
-                </p>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={language}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-gray-400 text-sm mb-3 flex-1"
+                  >
+                    {t.aiTools.audioAI.description}
+                  </motion.p>
+                </AnimatePresence>
                 <div className="space-y-1">
                   <div className="flex justify-between text-sm text-gray-400">
-                    <span>Proficiency</span>
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={language}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {t.aiTools.proficiency}
+                      </motion.span>
+                    </AnimatePresence>
                     <span className="text-[#00C4FF] font-semibold">90%</span>
                   </div>
                   <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
@@ -198,14 +269,44 @@ export const AIToolsSection = () => {
               >
                 <div className="flex items-center gap-3 mb-2">
                   <Zap className="w-6 h-6 text-[#00C4FF]" />
-                  <h4 className="font-semibold text-lg text-white">Automation</h4>
+                  <AnimatePresence mode="wait">
+                    <motion.h4
+                      key={language}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="font-semibold text-lg text-white"
+                    >
+                      {t.aiTools.automation.title}
+                    </motion.h4>
+                  </AnimatePresence>
                 </div>
-                <p className="text-gray-400 text-sm mb-3 flex-1">
-                  Python, Zapier, Make — Workflow automation & efficiency.
-                </p>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={language}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-gray-400 text-sm mb-3 flex-1"
+                  >
+                    {t.aiTools.automation.description}
+                  </motion.p>
+                </AnimatePresence>
                 <div className="space-y-1">
                   <div className="flex justify-between text-sm text-gray-400">
-                    <span>Proficiency</span>
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={language}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {t.aiTools.proficiency}
+                      </motion.span>
+                    </AnimatePresence>
                     <span className="text-[#00C4FF] font-semibold">92%</span>
                   </div>
                   <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
