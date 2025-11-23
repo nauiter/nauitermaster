@@ -60,7 +60,7 @@ export const HeroSection = () => {
         >
           <motion.img
             src={portfolioAvatar}
-            alt="Nauiter Master - AI Strategist & Digital Artist"
+            alt="Nauiter Master - Estrategista de IA, artista digital especializado em automação criativa e educação | AI Strategist, digital artist specialized in creative automation and education"
             className="w-56 h-56 rounded-full border-[3px] border-white/30 shadow-2xl object-cover"
             style={{ 
               filter: "drop-shadow(0 0 30px rgba(122, 95, 255, 0.4))",
