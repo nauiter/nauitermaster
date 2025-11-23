@@ -8,6 +8,7 @@ import { AIToolsSection } from "@/components/sections/AIToolsSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { useLanguage } from "@/hooks/useLanguage";
 import sweetLifeAnimes from "@/assets/sweet-life-animes.webp";
 import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
@@ -235,6 +236,8 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-[#7A5FFF]/5 pointer-events-none"></div>
       </footer>
 
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </div>
   );
 };
