@@ -112,11 +112,16 @@ export const ProjectsSection = () => {
           opts={{
             align: "center",
             loop: true,
+            dragFree: false,
+            containScroll: "trimSnaps",
+            skipSnaps: false,
+            duration: 25,
           }}
           plugins={[
             Autoplay({
               delay: 5000,
               stopOnInteraction: true,
+              stopOnMouseEnter: true,
             }),
           ]}
           className="w-full max-w-5xl mx-auto"
