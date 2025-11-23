@@ -117,10 +117,10 @@ export const Section = ({
   return (
     <section
       id={id}
-      className={cn(bgClass, paddingYClass, 'relative', className)}
+      className={cn(bgClass, paddingYClass, 'relative overflow-hidden', className)}
       data-tour={dataTour}
     >
-      <div className={cn(containerWidthClass, paddingXClass, 'mx-auto', containerClassName)}>
+      <div className={cn(containerWidthClass, paddingXClass, 'mx-auto relative z-10', containerClassName)}>
         {/* Section Title */}
         {showTitle && <SectionTitle {...title} />}
 
