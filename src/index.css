@@ -402,7 +402,7 @@ section h2 {
   }
 }
 
-/* === SECTION TRANSITIONS - Seamless Blending with Glassmorphism === */
+/* === SECTION TRANSITIONS - Seamless Blending with Fade Effects === */
 @layer utilities {
   /* Remove all gaps between sections */
   section {
@@ -414,32 +414,56 @@ section h2 {
     margin-top: -2px !important;
   }
 
-  /* Glassmorphism separator lines between sections */
-  section::after {
+  /* Fade In at top of section (except first) */
+  section:not(:first-of-type)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: clamp(40px, 8vh, 80px);
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--background)) 0%,
+      hsl(var(--background) / 0.85) 15%,
+      hsl(var(--background) / 0.5) 40%,
+      hsl(var(--background) / 0) 100%
+    );
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* Fade Out at bottom of section (except last) */
+  section:not(:last-of-type)::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 5%;
-    right: 5%;
-    height: 1px;
+    left: 0;
+    right: 0;
+    height: clamp(40px, 8vh, 80px);
     background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.08) 20%,
-      rgba(255, 255, 255, 0.15) 50%,
-      rgba(255, 255, 255, 0.08) 80%,
-      transparent 100%
+      to top,
+      hsl(var(--background)) 0%,
+      hsl(var(--background) / 0.85) 15%,
+      hsl(var(--background) / 0.5) 40%,
+      hsl(var(--background) / 0) 100%
     );
-    box-shadow: 
-      0 0 20px rgba(255, 255, 255, 0.05),
-      0 0 40px rgba(122, 95, 255, 0.03);
     pointer-events: none;
-    z-index: 5;
+    z-index: 10;
+  }
+
+  /* Ensure content is above fade overlays */
+  section > * {
+    position: relative;
+    z-index: 15;
   }
 
   /* Enhanced glassmorphism for cosmic sections */
-  .section-cosmic-glass::before {
-    content: '';
+  .section-cosmic-glass {
+    position: relative;
+  }
+
+  .section-cosmic-glass > .cosmic-glass-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -454,13 +478,16 @@ section h2 {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
     opacity: 0.6;
   }
 
   /* Glowing border effect for section transitions */
-  .section-glow-border::before {
-    content: '';
+  .section-glow-border {
+    position: relative;
+  }
+
+  .section-glow-border > .glow-overlay {
     position: absolute;
     top: -1px;
     left: 0;
