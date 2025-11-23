@@ -118,14 +118,10 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     t: translations[language],
   };
 
-  // Show nothing until initialized to prevent flash of wrong language
-  if (!isInitialized) {
-    return null;
-  }
-
+  // Always provide context, even during initialization
   return (
     <LanguageContext.Provider value={value}>
-      {children}
+      {isInitialized ? children : null}
     </LanguageContext.Provider>
   );
 };
