@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { LazyImage } from "@/components/LazyImage";
 import { ExternalLink } from "lucide-react";
@@ -8,6 +9,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import sweetLifeAnimes from "@/assets/sweet-life-animes.webp";
@@ -17,6 +19,19 @@ import figueiredoLaw from "@/assets/figueiredo-law.webp";
 
 export const ProjectsSection = () => {
   const { t, language } = useLanguage();
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   const projects = [
     {
@@ -93,6 +108,7 @@ export const ProjectsSection = () => {
 
         {/* Carousel */}
         <Carousel
+          setApi={setApi}
           opts={{
             align: "center",
             loop: true,
@@ -108,15 +124,23 @@ export const ProjectsSection = () => {
           <CarouselContent>
             {projects.map((project, index) => (
               <CarouselItem key={index}>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="p-4"
-                >
+                <div className="p-4">
                   <div className="relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-sm shadow-2xl hover:shadow-[#7A5FFF]/20 transition-all duration-500 group">
-                    {/* Image Section */}
-                    <div className="relative aspect-video md:aspect-[21/9] overflow-hidden">
+                    {/* Image Section with Parallax */}
+                    <motion.div
+                      key={`image-${current}-${index}`}
+                      initial={{ opacity: 0, x: 100, scale: 1.1 }}
+                      animate={{ 
+                        opacity: current === index ? 1 : 0,
+                        x: current === index ? 0 : -100,
+                        scale: current === index ? 1 : 1.1
+                      }}
+                      transition={{ 
+                        duration: 0.9,
+                        ease: [0.25, 0.46, 0.45, 0.94]
+                      }}
+                      className="relative aspect-video md:aspect-[21/9] overflow-hidden"
+                    >
                       <LazyImage
                         src={project.image}
                         alt={project.alt}
@@ -130,10 +154,23 @@ export const ProjectsSection = () => {
                           {project.category}
                         </span>
                       </div>
-                    </div>
+                    </motion.div>
 
-                    {/* Content Section */}
-                    <div className="p-8 md:p-10">
+                    {/* Content Section with Parallax */}
+                    <motion.div
+                      key={`content-${current}-${index}`}
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={{ 
+                        opacity: current === index ? 1 : 0,
+                        y: current === index ? 0 : 30
+                      }}
+                      transition={{ 
+                        duration: 0.6,
+                        delay: 0.2,
+                        ease: [0.25, 0.46, 0.45, 0.94]
+                      }}
+                      className="p-8 md:p-10"
+                    >
                       {/* Title */}
                       <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 mb-4">
                         {project.title}
@@ -166,9 +203,9 @@ export const ProjectsSection = () => {
                         <ExternalLink size={20} />
                         <span>{language === 'pt' ? 'Visitar Projeto' : 'Visit Project'}</span>
                       </a>
-                    </div>
+                    </motion.div>
                   </div>
-                </motion.div>
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
