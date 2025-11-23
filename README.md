@@ -1,73 +1,68 @@
-# Welcome to your Lovable project
+# Nauiter Master | AI Strategist & Digital Artist
 
-## Project info
+> **"Exploring the edge between Intelligence, Art, and Automation."**
 
-**URL**: https://lovable.dev/projects/2fc7afd4-88b8-47d1-ae2c-ea0aa96f5c7a
+Este repositório contém o código-fonte do portfólio profissional de Nauiter Master. Uma aplicação web imersiva, de alta performance e visualmente impactante, desenvolvida para demonstrar expertise em Inteligência Artificial, Design Generativo e Engenharia de Software.
 
-## How can I edit this code?
+## 🌌 Visão Geral do Projeto
 
-There are several ways of editing your application.
+O projeto é uma **Single Page Application (SPA)** interativa que apresenta:
+- **Design System "Cosmic":** Uma estética futurista com glassmorphism, gradientes neons e animações de partículas.
+- **Internacionalização (i18n):** Suporte nativo e fluido para Inglês (EN) e Português (PT).
+- **Showcase de Projetos:** Carrossel interativo exibindo iniciativas como *Sweet Life Animes*, *O Verme Passeia* e *Figueiredo Law*.
+- **Métricas de Impacto:** Visualização de dados animados sobre o alcance profissional.
+- **Conformidade:** Implementação completa de LGPD (Cookies, Termos de Uso e Política de Privacidade).
 
-**Use Lovable**
+## 🚀 Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2fc7afd4-88b8-47d1-ae2c-ea0aa96f5c7a) and start prompting.
+O projeto foi construído utilizando as tecnologias mais modernas do ecossistema React:
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Core:** [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/)
+- **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
+- **Componentes UI:** [shadcn/ui](https://ui.shadcn.com/) (Radix UI)
+- **Animações:** [Framer Motion](https://www.framer.com/motion/) & [tsParticles](https://particles.js.org/)
+- **Gerenciamento de Estado:** [TanStack Query](https://tanstack.com/query/latest)
+- **Ícones:** [Lucide React](https://lucide.dev/)
+- **Backend/Integrations:** Supabase (Configurado)
 
-**Use your preferred IDE**
+## 🛠️ Instalação e Execução Local
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Para rodar este projeto localmente, siga os passos abaixo:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Pré-requisitos
+- Node.js (Versão 18 ou superior)
+- npm ou yarn
 
-Follow these steps:
+### Passos
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/seu-usuario/nauiter-master-portfolio.git
+   cd nauiter-master-portfolio
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. **Instale as dependências**
+   ```bash
+   npm install
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. **Inicie o servidor de desenvolvimento**
+   ```bash
+   npm run dev
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+4. **Build para produção**
+   ```bash
+   npm run build
+   ```
 
-**Edit a file directly in GitHub**
+## 📄 Estrutura do Projeto
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- `/src/components`: Componentes modulares (UI, Seções, Layout).
+- `/src/hooks`: Custom hooks (i18n, Animações, Observer).
+- `/src/lib`: Utilitários, constantes e configurações de tradução.
+- `/src/pages`: Rotas principais da aplicação.
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/2fc7afd4-88b8-47d1-ae2c-ea0aa96f5c7a) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2025 Nauiter Master. All Rights Reserved.
