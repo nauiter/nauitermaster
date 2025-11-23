@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { FloatingNavbar } from "@/components/FloatingNavbar";
 import { EcosystemCarousel } from "@/components/EcosystemCarousel";
 import { ImpactMetrics } from "@/components/sections/ImpactMetrics";
@@ -149,6 +150,23 @@ const Index = () => {
         className="w-full bg-[hsl(var(--footer-bg))] text-white py-6 text-center border-t border-white/5 relative overflow-hidden animate-fade-in-footer shadow-[0_-2px_10px_rgba(0,0,0,0.4)]"
       >
         <div className="container mx-auto px-4">
+          {/* Links LGPD */}
+          <div className="flex justify-center gap-6 mb-4 text-sm">
+            <Link 
+              to="/privacy-policy" 
+              className="text-white/70 hover:text-white transition-colors duration-300 hover:underline"
+            >
+              Política de Privacidade
+            </Link>
+            <span className="text-white/30">|</span>
+            <Link 
+              to="/terms-of-use" 
+              className="text-white/70 hover:text-white transition-colors duration-300 hover:underline"
+            >
+              Termos de Uso
+            </Link>
+          </div>
+
           {/* Linha principal */}
           <p className="text-[clamp(0.85rem,1vw,1rem)] leading-relaxed opacity-90">
             © 2025{" "}
