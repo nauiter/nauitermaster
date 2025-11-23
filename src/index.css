@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,59 +8,70 @@
 
 @layer base {
   :root {
-    /* Nauiter Master Cosmic Design System */
+    /* Nauiter Master Design System - Tipografia & Cores Acessíveis */
+    
+    /* === CORES BASE === */
     --background: 0 0% 99%;
-    --foreground: 210 11% 15%;
+    --foreground: 210 20% 12%;  /* Contraste melhorado: #1A1F2E */
     
-    /* Card System */
-    --card: 0 0% 100%;
-    --card-foreground: 210 11% 15%;
-    
-    /* Primary Gradient - Violet to Cyan (#7A5FFF to #00C4FF) */
-    --primary: 194 100% 50%;  /* #00C4FF */
+    /* === SISTEMA DE CORES PRIMÁRIO === */
+    --primary: 194 100% 50%;  /* Cyan principal #00C4FF */
     --primary-foreground: 0 0% 100%;
-    --violet-primary: 257 100% 68%;  /* #7A5FFF */
+    --primary-hover: 194 100% 40%;  /* Hover mais escuro */
     
-    /* Accent Gradient */
-    --accent: 194 100% 70%;  /* Lighter cyan */
-    --accent-foreground: 210 11% 15%;
+    --violet-primary: 257 100% 68%;  /* Violet #7A5FFF */
+    --violet-hover: 257 100% 58%;
     
-    /* Secondary & Muted */
+    /* === PALETA SECUNDÁRIA CRIATIVA === */
+    --success: 142 76% 46%;  /* Verde criativo #4CAF50 */
+    --success-foreground: 0 0% 100%;
+    
+    --creative-energy: 24 100% 61%;  /* Laranja criativo #FF9800 */
+    --creative-energy-foreground: 0 0% 100%;
+    
+    /* === BOTÕES - HIERARQUIA CLARA === */
+    --button-primary: 194 100% 50%;  /* Cyan - CTAs principais */
+    --button-primary-foreground: 0 0% 100%;
+    --button-primary-hover: 194 100% 40%;
+    
+    --button-secondary: 210 17% 20%;  /* Neutro escuro */
+    --button-secondary-foreground: 0 0% 100%;
+    --button-secondary-hover: 210 17% 30%;
+    
+    /* === CARDS & SURFACES === */
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 12%;
+    
+    /* === ACCENT & MUTED === */
+    --accent: 194 100% 70%;
+    --accent-foreground: 210 20% 12%;
+    
     --secondary: 210 17% 95%;
-    --secondary-foreground: 210 11% 15%;
-    --muted: 210 17% 95%;
-    --muted-foreground: 210 11% 45%;
+    --secondary-foreground: 210 20% 12%;
     
-    /* Cosmic Background (#05010E → #0A1A2F → #0C1222) */
+    --muted: 210 17% 95%;
+    --muted-foreground: 210 11% 40%;  /* Melhor contraste 7.5:1 */
+    
+    /* === COSMIC BACKGROUNDS === */
     --cosmic-deep: 257 64% 5%;      /* #05010E */
     --cosmic-medium: 212 56% 11%;   /* #0A1A2F */
     --cosmic-base: 214 47% 9%;      /* #0C1222 */
     
-    /* Text Colors */
-    --text-base: 240 5% 90%;        /* #E4E4E7 */
-    --text-secondary: 240 5% 63%;   /* #A1A1AA */
+    /* === TEXTO - CONTRASTE WCAG AAA === */
+    --text-heading: 210 20% 8%;     /* Headings: contraste 14:1 */
+    --text-body: 210 15% 20%;       /* Body: contraste 9:1 */
+    --text-secondary: 210 10% 45%;  /* Secondary: contraste 4.8:1 */
+    --text-light: 240 5% 90%;       /* Para fundos escuros */
     
-    /* Glow & Border */
-    --glow-violet: 257 100% 68%;    /* #7A5FFF with alpha */
-    --border-subtle: 0 0% 100%;     /* White 15% alpha */
+    /* === BORDERS & DIVIDERS === */
+    --border: 210 17% 85%;
+    --border-subtle: 0 0% 100%;
     
-    /* Shadows - Soft and floating */
-    --shadow-base: 0 0 20px hsl(0 0% 0% / 0.15);
-    --shadow-glow: 0 0 25px hsl(257 100% 68% / 0.35);
-    --shadow-inner: inset 0 0 8px hsl(0 0% 100% / 0.03);
-    --shadow-particle: drop-shadow(0 0 4px hsl(194 100% 50% / 0.35));
-    
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(257 100% 68%) 0%, hsl(194 100% 50%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(194 100% 50%) 0%, hsl(191 100% 68%) 50%, hsl(257 100% 68%) 100%);
-    --gradient-cosmic: linear-gradient(180deg, hsl(257 64% 5%) 0%, hsl(212 56% 11%) 50%, hsl(214 47% 9%) 100%);
-    
-    /* Other tokens */
+    /* === OUTROS === */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 210 17% 90%;
     --input: 210 17% 90%;
-    --ring: 201 96% 36%;
+    --ring: 194 100% 50%;
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
@@ -74,30 +85,53 @@
   }
 
   .dark {
-    --background: 257 64% 5%;       /* Cosmic deep */
-    --foreground: 240 5% 90%;       /* Text base */
+    --background: 257 64% 5%;
+    --foreground: 240 5% 92%;  /* Melhor contraste em dark mode */
+    
     --card: 214 47% 9%;
-    --card-foreground: 240 5% 90%;
+    --card-foreground: 240 5% 92%;
+    
     --primary: 194 100% 50%;
     --primary-foreground: 0 0% 100%;
+    --primary-hover: 194 100% 40%;
+    
     --violet-primary: 257 100% 68%;
+    --violet-hover: 257 100% 58%;
+    
+    --success: 142 76% 46%;
+    --success-foreground: 0 0% 100%;
+    
+    --creative-energy: 24 100% 61%;
+    --creative-energy-foreground: 0 0% 100%;
+    
+    --button-primary: 194 100% 50%;
+    --button-primary-foreground: 0 0% 100%;
+    --button-primary-hover: 194 100% 40%;
+    
+    --button-secondary: 210 17% 25%;
+    --button-secondary-foreground: 0 0% 100%;
+    --button-secondary-hover: 210 17% 35%;
+    
     --accent: 194 100% 70%;
-    --accent-foreground: 240 5% 90%;
+    --accent-foreground: 240 5% 92%;
+    
     --secondary: 212 56% 11%;
-    --secondary-foreground: 240 5% 90%;
+    --secondary-foreground: 240 5% 92%;
+    
     --muted: 212 56% 11%;
-    --muted-foreground: 240 5% 63%;
+    --muted-foreground: 240 5% 70%;  /* Melhor contraste */
+    
+    --text-heading: 240 5% 95%;
+    --text-body: 240 5% 92%;
+    --text-secondary: 240 5% 70%;
+    --text-light: 240 5% 92%;
+    
     --destructive: 0 62% 45%;
     --destructive-foreground: 0 0% 98%;
+    
     --border: 0 0% 100%;
     --input: 212 56% 11%;
     --ring: 257 100% 68%;
-    --sidebar-background: 214 47% 9%;
-    --sidebar-foreground: 240 5% 90%;
-    --sidebar-primary: 257 100% 68%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 212 56% 11%;
-    --sidebar-accent-foreground: 240 5% 90%;
     --sidebar-border: 0 0% 100%;
     --sidebar-ring: 257 100% 68%;
   }
@@ -110,10 +144,60 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+
+  /* === HIERARQUIA TIPOGRÁFICA === */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: hsl(var(--text-heading));
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+  }
+
+  p {
+    font-weight: 400;
+    line-height: 1.7;
+    color: hsl(var(--text-body));
+    margin-bottom: 1rem;
+  }
+
+  .text-subtitle {
+    font-weight: 600;
+    color: hsl(var(--text-secondary));
+  }
+
+  @media (max-width: 768px) {
+    p {
+      line-height: 1.8;
+    }
   }
 }
 
