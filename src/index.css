@@ -402,16 +402,23 @@ section h2 {
   }
 }
 
-/* === SECTION TRANSITIONS - Adaptive Fade Effects === */
+/* === SECTION TRANSITIONS - Seamless Organic Blending === */
 @layer utilities {
-  /* Remove all gaps between sections */
+  /* Remove all gaps and margins between sections */
   section {
     position: relative;
     margin: 0 !important;
+    padding: 0 !important;
   }
 
   section + section {
-    margin-top: -2px !important;
+    margin-top: 0 !important;
+  }
+
+  /* Ensure content has proper padding */
+  section > div:first-child {
+    padding-top: clamp(3rem, 8vh, 6rem);
+    padding-bottom: clamp(3rem, 8vh, 6rem);
   }
 
   /* Ensure content is above fade overlays */
@@ -420,135 +427,177 @@ section h2 {
     z-index: 15;
   }
 
-  /* === LIGHT THEME FADES (for sections with light backgrounds) === */
+  /* === UNIVERSAL SMOOTH FADES === */
   
-  /* Light sections - Fade In at top */
-  section[data-theme="light"]:not(:first-of-type)::before,
-  section.bg-\[#F7F9FB\]:not(:first-of-type)::before,
-  section[class*="bg-gradient-to-b"][class*="from-slate-800"][class*="to-\[#F7F9FB\]"]:not(:first-of-type)::before {
+  /* Fade In at top of every section (except first) */
+  section:not(:first-of-type)::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: clamp(50px, 10vh, 100px);
-    background: linear-gradient(
-      to bottom,
-      hsl(0 0% 97%) 0%,
-      hsl(0 0% 97% / 0.9) 10%,
-      hsl(0 0% 97% / 0.6) 30%,
-      hsl(0 0% 97% / 0.2) 60%,
-      hsl(0 0% 97% / 0) 100%
-    );
+    height: clamp(80px, 15vh, 150px);
     pointer-events: none;
-    z-index: 10;
+    z-index: 20;
   }
 
-  /* Light sections - Fade Out at bottom */
-  section[data-theme="light"]:not(:last-of-type)::after,
-  section.bg-\[#F7F9FB\]:not(:last-of-type)::after,
-  section[class*="bg-gradient-to-b"][class*="from-\[#F7F9FB\]"]:not(:last-of-type)::after {
+  /* Fade Out at bottom of every section (except last) */
+  section:not(:last-of-type)::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: clamp(50px, 10vh, 100px);
-    background: linear-gradient(
-      to top,
-      hsl(0 0% 97%) 0%,
-      hsl(0 0% 97% / 0.9) 10%,
-      hsl(0 0% 97% / 0.6) 30%,
-      hsl(0 0% 97% / 0.2) 60%,
-      hsl(0 0% 97% / 0) 100%
-    );
+    height: clamp(80px, 15vh, 150px);
     pointer-events: none;
-    z-index: 10;
+    z-index: 20;
   }
 
-  /* === COSMIC/DARK THEME FADES (for sections with dark backgrounds) === */
-  
-  /* Cosmic sections - Fade In at top */
-  section[data-theme="cosmic"]:not(:first-of-type)::before,
-  section[class*="bg-slate-"]:not(:first-of-type)::before,
-  section[class*="bg-\[#0"]:not(:first-of-type)::before,
-  section#hero::after,
+  /* === HERO SECTION (Dark cosmic) === */
+  section#hero {
+    background: linear-gradient(to bottom, 
+      hsl(214 47% 7%) 0%, 
+      hsl(214 47% 8%) 50%, 
+      hsl(214 47% 9%) 100%
+    );
+  }
+
+  section#hero::after {
+    background: linear-gradient(
+      to top,
+      hsl(212 56% 11%) 0%,
+      hsl(212 56% 11% / 0.95) 5%,
+      hsl(212 56% 11% / 0.85) 15%,
+      hsl(212 56% 11% / 0.6) 35%,
+      hsl(212 56% 11% / 0.3) 60%,
+      hsl(212 56% 11% / 0.1) 80%,
+      hsl(212 56% 11% / 0) 100%
+    );
+  }
+
+  /* === AI TOOLS SECTION (Medium cosmic) === */
+  section#ai-tools {
+    background: linear-gradient(to bottom,
+      hsl(212 56% 11%) 0%,
+      hsl(212 56% 12%) 50%,
+      hsl(210 17% 95%) 100%
+    );
+  }
+
   section#ai-tools::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: clamp(50px, 10vh, 100px);
-    background: linear-gradient(
-      to bottom,
-      hsl(var(--cosmic-base)) 0%,
-      hsl(var(--cosmic-base) / 0.9) 10%,
-      hsl(var(--cosmic-base) / 0.6) 30%,
-      hsl(var(--cosmic-base) / 0.3) 60%,
-      hsl(var(--cosmic-base) / 0) 100%
-    );
-    pointer-events: none;
-    z-index: 10;
-  }
-
-  /* Cosmic sections - Fade Out at bottom */
-  section[data-theme="cosmic"]:not(:last-of-type)::after,
-  section[class*="bg-slate-"]:not(:last-of-type)::after,
-  section[class*="bg-\[#0"]:not(:last-of-type)::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: clamp(50px, 10vh, 100px);
-    background: linear-gradient(
-      to top,
-      hsl(var(--cosmic-base)) 0%,
-      hsl(var(--cosmic-base) / 0.9) 10%,
-      hsl(var(--cosmic-base) / 0.6) 30%,
-      hsl(var(--cosmic-base) / 0.3) 60%,
-      hsl(var(--cosmic-base) / 0) 100%
-    );
-    pointer-events: none;
-    z-index: 10;
-  }
-
-  /* Special handling for Projects section (dark background) */
-  section#projects::before {
     background: linear-gradient(
       to bottom,
       hsl(214 47% 9%) 0%,
-      hsl(214 47% 9% / 0.9) 10%,
-      hsl(214 47% 9% / 0.6) 30%,
+      hsl(214 47% 9% / 0.95) 5%,
+      hsl(214 47% 9% / 0.85) 15%,
+      hsl(214 47% 9% / 0.6) 35%,
       hsl(214 47% 9% / 0.3) 60%,
+      hsl(214 47% 9% / 0.1) 80%,
       hsl(214 47% 9% / 0) 100%
+    );
+  }
+
+  section#ai-tools::after {
+    background: linear-gradient(
+      to top,
+      hsl(210 17% 95%) 0%,
+      hsl(210 17% 95% / 0.95) 5%,
+      hsl(210 17% 95% / 0.85) 15%,
+      hsl(210 17% 95% / 0.6) 35%,
+      hsl(210 17% 95% / 0.3) 60%,
+      hsl(210 17% 95% / 0.1) 80%,
+      hsl(210 17% 95% / 0) 100%
+    );
+  }
+
+  /* === PROJECTS SECTION (Light background) === */
+  section#projects {
+    background: linear-gradient(to bottom,
+      hsl(210 17% 95%) 0%,
+      hsl(0 0% 97%) 30%,
+      hsl(0 0% 98%) 70%,
+      hsl(212 56% 11%) 100%
+    );
+  }
+
+  section#projects::before {
+    background: linear-gradient(
+      to bottom,
+      hsl(212 56% 12%) 0%,
+      hsl(212 56% 12% / 0.95) 5%,
+      hsl(212 56% 12% / 0.85) 15%,
+      hsl(212 56% 12% / 0.6) 35%,
+      hsl(212 56% 12% / 0.3) 60%,
+      hsl(212 56% 12% / 0.1) 80%,
+      hsl(212 56% 12% / 0) 100%
     );
   }
 
   section#projects::after {
     background: linear-gradient(
       to top,
-      hsl(214 47% 9%) 0%,
-      hsl(214 47% 9% / 0.9) 10%,
-      hsl(214 47% 9% / 0.6) 30%,
-      hsl(214 47% 9% / 0.3) 60%,
-      hsl(214 47% 9% / 0) 100%
+      hsl(212 56% 11%) 0%,
+      hsl(212 56% 11% / 0.95) 5%,
+      hsl(212 56% 11% / 0.85) 15%,
+      hsl(212 56% 11% / 0.6) 35%,
+      hsl(212 56% 11% / 0.3) 60%,
+      hsl(212 56% 11% / 0.1) 80%,
+      hsl(212 56% 11% / 0) 100%
     );
   }
 
-  /* Hero section bottom fade (dark) */
-  section#hero::after {
-    bottom: 0;
-    top: auto;
+  /* === ECOSYSTEM SECTION (Dark cosmic) === */
+  section[data-tour="ecosystem"] {
+    background: linear-gradient(to bottom,
+      hsl(212 56% 11%) 0%,
+      hsl(214 47% 9%) 50%,
+      hsl(214 47% 8%) 100%
+    );
+  }
+
+  section[data-tour="ecosystem"]::before {
+    background: linear-gradient(
+      to bottom,
+      hsl(0 0% 98%) 0%,
+      hsl(0 0% 98% / 0.95) 5%,
+      hsl(0 0% 98% / 0.85) 15%,
+      hsl(0 0% 98% / 0.6) 35%,
+      hsl(0 0% 98% / 0.3) 60%,
+      hsl(0 0% 98% / 0.1) 80%,
+      hsl(0 0% 98% / 0) 100%
+    );
+  }
+
+  section[data-tour="ecosystem"]::after {
     background: linear-gradient(
       to top,
-      hsl(214 47% 7%) 0%,
-      hsl(214 47% 7% / 0.9) 10%,
-      hsl(214 47% 7% / 0.6) 30%,
-      hsl(214 47% 7% / 0.3) 60%,
-      hsl(214 47% 7% / 0) 100%
-    ) !important;
+      hsl(214 47% 8%) 0%,
+      hsl(214 47% 8% / 0.95) 5%,
+      hsl(214 47% 8% / 0.85) 15%,
+      hsl(214 47% 8% / 0.6) 35%,
+      hsl(214 47% 8% / 0.3) 60%,
+      hsl(214 47% 8% / 0.1) 80%,
+      hsl(214 47% 8% / 0) 100%
+    );
+  }
+
+  /* === SKILLS & CONTACT SECTIONS (Dark cosmic) === */
+  section#skills,
+  section#contact {
+    background: hsl(214 47% 9%);
+  }
+
+  section#skills::before {
+    background: linear-gradient(
+      to bottom,
+      hsl(214 47% 8%) 0%,
+      hsl(214 47% 8% / 0.95) 5%,
+      hsl(214 47% 8% / 0.85) 15%,
+      hsl(214 47% 8% / 0.6) 35%,
+      hsl(214 47% 8% / 0.3) 60%,
+      hsl(214 47% 8% / 0.1) 80%,
+      hsl(214 47% 8% / 0) 100%
+    );
   }
 
   /* Enhanced glassmorphism for cosmic sections */
