@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { SectionTitle, SectionTitleProps } from '@/components/ui/section-title';
+import { SectionParticles } from '@/components/ui/section-particles';
 import { cn } from '@/lib/utils';
 
 export interface SectionProps {
@@ -27,6 +28,10 @@ export interface SectionProps {
   dataTour?: string;
   /** Show section title */
   showTitle?: boolean;
+  /** Show floating particles */
+  showParticles?: boolean;
+  /** Particle color variant */
+  particleColor?: 'primary' | 'secondary' | 'accent';
 }
 
 const backgroundVariants = {
@@ -108,6 +113,8 @@ export const Section = ({
   containerClassName,
   dataTour,
   showTitle = true,
+  showParticles = false,
+  particleColor = 'primary',
 }: SectionProps) => {
   const bgClass = background === 'custom' ? backgroundClassName : backgroundVariants[background];
   const containerWidthClass = containerWidths[containerWidth];
@@ -126,6 +133,9 @@ export const Section = ({
       )}
       data-tour={dataTour}
     >
+      {/* Floating Particles */}
+      {showParticles && <SectionParticles count={8} color={particleColor} />}
+
       <div className={cn(containerWidthClass, paddingXClass, 'mx-auto relative z-10', containerClassName)}>
         {/* Section Title */}
         {showTitle && <SectionTitle {...title} />}

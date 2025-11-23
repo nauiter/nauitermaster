@@ -20,6 +20,8 @@ export const ContactSection = () => {
       containerWidth="3xl"
       paddingY="xl"
       className="text-center overflow-hidden"
+      showParticles={true}
+      particleColor="primary"
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
