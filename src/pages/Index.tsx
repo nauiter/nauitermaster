@@ -12,9 +12,7 @@ import sweetLifeAnimes from "@/assets/sweet-life-animes-2.png";
 import sweetLifeAcademy from "@/assets/sweet-life-academy-2.jpg";
 import oVermePasseia from "@/assets/o-verme-passeia-2.png";
 import figueiredoLaw from "@/assets/figueiredo-law-2.png";
-import clickNoPoint from "@/assets/click-no-point-button.jpg";
-import pomodoroTimer from "@/assets/pomodoro-timer.png";
-import decisionDie from "@/assets/decision-die.png";
+// Removed unused imports: clickNoPoint, pomodoroTimer, decisionDie
 import beaconsWhite from "@/assets/beacons-white.png";
 import { ProjectEditor } from "@/components/ProjectEditor";
 import { FloatingNavbar } from "@/components/FloatingNavbar";
@@ -39,7 +37,7 @@ const Index = () => {
   const [init, setInit] = useState(false);
   const [linkedinFollowers] = useState(5750);
   const [yearsExperience] = useState(14);
-  const [activeProjects] = useState(7);
+  const [activeProjects] = useState(4); // Updated from 7 to 4 (removed Decision Die, Pomodoro, Click No Point)
   const [followerCount, setFollowerCount] = useState(0);
   const [experienceCount, setExperienceCount] = useState(0);
   const [projectCount, setProjectCount] = useState(0);
@@ -828,104 +826,7 @@ const Index = () => {
             </motion.h3>
           </AnimatePresence>
           <div className="grid md:grid-cols-3 gap-6">
-            <motion.a
-              href="https://clicknopoint.lovable.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.03, y: -5 }}
-              transition={{ type: "spring", stiffness: 150 }}
-              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
-            >
-              <div className="aspect-video relative overflow-hidden">
-                <img
-                  src={clickNoPoint}
-                  alt="Click No Point project thumbnail"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
-              </div>
-              <div className="p-4 text-left">
-                <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.clickNoPoint.title}</h4>
-                <AnimatePresence mode="wait">
-                  <motion.p
-                    key={language}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="text-gray-400 text-sm mb-2"
-                  >
-                    {t.projects.clickNoPoint.description}
-                  </motion.p>
-                </AnimatePresence>
-                <div className="flex flex-wrap gap-2 text-xs">
-                  {t.projects.clickNoPoint.tools.map((tool) => (
-                    <AnimatePresence mode="wait" key={tool}>
-                      <motion.span
-                        key={`${language}-${tool}`}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.2 }}
-                        className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors"
-                      >
-                        {tool}
-                      </motion.span>
-                    </AnimatePresence>
-                  ))}
-                </div>
-              </div>
-            </motion.a>
-
-            <motion.a
-              href="https://time-craft-clock.lovable.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.03, y: -5 }}
-              transition={{ type: "spring", stiffness: 150 }}
-              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
-            >
-              <div className="aspect-video relative overflow-hidden">
-                <img
-                  src={pomodoroTimer}
-                  alt="Pomodoro Project thumbnail"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
-              </div>
-              <div className="p-4 text-left">
-                <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.pomodoroProject.title}</h4>
-                <AnimatePresence mode="wait">
-                  <motion.p
-                    key={language}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="text-gray-400 text-sm mb-2"
-                  >
-                    {t.projects.pomodoroProject.description}
-                  </motion.p>
-                </AnimatePresence>
-                <div className="flex flex-wrap gap-2 text-xs">
-                  {t.projects.pomodoroProject.tools.map((tool) => (
-                    <AnimatePresence mode="wait" key={tool}>
-                      <motion.span
-                        key={`${language}-${tool}`}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.2 }}
-                        className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors"
-                      >
-                        {tool}
-                      </motion.span>
-                    </AnimatePresence>
-                  ))}
-                </div>
-              </div>
-            </motion.a>
-
+            {/* Removed Click No Point, Pomodoro, and Decision Die projects */}
             <motion.a
               href="https://figueiredolaw.lovable.app"
               target="_blank"
@@ -958,55 +859,6 @@ const Index = () => {
                 </AnimatePresence>
                 <div className="flex flex-wrap gap-2 text-xs">
                   {t.projects.figueiredoLaw.tools.map((tool) => (
-                    <AnimatePresence mode="wait" key={tool}>
-                      <motion.span
-                        key={`${language}-${tool}`}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.2 }}
-                        className="px-2 py-1 rounded-full bg-white/10 text-gray-300 backdrop-blur-md hover:bg-white/20 transition-colors"
-                      >
-                        {tool}
-                      </motion.span>
-                    </AnimatePresence>
-                  ))}
-                </div>
-              </div>
-            </motion.a>
-
-            <motion.a
-              href="https://decisiondie.lovable.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.03, y: -5 }}
-              transition={{ type: "spring", stiffness: 150 }}
-              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
-            >
-              <div className="aspect-video relative overflow-hidden">
-                <img
-                  src={decisionDie}
-                  alt="Decision Die project thumbnail"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-all"></div>
-              </div>
-              <div className="p-4 text-left">
-                <h4 className="font-semibold text-white drop-shadow-md mb-1">{t.projects.decisionDie.title}</h4>
-                <AnimatePresence mode="wait">
-                  <motion.p
-                    key={language}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="text-gray-400 text-sm mb-2"
-                  >
-                    {t.projects.decisionDie.description}
-                  </motion.p>
-                </AnimatePresence>
-                <div className="flex flex-wrap gap-2 text-xs">
-                  {t.projects.decisionDie.tools.map((tool) => (
                     <AnimatePresence mode="wait" key={tool}>
                       <motion.span
                         key={`${language}-${tool}`}
@@ -1089,36 +941,12 @@ const Index = () => {
                 url: "https://overmepasseia.lovable.app"
               },
               {
-                name: "Click No Point",
-                purpose: "Comedy and humor in the digital era.",
-                type: "Humor & Media",
-                color: "from-orange-500 to-red-400",
-                image: clickNoPoint,
-                url: "https://click-no-point.lovable.app"
-              },
-              {
-                name: "Pomodoro Project",
-                purpose: "Mindful productivity and focus tools.",
-                type: "Design Tool",
-                color: "from-green-500 to-lime-400",
-                image: pomodoroTimer,
-                url: "https://time-craft-clock.lovable.app/"
-              },
-              {
                 name: "Figueiredo Law",
                 purpose: "Law, technology, and AI ethics consultancy.",
                 type: "Ethics & AI",
                 color: "from-rose-600 to-gray-500",
                 image: figueiredoLaw,
                 url: "https://figueiredo-landing-amapa.lovable.app/"
-              },
-              {
-                name: "Decision Die",
-                purpose: "Turning choices into playful design moments.",
-                type: "Game & Experiment",
-                color: "from-emerald-500 to-green-400",
-                image: decisionDie,
-                url: "https://decisiondie.lovable.app/"
               }
             ]}
           />
@@ -1226,7 +1054,7 @@ const Index = () => {
               className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-xl transition-all"
             >
               <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
-                7
+                4
               </h3>
               <AnimatePresence mode="wait">
                 <motion.p
