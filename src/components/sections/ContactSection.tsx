@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Facebook, Instagram, Linkedin, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { SectionTitle } from "@/components/ui/section-title";
 import { SOCIAL_LINKS } from "@/lib/constants";
 
 export const ContactSection = () => {
@@ -18,30 +19,14 @@ export const ContactSection = () => {
         transition={{ duration: 0.8 }}
         className="relative z-10 max-w-3xl mx-auto px-6"
       >
-        <AnimatePresence mode="wait">
-          <motion.h2
-            key={language}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
-          >
-            {t.contact.title}
-          </motion.h2>
-        </AnimatePresence>
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={language}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="text-gray-400 mt-4 text-lg max-w-2xl mx-auto"
-          >
-            {t.contact.subtitle}
-          </motion.p>
-        </AnimatePresence>
+        {/* Header - Using SectionTitle Component */}
+        <SectionTitle
+          title={t.contact.title}
+          subtitle={t.contact.subtitle}
+          align="center"
+          gradient="primary"
+          dataAttr="contact-title"
+        />
 
         {/* CTA Buttons */}
         <div className="mt-10 flex flex-wrap justify-center gap-4">

@@ -1,7 +1,8 @@
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { LazyImage } from "@/components/LazyImage";
+import { SectionTitle } from "@/components/ui/section-title";
 import { ExternalLink } from "lucide-react";
 import {
   Carousel,
@@ -83,32 +84,14 @@ export const ProjectsSection = () => {
       data-tour="projects"
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header - SEO Critical Section */}
-        <div className="text-center mb-16">
-          {/* Main Title H2 - Always Visible for SEO */}
-          <h2
-            className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-4"
-            style={{ 
-              opacity: 1,
-              visibility: 'visible',
-              display: 'block'
-            }}
-          >
-            {language === 'pt' ? 'Projetos em Destaque' : 'Showcase Projects'}
-          </h2>
-
-          {/* Subtitle with animation */}
-          <motion.p
-            key={`projects-subtitle-${language}`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-400 text-lg max-w-2xl mx-auto"
-          >
-            {t.projects.subtitle}
-          </motion.p>
-        </div>
+        {/* Header - Using SectionTitle Component */}
+        <SectionTitle
+          title={language === 'pt' ? 'Projetos em Destaque' : 'Showcase Projects'}
+          subtitle={t.projects.subtitle}
+          align="center"
+          gradient="primary"
+          dataAttr="projects-title"
+        />
 
         {/* Carousel */}
         <Carousel

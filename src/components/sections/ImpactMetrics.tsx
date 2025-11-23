@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useCounterAnimation } from '@/hooks/useCounterAnimation';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { SectionTitle } from '@/components/ui/section-title';
 import { METRICS, ANIMATION_CONFIG } from '@/lib/constants';
 
 interface MetricCardProps {
@@ -68,38 +69,14 @@ export const ImpactMetrics = () => {
       className="relative py-24 bg-gradient-to-b from-[#0A1A2F] to-[#0C1222] text-center"
     >
       <div className="max-w-5xl mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
-        >
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={language}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {t.impact.title}
-            </motion.span>
-          </AnimatePresence>
-        </motion.h2>
-
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={language}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="text-gray-400 mt-2 max-w-2xl mx-auto"
-          >
-            {t.impact.subtitle}
-          </motion.p>
-        </AnimatePresence>
+        {/* Header - Using SectionTitle Component */}
+        <SectionTitle
+          title={t.impact.title}
+          subtitle={t.impact.subtitle}
+          align="center"
+          gradient="primary"
+          dataAttr="impact-title"
+        />
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {metrics.map((metric, index) => (
