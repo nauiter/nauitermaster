@@ -1,27 +1,25 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Brain, Image, Music, Zap } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
-import { SectionTitle } from "@/components/ui/section-title";
+import { Section } from "@/components/ui/section";
 
 export const AIToolsSection = () => {
   const { t, language } = useLanguage();
 
   return (
-    <section 
+    <Section
       id="ai-tools"
-      className="relative z-10 py-24 bg-gradient-to-b from-[#0A1A2F] to-[#0C1222]" 
-      data-tour="ai-tools"
+      title={{
+        title: t.aiTools.title,
+        subtitle: t.aiTools.subtitle,
+        gradient: "primary",
+        align: "center",
+      }}
+      background="gradient-light"
+      containerWidth="5xl"
+      paddingY="lg"
+      dataTour="ai-tools"
     >
-      <div className="container mx-auto px-6">
-        {/* Header - Using SectionTitle Component */}
-        <SectionTitle
-          title={t.aiTools.title}
-          subtitle={t.aiTools.subtitle}
-          align="center"
-          gradient="primary"
-          dataAttr="ai-tools-title"
-        />
-        
         {/* Two Groups Layout */}
         <div className="mt-14 max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
           {/* Creative AI Group */}
@@ -298,7 +296,6 @@ export const AIToolsSection = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+    </Section>
   );
 };

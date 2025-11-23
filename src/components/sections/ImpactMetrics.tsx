@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useCounterAnimation } from '@/hooks/useCounterAnimation';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { SectionTitle } from '@/components/ui/section-title';
+import { Section } from '@/components/ui/section';
 import { METRICS, ANIMATION_CONFIG } from '@/lib/constants';
 
 interface MetricCardProps {
@@ -50,7 +50,7 @@ const MetricCard = ({ value, label, delay, isVisible, language }: MetricCardProp
 
 export const ImpactMetrics = () => {
   const { t, language } = useLanguage();
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const isVisible = useIntersectionObserver(sectionRef, {
     threshold: ANIMATION_CONFIG.INTERSECTION_THRESHOLD,
   });
@@ -63,20 +63,19 @@ export const ImpactMetrics = () => {
   ];
 
   return (
-    <section
+    <Section
       id="impact"
-      ref={sectionRef}
-      className="relative py-24 bg-gradient-to-b from-[#0A1A2F] to-[#0C1222] text-center"
+      title={{
+        title: t.impact.title,
+        subtitle: t.impact.subtitle,
+        gradient: "primary",
+        align: "center",
+      }}
+      background="gradient-light"
+      containerWidth="5xl"
+      paddingY="lg"
     >
-      <div className="max-w-5xl mx-auto px-6">
-        {/* Header - Using SectionTitle Component */}
-        <SectionTitle
-          title={t.impact.title}
-          subtitle={t.impact.subtitle}
-          align="center"
-          gradient="primary"
-          dataAttr="impact-title"
-        />
+      <div ref={sectionRef}>
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {metrics.map((metric, index) => (
@@ -91,6 +90,6 @@ export const ImpactMetrics = () => {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
