@@ -1,6 +1,7 @@
-import { ReactNode } from 'react';
+import { ReactNode, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export interface SectionTitleProps {
   /** Main title text - always visible for SEO */
@@ -74,41 +75,50 @@ export const SectionTitle = ({
   icon,
   dataAttr,
 }: SectionTitleProps) => {
+  const titleRef = useRef<HTMLDivElement>(null);
+  const isVisible = useScrollAnimation(titleRef, { threshold: 0.2 });
+  
   const baseGradientClass = gradient !== 'none' 
     ? `text-transparent bg-clip-text ${gradientClasses[gradient]}`
     : 'text-white';
 
   return (
     <div 
+      ref={titleRef}
       className={cn(alignmentClasses[align], 'mb-16', className)}
       data-section-title={dataAttr}
     >
-      {/* Main Title - Static for SEO */}
-      <Tag
-        className={cn(
-          'text-3xl md:text-5xl font-bold mb-4',
-          baseGradientClass,
-          titleClassName
-        )}
-        style={{
-          opacity: 1,
-          visibility: 'visible',
-          display: 'block',
-        }}
+      {/* Main Title - Animated entrance with Intersection Observer */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        {icon && <span className="inline-flex items-center mr-3">{icon}</span>}
-        {title}
-      </Tag>
+        <Tag
+          className={cn(
+            'text-3xl md:text-5xl font-bold mb-4',
+            baseGradientClass,
+            titleClassName
+          )}
+          style={{
+            opacity: 1,
+            visibility: 'visible',
+            display: 'block',
+          }}
+        >
+          {icon && <span className="inline-flex items-center mr-3">{icon}</span>}
+          {title}
+        </Tag>
+      </motion.div>
 
-      {/* Subtitle - Optional Animation */}
+      {/* Subtitle - Optional Animation with progressive reveal */}
       {subtitle && (
         <>
           {animateSubtitle ? (
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               className={cn(
                 'text-gray-400 text-lg max-w-2xl',
                 align === 'center' && 'mx-auto',
