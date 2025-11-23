@@ -91,7 +91,7 @@ export const CookieConsent = () => {
                     <h3 className="text-xl font-semibold bg-gradient-primary bg-clip-text text-transparent">
                       {t.lgpd.banner.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-sm text-white leading-relaxed">
                       {t.lgpd.banner.description}
                     </p>
                     <Link
@@ -111,8 +111,7 @@ export const CookieConsent = () => {
                     </Button>
                     <Button
                       onClick={handleRejectNonEssential}
-                      variant="outline"
-                      className="flex-1 border-white/20 hover:bg-white/5"
+                      className="flex-1 bg-white text-gray-900 hover:bg-gray-100 transition-colors"
                     >
                       {t.lgpd.banner.rejectNonEssential}
                     </Button>
@@ -121,8 +120,7 @@ export const CookieConsent = () => {
                         setShowBanner(false);
                         setShowPreferences(true);
                       }}
-                      variant="ghost"
-                      className="flex-1 hover:bg-white/5"
+                      className="flex-1 bg-gradient-primary hover:opacity-90 transition-opacity"
                     >
                       {t.lgpd.banner.managePreferences}
                     </Button>
