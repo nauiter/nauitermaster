@@ -87,11 +87,11 @@ export const HeroSection = () => {
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
             <span className="block text-white mb-2">Nauiter Master</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] via-[#A855F7] to-[#00C4FF]">
-              {t.hero.title}
+              {t.hero.subtitle}
             </span>
           </h1>
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            {t.hero.subtitle}
+            {t.hero.description}
           </p>
         </motion.div>
 
