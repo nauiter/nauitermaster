@@ -200,7 +200,7 @@ export const translations: Record<Language, Translations> = {
       creativeAI: 'Creative AI',
       technicalAI: 'Technical AI',
       textAI: {
-        title: 'Text AI',
+        title: 'Text AI (Prompt Engineering)',
         description: 'GPTs, Claude, Llama - advanced prompt engineering & ideation workflows.',
       },
       imageVideoAI: {
@@ -388,20 +388,20 @@ export const translations: Record<Language, Translations> = {
       creativeAI: 'IA Criativa',
       technicalAI: 'IA Técnica',
       textAI: {
-        title: 'IA de Texto',
-        description: 'GPTs, Claude, Llama - engenharia avançada de prompts & workflows de ideação.',
+        title: 'IA de Texto (Prompt Engineering)',
+        description: 'GPTs, Claude, Llama - engenharia avançada de prompts (instruções estruturadas para IA) & workflows de ideação.',
       },
       imageVideoAI: {
         title: 'IA de Imagem / Vídeo',
-        description: 'Midjourney, Leonardo, Runway - eficiência em workflows criativos.',
+        description: 'Midjourney, Leonardo, Runway - eficiência em workflows criativos (pipelines de produção visual).',
       },
       audioAI: {
         title: 'IA de Áudio',
         description: 'Suno, Udio, ElevenLabs - expertise em produção de voz & áudio.',
       },
       automation: {
-        title: 'Automação',
-        description: 'Make, Zapier, n8n - orquestração & otimização de workflows sem código.',
+        title: 'Automação (No-Code)',
+        description: 'Make, Zapier, n8n - orquestração & otimização de workflows sem código (integração entre sistemas).',
       },
       proficiency: 'Proficiência',
     },

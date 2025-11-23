@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FloatingNavbar } from "@/components/FloatingNavbar";
 import { EcosystemCarousel } from "@/components/EcosystemCarousel";
 import { ImpactMetrics } from "@/components/sections/ImpactMetrics";
@@ -10,6 +10,7 @@ import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { SEOHead } from "@/components/SEOHead";
 import { HeroSkeleton } from "@/components/skeletons/HeroSkeleton";
 import { ProjectsSkeleton } from "@/components/skeletons/ProjectsSkeleton";
 import { EcosystemSkeleton } from "@/components/skeletons/EcosystemSkeleton";
@@ -36,42 +37,10 @@ const Index = ({ forcedLanguage }: IndexProps) => {
     }
   }, [forcedLanguage, language, setLanguage]);
 
-  const location = useLocation();
-  const currentPath = location.pathname;
-  const baseUrl = 'https://nauitermaster.lovable.app';
-
   return (
     <div className="min-h-screen bg-background">
-      {/* Hreflang Tags for SEO */}
-      <link rel="canonical" href={`${baseUrl}${currentPath}`} />
-      <link rel="alternate" hrefLang="pt-BR" href={`${baseUrl}/pt`} />
-      <link rel="alternate" hrefLang="en" href={`${baseUrl}/en`} />
-      <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/`} />
-      
-      {/* SEO Structured Data - Person */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Nauiter Master",
-          "jobTitle": language === 'pt' ? "Estrategista de IA e Artista Digital" : "AI Strategist & Digital Artist",
-          "description": language === 'pt' 
-            ? "Estrategista de IA e artista digital especializado em prompt engineering, automação e aplicações criativas de IA"
-            : "AI Strategist & Digital Artist specializing in prompt engineering, automation, and creative AI applications",
-          "url": "https://nauitermaster.lovable.app",
-          "sameAs": [
-            "https://linkedin.com/in/nauiter-master-678a71144",
-            "https://instagram.com/nauiter.master",
-            "https://facebook.com/nauiter.master",
-            "https://beacons.ai/nauiter.master"
-          ],
-          "knowsAbout": language === 'pt'
-            ? ["Inteligência Artificial", "Arte Digital", "Prompt Engineering", "Automação com IA", "IA Criativa"]
-            : ["Artificial Intelligence", "Digital Art", "Prompt Engineering", "AI Automation", "Creative AI"],
-          "alumniOf": language === 'pt' ? "Análise de Sistemas" : "Systems Analysis",
-          "email": "nauitermaster@hotmail.com"
-        })
-      }} />
+      {/* SEO Head with dynamic meta tags and structured data */}
+      <SEOHead forcedLanguage={forcedLanguage} />
       
       <FloatingNavbar />
       
