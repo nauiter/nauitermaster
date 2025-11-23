@@ -1,10 +1,11 @@
-import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
+import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import type { Container, Engine } from "@tsparticles/engine";
 import { Download, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import portfolioAvatar from "@/assets/portfolio-avatar.webp";
 import { useLanguage } from "@/hooks/useLanguage";
+import { useMultiLayerParallax } from "@/hooks/useParallax";
 import { PARTICLES_OPTIONS } from "@/lib/particlesConfig";
 import { METRICS } from "@/lib/constants";
 
@@ -13,6 +14,8 @@ const Particles = lazy(() => import("@tsparticles/react"));
 export const HeroSection = () => {
   const { t } = useLanguage();
   const [init, setInit] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [layer1, layer2, layer3] = useMultiLayerParallax(sectionRef, 3);
   
   useEffect(() => {
     const initParticles = async () => {
@@ -34,10 +37,37 @@ export const HeroSection = () => {
 
   return (
     <section 
+      ref={sectionRef}
       id="hero"
       className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden"
       data-tour="welcome"
     >
+      {/* Parallax Background Layers */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 30%, rgba(122, 95, 255, 0.15) 0%, transparent 50%)',
+          transform: `translateY(${layer1}px)`,
+          willChange: 'transform',
+        }}
+      />
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          background: 'radial-gradient(ellipse at 80% 60%, rgba(0, 196, 255, 0.1) 0%, transparent 50%)',
+          transform: `translateY(${layer2}px)`,
+          willChange: 'transform',
+        }}
+      />
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          background: 'radial-gradient(ellipse at 20% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%)',
+          transform: `translateY(${layer3}px)`,
+          willChange: 'transform',
+        }}
+      />
+
       {/* Particles Background */}
       {init && (
         <Suspense fallback={<div className="absolute inset-0 z-0 bg-[#0B1623]" />}>
