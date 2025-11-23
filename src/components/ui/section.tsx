@@ -32,6 +32,8 @@ export interface SectionProps {
   showParticles?: boolean;
   /** Particle color variant */
   particleColor?: 'primary' | 'secondary' | 'accent';
+  /** Magnetic interaction strength (default: 60) */
+  particleMagneticStrength?: number;
 }
 
 const backgroundVariants = {
@@ -115,6 +117,7 @@ export const Section = ({
   showTitle = true,
   showParticles = false,
   particleColor = 'primary',
+  particleMagneticStrength = 60,
 }: SectionProps) => {
   const bgClass = background === 'custom' ? backgroundClassName : backgroundVariants[background];
   const containerWidthClass = containerWidths[containerWidth];
@@ -134,7 +137,13 @@ export const Section = ({
       data-tour={dataTour}
     >
       {/* Floating Particles */}
-      {showParticles && <SectionParticles count={8} color={particleColor} />}
+      {showParticles && (
+        <SectionParticles 
+          count={8} 
+          color={particleColor} 
+          magneticStrength={particleMagneticStrength}
+        />
+      )}
 
       <div className={cn(containerWidthClass, paddingXClass, 'mx-auto relative z-10', containerClassName)}>
         {/* Section Title */}
