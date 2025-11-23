@@ -88,32 +88,32 @@ export const HeroSection = () => {
       
       <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
         {/* Profile Image with Enhanced Glow - Optimized for LCP */}
-        <motion.div 
-          className="flex justify-center mb-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-        >
-          <motion.img
+        <div className="flex justify-center mb-6">
+          <img
             src={portfolioAvatar}
             alt="Nauiter Master - Estrategista de IA, artista digital especializado em automação criativa e educação | AI Strategist, digital artist specialized in creative automation and education"
             className="w-56 h-56 rounded-full border-[3px] border-white/30 shadow-2xl object-cover"
             style={{ 
               filter: "drop-shadow(0 0 30px rgba(122, 95, 255, 0.4))",
+              willChange: 'transform',
+              transform: 'translateZ(0)',
+              backfaceVisibility: 'hidden',
             }}
-            whileHover={{ 
-              scale: 1.05, 
-              rotate: 3,
-              filter: "drop-shadow(0 0 40px rgba(0, 196, 255, 0.6))"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.05) rotate(3deg) translateZ(0)';
+              e.currentTarget.style.filter = 'drop-shadow(0 0 40px rgba(0, 196, 255, 0.6))';
             }}
-            transition={{ type: "spring", stiffness: 200 }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateZ(0)';
+              e.currentTarget.style.filter = 'drop-shadow(0 0 30px rgba(122, 95, 255, 0.4))';
+            }}
             loading="eager"
             fetchPriority="high"
             decoding="async"
             width={224}
             height={224}
           />
-        </motion.div>
+        </div>
 
         {/* Title & Description */}
         <motion.div 
