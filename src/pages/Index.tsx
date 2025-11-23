@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import type { Container, Engine } from "@tsparticles/engine";
 import { Mail, Facebook, Instagram, Linkedin, Download, Calendar, ArrowRight, ChevronDown } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Lazy load particles to reduce initial bundle size
 const Particles = lazy(() => import("@tsparticles/react"));
@@ -21,6 +21,7 @@ import { FloatingNavbar } from "@/components/FloatingNavbar";
 import { EcosystemCarousel } from "@/components/EcosystemCarousel";
 import { Brain, Image, Music, Zap } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { useLanguage } from "@/hooks/useLanguage";
 
 interface Project {
   id: string;
@@ -34,6 +35,7 @@ interface Project {
 }
 
 const Index = () => {
+  const { t, language } = useLanguage();
   const [init, setInit] = useState(false);
   const [linkedinFollowers] = useState(5750);
   const [yearsExperience] = useState(14);
@@ -299,17 +301,25 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.2, ease: "easeOut" }}
           >
-            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6] via-[#6366F1] to-[#06B6D4]">
-              Nauiter Master
-            </h1>
-            <p className="mt-3 text-gray-300 leading-snug tracking-wide">
-              Exploring the edge between <span className="text-[#7A5FFF]">Intelligence</span>,{" "}
-              <span className="text-[#00C4FF]">Art</span>, and{" "}
-              <span className="text-[#5DE4FF]">Automation</span>.
-            </p>
-            <p className="text-sm md:text-base text-gray-400/80 max-w-3xl mx-auto">
-              AI Strategist & Digital Artist | Founder of Sweet Life Animes & O Verme Passeia
-            </p>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={language}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6] via-[#6366F1] to-[#06B6D4]">
+                  {t.hero.title}
+                </h1>
+                <p className="mt-3 text-gray-300 leading-snug tracking-wide">
+                  {t.hero.subtitle}
+                </p>
+                <p className="text-sm md:text-base text-gray-400/80 max-w-3xl mx-auto">
+                  {t.hero.description}
+                </p>
+              </motion.div>
+            </AnimatePresence>
             
             {/* CTA Buttons with Enhanced Styling */}
             <motion.div 
@@ -331,7 +341,17 @@ const Index = () => {
                   className="flex items-center gap-2"
                 >
                   <Download className="w-5 h-5 group-hover:animate-bounce" />
-                  Download CV
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={language}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {t.hero.downloadCV}
+                    </motion.span>
+                  </AnimatePresence>
                 </a>
               </Button>
               
@@ -345,7 +365,17 @@ const Index = () => {
                   className="flex items-center gap-2"
                 >
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  View My Projects
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={language}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {t.hero.viewProjects}
+                    </motion.span>
+                  </AnimatePresence>
                 </a>
               </Button>
             </motion.div>
@@ -382,17 +412,47 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-center mb-3"
           >
-            AI Tools Mastery
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={language}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {t.aiTools.title}
+              </motion.span>
+            </AnimatePresence>
           </motion.h2>
-          <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Expert in AI prompt workflows and automation pipelines for creative expression.
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={language}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-gray-400 text-center mb-12 max-w-2xl mx-auto"
+            >
+              {t.aiTools.subtitle}
+            </motion.p>
+          </AnimatePresence>
           
           {/* Two Groups Layout */}
           <div className="mt-14 max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
             {/* Creative AI Group */}
             <div className="flex flex-col">
-              <h3 className="text-left text-[#7A5FFF] font-semibold mb-4 text-lg">Creative AI</h3>
+              <AnimatePresence mode="wait">
+                <motion.h3
+                  key={language}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-left text-[#7A5FFF] font-semibold mb-4 text-lg"
+                >
+                  {t.aiTools.creativeAI}
+                </motion.h3>
+              </AnimatePresence>
               <div className="grid grid-rows-2 gap-4 flex-1">
                 {/* Text AI Card */}
                 <motion.div
@@ -405,14 +465,44 @@ const Index = () => {
                 >
                   <div className="flex items-center gap-3 mb-2 text-white">
                     <Brain className="w-6 h-6 text-[#7A5FFF]" />
-                    <h4 className="font-semibold text-lg">Text AI</h4>
+                    <AnimatePresence mode="wait">
+                      <motion.h4
+                        key={language}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="font-semibold text-lg"
+                      >
+                        {t.aiTools.textAI.title}
+                      </motion.h4>
+                    </AnimatePresence>
                   </div>
-                  <p className="text-gray-400 text-sm mb-3 flex-1">
-                    GPTs, Claude, Llama — advanced prompt engineering & ideation workflows.
-                  </p>
+                  <AnimatePresence mode="wait">
+                    <motion.p
+                      key={language}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-gray-400 text-sm mb-3 flex-1"
+                    >
+                      {t.aiTools.textAI.description}
+                    </motion.p>
+                  </AnimatePresence>
                   <div className="space-y-1">
                     <div className="flex justify-between text-sm text-gray-400">
-                      <span>Proficiency</span>
+                      <AnimatePresence mode="wait">
+                        <motion.span
+                          key={language}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {t.aiTools.proficiency}
+                        </motion.span>
+                      </AnimatePresence>
                       <span className="text-[#7A5FFF] font-semibold">98%</span>
                     </div>
                     <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">

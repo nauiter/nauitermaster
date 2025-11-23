@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/hooks/useLanguage';
+import { LanguageToggle } from './LanguageToggle';
 
 export const FloatingNavbar = () => {
+  const { t } = useLanguage();
   const [activeSection, setActiveSection] = useState('hero');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = [
-    { id: 'hero', label: 'Home' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'impact', label: 'Metrics' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'hero', label: t.nav.home },
+    { id: 'projects', label: t.nav.projects },
+    { id: 'impact', label: t.nav.metrics },
+    { id: 'contact', label: t.nav.contact },
   ];
 
   useEffect(() => {
@@ -85,7 +88,7 @@ export const FloatingNavbar = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -104,6 +107,9 @@ export const FloatingNavbar = () => {
                 {item.label}
               </button>
             ))}
+            
+            {/* Language Toggle */}
+            <LanguageToggle />
           </div>
 
           {/* Mobile Menu Button */}
@@ -119,7 +125,7 @@ export const FloatingNavbar = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-700/50">
+          <div className="md:hidden py-4 border-t border-gray-700/50 space-y-3">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -138,6 +144,11 @@ export const FloatingNavbar = () => {
                 {item.label}
               </button>
             ))}
+            
+            {/* Mobile Language Toggle */}
+            <div className="px-4 pt-2">
+              <LanguageToggle />
+            </div>
           </div>
         )}
       </div>
