@@ -9,7 +9,12 @@ import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { HeroSkeleton } from "@/components/skeletons/HeroSkeleton";
+import { ProjectsSkeleton } from "@/components/skeletons/ProjectsSkeleton";
+import { EcosystemSkeleton } from "@/components/skeletons/EcosystemSkeleton";
+import { AIToolsSkeleton } from "@/components/skeletons/AIToolsSkeleton";
 import { useLanguage } from "@/hooks/useLanguage";
+import { usePageLoading } from "@/hooks/usePageLoading";
 import sweetLifeAnimes from "@/assets/sweet-life-animes.webp";
 import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
 import oVermePasseia from "@/assets/o-verme-passeia.webp";
@@ -17,6 +22,19 @@ import figueiredoLaw from "@/assets/figueiredo-law.webp";
 
 const Index = () => {
   const { t, language } = useLanguage();
+  const isLoading = usePageLoading(800);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <FloatingNavbar />
+        <HeroSkeleton />
+        <AIToolsSkeleton />
+        <ProjectsSkeleton />
+        <EcosystemSkeleton />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
