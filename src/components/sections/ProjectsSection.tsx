@@ -15,33 +15,20 @@ export const ProjectsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]"
+          viewport={{ once: true, amount: 0.2 }}
+          className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-4"
         >
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={language}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {t.projects.title}
-            </motion.span>
-          </AnimatePresence>
+          {t.projects.title}
         </motion.h2>
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={language}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="text-gray-400 mt-2 text-sm md:text-base"
-          >
-            {t.projects.subtitle}
-          </motion.p>
-        </AnimatePresence>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="text-gray-400 mt-2 text-sm md:text-base mb-12"
+        >
+          {t.projects.subtitle}
+        </motion.p>
 
         {/* Creative Universe */}
         <AnimatePresence mode="wait">

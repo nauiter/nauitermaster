@@ -70,7 +70,7 @@ export const AIToolsSection = () => {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#7A5FFF]/30 transition-all flex flex-col"
               >
-                <div className="flex items-center gap-3 mb-2 text-white">
+                <div className="flex items-center gap-3 mb-2">
                   <Brain className="w-6 h-6 text-[#7A5FFF]" />
                   <AnimatePresence mode="wait">
                     <motion.h4
@@ -79,7 +79,7 @@ export const AIToolsSection = () => {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.2 }}
-                      className="font-semibold text-lg"
+                      className="font-semibold text-lg text-white"
                     >
                       {t.aiTools.textAI.title}
                     </motion.h4>
@@ -130,9 +130,9 @@ export const AIToolsSection = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#7A5FFF]/30 transition-all flex flex-col"
               >
-                <div className="flex items-center gap-3 mb-2 text-white">
+                <div className="flex items-center gap-3 mb-2">
                   <Image className="w-6 h-6 text-[#7A5FFF]" />
-                  <h4 className="font-semibold text-lg">Image / Video AI</h4>
+                  <h4 className="font-semibold text-lg text-white">Image / Video AI</h4>
                 </div>
                 <p className="text-gray-400 text-sm mb-3 flex-1">
                   Midjourney, Leonardo, Runway — creative workflow efficiency.
@@ -166,9 +166,9 @@ export const AIToolsSection = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#00C4FF]/30 transition-all flex flex-col"
               >
-                <div className="flex items-center gap-3 mb-2 text-white">
+                <div className="flex items-center gap-3 mb-2">
                   <Music className="w-6 h-6 text-[#00C4FF]" />
-                  <h4 className="font-semibold text-lg">Audio AI</h4>
+                  <h4 className="font-semibold text-lg text-white">Audio AI</h4>
                 </div>
                 <p className="text-gray-400 text-sm mb-3 flex-1">
                   ElevenLabs, MusicLM — Voice & sound synthesis for storytelling.
@@ -196,9 +196,9 @@ export const AIToolsSection = () => {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#00C4FF]/30 transition-all flex flex-col"
               >
-                <div className="flex items-center gap-3 mb-2 text-white">
+                <div className="flex items-center gap-3 mb-2">
                   <Zap className="w-6 h-6 text-[#00C4FF]" />
-                  <h4 className="font-semibold text-lg">Automation</h4>
+                  <h4 className="font-semibold text-lg text-white">Automation</h4>
                 </div>
                 <p className="text-gray-400 text-sm mb-3 flex-1">
                   Python, Zapier, Make — Workflow automation & efficiency.
