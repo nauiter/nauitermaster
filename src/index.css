@@ -64,8 +64,8 @@
     --text-light: 240 5% 90%;       /* Para fundos escuros */
     
     /* === BORDERS & DIVIDERS === */
-    --border: 0 0% 100% / 0;
-    --border-subtle: 0 0% 100% / 0;
+    --border: 210 17% 85%;
+    --border-subtle: 0 0% 100%;
     
     /* === OUTROS === */
     --destructive: 0 84% 60%;
@@ -129,7 +129,7 @@
     --destructive: 0 62% 45%;
     --destructive-foreground: 0 0% 98%;
     
-    --border: 0 0% 100% / 0;
+    --border: 0 0% 100%;
     --input: 212 56% 11%;
     --ring: 257 100% 68%;
     --sidebar-border: 0 0% 100%;
