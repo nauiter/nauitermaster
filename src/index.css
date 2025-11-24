@@ -484,7 +484,7 @@ section h2 {
     
     /* Reduce blur on mobile for better performance */
     [class*="backdrop-blur"] {
-      backdrop-filter: blur(4px) !important;
+      backdrop-filter: blur(8px) !important;
     }
     
     /* Optimize gradient animations */
@@ -492,9 +492,10 @@ section h2 {
       background-attachment: scroll !important;
     }
     
-    /* Disable particles on mobile */
+    /* Enable particles on mobile with optimizations */
     #tsparticles {
-      display: none !important;
+      display: block !important;
+      opacity: 0.8;
     }
     
     /* Reduce motion complexity */
