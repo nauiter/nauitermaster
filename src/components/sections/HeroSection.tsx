@@ -9,6 +9,7 @@ import portfolioAvatar from "@/assets/portfolio-avatar.webp";
 import { useLanguage } from "@/hooks/useLanguage";
 import { PARTICLES_OPTIONS } from "@/lib/particlesConfig";
 import { triggerMobileHaptic } from "@/lib/haptic";
+import { useRippleEffect } from "@/hooks/useRippleEffect";
 
 const Particles = lazy(() => import("@tsparticles/react"));
 
@@ -16,6 +17,12 @@ export const HeroSection = () => {
   const { t } = useLanguage();
   const [init, setInit] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  
+  const { createRipple } = useRippleEffect({
+    color: 'rgba(122, 95, 255, 0.4)',
+    duration: 600,
+    size: 120,
+  });
   
   useEffect(() => {
     // Defer particle initialization until after LCP to reduce render blocking
@@ -190,8 +197,14 @@ export const HeroSection = () => {
               download 
               className="flex items-center justify-center gap-2"
               aria-label="Download professional resume"
-              onTouchStart={() => triggerMobileHaptic('medium')}
-              onClick={() => triggerMobileHaptic('success')}
+              onTouchStart={(e) => {
+                triggerMobileHaptic('medium');
+                createRipple(e);
+              }}
+              onClick={(e) => {
+                triggerMobileHaptic('success');
+                createRipple(e);
+              }}
             >
               <Download size={18} />
               {t.hero.downloadCV}
@@ -206,7 +219,11 @@ export const HeroSection = () => {
             <a 
               href="#projects"
               aria-label="Navigate to projects section"
-              onTouchStart={() => triggerMobileHaptic('light')}
+              onTouchStart={(e) => {
+                triggerMobileHaptic('light');
+                createRipple(e);
+              }}
+              onClick={(e) => createRipple(e)}
             >
               {t.hero.viewProjects}
             </a>

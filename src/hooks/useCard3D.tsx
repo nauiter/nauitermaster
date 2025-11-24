@@ -1,5 +1,6 @@
 import { useState, MouseEvent, TouchEvent } from 'react';
 import { triggerMobileHaptic } from '@/lib/haptic';
+import { useRippleEffect } from './useRippleEffect';
 
 interface Card3DState {
   rotateX: number;
@@ -12,6 +13,12 @@ export const useCard3D = (strength: number = 10) => {
     rotateX: 0,
     rotateY: 0,
     scale: 1,
+  });
+
+  const { createRipple } = useRippleEffect({
+    color: 'rgba(122, 95, 255, 0.3)',
+    duration: 600,
+    size: 80,
   });
 
   const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
@@ -43,6 +50,9 @@ export const useCard3D = (strength: number = 10) => {
   const handleTouchStart = (e: TouchEvent<HTMLElement>) => {
     // Trigger light haptic feedback on touch
     triggerMobileHaptic('light');
+    
+    // Create ripple effect synchronized with haptic
+    createRipple(e);
     
     const touch = e.touches[0];
     const card = e.currentTarget;
