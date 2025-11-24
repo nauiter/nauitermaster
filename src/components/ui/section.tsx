@@ -17,7 +17,7 @@ export interface SectionProps {
   /** Container max width */
   containerWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | 'full';
   /** Vertical padding */
-  paddingY?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
+  paddingY?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'none';
   /** Horizontal padding */
   paddingX?: 'sm' | 'md' | 'lg' | 'xl' | 'none';
   /** Custom className for section wrapper */
@@ -65,6 +65,7 @@ const paddingYVariants = {
   md: 'py-12',
   lg: 'py-16',
   xl: 'py-24',
+  '2xl': 'py-32',
 };
 
 const paddingXVariants = {

@@ -92,7 +92,7 @@ export const ProjectsSection = () => {
       }}
       background="transparent"
       containerWidth="7xl"
-      paddingY="lg"
+      paddingY="2xl"
       dataTour="projects"
       className="relative overflow-hidden"
     >

@@ -28,7 +28,7 @@ export const AIToolsSection = () => {
       }}
       background="transparent"
       containerWidth="5xl"
-      paddingY="lg"
+      paddingY="2xl"
       dataTour="ai-tools"
       className="relative overflow-hidden"
     >
