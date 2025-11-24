@@ -20,7 +20,7 @@ export const AIToolsSection = () => {
         gradient: "primary",
         align: "center",
       }}
-      background="gradient-light"
+      background="transparent"
       containerWidth="5xl"
       paddingY="lg"
       dataTour="ai-tools"

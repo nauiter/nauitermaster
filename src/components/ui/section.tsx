@@ -11,7 +11,7 @@ export interface SectionProps {
   /** Children content */
   children: ReactNode;
   /** Background variant */
-  background?: 'dark' | 'cosmic' | 'gradient-dark' | 'gradient-light' | 'custom';
+  background?: 'dark' | 'cosmic' | 'gradient-dark' | 'gradient-light' | 'transparent' | 'custom';
   /** Custom background className */
   backgroundClassName?: string;
   /** Container max width */
@@ -41,6 +41,7 @@ const backgroundVariants = {
   cosmic: 'bg-gradient-to-b from-[#05010E] via-[#0A1A2F] to-[#0C1222]',
   'gradient-dark': 'bg-gradient-to-b from-[#0C1222] to-[#05010E]',
   'gradient-light': 'bg-gradient-to-b from-[#0A1A2F] to-[#0C1222]',
+  transparent: 'bg-transparent',
   custom: '',
 };
 

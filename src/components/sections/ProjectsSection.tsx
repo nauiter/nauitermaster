@@ -90,7 +90,7 @@ export const ProjectsSection = () => {
         gradient: "primary",
         align: "center",
       }}
-      background="gradient-dark"
+      background="transparent"
       containerWidth="7xl"
       paddingY="lg"
       dataTour="projects"

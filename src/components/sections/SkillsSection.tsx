@@ -13,8 +13,7 @@ export const SkillsSection = () => {
         align: "center",
         gradient: "primary",
       }}
-      background="custom"
-      backgroundClassName="bg-[#121E2C]"
+      background="transparent"
       containerWidth="7xl"
       paddingY="lg"
       dataTour="skills"
