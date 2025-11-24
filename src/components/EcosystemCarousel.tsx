@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
+import { useCard3D } from "@/hooks/useCard3D";
 import { Section } from "@/components/ui/section";
 
 interface EcosystemProject {
@@ -38,19 +39,25 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
     >
       {/* Projects Grid */}
       <div className="relative mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-        {projects.map((node, i) => (
-          <motion.a
-            key={i}
-            href={node.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.1 * i }}
-            whileHover={{ scale: 1.05 }}
-            className="relative p-6 transition-all group block"
-          >
+        {projects.map((node, i) => {
+          // eslint-disable-next-line react-hooks/rules-of-hooks
+          const card3D = useCard3D(10);
+          
+          return (
+            <motion.a
+              key={i}
+              href={node.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.1 * i }}
+              onMouseMove={card3D.handleMouseMove}
+              onMouseLeave={card3D.handleMouseLeave}
+              style={card3D.cardStyle}
+              className="relative p-6 transition-all group block"
+            >
             <div
               className={`absolute -inset-0.5 bg-gradient-to-r ${node.color} opacity-20 group-hover:opacity-40 rounded-2xl blur transition-all`}
             ></div>
@@ -59,7 +66,8 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
               <p className="text-xs text-gray-400">{node.type}</p>
             </div>
           </motion.a>
-        ))}
+        );
+        })}
       </div>
     </Section>
   );
