@@ -76,7 +76,7 @@ export const HeroSection = () => {
 
       {/* Particles Background */}
       {init && (
-        <Suspense fallback={<div className="absolute inset-0 z-0 bg-[#0B1623]" />}>
+        <Suspense fallback={<div className="absolute inset-0 z-0" />}>
           <Particles
             id="tsparticles"
             particlesLoaded={particlesLoaded}
