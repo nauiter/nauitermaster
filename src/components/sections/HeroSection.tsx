@@ -52,7 +52,7 @@ export const HeroSection = () => {
     <section 
       ref={sectionRef}
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden safe-area-inset"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20 sm:pt-16"
       data-tour="welcome"
     >
       {/* Aurora Borealis Background */}
