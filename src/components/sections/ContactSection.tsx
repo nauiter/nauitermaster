@@ -3,6 +3,7 @@ import { Mail, Facebook, Instagram, Linkedin, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Section } from "@/components/ui/section";
 import { SOCIAL_LINKS } from "@/lib/constants";
+import { triggerMobileHaptic } from "@/lib/haptic";
 
 export const ContactSection = () => {
   const { t, language } = useLanguage();
@@ -36,6 +37,7 @@ export const ContactSection = () => {
           <motion.a
             href={SOCIAL_LINKS.EMAIL}
             whileHover={{ scale: 1.05 }}
+            onTouchStart={() => triggerMobileHaptic('medium')}
             className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-white font-medium shadow-lg hover:shadow-[0_0_20px_rgba(122,95,255,0.5)] transition-all"
           >
             <Mail size={18} />
@@ -54,6 +56,7 @@ export const ContactSection = () => {
           <motion.a
             href="#projects"
             whileHover={{ scale: 1.05 }}
+            onTouchStart={() => triggerMobileHaptic('light')}
             className="flex items-center gap-2 px-6 py-3 rounded-full border border-[#7A5FFF80] text-white/90 hover:bg-white/10 transition-all"
           >
             <ArrowRight size={18} />
@@ -78,6 +81,7 @@ export const ContactSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.1, color: "#7A5FFF" }}
+            onTouchStart={() => triggerMobileHaptic('light')}
             className="transition-colors"
             aria-label="Contact via email"
           >
@@ -88,6 +92,7 @@ export const ContactSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.1, color: "#00C4FF" }}
+            onTouchStart={() => triggerMobileHaptic('light')}
             className="transition-colors"
             aria-label="Follow on Facebook"
           >
@@ -98,6 +103,7 @@ export const ContactSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.1, color: "#7A5FFF" }}
+            onTouchStart={() => triggerMobileHaptic('light')}
             className="transition-colors"
             aria-label="Follow on Instagram"
           >
@@ -108,6 +114,7 @@ export const ContactSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.1, color: "#00C4FF" }}
+            onTouchStart={() => triggerMobileHaptic('light')}
             className="transition-colors"
             aria-label="Connect on LinkedIn"
           >
