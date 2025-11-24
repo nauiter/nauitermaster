@@ -3,12 +3,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Brain, Image, Music, Zap } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useParallax } from "@/hooks/useParallax";
+import { useCard3D } from "@/hooks/useCard3D";
 import { Section } from "@/components/ui/section";
 
 export const AIToolsSection = () => {
   const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const parallaxOffset = useParallax(sectionRef, { speed: 0.3, direction: 'down' });
+  
+  const textAI = useCard3D(8);
+  const imageAI = useCard3D(8);
+  const audioAI = useCard3D(8);
+  const automationAI = useCard3D(8);
 
   return (
     <Section
@@ -59,7 +65,10 @@ export const AIToolsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="p-5 text-left transition-all flex flex-col"
+                onMouseMove={textAI.handleMouseMove}
+                onMouseLeave={textAI.handleMouseLeave}
+                style={textAI.cardStyle}
+                className="p-5 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#7A5FFF]/20"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <Brain className="w-6 h-6 text-[#7A5FFF]" />
@@ -119,7 +128,10 @@ export const AIToolsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="p-5 text-left transition-all flex flex-col"
+                onMouseMove={imageAI.handleMouseMove}
+                onMouseLeave={imageAI.handleMouseLeave}
+                style={imageAI.cardStyle}
+                className="p-5 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#7A5FFF]/20"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <Image className="w-6 h-6 text-[#7A5FFF]" />
@@ -196,7 +208,10 @@ export const AIToolsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="p-5 text-left transition-all flex flex-col"
+                onMouseMove={audioAI.handleMouseMove}
+                onMouseLeave={audioAI.handleMouseLeave}
+                style={audioAI.cardStyle}
+                className="p-5 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#00C4FF]/20"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <Music className="w-6 h-6 text-[#00C4FF]" />
@@ -256,7 +271,10 @@ export const AIToolsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="p-5 text-left transition-all flex flex-col"
+                onMouseMove={automationAI.handleMouseMove}
+                onMouseLeave={automationAI.handleMouseLeave}
+                style={automationAI.cardStyle}
+                className="p-5 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#00C4FF]/20"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <Zap className="w-6 h-6 text-[#00C4FF]" />
