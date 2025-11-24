@@ -7,15 +7,15 @@ export const AuroraBackground = () => {
       <motion.div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse 90% 60% at 50% -20%, rgba(138, 43, 226, 0.55), rgba(120, 119, 198, 0.35), transparent)',
-          filter: 'blur(80px)',
+          background: 'radial-gradient(ellipse 100% 70% at 50% -10%, rgba(138, 43, 226, 0.85), rgba(120, 119, 198, 0.6), transparent)',
+          filter: 'blur(50px)',
         }}
         animate={{
-          opacity: [0.5, 0.7, 0.6, 0.8, 0.5],
-          scale: [1, 1.15, 1.08, 1.2, 1],
+          opacity: [0.75, 0.95, 0.85, 1, 0.75],
+          scale: [1, 1.2, 1.15, 1.25, 1],
         }}
         transition={{
-          duration: 8,
+          duration: 6,
           repeat: Infinity,
           ease: "easeInOut",
         }}
@@ -25,16 +25,16 @@ export const AuroraBackground = () => {
       <motion.div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse 75% 65% at 70% 30%, rgba(0, 255, 255, 0.5), rgba(0, 196, 255, 0.3), transparent)',
-          filter: 'blur(90px)',
+          background: 'radial-gradient(ellipse 85% 75% at 70% 30%, rgba(0, 255, 255, 0.75), rgba(0, 196, 255, 0.5), transparent)',
+          filter: 'blur(60px)',
         }}
         animate={{
-          opacity: [0.6, 0.5, 0.7, 0.55, 0.6],
-          x: [0, 60, -40, 50, 0],
-          y: [0, -40, 30, -50, 0],
+          opacity: [0.8, 0.7, 0.9, 0.75, 0.8],
+          x: [0, 70, -50, 60, 0],
+          y: [0, -50, 40, -60, 0],
         }}
         transition={{
-          duration: 12,
+          duration: 10,
           repeat: Infinity,
           ease: "easeInOut",
         }}
@@ -44,16 +44,16 @@ export const AuroraBackground = () => {
       <motion.div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse 70% 55% at 30% 40%, rgba(16, 185, 129, 0.45), rgba(52, 211, 153, 0.3), transparent)',
-          filter: 'blur(85px)',
+          background: 'radial-gradient(ellipse 80% 65% at 30% 40%, rgba(16, 185, 129, 0.7), rgba(52, 211, 153, 0.5), transparent)',
+          filter: 'blur(55px)',
         }}
         animate={{
-          opacity: [0.4, 0.6, 0.5, 0.65, 0.4],
-          x: [0, -50, 40, -60, 0],
-          y: [0, 50, -30, 40, 0],
+          opacity: [0.65, 0.85, 0.75, 0.9, 0.65],
+          x: [0, -60, 50, -70, 0],
+          y: [0, 60, -40, 50, 0],
         }}
         transition={{
-          duration: 10,
+          duration: 8,
           repeat: Infinity,
           ease: "easeInOut",
         }}
@@ -63,17 +63,17 @@ export const AuroraBackground = () => {
       <motion.div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse 70% 60% at 80% 60%, rgba(236, 72, 153, 0.55), rgba(168, 85, 247, 0.4), transparent)',
-          filter: 'blur(95px)',
+          background: 'radial-gradient(ellipse 80% 70% at 80% 60%, rgba(236, 72, 153, 0.8), rgba(168, 85, 247, 0.6), transparent)',
+          filter: 'blur(65px)',
         }}
         animate={{
-          opacity: [0.55, 0.45, 0.65, 0.5, 0.55],
-          x: [0, 70, -50, 60, 0],
-          y: [0, -60, 50, -40, 0],
-          scale: [1, 1.2, 1.1, 1.25, 1],
+          opacity: [0.75, 0.65, 0.85, 0.7, 0.75],
+          x: [0, 80, -60, 70, 0],
+          y: [0, -70, 60, -50, 0],
+          scale: [1, 1.25, 1.15, 1.3, 1],
         }}
         transition={{
-          duration: 14,
+          duration: 12,
           repeat: Infinity,
           ease: "easeInOut",
         }}
@@ -83,16 +83,16 @@ export const AuroraBackground = () => {
       <motion.div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse 60% 50% at 20% 70%, rgba(99, 102, 241, 0.5), rgba(129, 140, 248, 0.35), transparent)',
-          filter: 'blur(100px)',
+          background: 'radial-gradient(ellipse 70% 60% at 20% 70%, rgba(99, 102, 241, 0.75), rgba(129, 140, 248, 0.55), transparent)',
+          filter: 'blur(70px)',
         }}
         animate={{
-          opacity: [0.5, 0.7, 0.55, 0.75, 0.5],
-          x: [0, -40, 60, -50, 0],
-          y: [0, 60, -50, 70, 0],
+          opacity: [0.7, 0.9, 0.75, 0.95, 0.7],
+          x: [0, -50, 70, -60, 0],
+          y: [0, 70, -60, 80, 0],
         }}
         transition={{
-          duration: 11,
+          duration: 9,
           repeat: Infinity,
           ease: "easeInOut",
         }}
@@ -102,14 +102,14 @@ export const AuroraBackground = () => {
       <motion.div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(45deg, transparent 20%, rgba(255, 255, 255, 0.08) 50%, transparent 80%)',
+          background: 'linear-gradient(45deg, transparent 10%, rgba(255, 255, 255, 0.15) 50%, transparent 90%)',
           backgroundSize: '200% 200%',
         }}
         animate={{
           backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
         }}
         transition={{
-          duration: 15,
+          duration: 12,
           repeat: Infinity,
           ease: "linear",
         }}
@@ -117,11 +117,11 @@ export const AuroraBackground = () => {
 
       {/* Brighter stars effect */}
       <div 
-        className="absolute inset-0 opacity-60"
+        className="absolute inset-0 opacity-70"
         style={{
-          backgroundImage: 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 1px, transparent 1px)',
-          backgroundSize: '50px 50px',
-          backgroundPosition: '0 0, 25px 25px',
+          backgroundImage: 'radial-gradient(circle, rgba(255, 255, 255, 1) 1.5px, transparent 1.5px)',
+          backgroundSize: '60px 60px',
+          backgroundPosition: '0 0, 30px 30px',
         }}
       />
     </div>
