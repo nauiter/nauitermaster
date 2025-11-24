@@ -1,5 +1,4 @@
-import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
-import type { Container, Engine } from "@tsparticles/engine";
+import { useRef } from 'react';
 import { Download, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -7,40 +6,12 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 import portfolioAvatar from "@/assets/portfolio-avatar.webp";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useMultiLayerParallax } from "@/hooks/useParallax";
-import { PARTICLES_OPTIONS } from "@/lib/particlesConfig";
 import { METRICS } from "@/lib/constants";
-
-const Particles = lazy(() => import("@tsparticles/react"));
 
 export const HeroSection = () => {
   const { t } = useLanguage();
-  const [init, setInit] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const [layer1, layer2, layer3] = useMultiLayerParallax(sectionRef, 3);
-  
-  useEffect(() => {
-    // Defer particle initialization until after LCP to reduce render blocking
-    const initParticles = async () => {
-      const { initParticlesEngine } = await import("@tsparticles/react");
-      const { loadSlim } = await import("@tsparticles/slim");
-      
-      await initParticlesEngine(async (engine: Engine) => {
-        await loadSlim(engine);
-      });
-      setInit(true);
-    };
-    
-    // Delay particle initialization to prioritize LCP image rendering
-    const timer = setTimeout(() => {
-      initParticles();
-    }, 100);
-    
-    return () => clearTimeout(timer);
-  }, []);
-
-  const particlesLoaded = useCallback(async (container?: Container) => {
-    console.log('Particles loaded successfully');
-  }, []);
 
   return (
     <section 
@@ -51,18 +22,6 @@ export const HeroSection = () => {
     >
       {/* Aurora Borealis Background */}
       <AuroraBackground />
-
-      {/* Particles Background */}
-      {init && (
-        <Suspense fallback={<div className="absolute inset-0 z-0" />}>
-          <Particles
-            id="tsparticles"
-            particlesLoaded={particlesLoaded}
-            className="absolute inset-0 z-0"
-            options={PARTICLES_OPTIONS}
-          />
-        </Suspense>
-      )}
       
       <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
         {/* Profile Image with Enhanced Glow - Optimized for LCP */}
