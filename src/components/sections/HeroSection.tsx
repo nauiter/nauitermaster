@@ -1,14 +1,58 @@
-import { useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
+import type { Container, Engine } from "@tsparticles/engine";
 import { Download, Sparkles, Palette, Wand2, Zap, Brain } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import { AnimatedBadge } from "@/components/ui/animated-badge";
 import portfolioAvatar from "@/assets/portfolio-avatar.webp";
 import { useLanguage } from "@/hooks/useLanguage";
+import { PARTICLES_OPTIONS } from "@/lib/particlesConfig";
+
+const Particles = lazy(() => import("@tsparticles/react"));
 
 export const HeroSection = () => {
   const { t } = useLanguage();
+  const [init, setInit] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  
+  useEffect(() => {
+    // Skip particles on mobile for better performance and stability
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    
+    if (isMobile) {
+      setInit(false);
+      return;
+    }
+
+    // Defer particle initialization until after LCP to reduce render blocking
+    const initParticles = async () => {
+      try {
+        const { initParticlesEngine } = await import("@tsparticles/react");
+        const { loadSlim } = await import("@tsparticles/slim");
+        
+        await initParticlesEngine(async (engine: Engine) => {
+          await loadSlim(engine);
+        });
+        setInit(true);
+      } catch (error) {
+        console.error('Failed to initialize particles:', error);
+        // Continue without particles
+        setInit(false);
+      }
+    };
+    
+    // Delay particle initialization to prioritize LCP image rendering
+    const timer = setTimeout(() => {
+      initParticles();
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  const particlesLoaded = useCallback(async (container?: Container) => {
+    console.log('Particles loaded successfully');
+  }, []);
 
   return (
     <section 
@@ -17,6 +61,20 @@ export const HeroSection = () => {
       className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20 sm:pt-16 bg-[#0c1324]"
       data-tour="welcome"
     >
+      {/* Aurora Borealis Background */}
+      <AuroraBackground />
+
+      {/* Particles Background */}
+      {init && (
+        <Suspense fallback={<div className="absolute inset-0 z-0" />}>
+          <Particles
+            id="tsparticles"
+            particlesLoaded={particlesLoaded}
+            className="absolute inset-0 z-0"
+            options={PARTICLES_OPTIONS}
+          />
+        </Suspense>
+      )}
       
       <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 relative z-10 px-4">
         {/* Profile Image with Enhanced Glow - Optimized for LCP */}
