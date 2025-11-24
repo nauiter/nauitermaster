@@ -139,7 +139,6 @@
 
 @layer base {
   * {
-    @apply border-border;
     margin: 0;
     padding: 0;
   }
