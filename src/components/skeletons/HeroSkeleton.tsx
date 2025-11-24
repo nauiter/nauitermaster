@@ -3,13 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export const HeroSkeleton = () => {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#1c1c1c] via-[#0c1324] to-[#0c1324] relative overflow-hidden">
-      {/* Subtle background pattern */}
-      <div 
-        className="absolute inset-0 opacity-20 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(circle at 20% 30%, rgba(122, 95, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(0, 196, 255, 0.1) 0%, transparent 50%)',
-        }}
-      />
+      
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-20 relative z-10">
         <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8">
           {/* Avatar Skeleton */}

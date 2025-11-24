@@ -17,13 +17,6 @@ export const HeroSection = () => {
       className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20 sm:pt-16 bg-gradient-to-b from-[#1c1c1c] via-[#0c1324] to-[#0c1324]"
       data-tour="welcome"
     >
-      {/* Subtle background pattern */}
-      <div 
-        className="absolute inset-0 opacity-20 pointer-events-none z-0"
-        style={{
-          backgroundImage: 'radial-gradient(circle at 20% 30%, rgba(122, 95, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(0, 196, 255, 0.1) 0%, transparent 50%)',
-        }}
-      />
       
       <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 relative z-10 px-4">
         {/* Profile Image with Enhanced Glow - Optimized for LCP */}
