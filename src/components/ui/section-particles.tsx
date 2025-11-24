@@ -118,30 +118,45 @@ const ParticleElement = ({
   const springY = useSpring(y, springConfig);
 
   useEffect(() => {
-    if (!particleRef.current || !isHovering) {
-      x.set(0);
-      y.set(0);
-      return;
-    }
+    try {
+      if (!particleRef.current || !isHovering) {
+        x.set(0);
+        y.set(0);
+        return;
+      }
 
-    const rect = particleRef.current.getBoundingClientRect();
-    const particleX = rect.left + rect.width / 2;
-    const particleY = rect.top + rect.height / 2;
+      const rect = particleRef.current.getBoundingClientRect();
+      const particleX = rect.left + rect.width / 2;
+      const particleY = rect.top + rect.height / 2;
 
-    // Calculate distance from mouse to particle
-    const deltaX = mousePosition.x - (particleX - particleRef.current.offsetParent!.getBoundingClientRect().left);
-    const deltaY = mousePosition.y - (particleY - particleRef.current.offsetParent!.getBoundingClientRect().top);
-    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+      const offsetParent = particleRef.current.offsetParent;
+      if (!offsetParent) {
+        x.set(0);
+        y.set(0);
+        return;
+      }
 
-    // Apply magnetic effect (repulsion)
-    if (distance < magneticStrength * 2) {
-      const force = (1 - distance / (magneticStrength * 2)) * magneticStrength;
-      const angle = Math.atan2(deltaY, deltaX);
+      const parentRect = offsetParent.getBoundingClientRect();
       
-      // Repulsion effect - push away from cursor
-      x.set(-Math.cos(angle) * force);
-      y.set(-Math.sin(angle) * force);
-    } else {
+      // Calculate distance from mouse to particle
+      const deltaX = mousePosition.x - (particleX - parentRect.left);
+      const deltaY = mousePosition.y - (particleY - parentRect.top);
+      const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+      // Apply magnetic effect (repulsion)
+      if (distance < magneticStrength * 2) {
+        const force = (1 - distance / (magneticStrength * 2)) * magneticStrength;
+        const angle = Math.atan2(deltaY, deltaX);
+        
+        // Repulsion effect - push away from cursor
+        x.set(-Math.cos(angle) * force);
+        y.set(-Math.sin(angle) * force);
+      } else {
+        x.set(0);
+        y.set(0);
+      }
+    } catch (error) {
+      console.error('Particle animation error:', error);
       x.set(0);
       y.set(0);
     }

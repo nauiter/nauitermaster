@@ -19,6 +19,14 @@ export const HeroSection = () => {
   const [layer1, layer2, layer3] = useMultiLayerParallax(sectionRef, 3);
   
   useEffect(() => {
+    // Skip particles on mobile for better performance and stability
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    
+    if (isMobile) {
+      setInit(false);
+      return;
+    }
+
     // Defer particle initialization until after LCP to reduce render blocking
     const initParticles = async () => {
       try {
@@ -31,8 +39,8 @@ export const HeroSection = () => {
         setInit(true);
       } catch (error) {
         console.error('Failed to initialize particles:', error);
-        // Set init to true anyway to prevent blocking the UI
-        setInit(true);
+        // Continue without particles
+        setInit(false);
       }
     };
     
