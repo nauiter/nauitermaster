@@ -3,7 +3,7 @@ import { PARTICLES_CONFIG } from '@/lib/constants';
 export const PARTICLES_OPTIONS = {
   background: {
     color: {
-      value: 'transparent',
+      value: '#0B1623',
     },
   },
   fpsLimit: PARTICLES_CONFIG.FPS_LIMIT,
