@@ -58,7 +58,7 @@ export const HeroSection = () => {
     <section 
       ref={sectionRef}
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20 sm:pt-16 bg-[#0c1324]"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-16 sm:pt-20 lg:pt-24 bg-[#0c1324]"
       data-tour="welcome"
     >
       {/* Aurora Borealis Background - Desktop only */}
@@ -84,7 +84,7 @@ export const HeroSection = () => {
           <img
             src={portfolioAvatar}
             alt="Nauiter Master - Estrategista de IA, artista digital especializado em automação criativa e educação | AI Strategist, digital artist specialized in creative automation and education"
-            className="w-40 h-40 sm:w-56 sm:h-56 rounded-full border-[3px] border-white/30 shadow-2xl object-cover"
+            className="w-32 xs:w-40 sm:w-56 h-32 xs:h-40 sm:h-56 rounded-full border-[3px] border-white/30 shadow-2xl object-cover"
             style={{ 
               filter: "drop-shadow(0 0 20px rgba(122, 95, 255, 0.4))",
               willChange: 'transform',
