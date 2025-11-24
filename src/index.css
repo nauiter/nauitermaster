@@ -161,11 +161,14 @@
   }
 
   body {
-    @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    background: #0c1324;
+    color: hsl(var(--foreground));
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   /* === HIERARQUIA TIPOGRÁFICA === */
@@ -500,13 +503,6 @@ section h2 {
       transition: none !important;
     }
   }
-  
-  /* Prevent horizontal scroll */
-  body {
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
-  
   /* Touch optimization */
   button, a {
     -webkit-tap-highlight-color: rgba(122, 95, 255, 0.2);
