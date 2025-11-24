@@ -52,32 +52,6 @@ export const HeroSection = () => {
       {/* Aurora Borealis Background */}
       <AuroraBackground />
 
-      {/* Parallax Background Layers */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          background: 'radial-gradient(ellipse at 50% 30%, rgba(122, 95, 255, 0.1) 0%, transparent 50%)',
-          transform: `translateY(${layer1}px)`,
-          willChange: 'transform',
-        }}
-      />
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          background: 'radial-gradient(ellipse at 80% 60%, rgba(0, 196, 255, 0.08) 0%, transparent 50%)',
-          transform: `translateY(${layer2}px)`,
-          willChange: 'transform',
-        }}
-      />
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          background: 'radial-gradient(ellipse at 20% 80%, rgba(168, 85, 247, 0.06) 0%, transparent 50%)',
-          transform: `translateY(${layer3}px)`,
-          willChange: 'transform',
-        }}
-      />
-
       {/* Particles Background */}
       {init && (
         <Suspense fallback={<div className="absolute inset-0 z-0" />}>
