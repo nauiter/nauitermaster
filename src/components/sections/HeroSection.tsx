@@ -21,13 +21,19 @@ export const HeroSection = () => {
   useEffect(() => {
     // Defer particle initialization until after LCP to reduce render blocking
     const initParticles = async () => {
-      const { initParticlesEngine } = await import("@tsparticles/react");
-      const { loadSlim } = await import("@tsparticles/slim");
-      
-      await initParticlesEngine(async (engine: Engine) => {
-        await loadSlim(engine);
-      });
-      setInit(true);
+      try {
+        const { initParticlesEngine } = await import("@tsparticles/react");
+        const { loadSlim } = await import("@tsparticles/slim");
+        
+        await initParticlesEngine(async (engine: Engine) => {
+          await loadSlim(engine);
+        });
+        setInit(true);
+      } catch (error) {
+        console.error('Failed to initialize particles:', error);
+        // Set init to true anyway to prevent blocking the UI
+        setInit(true);
+      }
     };
     
     // Delay particle initialization to prioritize LCP image rendering
