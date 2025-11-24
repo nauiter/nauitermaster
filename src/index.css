@@ -455,3 +455,52 @@ section h2 {
   }
 }
 
+/* === MOBILE OPTIMIZATIONS & SAFE AREA === */
+@layer utilities {
+  /* Safe area support for devices with notch */
+  .safe-area-inset {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Performance optimizations for mobile */
+  @media (max-width: 768px) {
+    /* Reduce animation complexity on mobile */
+    * {
+      will-change: auto !important;
+    }
+    
+    /* Optimize transforms */
+    .motion-safe\:animate-fade-in,
+    .motion-safe\:translate-y-6 {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+    
+    /* Reduce blur on mobile for better performance */
+    [class*="backdrop-blur"] {
+      backdrop-filter: blur(8px) !important;
+    }
+    
+    /* Optimize gradient animations */
+    [class*="bg-gradient"] {
+      background-attachment: scroll !important;
+    }
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Touch optimization */
+  button, a {
+    -webkit-tap-highlight-color: rgba(122, 95, 255, 0.2);
+    touch-action: manipulation;
+  }
+}
+
+

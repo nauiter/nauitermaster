@@ -52,7 +52,7 @@ export const HeroSection = () => {
     <section 
       ref={sectionRef}
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden safe-area-inset"
       data-tour="welcome"
     >
       {/* Aurora Borealis Background */}
@@ -70,15 +70,15 @@ export const HeroSection = () => {
         </Suspense>
       )}
       
-      <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
+      <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 relative z-10 px-4">
         {/* Profile Image with Enhanced Glow - Optimized for LCP */}
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-4 sm:mb-6">
           <img
             src={portfolioAvatar}
             alt="Nauiter Master - Estrategista de IA, artista digital especializado em automação criativa e educação | AI Strategist, digital artist specialized in creative automation and education"
-            className="w-56 h-56 rounded-full border-[3px] border-white/30 shadow-2xl object-cover"
+            className="w-40 h-40 sm:w-56 sm:h-56 rounded-full border-[3px] border-white/30 shadow-2xl object-cover"
             style={{ 
-              filter: "drop-shadow(0 0 30px rgba(122, 95, 255, 0.4))",
+              filter: "drop-shadow(0 0 20px rgba(122, 95, 255, 0.4))",
               willChange: 'transform',
               transform: 'translateZ(0)',
               backfaceVisibility: 'hidden',
@@ -89,7 +89,7 @@ export const HeroSection = () => {
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateZ(0)';
-              e.currentTarget.style.filter = 'drop-shadow(0 0 30px rgba(122, 95, 255, 0.4))';
+              e.currentTarget.style.filter = 'drop-shadow(0 0 20px rgba(122, 95, 255, 0.4))';
             }}
             loading="eager"
             fetchPriority="high"
@@ -101,7 +101,7 @@ export const HeroSection = () => {
 
         {/* Title & Description */}
         <motion.div 
-          className="space-y-6 px-6"
+          className="space-y-4 sm:space-y-6 px-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -112,7 +112,7 @@ export const HeroSection = () => {
           }}
         >
           <h1 
-            className="text-4xl md:text-6xl font-bold leading-tight"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight"
             style={{
               transform: 'translateZ(0)',
               backfaceVisibility: 'hidden',
@@ -120,46 +120,46 @@ export const HeroSection = () => {
               MozOsxFontSmoothing: 'grayscale',
             }}
           >
-            <span className="block text-white mb-3">Nauiter Master</span>
-            <span className="block text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] via-[#A855F7] to-[#00C4FF]">
+            <span className="block text-white mb-2 sm:mb-3">Nauiter Master</span>
+            <span className="block text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] via-[#A855F7] to-[#00C4FF]">
               {t.hero.subtitle}
             </span>
           </h1>
-          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed px-2">
             {t.hero.description}
           </p>
         </motion.div>
 
         {/* Key Metrics - Horizontal */}
         <motion.div
-          className="flex flex-wrap justify-center gap-8 md:gap-12 text-center"
+          className="flex flex-col sm:flex-row flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 text-center px-4"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <div className="space-y-2">
-            <p className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
+            <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
               {METRICS.LINKEDIN_FOLLOWERS}
             </p>
-            <p className="text-gray-400 text-sm md:text-base">{t.hero.linkedinFollowers}</p>
+            <p className="text-gray-400 text-xs sm:text-sm md:text-base">{t.hero.linkedinFollowers}</p>
           </div>
           <div className="space-y-2">
-            <p className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
+            <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
               {METRICS.YEARS_EXPERIENCE}
             </p>
-            <p className="text-gray-400 text-sm md:text-base">{t.hero.yearsExperience}</p>
+            <p className="text-gray-400 text-xs sm:text-sm md:text-base">{t.hero.yearsExperience}</p>
           </div>
           <div className="space-y-2">
-            <p className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
+            <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
               {METRICS.ACTIVE_PROJECTS}
             </p>
-            <p className="text-gray-400 text-sm md:text-base">{t.hero.activeProjects}</p>
+            <p className="text-gray-400 text-xs sm:text-sm md:text-base">{t.hero.activeProjects}</p>
           </div>
         </motion.div>
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-wrap justify-center gap-4 px-6"
+          className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
@@ -167,12 +167,12 @@ export const HeroSection = () => {
           <Button
             asChild
             size="lg"
-            className="relative overflow-hidden bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] hover:opacity-90 transition-all shadow-lg hover:shadow-[0_0_25px_rgba(122,95,255,0.5)] text-white font-medium"
+            className="relative overflow-hidden bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] hover:opacity-90 transition-all shadow-lg hover:shadow-[0_0_25px_rgba(122,95,255,0.5)] text-white font-medium w-full sm:w-auto"
           >
             <a 
               href="/Nauiter_Master_Profile.pdf" 
               download 
-              className="flex items-center gap-2"
+              className="flex items-center justify-center gap-2"
               aria-label="Download professional resume"
             >
               <Download size={18} />
@@ -183,7 +183,7 @@ export const HeroSection = () => {
             asChild
             size="lg"
             variant="outline"
-            className="border-2 border-white/20 text-white hover:bg-white/10 transition-all"
+            className="border-2 border-white/20 text-white hover:bg-white/10 transition-all w-full sm:w-auto"
           >
             <a 
               href="#projects"
