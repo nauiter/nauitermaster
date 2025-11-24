@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Download, ChevronDown, Sparkles, Palette, Wand2, Zap, Brain } from "lucide-react";
+import { Download, Sparkles, Palette, Wand2, Zap, Brain } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedBadge } from "@/components/ui/animated-badge";
@@ -159,15 +159,6 @@ export const HeroSection = () => {
           </Button>
         </motion.div>
       </div>
-      
-      {/* Scroll Cue */}
-      <motion.div
-        className="absolute bottom-20 left-1/2 -translate-x-1/2 text-gray-500/60"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-      >
-        <ChevronDown className="w-7 h-7" />
-      </motion.div>
 
     </section>
   );
