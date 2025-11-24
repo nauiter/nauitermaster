@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useCounterAnimation } from '@/hooks/useCounterAnimation';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useCard3D } from '@/hooks/useCard3D';
 import { Section } from '@/components/ui/section';
 import { METRICS, ANIMATION_CONFIG } from '@/lib/constants';
 
@@ -15,6 +16,7 @@ interface MetricCardProps {
 }
 
 const MetricCard = ({ value, label, delay, isVisible, language }: MetricCardProps) => {
+  const card3D = useCard3D(8);
   const displayValue = typeof value === 'number' 
     ? useCounterAnimation({ target: value, delay: isVisible ? delay : 0 })
     : value;
@@ -25,8 +27,10 @@ const MetricCard = ({ value, label, delay, isVisible, language }: MetricCardProp
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: delay / 1000 }}
-      whileHover={{ scale: 1.05 }}
-      className="p-6"
+      onMouseMove={card3D.handleMouseMove}
+      onMouseLeave={card3D.handleMouseLeave}
+      style={card3D.cardStyle}
+      className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:shadow-lg hover:shadow-[#7A5FFF]/20 transition-shadow duration-300"
     >
       <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
         {displayValue}
