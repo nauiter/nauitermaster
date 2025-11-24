@@ -1,12 +1,17 @@
 import { PARTICLES_CONFIG } from '@/lib/constants';
 
+// Detect mobile for optimized particle count
+const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
+const MOBILE_PARTICLE_COUNT = 40; // Reduced for mobile performance
+const MOBILE_FPS_LIMIT = 30; // Lower FPS for mobile
+
 export const PARTICLES_OPTIONS = {
   background: {
     color: {
       value: '#0B1623',
     },
   },
-  fpsLimit: PARTICLES_CONFIG.FPS_LIMIT,
+  fpsLimit: isMobile ? MOBILE_FPS_LIMIT : PARTICLES_CONFIG.FPS_LIMIT,
   interactivity: {
     events: {
       onHover: {
@@ -51,7 +56,7 @@ export const PARTICLES_OPTIONS = {
       density: {
         enable: true,
       },
-      value: PARTICLES_CONFIG.PARTICLE_COUNT,
+      value: isMobile ? MOBILE_PARTICLE_COUNT : PARTICLES_CONFIG.PARTICLE_COUNT,
     },
     opacity: {
       value: { min: 0.1, max: 0.3 },

@@ -17,14 +17,6 @@ export const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   
   useEffect(() => {
-    // Skip particles on mobile for better performance and stability
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    
-    if (isMobile) {
-      setInit(false);
-      return;
-    }
-
     // Defer particle initialization until after LCP to reduce render blocking
     const initParticles = async () => {
       try {

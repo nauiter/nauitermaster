@@ -50,12 +50,16 @@ export const AIToolsSection = () => {
               {/* Text AI Card */}
               <motion.div
                 whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 onMouseMove={textAI.handleMouseMove}
                 onMouseLeave={textAI.handleMouseLeave}
+                onTouchStart={textAI.handleTouchStart}
+                onTouchMove={textAI.handleTouchMove}
+                onTouchEnd={textAI.handleTouchEnd}
                 style={textAI.cardStyle}
                 className="p-6 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#7A5FFF]/20"
               >
@@ -113,12 +117,16 @@ export const AIToolsSection = () => {
               {/* Image/Video AI Card */}
               <motion.div
                 whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 onMouseMove={imageAI.handleMouseMove}
                 onMouseLeave={imageAI.handleMouseLeave}
+                onTouchStart={imageAI.handleTouchStart}
+                onTouchMove={imageAI.handleTouchMove}
+                onTouchEnd={imageAI.handleTouchEnd}
                 style={imageAI.cardStyle}
                 className="p-6 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#7A5FFF]/20"
               >
@@ -193,12 +201,16 @@ export const AIToolsSection = () => {
               {/* Audio AI Card */}
               <motion.div
                 whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 onMouseMove={audioAI.handleMouseMove}
                 onMouseLeave={audioAI.handleMouseLeave}
+                onTouchStart={audioAI.handleTouchStart}
+                onTouchMove={audioAI.handleTouchMove}
+                onTouchEnd={audioAI.handleTouchEnd}
                 style={audioAI.cardStyle}
                 className="p-6 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#00C4FF]/20"
               >
@@ -256,12 +268,16 @@ export const AIToolsSection = () => {
               {/* Automation Card */}
               <motion.div
                 whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
                 onMouseMove={automationAI.handleMouseMove}
                 onMouseLeave={automationAI.handleMouseLeave}
+                onTouchStart={automationAI.handleTouchStart}
+                onTouchMove={automationAI.handleTouchMove}
+                onTouchEnd={automationAI.handleTouchEnd}
                 style={automationAI.cardStyle}
                 className="p-6 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#00C4FF]/20"
               >

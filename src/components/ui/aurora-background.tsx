@@ -53,6 +53,10 @@ const colorSchemes = {
 
 export const AuroraBackground = ({ variant = 'default' }: AuroraBackgroundProps) => {
   const colors = colorSchemes[variant];
+  
+  // Mobile optimization - reduce blur for better performance
+  const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
+  const blurAmount = isMobile ? 35 : 50;
 
   return (
     <div className="absolute inset-0 overflow-hidden z-0">
@@ -61,7 +65,7 @@ export const AuroraBackground = ({ variant = 'default' }: AuroraBackgroundProps)
         className="absolute inset-0"
         style={{
           background: colors.layer1,
-          filter: 'blur(50px)',
+          filter: `blur(${blurAmount}px)`,
         }}
         animate={{
           opacity: [0.75, 0.95, 0.85, 1, 0.75],
@@ -79,7 +83,7 @@ export const AuroraBackground = ({ variant = 'default' }: AuroraBackgroundProps)
         className="absolute inset-0"
         style={{
           background: colors.layer2,
-          filter: 'blur(60px)',
+          filter: `blur(${blurAmount + 10}px)`,
         }}
         animate={{
           opacity: [0.8, 0.7, 0.9, 0.75, 0.8],
@@ -98,7 +102,7 @@ export const AuroraBackground = ({ variant = 'default' }: AuroraBackgroundProps)
         className="absolute inset-0"
         style={{
           background: colors.layer3,
-          filter: 'blur(55px)',
+          filter: `blur(${blurAmount + 5}px)`,
         }}
         animate={{
           opacity: [0.65, 0.85, 0.75, 0.9, 0.65],
@@ -117,7 +121,7 @@ export const AuroraBackground = ({ variant = 'default' }: AuroraBackgroundProps)
         className="absolute inset-0"
         style={{
           background: colors.layer4,
-          filter: 'blur(65px)',
+          filter: `blur(${blurAmount + 15}px)`,
         }}
         animate={{
           opacity: [0.75, 0.65, 0.85, 0.7, 0.75],
@@ -137,7 +141,7 @@ export const AuroraBackground = ({ variant = 'default' }: AuroraBackgroundProps)
         className="absolute inset-0"
         style={{
           background: colors.layer5,
-          filter: 'blur(70px)',
+          filter: `blur(${blurAmount + 20}px)`,
         }}
         animate={{
           opacity: [0.7, 0.9, 0.75, 0.95, 0.7],
