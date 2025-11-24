@@ -40,7 +40,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
   }, [forcedLanguage, language, setLanguage]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">{/* Removed bg-background */}
       {/* SEO Head with dynamic meta tags and structured data */}
       <SEOHead forcedLanguage={forcedLanguage} />
       
