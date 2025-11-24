@@ -17,7 +17,7 @@ interface CookieSettings {
 const STORAGE_KEY = 'cookie-consent-settings';
 
 export const CookieConsent = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [showBanner, setShowBanner] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
   const [settings, setSettings] = useState<CookieSettings>({
@@ -95,7 +95,7 @@ export const CookieConsent = () => {
                       {t.lgpd.banner.description}
                     </p>
                     <Link
-                      to="/privacy"
+                      to={`/${language}/privacy-policy`}
                       className="text-sm text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1"
                     >
                       {t.lgpd.banner.privacyLink} →
