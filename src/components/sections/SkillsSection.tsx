@@ -23,7 +23,7 @@ export const SkillsSection = () => {
       }}
       background="transparent"
       containerWidth="7xl"
-      paddingY="lg"
+      paddingY="xl"
       dataTour="skills"
       className="motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]"
       containerClassName="mb-12"

@@ -77,7 +77,7 @@ export const ImpactMetrics = () => {
       }}
       background="transparent"
       containerWidth="5xl"
-      paddingY="lg"
+      paddingY="xl"
     >
       <div ref={sectionRef}>
 
