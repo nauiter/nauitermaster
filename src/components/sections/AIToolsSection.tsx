@@ -59,7 +59,7 @@ export const AIToolsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#7A5FFF]/30 transition-all flex flex-col"
+                className="p-5 text-left transition-all flex flex-col"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <Brain className="w-6 h-6 text-[#7A5FFF]" />
@@ -119,7 +119,7 @@ export const AIToolsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#7A5FFF]/30 transition-all flex flex-col"
+                className="p-5 text-left transition-all flex flex-col"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <Image className="w-6 h-6 text-[#7A5FFF]" />
@@ -196,7 +196,7 @@ export const AIToolsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#00C4FF]/30 transition-all flex flex-col"
+                className="p-5 text-left transition-all flex flex-col"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <Music className="w-6 h-6 text-[#00C4FF]" />
@@ -256,7 +256,7 @@ export const AIToolsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-left shadow-md hover:shadow-lg hover:border-[#00C4FF]/30 transition-all flex flex-col"
+                className="p-5 text-left transition-all flex flex-col"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <Zap className="w-6 h-6 text-[#00C4FF]" />

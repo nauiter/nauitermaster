@@ -26,7 +26,7 @@ const MetricCard = ({ value, label, delay, isVisible, language }: MetricCardProp
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: delay / 1000 }}
       whileHover={{ scale: 1.05 }}
-      className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-xl transition-all"
+      className="p-6"
     >
       <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
         {displayValue}

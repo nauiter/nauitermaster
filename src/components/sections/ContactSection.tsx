@@ -16,7 +16,7 @@ export const ContactSection = () => {
         align: "center",
         gradient: "primary",
       }}
-      background="cosmic"
+      background="transparent"
       containerWidth="3xl"
       paddingY="xl"
       className="text-center overflow-hidden"
