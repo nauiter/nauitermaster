@@ -220,8 +220,6 @@ export const HeroSection = () => {
         <ChevronDown className="w-7 h-7" />
       </motion.div>
 
-      {/* Decorative gradient overlay */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-[#0B1623] pointer-events-none z-10"></div>
     </section>
   );
 };
