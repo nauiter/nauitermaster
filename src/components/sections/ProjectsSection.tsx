@@ -4,6 +4,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { LazyImage } from "@/components/LazyImage";
 import { Section } from "@/components/ui/section";
 import { ExternalLink } from "lucide-react";
+import { triggerMobileHaptic } from "@/lib/haptic";
 import {
   Carousel,
   CarouselContent,
@@ -193,6 +194,7 @@ export const ProjectsSection = () => {
                         href={project.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onTouchStart={() => triggerMobileHaptic('medium')}
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-white font-semibold hover:shadow-lg hover:shadow-[#7A5FFF]/50 transform hover:scale-105 transition-all duration-300"
                       >
                         <ExternalLink size={20} />
@@ -254,7 +256,10 @@ export const ProjectsSection = () => {
             {projects.map((_, index) => (
               <motion.button
                 key={index}
-                onClick={() => api?.scrollTo(index)}
+                onClick={() => {
+                  api?.scrollTo(index);
+                  triggerMobileHaptic('light');
+                }}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   current === index 
                     ? 'w-8 bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]' 

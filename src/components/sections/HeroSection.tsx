@@ -8,6 +8,7 @@ import { AnimatedBadge } from "@/components/ui/animated-badge";
 import portfolioAvatar from "@/assets/portfolio-avatar.webp";
 import { useLanguage } from "@/hooks/useLanguage";
 import { PARTICLES_OPTIONS } from "@/lib/particlesConfig";
+import { triggerMobileHaptic } from "@/lib/haptic";
 
 const Particles = lazy(() => import("@tsparticles/react"));
 
@@ -189,6 +190,8 @@ export const HeroSection = () => {
               download 
               className="flex items-center justify-center gap-2"
               aria-label="Download professional resume"
+              onTouchStart={() => triggerMobileHaptic('medium')}
+              onClick={() => triggerMobileHaptic('success')}
             >
               <Download size={18} />
               {t.hero.downloadCV}
@@ -203,6 +206,7 @@ export const HeroSection = () => {
             <a 
               href="#projects"
               aria-label="Navigate to projects section"
+              onTouchStart={() => triggerMobileHaptic('light')}
             >
               {t.hero.viewProjects}
             </a>

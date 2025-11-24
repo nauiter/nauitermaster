@@ -1,4 +1,5 @@
 import { useState, MouseEvent, TouchEvent } from 'react';
+import { triggerMobileHaptic } from '@/lib/haptic';
 
 interface Card3DState {
   rotateX: number;
@@ -40,6 +41,9 @@ export const useCard3D = (strength: number = 10) => {
 
   // Touch events for mobile devices
   const handleTouchStart = (e: TouchEvent<HTMLElement>) => {
+    // Trigger light haptic feedback on touch
+    triggerMobileHaptic('light');
+    
     const touch = e.touches[0];
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
