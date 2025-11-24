@@ -29,6 +29,9 @@ const MetricCard = ({ value, label, delay, isVisible, language }: MetricCardProp
       transition={{ duration: 0.6, delay: delay / 1000 }}
       onMouseMove={card3D.handleMouseMove}
       onMouseLeave={card3D.handleMouseLeave}
+      onTouchStart={card3D.handleTouchStart}
+      onTouchMove={card3D.handleTouchMove}
+      onTouchEnd={card3D.handleTouchEnd}
       style={card3D.cardStyle}
       className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:shadow-lg hover:shadow-[#7A5FFF]/20 transition-shadow duration-300 text-center"
     >
