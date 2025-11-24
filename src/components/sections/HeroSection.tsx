@@ -14,7 +14,7 @@ export const HeroSection = () => {
     <section 
       ref={sectionRef}
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20 sm:pt-16 bg-gradient-to-b from-[#05010E] via-[#0A1A2F] to-[#0C1222]"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20 sm:pt-16 bg-gradient-to-b from-[#1c1c1c] via-[#0c1324] to-[#0c1324]"
       data-tour="welcome"
     >
       {/* Subtle background pattern */}
