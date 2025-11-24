@@ -1,8 +1,11 @@
 import { Skeleton } from "@/components/ui/skeleton";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 export const HeroSkeleton = () => {
   return (
     <section className="min-h-screen flex items-center justify-center bg-[#0c1324] relative overflow-hidden">
+      {/* Aurora Borealis Background */}
+      <AuroraBackground />
       
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-20 relative z-10">
         <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8">
