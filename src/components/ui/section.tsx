@@ -133,7 +133,6 @@ export const Section = forwardRef<HTMLElement, SectionProps>(({
         bgClass,
         paddingYClass,
         'relative overflow-hidden',
-        background === 'cosmic' && 'section-cosmic-glass section-glow-border',
         className
       )}
       data-tour={dataTour}
