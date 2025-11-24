@@ -73,7 +73,7 @@ export const FloatingNavbar = () => {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0B1623]/80 backdrop-blur-xl safe-area-inset ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0B1623]/80 backdrop-blur-xl ${
         isScrolled ? 'shadow-lg' : ''
       }`}
     >
