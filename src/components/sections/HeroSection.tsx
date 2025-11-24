@@ -140,36 +140,42 @@ export const HeroSection = () => {
           <AnimatedBadge 
             icon={<Brain className="w-6 h-6 text-[#7A5FFF]" />}
             label="AI Strategy"
+            description="Desenvolvimento de estratégias de IA para otimização de processos criativos e automação inteligente de workflows."
             delay={0.1}
             color="purple"
           />
           <AnimatedBadge 
             icon={<Palette className="w-6 h-6 text-[#00C4FF]" />}
             label="Digital Art"
+            description="Criação de arte digital usando ferramentas de IA generativa, com foco em composição visual e narrativa criativa."
             delay={0.2}
             color="cyan"
           />
           <AnimatedBadge 
             icon={<Wand2 className="w-6 h-6 text-[#EC4899]" />}
             label="Prompt Eng"
+            description="Especialização em engenharia de prompts para maximizar resultados em modelos de linguagem e geração de imagens."
             delay={0.3}
             color="pink"
           />
           <AnimatedBadge 
             icon={<Zap className="w-6 h-6 text-[#10B981]" />}
             label="Automation"
+            description="Automação de processos criativos e operacionais usando APIs de IA e integração de sistemas inteligentes."
             delay={0.4}
             color="green"
           />
           <AnimatedBadge 
             icon={<Sparkles className="w-6 h-6 text-[#7A5FFF]" />}
             label="Creative AI"
+            description="Exploração de IA criativa para geração de conteúdo original, storytelling e experiências interativas únicas."
             delay={0.5}
             color="purple"
           />
           <AnimatedBadge 
             icon={<Cpu className="w-6 h-6 text-[#00C4FF]" />}
             label="ML & Vision"
+            description="Aplicação de machine learning e computer vision para análise de imagens, classificação e processamento visual."
             delay={0.6}
             color="cyan"
           />
