@@ -191,6 +191,24 @@ Adicionado gradiente de fundo escuro consistente em `src/pages/Index.tsx`:
 
 ---
 
+## 🎨 Hero Section - Simplificação Visual (2025-01)
+
+### Mudanças
+Removido fundo colorido arco-íris (AuroraBackground) e partículas animadas, substituídos por gradiente escuro consistente:
+- ❌ Removido: `AuroraBackground` component
+- ❌ Removido: `tsparticles` initialization e rendering
+- ✅ Adicionado: Gradiente escuro `bg-gradient-to-b from-[#05010E] via-[#0A1A2F] to-[#0C1222]`
+- ✅ Adicionado: Pattern sutil com gradientes radiais (opacidade 20%)
+
+### Benefícios
+✅ Visual consistente com todas as seções  
+✅ Redução de ~50KB no bundle (sem tsparticles lazy load)  
+✅ Melhor performance em mobile (sem animações complexas)  
+✅ Tempo de carregamento reduzido  
+✅ Foco no conteúdo ao invés de efeitos decorativos  
+
+---
+
 ## 🚀 Próximos Passos Recomendados
 
 1. **Otimização de Imagens** (Maior impacto em performance)

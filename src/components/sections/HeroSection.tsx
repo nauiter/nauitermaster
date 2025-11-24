@@ -1,82 +1,29 @@
-import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
-import type { Container, Engine } from "@tsparticles/engine";
+import { useRef } from 'react';
 import { Download, ChevronDown, Sparkles, Palette, Wand2, Zap, Brain } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import { AnimatedBadge } from "@/components/ui/animated-badge";
 import portfolioAvatar from "@/assets/portfolio-avatar.webp";
 import { useLanguage } from "@/hooks/useLanguage";
-import { useMultiLayerParallax } from "@/hooks/useParallax";
-import { PARTICLES_OPTIONS } from "@/lib/particlesConfig";
-
-const Particles = lazy(() => import("@tsparticles/react"));
 
 export const HeroSection = () => {
   const { t } = useLanguage();
-  const [init, setInit] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const [layer1, layer2, layer3] = useMultiLayerParallax(sectionRef, 3);
-  
-  useEffect(() => {
-    // Skip particles on mobile for better performance and stability
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    
-    if (isMobile) {
-      setInit(false);
-      return;
-    }
-
-    // Defer particle initialization until after LCP to reduce render blocking
-    const initParticles = async () => {
-      try {
-        const { initParticlesEngine } = await import("@tsparticles/react");
-        const { loadSlim } = await import("@tsparticles/slim");
-        
-        await initParticlesEngine(async (engine: Engine) => {
-          await loadSlim(engine);
-        });
-        setInit(true);
-      } catch (error) {
-        console.error('Failed to initialize particles:', error);
-        // Continue without particles
-        setInit(false);
-      }
-    };
-    
-    // Delay particle initialization to prioritize LCP image rendering
-    const timer = setTimeout(() => {
-      initParticles();
-    }, 100);
-    
-    return () => clearTimeout(timer);
-  }, []);
-
-  const particlesLoaded = useCallback(async (container?: Container) => {
-    console.log('Particles loaded successfully');
-  }, []);
 
   return (
     <section 
       ref={sectionRef}
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20 sm:pt-16"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20 sm:pt-16 bg-gradient-to-b from-[#05010E] via-[#0A1A2F] to-[#0C1222]"
       data-tour="welcome"
     >
-      {/* Aurora Borealis Background */}
-      <AuroraBackground />
-
-      {/* Particles Background */}
-      {init && (
-        <Suspense fallback={<div className="absolute inset-0 z-0" />}>
-          <Particles
-            id="tsparticles"
-            particlesLoaded={particlesLoaded}
-            className="absolute inset-0 z-0"
-            options={PARTICLES_OPTIONS}
-          />
-        </Suspense>
-      )}
+      {/* Subtle background pattern */}
+      <div 
+        className="absolute inset-0 opacity-20 pointer-events-none z-0"
+        style={{
+          backgroundImage: 'radial-gradient(circle at 20% 30%, rgba(122, 95, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(0, 196, 255, 0.1) 0%, transparent 50%)',
+        }}
+      />
       
       <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 relative z-10 px-4">
         {/* Profile Image with Enhanced Glow - Optimized for LCP */}
