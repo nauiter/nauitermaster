@@ -71,7 +71,7 @@ export const ImpactMetrics = () => {
         gradient: "primary",
         align: "center",
       }}
-      background="gradient-light"
+      background="transparent"
       containerWidth="5xl"
       paddingY="lg"
     >
