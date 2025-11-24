@@ -30,7 +30,7 @@ const MetricCard = ({ value, label, delay, isVisible, language }: MetricCardProp
       onMouseMove={card3D.handleMouseMove}
       onMouseLeave={card3D.handleMouseLeave}
       style={card3D.cardStyle}
-      className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:shadow-lg hover:shadow-[#7A5FFF]/20 transition-shadow duration-300"
+      className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:shadow-lg hover:shadow-[#7A5FFF]/20 transition-shadow duration-300 text-center"
     >
       <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
         {displayValue}
