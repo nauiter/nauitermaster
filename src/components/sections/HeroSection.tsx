@@ -1,14 +1,14 @@
 import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import type { Container, Engine } from "@tsparticles/engine";
-import { Download, ChevronDown } from "lucide-react";
+import { Download, ChevronDown, Sparkles, Palette, Wand2, Zap, Brain, Cpu } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { AnimatedBadge } from "@/components/ui/animated-badge";
 import portfolioAvatar from "@/assets/portfolio-avatar.webp";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useMultiLayerParallax } from "@/hooks/useParallax";
 import { PARTICLES_OPTIONS } from "@/lib/particlesConfig";
-import { METRICS } from "@/lib/constants";
 
 const Particles = lazy(() => import("@tsparticles/react"));
 
@@ -130,31 +130,49 @@ export const HeroSection = () => {
           </p>
         </motion.div>
 
-        {/* Key Metrics - Horizontal */}
+        {/* Animated Skill Badges */}
         <motion.div
-          className="flex flex-col sm:flex-row flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 text-center px-4"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+          className="flex flex-wrap justify-center gap-4 sm:gap-6 px-4 max-w-2xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <div className="space-y-2">
-            <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
-              {METRICS.LINKEDIN_FOLLOWERS}
-            </p>
-            <p className="text-gray-400 text-xs sm:text-sm md:text-base">{t.hero.linkedinFollowers}</p>
-          </div>
-          <div className="space-y-2">
-            <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
-              {METRICS.YEARS_EXPERIENCE}
-            </p>
-            <p className="text-gray-400 text-xs sm:text-sm md:text-base">{t.hero.yearsExperience}</p>
-          </div>
-          <div className="space-y-2">
-            <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
-              {METRICS.ACTIVE_PROJECTS}
-            </p>
-            <p className="text-gray-400 text-xs sm:text-sm md:text-base">{t.hero.activeProjects}</p>
-          </div>
+          <AnimatedBadge 
+            icon={<Brain className="w-6 h-6 text-[#7A5FFF]" />}
+            label="AI Strategy"
+            delay={0.1}
+            color="purple"
+          />
+          <AnimatedBadge 
+            icon={<Palette className="w-6 h-6 text-[#00C4FF]" />}
+            label="Digital Art"
+            delay={0.2}
+            color="cyan"
+          />
+          <AnimatedBadge 
+            icon={<Wand2 className="w-6 h-6 text-[#EC4899]" />}
+            label="Prompt Eng"
+            delay={0.3}
+            color="pink"
+          />
+          <AnimatedBadge 
+            icon={<Zap className="w-6 h-6 text-[#10B981]" />}
+            label="Automation"
+            delay={0.4}
+            color="green"
+          />
+          <AnimatedBadge 
+            icon={<Sparkles className="w-6 h-6 text-[#7A5FFF]" />}
+            label="Creative AI"
+            delay={0.5}
+            color="purple"
+          />
+          <AnimatedBadge 
+            icon={<Cpu className="w-6 h-6 text-[#00C4FF]" />}
+            label="ML & Vision"
+            delay={0.6}
+            color="cyan"
+          />
         </motion.div>
 
         {/* CTA Buttons */}
