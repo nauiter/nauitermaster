@@ -88,7 +88,7 @@ export const AnimatedBadge = ({ icon, label, description, delay = 0, color = "pu
         </TooltipTrigger>
         <TooltipContent 
           side="bottom" 
-          className="max-w-xs bg-[#0B1623]/95 backdrop-blur-xl border border-white/20 p-4 shadow-2xl"
+          className="max-w-xs bg-[#0c1324]/95 backdrop-blur-xl border border-white/20 p-4 shadow-2xl"
         >
           <div className="space-y-2">
             <p className={`font-semibold text-sm text-transparent bg-clip-text bg-gradient-to-r ${colorVariants[color]}`}>

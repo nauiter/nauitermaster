@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export const EcosystemSkeleton = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#0B1623] to-[#0E213A]">
+    <section className="py-20 bg-gradient-to-b from-[#1c1c1c] to-[#0c1324]">
       <div className="container mx-auto px-6">
         {/* Title Skeleton */}
         <Skeleton className="h-10 w-80 mx-auto mb-6 bg-white/10" />

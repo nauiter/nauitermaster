@@ -161,7 +161,7 @@ export const ProjectsSection = () => {
                         rootMargin="500px"
                         threshold={0.01}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0C1222] via-transparent to-transparent opacity-60"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0c1324] via-transparent to-transparent opacity-60"></div>
                       
                       {/* Category Badge */}
                       <div className="absolute top-6 left-6">
