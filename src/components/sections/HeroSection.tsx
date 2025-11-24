@@ -8,6 +8,7 @@ import { AnimatedBadge } from "@/components/ui/animated-badge";
 import portfolioAvatar from "@/assets/portfolio-avatar.webp";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useMultiLayerParallax } from "@/hooks/useParallax";
+import { useDeviceCapabilities } from "@/hooks/useDeviceCapabilities";
 import { PARTICLES_OPTIONS } from "@/lib/particlesConfig";
 
 const Particles = lazy(() => import("@tsparticles/react"));
@@ -16,9 +17,16 @@ export const HeroSection = () => {
   const { t } = useLanguage();
   const [init, setInit] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const [layer1, layer2, layer3] = useMultiLayerParallax(sectionRef, 3);
+  const { canHandleParticles, canHandleHeavyAnimations } = useDeviceCapabilities();
+  const [layer1, layer2, layer3] = useMultiLayerParallax(sectionRef, canHandleHeavyAnimations ? 3 : 0);
   
   useEffect(() => {
+    // Skip particles on low-end devices to prevent crashes
+    if (!canHandleParticles) {
+      setInit(false);
+      return;
+    }
+
     // Defer particle initialization until after LCP to reduce render blocking
     const initParticles = async () => {
       try {
@@ -31,8 +39,8 @@ export const HeroSection = () => {
         setInit(true);
       } catch (error) {
         console.error('Failed to initialize particles:', error);
-        // Set init to true anyway to prevent blocking the UI
-        setInit(true);
+        // Don't set init to true on error - just skip particles
+        setInit(false);
       }
     };
     
@@ -42,7 +50,7 @@ export const HeroSection = () => {
     }, 100);
     
     return () => clearTimeout(timer);
-  }, []);
+  }, [canHandleParticles]);
 
   const particlesLoaded = useCallback(async (container?: Container) => {
     console.log('Particles loaded successfully');
