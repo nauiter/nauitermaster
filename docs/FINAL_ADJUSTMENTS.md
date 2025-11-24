@@ -173,6 +173,24 @@
 
 ---
 
+## 🔧 Fix de Background Mobile (2025-01)
+
+### Problema
+Após otimizações de performance mobile, o container principal perdeu o background escuro, resultando em fundo branco nas sections transparentes.
+
+### Solução
+Adicionado gradiente de fundo escuro consistente em `src/pages/Index.tsx`:
+```tsx
+<div className="min-h-screen bg-gradient-to-b from-[#05010E] via-[#0A1A2F] to-[#0C1222]">
+```
+
+### Resultado
+✅ Fundo escuro mantido em mobile e desktop  
+✅ Sections transparentes exibem corretamente  
+✅ Performance otimizada preservada  
+
+---
+
 ## 🚀 Próximos Passos Recomendados
 
 1. **Otimização de Imagens** (Maior impacto em performance)
