@@ -17,6 +17,7 @@ import { EcosystemSkeleton } from "@/components/skeletons/EcosystemSkeleton";
 import { AIToolsSkeleton } from "@/components/skeletons/AIToolsSkeleton";
 import { useLanguage } from "@/hooks/useLanguage";
 import { usePageLoading } from "@/hooks/usePageLoading";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import sweetLifeAnimes from "@/assets/sweet-life-animes.webp";
 import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
 import oVermePasseia from "@/assets/o-verme-passeia.webp";
@@ -29,6 +30,7 @@ interface IndexProps {
 const Index = ({ forcedLanguage }: IndexProps) => {
   const { t, language, setLanguage } = useLanguage();
   const isLoading = usePageLoading(800);
+  useSmoothScroll();
 
   // Force language if specified in route
   React.useEffect(() => {
