@@ -115,13 +115,13 @@ export const AuroraBackground = () => {
         }}
       />
 
-      {/* Brighter stars effect */}
+      {/* Subtle stars effect */}
       <div 
-        className="absolute inset-0 opacity-70"
+        className="absolute inset-0 opacity-20"
         style={{
-          backgroundImage: 'radial-gradient(circle, rgba(255, 255, 255, 1) 1.5px, transparent 1.5px)',
-          backgroundSize: '60px 60px',
-          backgroundPosition: '0 0, 30px 30px',
+          backgroundImage: 'radial-gradient(circle, rgba(255, 255, 255, 0.6) 1px, transparent 1px)',
+          backgroundSize: '80px 80px',
+          backgroundPosition: '0 0, 40px 40px',
         }}
       />
     </div>
