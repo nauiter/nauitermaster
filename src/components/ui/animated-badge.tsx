@@ -1,9 +1,16 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface AnimatedBadgeProps {
   icon: ReactNode;
   label: string;
+  description: string;
   delay?: number;
   color?: "purple" | "cyan" | "pink" | "green";
 }
@@ -22,58 +29,77 @@ const glowVariants = {
   green: "shadow-[0_0_20px_rgba(16,185,129,0.4)]",
 };
 
-export const AnimatedBadge = ({ icon, label, delay = 0, color = "purple" }: AnimatedBadgeProps) => {
+export const AnimatedBadge = ({ icon, label, description, delay = 0, color = "purple" }: AnimatedBadgeProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8, y: 20 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{
-        duration: 0.5,
-        delay,
-        type: "spring",
-        stiffness: 200,
-      }}
-      whileHover={{ 
-        scale: 1.1,
-        rotate: [0, -5, 5, -5, 0],
-        transition: { duration: 0.3 }
-      }}
-      className="group relative"
-    >
-      {/* Glow effect */}
-      <motion.div
-        className={`absolute -inset-1 bg-gradient-to-r ${colorVariants[color]} rounded-2xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity`}
-        animate={{
-          scale: [1, 1.05, 1],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      
-      {/* Badge content */}
-      <div className={`relative flex flex-col items-center gap-2 px-5 py-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 ${glowVariants[color]}`}>
-        <motion.div
-          className={`text-3xl`}
-          animate={{
-            y: [0, -5, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: delay,
-          }}
+    <TooltipProvider delayDuration={200}>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              delay,
+              type: "spring",
+              stiffness: 200,
+            }}
+            whileHover={{ 
+              scale: 1.1,
+              rotate: [0, -5, 5, -5, 0],
+              transition: { duration: 0.3 }
+            }}
+            className="group relative cursor-pointer"
+          >
+            {/* Glow effect */}
+            <motion.div
+              className={`absolute -inset-1 bg-gradient-to-r ${colorVariants[color]} rounded-2xl blur-lg opacity-30 group-hover:opacity-70 transition-opacity`}
+              animate={{
+                scale: [1, 1.05, 1],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+            
+            {/* Badge content */}
+            <div className={`relative flex flex-col items-center gap-2 px-5 py-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 ${glowVariants[color]} transition-all duration-300 group-hover:bg-white/10 group-hover:border-white/20`}>
+              <motion.div
+                className="text-3xl"
+                animate={{
+                  y: [0, -5, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: delay,
+                }}
+              >
+                {icon}
+              </motion.div>
+              
+              <span className={`text-xs font-medium text-transparent bg-clip-text bg-gradient-to-r ${colorVariants[color]}`}>
+                {label}
+              </span>
+            </div>
+          </motion.div>
+        </TooltipTrigger>
+        <TooltipContent 
+          side="bottom" 
+          className="max-w-xs bg-[#0B1623]/95 backdrop-blur-xl border border-white/20 p-4 shadow-2xl"
         >
-          {icon}
-        </motion.div>
-        
-        <span className={`text-xs font-medium text-transparent bg-clip-text bg-gradient-to-r ${colorVariants[color]}`}>
-          {label}
-        </span>
-      </div>
-    </motion.div>
+          <div className="space-y-2">
+            <p className={`font-semibold text-sm text-transparent bg-clip-text bg-gradient-to-r ${colorVariants[color]}`}>
+              {label}
+            </p>
+            <p className="text-xs text-gray-300 leading-relaxed">
+              {description}
+            </p>
+          </div>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 };
