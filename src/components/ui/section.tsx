@@ -38,9 +38,9 @@ export interface SectionProps {
 
 const backgroundVariants = {
   dark: 'bg-[#0c1324]',
-  cosmic: 'bg-gradient-to-b from-[#1c1c1c] via-[#0c1324] to-[#0c1324]',
-  'gradient-dark': 'bg-gradient-to-b from-[#0c1324] to-[#1c1c1c]',
-  'gradient-light': 'bg-gradient-to-b from-[#1c1c1c] to-[#0c1324]',
+  cosmic: 'bg-[#0c1324]',
+  'gradient-dark': 'bg-[#0c1324]',
+  'gradient-light': 'bg-[#0c1324]',
   transparent: 'bg-transparent',
   custom: '',
 };

@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export const HeroSkeleton = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#1c1c1c] via-[#0c1324] to-[#0c1324] relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center bg-[#0c1324] relative overflow-hidden">
       
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-20 relative z-10">
         <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8">
