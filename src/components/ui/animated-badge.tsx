@@ -23,10 +23,10 @@ const colorVariants = {
 };
 
 const glowVariants = {
-  purple: "shadow-[0_0_20px_rgba(122,95,255,0.4)]",
-  cyan: "shadow-[0_0_20px_rgba(0,196,255,0.4)]",
-  pink: "shadow-[0_0_20px_rgba(236,72,153,0.4)]",
-  green: "shadow-[0_0_20px_rgba(16,185,129,0.4)]",
+  purple: "shadow-[0_0_30px_rgba(122,95,255,0.6),0_0_60px_rgba(122,95,255,0.4)]",
+  cyan: "shadow-[0_0_30px_rgba(0,196,255,0.6),0_0_60px_rgba(0,196,255,0.4)]",
+  pink: "shadow-[0_0_30px_rgba(236,72,153,0.6),0_0_60px_rgba(236,72,153,0.4)]",
+  green: "shadow-[0_0_30px_rgba(16,185,129,0.6),0_0_60px_rgba(16,185,129,0.4)]",
 };
 
 export const AnimatedBadge = ({ icon, label, description, delay = 0, color = "purple" }: AnimatedBadgeProps) => {
@@ -50,9 +50,23 @@ export const AnimatedBadge = ({ icon, label, description, delay = 0, color = "pu
             }}
             className="group relative cursor-pointer"
           >
-            {/* Glow effect */}
+            {/* Glow effect - Enhanced for visibility */}
             <motion.div
-              className={`absolute -inset-1 bg-gradient-to-r ${colorVariants[color]} rounded-2xl blur-lg opacity-30 group-hover:opacity-70 transition-opacity`}
+              className={`absolute -inset-2 bg-gradient-to-r ${colorVariants[color]} rounded-2xl blur-2xl opacity-60 group-hover:opacity-90 transition-opacity`}
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.6, 0.8, 0.6],
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+            
+            {/* Secondary glow layer for more intensity */}
+            <motion.div
+              className={`absolute -inset-1 bg-gradient-to-r ${colorVariants[color]} rounded-2xl blur-xl opacity-40 group-hover:opacity-70 transition-opacity`}
               animate={{
                 scale: [1, 1.05, 1],
               }}
@@ -60,11 +74,12 @@ export const AnimatedBadge = ({ icon, label, description, delay = 0, color = "pu
                 duration: 2,
                 repeat: Infinity,
                 ease: "easeInOut",
+                delay: 0.3,
               }}
             />
             
             {/* Badge content */}
-            <div className={`relative flex flex-col items-center gap-2 px-5 py-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 ${glowVariants[color]} transition-all duration-300 group-hover:bg-white/10 group-hover:border-white/20`}>
+            <div className={`relative flex flex-col items-center gap-2 px-5 py-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 ${glowVariants[color]} transition-all duration-300 group-hover:bg-white/10 group-hover:border-white/20 group-hover:shadow-[0_0_40px_rgba(122,95,255,0.8),0_0_80px_rgba(122,95,255,0.5)]`}>
               <motion.div
                 className="text-3xl"
                 animate={{
