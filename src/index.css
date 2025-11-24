@@ -481,12 +481,23 @@ section h2 {
     
     /* Reduce blur on mobile for better performance */
     [class*="backdrop-blur"] {
-      backdrop-filter: blur(8px) !important;
+      backdrop-filter: blur(4px) !important;
     }
     
     /* Optimize gradient animations */
     [class*="bg-gradient"] {
       background-attachment: scroll !important;
+    }
+    
+    /* Disable particles on mobile */
+    #tsparticles {
+      display: none !important;
+    }
+    
+    /* Reduce motion complexity */
+    .motion-reduce {
+      animation: none !important;
+      transition: none !important;
     }
   }
   
