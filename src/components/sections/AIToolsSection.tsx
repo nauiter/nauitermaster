@@ -2,14 +2,12 @@ import { useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Brain, Image, Music, Zap } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
-import { useParallax } from "@/hooks/useParallax";
 import { useCard3D } from "@/hooks/useCard3D";
 import { Section } from "@/components/ui/section";
 
 export const AIToolsSection = () => {
   const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
-  const parallaxOffset = useParallax(sectionRef, { speed: 0.3, direction: 'down' });
   
   const textAI = useCard3D(8);
   const imageAI = useCard3D(8);
@@ -32,15 +30,6 @@ export const AIToolsSection = () => {
       dataTour="ai-tools"
       className="relative overflow-hidden"
     >
-      {/* Parallax Background Pattern */}
-      <div 
-        className="absolute inset-0 opacity-30 pointer-events-none z-0"
-        style={{
-          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(122, 95, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0, 196, 255, 0.08) 0%, transparent 50%)',
-          transform: `translateY(${parallaxOffset}px)`,
-          willChange: 'transform',
-        }}
-      />
         {/* Two Groups Layout */}
         <div className="mt-14 max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
           {/* Creative AI Group */}
