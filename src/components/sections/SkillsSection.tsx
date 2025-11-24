@@ -28,7 +28,7 @@ export const SkillsSection = () => {
       className="motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]"
       containerClassName="mb-12"
     >
-      <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
         <div>
           <AnimatePresence mode="wait">
             <motion.h3
@@ -37,13 +37,13 @@ export const SkillsSection = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.3 }}
-              className="font-semibold text-white mb-4 flex items-center gap-2"
+              className="font-semibold text-white mb-6 text-xl md:text-2xl flex items-center gap-2"
             >
               <div className="w-2 h-2 bg-primary rounded-full"></div>
               {t.skills.coreStrengths}
             </motion.h3>
           </AnimatePresence>
-          <div className="space-y-3">
+          <div className="space-y-4">
             <div 
               onMouseMove={skill1.handleMouseMove}
               onMouseLeave={skill1.handleMouseLeave}
@@ -82,13 +82,13 @@ export const SkillsSection = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.3 }}
-              className="font-semibold text-white mb-4 flex items-center gap-2"
+              className="font-semibold text-white mb-6 text-xl md:text-2xl flex items-center gap-2"
             >
               <div className="w-2 h-2 bg-accent rounded-full"></div>
               {t.skills.growingAreas}
             </motion.h3>
           </AnimatePresence>
-          <div className="space-y-3">
+          <div className="space-y-4">
             <div 
               onMouseMove={skill4.handleMouseMove}
               onMouseLeave={skill4.handleMouseLeave}

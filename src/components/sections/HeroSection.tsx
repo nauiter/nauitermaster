@@ -95,7 +95,7 @@ export const HeroSection = () => {
 
         {/* Title & Description */}
         <motion.div 
-          className="space-y-4 px-6"
+          className="space-y-6 px-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -106,7 +106,7 @@ export const HeroSection = () => {
           }}
         >
           <h1 
-            className="text-3xl md:text-5xl font-bold leading-tight"
+            className="text-4xl md:text-6xl font-bold leading-tight"
             style={{
               transform: 'translateZ(0)',
               backfaceVisibility: 'hidden',
@@ -114,40 +114,40 @@ export const HeroSection = () => {
               MozOsxFontSmoothing: 'grayscale',
             }}
           >
-            <span className="block text-white mb-2">Nauiter Master</span>
-            <span className="block text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] via-[#A855F7] to-[#00C4FF]">
+            <span className="block text-white mb-3">Nauiter Master</span>
+            <span className="block text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] via-[#A855F7] to-[#00C4FF]">
               {t.hero.subtitle}
             </span>
           </h1>
-          <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             {t.hero.description}
           </p>
         </motion.div>
 
         {/* Key Metrics - Horizontal */}
         <motion.div
-          className="flex flex-wrap justify-center gap-6 md:gap-10 text-center"
+          className="flex flex-wrap justify-center gap-8 md:gap-12 text-center"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <div className="space-y-1">
-            <p className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
+          <div className="space-y-2">
+            <p className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
               {METRICS.LINKEDIN_FOLLOWERS}
             </p>
-            <p className="text-gray-400 text-sm">{t.hero.linkedinFollowers}</p>
+            <p className="text-gray-400 text-sm md:text-base">{t.hero.linkedinFollowers}</p>
           </div>
-          <div className="space-y-1">
-            <p className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
+          <div className="space-y-2">
+            <p className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
               {METRICS.YEARS_EXPERIENCE}
             </p>
-            <p className="text-gray-400 text-sm">{t.hero.yearsExperience}</p>
+            <p className="text-gray-400 text-sm md:text-base">{t.hero.yearsExperience}</p>
           </div>
-          <div className="space-y-1">
-            <p className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
+          <div className="space-y-2">
+            <p className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]">
               {METRICS.ACTIVE_PROJECTS}
             </p>
-            <p className="text-gray-400 text-sm">{t.hero.activeProjects}</p>
+            <p className="text-gray-400 text-sm md:text-base">{t.hero.activeProjects}</p>
           </div>
         </motion.div>
 

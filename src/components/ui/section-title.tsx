@@ -85,7 +85,7 @@ export const SectionTitle = ({
   return (
     <div 
       ref={titleRef}
-      className={cn(alignmentClasses[align], 'mb-16 relative z-20', className)}
+      className={cn(alignmentClasses[align], 'mb-20 relative z-20', className)}
       data-section-title={dataAttr}
     >
       {/* Main Title - Animated entrance with Intersection Observer */}
@@ -103,7 +103,7 @@ export const SectionTitle = ({
       >
         <Tag
           className={cn(
-            'text-3xl md:text-5xl font-bold mb-8 py-2 leading-tight md:leading-snug',
+            'text-4xl md:text-6xl font-bold mb-10 py-2 leading-tight md:leading-snug',
             baseGradientClass,
             titleClassName
           )}
@@ -129,7 +129,7 @@ export const SectionTitle = ({
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               className={cn(
-                'text-gray-400 text-lg max-w-2xl',
+                'text-gray-400 text-xl md:text-2xl max-w-3xl leading-relaxed',
                 align === 'center' && 'mx-auto',
                 align === 'right' && 'ml-auto',
                 subtitleClassName
@@ -145,7 +145,7 @@ export const SectionTitle = ({
           ) : (
             <p
               className={cn(
-                'text-gray-400 text-lg max-w-2xl',
+                'text-gray-400 text-xl md:text-2xl max-w-3xl leading-relaxed',
                 align === 'center' && 'mx-auto',
                 align === 'right' && 'ml-auto',
                 subtitleClassName

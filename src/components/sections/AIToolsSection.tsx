@@ -52,12 +52,12 @@ export const AIToolsSection = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="text-left text-[#7A5FFF] font-semibold mb-4 text-lg"
+                className="text-left text-[#7A5FFF] font-semibold mb-6 text-xl md:text-2xl"
               >
                 {t.aiTools.creativeAI}
               </motion.h3>
             </AnimatePresence>
-            <div className="grid grid-rows-2 gap-4 flex-1">
+            <div className="grid grid-rows-2 gap-6 flex-1">
               {/* Text AI Card */}
               <motion.div
                 whileHover={{ scale: 1.03 }}
@@ -68,9 +68,9 @@ export const AIToolsSection = () => {
                 onMouseMove={textAI.handleMouseMove}
                 onMouseLeave={textAI.handleMouseLeave}
                 style={textAI.cardStyle}
-                className="p-5 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#7A5FFF]/20"
+                className="p-6 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#7A5FFF]/20"
               >
-                <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center gap-3 mb-3">
                   <Brain className="w-6 h-6 text-[#7A5FFF]" />
                   <AnimatePresence mode="wait">
                     <motion.h4
@@ -131,9 +131,9 @@ export const AIToolsSection = () => {
                 onMouseMove={imageAI.handleMouseMove}
                 onMouseLeave={imageAI.handleMouseLeave}
                 style={imageAI.cardStyle}
-                className="p-5 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#7A5FFF]/20"
+                className="p-6 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#7A5FFF]/20"
               >
-                <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center gap-3 mb-3">
                   <Image className="w-6 h-6 text-[#7A5FFF]" />
                   <AnimatePresence mode="wait">
                     <motion.h4
@@ -195,12 +195,12 @@ export const AIToolsSection = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="text-left text-[#00C4FF] font-semibold mb-4 text-lg"
+                className="text-left text-[#00C4FF] font-semibold mb-6 text-xl md:text-2xl"
               >
                 {t.aiTools.technicalAI}
               </motion.h3>
             </AnimatePresence>
-            <div className="grid grid-rows-2 gap-4 flex-1">
+            <div className="grid grid-rows-2 gap-6 flex-1">
               {/* Audio AI Card */}
               <motion.div
                 whileHover={{ scale: 1.03 }}
@@ -211,9 +211,9 @@ export const AIToolsSection = () => {
                 onMouseMove={audioAI.handleMouseMove}
                 onMouseLeave={audioAI.handleMouseLeave}
                 style={audioAI.cardStyle}
-                className="p-5 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#00C4FF]/20"
+                className="p-6 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#00C4FF]/20"
               >
-                <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center gap-3 mb-3">
                   <Music className="w-6 h-6 text-[#00C4FF]" />
                   <AnimatePresence mode="wait">
                     <motion.h4
@@ -274,9 +274,9 @@ export const AIToolsSection = () => {
                 onMouseMove={automationAI.handleMouseMove}
                 onMouseLeave={automationAI.handleMouseLeave}
                 style={automationAI.cardStyle}
-                className="p-5 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#00C4FF]/20"
+                className="p-6 text-left transition-all flex flex-col bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-lg hover:shadow-[#00C4FF]/20"
               >
-                <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center gap-3 mb-3">
                   <Zap className="w-6 h-6 text-[#00C4FF]" />
                   <AnimatePresence mode="wait">
                     <motion.h4
