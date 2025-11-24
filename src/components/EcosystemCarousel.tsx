@@ -27,7 +27,7 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
         align: "center",
         gradient: "primary",
       }}
-      background="transparent"
+      background="cosmic"
       containerWidth="6xl"
       paddingY="xl"
       dataTour="ecosystem"
@@ -49,8 +49,11 @@ export const EcosystemCarousel = ({ projects }: EcosystemCarouselProps) => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1 * i }}
             whileHover={{ scale: 1.05 }}
-            className="relative p-6 transition-all group block"
+            className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-xl transition-all group block"
           >
+            <div
+              className={`absolute -inset-0.5 bg-gradient-to-r ${node.color} opacity-20 group-hover:opacity-40 rounded-2xl blur transition-all`}
+            ></div>
             <div className="relative z-10">
               <h4 className="font-semibold text-white mb-1">{node.name}</h4>
               <p className="text-xs text-gray-400">{node.type}</p>
