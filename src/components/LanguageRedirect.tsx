@@ -135,7 +135,7 @@ export const LanguageRedirect = () => {
   // Show loading state during redirect
   if (isRedirecting) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0B1623]">
+      <div className="min-h-screen flex items-center justify-center bg-[#0c1324]">
         <div className="flex flex-col items-center gap-4">
           <div className="w-12 h-12 border-4 border-[#7A5FFF]/30 border-t-[#7A5FFF] rounded-full animate-spin"></div>
           <p className="text-gray-400 text-sm">Loading...</p>

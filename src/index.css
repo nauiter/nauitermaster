@@ -53,9 +53,9 @@
     --muted-foreground: 210 11% 40%;  /* Melhor contraste 7.5:1 */
     
     /* === COSMIC BACKGROUNDS === */
-    --cosmic-deep: 257 64% 5%;      /* #05010E */
-    --cosmic-medium: 212 56% 11%;   /* #0A1A2F */
-    --cosmic-base: 214 47% 9%;      /* #0C1222 */
+    --cosmic-deep: 220 17% 11%;      /* #1c1c1c */
+    --cosmic-medium: 212 56% 8%;     /* #0c1324 */
+    --cosmic-base: 212 56% 8%;       /* #0c1324 */
     
     /* === TEXTO - CONTRASTE WCAG AAA === */
     --text-heading: 210 20% 8%;     /* Headings: contraste 14:1 */
@@ -85,10 +85,10 @@
   }
 
   .dark {
-    --background: 257 64% 5%;
+    --background: 212 56% 8%;
     --foreground: 240 5% 92%;  /* Melhor contraste em dark mode */
     
-    --card: 214 47% 9%;
+    --card: 212 56% 8%;
     --card-foreground: 240 5% 92%;
     
     --primary: 194 100% 50%;
@@ -115,10 +115,10 @@
     --accent: 194 100% 70%;
     --accent-foreground: 240 5% 92%;
     
-    --secondary: 212 56% 11%;
+    --secondary: 212 56% 8%;
     --secondary-foreground: 240 5% 92%;
     
-    --muted: 212 56% 11%;
+    --muted: 212 56% 8%;
     --muted-foreground: 240 5% 70%;  /* Melhor contraste */
     
     --text-heading: 240 5% 95%;
@@ -130,7 +130,7 @@
     --destructive-foreground: 0 0% 98%;
     
     --border: 0 0% 100%;
-    --input: 212 56% 11%;
+    --input: 212 56% 8%;
     --ring: 257 100% 68%;
     --sidebar-border: 0 0% 100%;
     --sidebar-ring: 257 100% 68%;

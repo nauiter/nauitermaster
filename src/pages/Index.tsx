@@ -123,7 +123,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
       <ContactSection />
 
       {/* Footer */}
-      <footer className="relative bg-gradient-to-b from-[#05010E] to-[#000000]">
+      <footer className="relative bg-gradient-to-b from-[#0c1324] to-[#000000]">
         <div className="max-w-6xl mx-auto px-6 py-6">
           {/* Top Section - Links & Info */}
           <div className="grid md:grid-cols-3 gap-6 mb-4">
