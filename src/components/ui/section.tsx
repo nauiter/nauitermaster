@@ -132,7 +132,7 @@ export const Section = forwardRef<HTMLElement, SectionProps>(({
       className={cn(
         bgClass,
         paddingYClass,
-        'relative overflow-hidden',
+        'relative',
         className
       )}
       data-tour={dataTour}
