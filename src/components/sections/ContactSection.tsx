@@ -40,7 +40,7 @@ export const ContactSection = () => {
         className="relative z-10"
       >
         {/* CTA Buttons */}
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <div className="mt-12 flex flex-wrap justify-center gap-4">
           <motion.a
             href={SOCIAL_LINKS.EMAIL}
             whileHover={{ scale: 1.05 }}
