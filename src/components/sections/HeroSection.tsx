@@ -61,8 +61,8 @@ export const HeroSection = () => {
       className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-20 sm:pt-16 bg-[#0c1324]"
       data-tour="welcome"
     >
-      {/* Aurora Borealis Background - Hidden on mobile */}
-      <div className="hidden md:block">
+      {/* Aurora Borealis Background - Desktop only */}
+      <div className="hidden lg:block">
         <AuroraBackground />
       </div>
 
