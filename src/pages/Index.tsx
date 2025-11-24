@@ -40,7 +40,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
   }, [forcedLanguage, language, setLanguage]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#05010E] via-[#0A1A2F] to-[#0C1222]">
+    <div className="min-h-screen bg-gradient-to-b from-[#1c1c1c] via-[#0c1324] to-[#0c1324]">
       {/* SEO Head with dynamic meta tags and structured data */}
       <SEOHead forcedLanguage={forcedLanguage} />
       

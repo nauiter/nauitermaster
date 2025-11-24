@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export const HeroSkeleton = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#05010E] via-[#0A1A2F] to-[#0C1222] relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#1c1c1c] via-[#0c1324] to-[#0c1324] relative overflow-hidden">
       {/* Subtle background pattern */}
       <div 
         className="absolute inset-0 opacity-20 pointer-events-none"
