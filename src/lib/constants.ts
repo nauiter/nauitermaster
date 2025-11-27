@@ -19,10 +19,10 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const PROJECT_URLS = {
-  SWEET_LIFE_ANIMES: 'https://sweetlifeanimes.lovable.app',
+  SWEET_LIFE_ANIMES: 'https://sweetlifeanimes.com',
   SWEET_LIFE_ACADEMY: 'https://sweetlifeacademy.coursify.me/',
-  O_VERME_PASSEIA: 'https://overmepasseia.lovable.app',
-  FIGUEIREDO_LAW: 'https://figueiredo-landing-amapa.lovable.app/',
+  O_VERME_PASSEIA: 'https://overmepasseia.com.br',
+  FIGUEIREDO_LAW: 'https://advocaciafigueiredo.adv.br',
 } as const;
 
 export const NAVBAR_CONFIG = {
