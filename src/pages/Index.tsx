@@ -84,7 +84,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
             type: "Creative Brand",
             color: "from-pink-500 to-fuchsia-400",
             image: sweetLifeAnimes,
-            url: "https://sweetlifeanimes.lovable.app/"
+            url: "https://sweetlifeanimes.com"
           },
           {
             name: "Sweet Life Academy",
@@ -100,7 +100,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
             type: "Art & Philosophy",
             color: "from-amber-500 to-yellow-400",
             image: oVermePasseia,
-            url: "https://overmepasseia.lovable.app"
+            url: "https://overmepasseia.com.br"
           },
           {
             name: "Figueiredo Law",
@@ -108,7 +108,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
             type: "Ethics & AI",
             color: "from-rose-600 to-gray-500",
             image: figueiredoLaw,
-            url: "https://figueiredo-landing-amapa.lovable.app/"
+            url: "https://advocaciafigueiredo.adv.br"
           }
         ]}
       />
