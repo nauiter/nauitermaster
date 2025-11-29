@@ -105,10 +105,12 @@ export const HeroSection = () => {
       )}
       
       <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 relative z-10 px-4">
-        {/* Profile Image with Enhanced Glow - Optimized for LCP */}
+        {/* Profile Image with Enhanced Glow - Optimized for LCP with responsive sizes */}
         <div className="flex justify-center mb-4 sm:mb-6">
           <img
             src={portfolioAvatar}
+            srcSet={`${portfolioAvatar} 1024w`}
+            sizes="(max-width: 475px) 128px, (max-width: 640px) 160px, 224px"
             alt="Nauiter Master - Estrategista de IA, artista digital especializado em automação criativa e educação | AI Strategist, digital artist specialized in creative automation and education"
             className="w-32 xs:w-40 sm:w-56 h-32 xs:h-40 sm:h-56 rounded-full border-[3px] border-white/30 shadow-2xl object-cover"
             style={{ 
