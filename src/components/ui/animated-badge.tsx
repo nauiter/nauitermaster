@@ -13,6 +13,7 @@ interface AnimatedBadgeProps {
   description: string;
   delay?: number;
   duration?: number;
+  enableComplexAnimations?: boolean;
   color?: "purple" | "cyan" | "pink" | "green" | "orange" | "blue" | "red" | "yellow";
 }
 
@@ -38,7 +39,15 @@ const glowVariants = {
   yellow: "shadow-[0_0_20px_rgba(234,179,8,0.4)]",
 };
 
-export const AnimatedBadge = ({ icon, label, description, delay = 0, duration = 0.5, color = "purple" }: AnimatedBadgeProps) => {
+export const AnimatedBadge = ({ 
+  icon, 
+  label, 
+  description, 
+  delay = 0, 
+  duration = 0.5, 
+  enableComplexAnimations = true,
+  color = "purple" 
+}: AnimatedBadgeProps) => {
   return (
     <TooltipProvider delayDuration={200}>
       <Tooltip>
@@ -49,45 +58,57 @@ export const AnimatedBadge = ({ icon, label, description, delay = 0, duration = 
             transition={{
               duration,
               delay,
-              type: "spring",
+              type: enableComplexAnimations ? "spring" : "tween",
               stiffness: 200,
             }}
             whileHover={{ 
               scale: 1.1,
-              rotate: [0, -5, 5, -5, 0],
+              rotate: enableComplexAnimations ? [0, -5, 5, -5, 0] : 0,
               transition: { duration: 0.3 }
             }}
             className="group relative cursor-pointer transition-all duration-500 ease-in-out"
           >
-            {/* Glow effect */}
-            <motion.div
-              className={`absolute -inset-1 bg-gradient-to-r ${colorVariants[color]} rounded-2xl blur-lg opacity-30 group-hover:opacity-70 transition-opacity`}
-              animate={{
-                scale: [1, 1.05, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-            
-            {/* Badge content */}
-            <div className={`relative flex flex-col items-center gap-1.5 sm:gap-2 px-3 py-3 sm:px-5 sm:py-4 bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/10 ${glowVariants[color]} transition-all duration-500 ease-in-out group-hover:bg-white/10 group-hover:border-white/20`}>
+            {/* Glow effect - Only animate on desktop */}
+            {enableComplexAnimations ? (
               <motion.div
-                className="text-2xl sm:text-3xl transition-all duration-500 ease-in-out"
+                className={`absolute -inset-1 bg-gradient-to-r ${colorVariants[color]} rounded-2xl blur-lg opacity-30 group-hover:opacity-70 transition-opacity`}
                 animate={{
-                  y: [0, -5, 0],
+                  scale: [1, 1.05, 1],
                 }}
                 transition={{
                   duration: 2,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: delay,
                 }}
-              >
-                {icon}
-              </motion.div>
+              />
+            ) : (
+              <div
+                className={`absolute -inset-1 bg-gradient-to-r ${colorVariants[color]} rounded-2xl blur-lg opacity-30 group-hover:opacity-70 transition-opacity`}
+              />
+            )}
+            
+            {/* Badge content */}
+            <div className={`relative flex flex-col items-center gap-1.5 sm:gap-2 px-3 py-3 sm:px-5 sm:py-4 bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/10 ${glowVariants[color]} transition-all duration-500 ease-in-out group-hover:bg-white/10 group-hover:border-white/20`}>
+              {enableComplexAnimations ? (
+                <motion.div
+                  className="text-2xl sm:text-3xl transition-all duration-500 ease-in-out"
+                  animate={{
+                    y: [0, -5, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: delay,
+                  }}
+                >
+                  {icon}
+                </motion.div>
+              ) : (
+                <div className="text-2xl sm:text-3xl transition-all duration-500 ease-in-out">
+                  {icon}
+                </div>
+              )}
               
               <span className={`text-[10px] sm:text-xs font-medium text-transparent bg-clip-text bg-gradient-to-r ${colorVariants[color]} text-center leading-tight transition-all duration-500 ease-in-out`}>
                 {label}

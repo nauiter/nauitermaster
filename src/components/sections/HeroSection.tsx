@@ -18,12 +18,23 @@ export const HeroSection = () => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
   const [init, setInit] = useState(false);
+  const [enableComplexAnimations, setEnableComplexAnimations] = useState(!isMobile);
   const sectionRef = useRef<HTMLElement>(null);
   
   // Different animation timings for mobile vs desktop
   const baseDelay = isMobile ? 0.4 : 0.6;
   const badgeDelay = isMobile ? 0.05 : 0.1;
   const badgeDuration = isMobile ? 0.3 : 0.5;
+
+  // Enable complex animations after initial render on mobile
+  useEffect(() => {
+    if (isMobile) {
+      const timer = setTimeout(() => {
+        setEnableComplexAnimations(true);
+      }, 1000); // Wait 1s after initial render
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile]);
   
   const { createRipple } = useRippleEffect({
     color: 'rgba(122, 95, 255, 0.4)',
@@ -33,6 +44,12 @@ export const HeroSection = () => {
   
   useEffect(() => {
     // Defer particle initialization until after LCP to reduce render blocking
+    // Skip particles on mobile for better performance
+    if (isMobile) {
+      setInit(false);
+      return;
+    }
+    
     const initParticles = async () => {
       try {
         const { initParticlesEngine } = await import("@tsparticles/react");
@@ -55,7 +72,7 @@ export const HeroSection = () => {
     }, 100);
     
     return () => clearTimeout(timer);
-  }, []);
+  }, [isMobile]);
 
   const particlesLoaded = useCallback(async (container?: Container) => {
     console.log('Particles loaded successfully');
@@ -69,12 +86,14 @@ export const HeroSection = () => {
       data-tour="welcome"
     >
       {/* Aurora Borealis Background - Desktop only */}
-      <div className="hidden lg:block">
-        <AuroraBackground />
-      </div>
+      {!isMobile && (
+        <div className="hidden lg:block">
+          <AuroraBackground />
+        </div>
+      )}
 
-      {/* Particles Background */}
-      {init && (
+      {/* Particles Background - Desktop only after lazy load */}
+      {init && !isMobile && (
         <Suspense fallback={<div className="absolute inset-0 z-0" />}>
           <Particles
             id="tsparticles"
@@ -158,6 +177,7 @@ export const HeroSection = () => {
             description={t.badges.aiStrategy.description}
             delay={baseDelay + (badgeDelay * 0)}
             duration={badgeDuration}
+            enableComplexAnimations={enableComplexAnimations}
             color="purple"
           />
           <AnimatedBadge 
@@ -166,6 +186,7 @@ export const HeroSection = () => {
             description={t.badges.development.description}
             delay={baseDelay + (badgeDelay * 1)}
             duration={badgeDuration}
+            enableComplexAnimations={enableComplexAnimations}
             color="cyan"
           />
           <AnimatedBadge 
@@ -174,6 +195,7 @@ export const HeroSection = () => {
             description={t.badges.database.description}
             delay={baseDelay + (badgeDelay * 2)}
             duration={badgeDuration}
+            enableComplexAnimations={enableComplexAnimations}
             color="pink"
           />
           <AnimatedBadge 
@@ -182,6 +204,7 @@ export const HeroSection = () => {
             description={t.badges.automation.description}
             delay={baseDelay + (badgeDelay * 3)}
             duration={badgeDuration}
+            enableComplexAnimations={enableComplexAnimations}
             color="green"
           />
           <AnimatedBadge 
@@ -190,6 +213,7 @@ export const HeroSection = () => {
             description={t.badges.systemsAnalysis.description}
             delay={baseDelay + (badgeDelay * 4)}
             duration={badgeDuration}
+            enableComplexAnimations={enableComplexAnimations}
             color="orange"
           />
           <AnimatedBadge 
@@ -198,6 +222,7 @@ export const HeroSection = () => {
             description={t.badges.socialMedia.description}
             delay={baseDelay + (badgeDelay * 5)}
             duration={badgeDuration}
+            enableComplexAnimations={enableComplexAnimations}
             color="blue"
           />
           <AnimatedBadge 
@@ -206,6 +231,7 @@ export const HeroSection = () => {
             description={t.badges.contentCreator.description}
             delay={baseDelay + (badgeDelay * 6)}
             duration={badgeDuration}
+            enableComplexAnimations={enableComplexAnimations}
             color="red"
           />
           <AnimatedBadge 
@@ -214,6 +240,7 @@ export const HeroSection = () => {
             description={t.badges.militaryTelecom.description}
             delay={baseDelay + (badgeDelay * 7)}
             duration={badgeDuration}
+            enableComplexAnimations={enableComplexAnimations}
             color="yellow"
           />
         </motion.div>
