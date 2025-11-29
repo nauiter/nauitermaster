@@ -130,33 +130,9 @@ const Index = ({ forcedLanguage }: IndexProps) => {
       <footer className="relative bg-gradient-to-b from-[#0c1324] to-[#000000]">
         <div className="max-w-6xl mx-auto px-6 py-6">
           {/* Top Section - Links & Info */}
-          <div className="grid md:grid-cols-3 gap-6 mb-4">
-            {/* Brand Column */}
-            <div className="text-center md:text-left">
-              <h3 className="text-xl font-bold bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] bg-clip-text text-transparent mb-3">
-                Nauiter Master
-              </h3>
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={language}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="text-gray-400 text-sm leading-relaxed"
-                >
-                  {language === 'pt' 
-                    ? 'Estrategista de IA & Artista Digital' 
-                    : 'AI Strategist & Digital Artist'}<br />
-                  {language === 'pt'
-                    ? 'Transformando ideias em realidade através de IA e criatividade.'
-                    : 'Transforming ideas into reality through AI and creativity.'}
-                </motion.p>
-              </AnimatePresence>
-            </div>
-
+          <div className="grid md:grid-cols-2 gap-6 mb-4">
             {/* Quick Links */}
-            <div className="text-center">
+            <div className="text-center md:text-left">
               <AnimatePresence mode="wait">
                 <motion.h4
                   key={language}
