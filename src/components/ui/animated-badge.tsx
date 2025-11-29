@@ -12,7 +12,7 @@ interface AnimatedBadgeProps {
   label: string;
   description: string;
   delay?: number;
-  color?: "purple" | "cyan" | "pink" | "green" | "orange";
+  color?: "purple" | "cyan" | "pink" | "green" | "orange" | "blue" | "red" | "yellow";
 }
 
 const colorVariants = {
@@ -21,6 +21,9 @@ const colorVariants = {
   pink: "from-[#EC4899] to-[#A855F7]",
   green: "from-[#10B981] to-[#34D399]",
   orange: "from-[#F59E0B] to-[#FB923C]",
+  blue: "from-[#3B82F6] to-[#60A5FA]",
+  red: "from-[#EF4444] to-[#F87171]",
+  yellow: "from-[#EAB308] to-[#FDE047]",
 };
 
 const glowVariants = {
@@ -29,6 +32,9 @@ const glowVariants = {
   pink: "shadow-[0_0_20px_rgba(236,72,153,0.4)]",
   green: "shadow-[0_0_20px_rgba(16,185,129,0.4)]",
   orange: "shadow-[0_0_20px_rgba(245,158,11,0.4)]",
+  blue: "shadow-[0_0_20px_rgba(59,130,246,0.4)]",
+  red: "shadow-[0_0_20px_rgba(239,68,68,0.4)]",
+  yellow: "shadow-[0_0_20px_rgba(234,179,8,0.4)]",
 };
 
 export const AnimatedBadge = ({ icon, label, description, delay = 0, color = "purple" }: AnimatedBadgeProps) => {
