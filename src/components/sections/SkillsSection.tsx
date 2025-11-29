@@ -59,7 +59,7 @@ export const SkillsSection = () => {
               style={skill1.cardStyle}
               className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#7A5FFF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#7A5FFF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.1s_forwards]"
             >
-              <span className="text-gray-300">Prompt Engineering</span>
+              <span className="text-gray-300">{t.skills.items.promptEngineering}</span>
               <div className="w-2 h-2 bg-primary rounded-full shadow-glow"></div>
             </div>
             <div 
@@ -71,7 +71,7 @@ export const SkillsSection = () => {
               style={skill2.cardStyle}
               className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#7A5FFF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#7A5FFF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.2s_forwards]"
             >
-              <span className="text-gray-300">AI Ethics & Safety</span>
+              <span className="text-gray-300">{t.skills.items.aiEthicsSafety}</span>
               <div className="w-2 h-2 bg-primary rounded-full shadow-glow"></div>
             </div>
             <div 
@@ -83,7 +83,7 @@ export const SkillsSection = () => {
               style={skill3.cardStyle}
               className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#7A5FFF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#7A5FFF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.3s_forwards]"
             >
-              <span className="text-gray-300">Human-AI Collaboration</span>
+              <span className="text-gray-300">{t.skills.items.humanAiCollaboration}</span>
               <div className="w-2 h-2 bg-primary rounded-full shadow-glow"></div>
             </div>
           </div>
@@ -114,7 +114,7 @@ export const SkillsSection = () => {
               style={skill4.cardStyle}
               className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#00C4FF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#00C4FF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.1s_forwards]"
             >
-              <span className="text-gray-300">Data Handling & Privacy</span>
+              <span className="text-gray-300">{t.skills.items.dataHandlingPrivacy}</span>
               <div className="w-2 h-2 bg-accent rounded-full shadow-glow"></div>
             </div>
             <div 
@@ -126,7 +126,7 @@ export const SkillsSection = () => {
               style={skill5.cardStyle}
               className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#00C4FF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#00C4FF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.2s_forwards]"
             >
-              <span className="text-gray-300">AI Model Fine-tuning</span>
+              <span className="text-gray-300">{t.skills.items.aiModelFineTuning}</span>
               <div className="w-2 h-2 bg-accent rounded-full shadow-glow"></div>
             </div>
             <div 
@@ -138,7 +138,7 @@ export const SkillsSection = () => {
               style={skill6.cardStyle}
               className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#00C4FF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#00C4FF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.3s_forwards]"
             >
-              <span className="text-gray-300">Multi-modal AI Systems</span>
+              <span className="text-gray-300">{t.skills.items.multiModalAiSystems}</span>
               <div className="w-2 h-2 bg-accent rounded-full shadow-glow"></div>
             </div>
           </div>

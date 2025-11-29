@@ -134,6 +134,14 @@ export interface Translations {
     coreStrengths: string;
     growingAreas: string;
     leadershipOps: string;
+    items: {
+      promptEngineering: string;
+      aiEthicsSafety: string;
+      humanAiCollaboration: string;
+      dataHandlingPrivacy: string;
+      aiModelFineTuning: string;
+      multiModalAiSystems: string;
+    };
   };
   // Tech Stack Section
   techStack: {
@@ -450,6 +458,14 @@ export const translations: Record<Language, Translations> = {
       coreStrengths: 'Core Strengths',
       growingAreas: 'Growing Areas',
       leadershipOps: 'Leadership & Ops',
+      items: {
+        promptEngineering: 'Prompt Engineering',
+        aiEthicsSafety: 'AI Ethics & Safety',
+        humanAiCollaboration: 'Human-AI Collaboration',
+        dataHandlingPrivacy: 'Data Handling & Privacy',
+        aiModelFineTuning: 'AI Model Fine-tuning',
+        multiModalAiSystems: 'Multi-modal AI Systems',
+      },
     },
     techStack: {
       title: 'Tech Stack & Tools',
@@ -759,6 +775,14 @@ export const translations: Record<Language, Translations> = {
       coreStrengths: 'Forças Principais',
       growingAreas: 'Áreas em Crescimento',
       leadershipOps: 'Liderança & Ops',
+      items: {
+        promptEngineering: 'Engenharia de Prompts',
+        aiEthicsSafety: 'Ética e Segurança em IA',
+        humanAiCollaboration: 'Colaboração Humano-IA',
+        dataHandlingPrivacy: 'Gestão de Dados & Privacidade',
+        aiModelFineTuning: 'Ajuste Fino de Modelos de IA',
+        multiModalAiSystems: 'Sistemas de IA Multimodais',
+      },
     },
     techStack: {
       title: 'Stack Tecnológico & Ferramentas',
