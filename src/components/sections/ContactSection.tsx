@@ -42,7 +42,7 @@ export const ContactSection = () => {
         className="relative z-10"
       >
         {/* CTA Buttons */}
-        <div className="mt-12 flex flex-wrap justify-center gap-4">
+        <div className="mt-10 sm:mt-12 flex flex-wrap justify-center gap-3 sm:gap-4">
           <motion.a
             href={SOCIAL_LINKS.EMAIL}
             whileHover={!isMobile ? { scale: 1.05 } : undefined}
@@ -92,7 +92,7 @@ export const ContactSection = () => {
         </div>
 
         {/* Social Links */}
-        <div className="flex justify-center gap-6 mt-12 text-gray-400">
+        <div className="flex justify-center gap-4 sm:gap-6 mt-10 sm:mt-12 text-gray-400">
           <motion.a
             href={SOCIAL_LINKS.EMAIL}
             target="_blank"

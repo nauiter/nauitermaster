@@ -26,12 +26,12 @@ export const AIToolsSection = () => {
       }}
       background="transparent"
       containerWidth="5xl"
-      paddingY="2xl"
+      paddingY="xl"
       dataTour="ai-tools"
       className="relative overflow-hidden"
     >
         {/* Two Groups Layout */}
-        <div className="mt-14 max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+        <div className="mt-12 max-w-5xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-10">
           {/* Creative AI Group */}
           <div className="flex flex-col">
             <AnimatePresence mode="wait">

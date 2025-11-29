@@ -139,9 +139,9 @@ const Index = ({ forcedLanguage }: IndexProps) => {
 
       {/* Footer */}
       <footer className="relative bg-gradient-to-b from-[#0c1324] to-[#000000]">
-        <div className="max-w-6xl mx-auto px-6 py-8 sm:py-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12">
           {/* Top Section - Links & Info */}
-          <div className="grid md:grid-cols-2 gap-6 mb-4">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-6">
             {/* Quick Links */}
             <div className="text-center md:text-left">
               <AnimatePresence mode="wait">
@@ -151,12 +151,12 @@ const Index = ({ forcedLanguage }: IndexProps) => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="text-white font-semibold mb-3 text-sm uppercase tracking-wider"
+                   className="text-white font-semibold mb-3 sm:mb-4 text-sm uppercase tracking-wider"
                 >
                   {language === 'pt' ? 'Jurídico' : 'Legal'}
                 </motion.h4>
               </AnimatePresence>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5 sm:gap-2">
                 <Link 
                   to={`/${language}/privacy-policy`}
                   className="text-gray-400 hover:text-[#00C4FF] transition-colors text-sm py-2 px-2 min-h-[44px] inline-flex items-center"
@@ -181,12 +181,12 @@ const Index = ({ forcedLanguage }: IndexProps) => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="text-white font-semibold mb-3 text-sm uppercase tracking-wider"
+                   className="text-white font-semibold mb-3 sm:mb-4 text-sm uppercase tracking-wider"
                 >
                   {language === 'pt' ? 'Conectar' : 'Connect'}
                 </motion.h4>
               </AnimatePresence>
-              <div className="flex justify-center md:justify-end gap-4">
+              <div className="flex justify-center md:justify-end gap-3 sm:gap-4">
                 <a 
                   href="https://linkedin.com/in/nauiter-master-678a71144"
                   target="_blank"
@@ -225,7 +225,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
           </div>
 
           {/* Bottom Section - Copyright */}
-          <div className="text-center space-y-1 mt-4">
+          <div className="text-center space-y-1 sm:space-y-1.5 mt-6 sm:mt-8">
             <p className="text-gray-400 text-sm">
               © 2025 <span className="text-white font-semibold">Developer — Nauiter Master</span> | All Rights Reserved
             </p>

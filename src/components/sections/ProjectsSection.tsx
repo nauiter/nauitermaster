@@ -91,7 +91,7 @@ export const ProjectsSection = () => {
       }}
       background="transparent"
       containerWidth="7xl"
-      paddingY="2xl"
+      paddingY="xl"
       dataTour="projects"
       className="relative overflow-hidden"
     >
@@ -118,7 +118,7 @@ export const ProjectsSection = () => {
           <CarouselContent>
             {projects.map((project, index) => (
               <CarouselItem key={index}>
-                <div className="p-4">
+                <div className="p-3 sm:p-4 md:p-6">
                   <div className="relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-sm shadow-2xl hover:shadow-[#7A5FFF]/20 transition-all duration-500 group">
                     {/* Image Section with Parallax */}
                     <motion.div
@@ -165,7 +165,7 @@ export const ProjectsSection = () => {
                         delay: 0.2,
                         ease: [0.25, 0.46, 0.45, 0.94]
                       }}
-                      className="p-8 md:p-10"
+                      className="p-6 sm:p-8 md:p-10"
                     >
                       {/* Title */}
                       <h3 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 mb-6">

@@ -166,7 +166,7 @@ export const HeroSection = () => {
 
         {/* Animated Skill Badges */}
         <motion.div
-          className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 sm:gap-6 px-4 max-w-2xl mx-auto transition-all duration-500 ease-in-out"
+          className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 px-4 max-w-2xl mx-auto transition-all duration-500 ease-in-out"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: isMobile ? 0.3 : 0.5 }}
@@ -247,7 +247,7 @@ export const HeroSection = () => {
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4"
+          className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-3 sm:px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: isMobile ? 0.4 : 0.8, delay: isMobile ? 0.75 : 0.9 }}
