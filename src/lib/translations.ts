@@ -238,7 +238,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'Exploring the edge between Intelligence, Art, and Automation.',
-      description: 'With over 10 years of service in the Brazilian Army as a Communications Sergeant, my professional foundation is built on discipline, team leadership, and critical systems management. I have translated this "mission accomplished" mindset into software development and AI strategy. I don\'t just write code; I architect resilient systems and lead strategic execution.',
+      description: 'Systems Analyst & AI Strategist | Dev (TS/JS/SQL) | Content Creator & Digital Strategy',
       downloadCV: 'Download CV',
       viewProjects: 'View My Projects',
       linkedinFollowers: 'LinkedIn Followers',
@@ -482,7 +482,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'Explorando a fronteira entre Inteligência, Arte e Automação.',
-      description: 'Com mais de 10 anos de carreira no Exército Brasileiro como Sargento de Comunicações, minha base profissional é a disciplina, a liderança de equipes e a gestão de sistemas críticos. Transpus essa mentalidade de "missão dada é missão cumprida" para o desenvolvimento de software e estratégia de IA. Não apenas escrevo código; eu projeto sistemas resilientes e lidero a execução estratégica.',
+      description: 'Analista de Sistemas & Estrategista de IA | Dev (TS/JS/SQL) | Criador de Conteúdo & Estratégia Digital',
       downloadCV: 'Baixar CV',
       viewProjects: 'Ver Meus Projetos',
       linkedinFollowers: 'Seguidores LinkedIn',
