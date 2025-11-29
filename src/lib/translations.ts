@@ -45,6 +45,7 @@ export interface Translations {
     home: string;
     projects: string;
     metrics: string;
+    techStack: string;
     contact: string;
   };
   // AI Tools Section
@@ -98,6 +99,38 @@ export interface Translations {
     title: string;
     coreStrengths: string;
     growingAreas: string;
+  };
+  // Tech Stack Section
+  techStack: {
+    title: string;
+    subtitle: string;
+    categories: {
+      frontend: {
+        title: string;
+        technologies: string[];
+      };
+      backend: {
+        title: string;
+        technologies: string[];
+      };
+      database: {
+        title: string;
+        technologies: string[];
+      };
+      cloud: {
+        title: string;
+        technologies: string[];
+      };
+      ai: {
+        title: string;
+        technologies: string[];
+      };
+      tools: {
+        title: string;
+        technologies: string[];
+      };
+    };
+    footer: string;
   };
   // Impact Metrics Section
   impact: {
@@ -236,6 +269,7 @@ export const translations: Record<Language, Translations> = {
       home: 'Home',
       projects: 'Projects',
       metrics: 'Metrics',
+      techStack: 'Tech Stack',
       contact: 'Contact',
     },
     aiTools: {
@@ -313,6 +347,37 @@ export const translations: Record<Language, Translations> = {
       title: 'Skills & Competencies',
       coreStrengths: 'Core Strengths',
       growingAreas: 'Growing Areas',
+    },
+    techStack: {
+      title: 'Tech Stack & Tools',
+      subtitle: 'Technologies and frameworks I use to build scalable solutions',
+      categories: {
+        frontend: {
+          title: 'Frontend',
+          technologies: ['React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Vite', 'HTML5/CSS3']
+        },
+        backend: {
+          title: 'Backend',
+          technologies: ['Node.js', 'Express', 'API REST', 'Supabase', 'Edge Functions']
+        },
+        database: {
+          title: 'Database',
+          technologies: ['PostgreSQL', 'SQL', 'Supabase', 'Database Design', 'RLS Policies']
+        },
+        cloud: {
+          title: 'Cloud & DevOps',
+          technologies: ['Vercel', 'Netlify', 'GitHub Actions', 'CI/CD', 'Lovable Cloud']
+        },
+        ai: {
+          title: 'AI & Automation',
+          technologies: ['GPT APIs', 'Claude', 'Midjourney', 'Make.com', 'Zapier', 'n8n']
+        },
+        tools: {
+          title: 'Tools & Workflow',
+          technologies: ['Git', 'GitHub', 'VS Code', 'Figma', 'Notion', 'Linear']
+        }
+      },
+      footer: 'Always learning and adapting to new technologies to deliver cutting-edge solutions.'
     },
     impact: {
       title: 'Impact Metrics',
@@ -446,6 +511,7 @@ export const translations: Record<Language, Translations> = {
       home: 'Início',
       projects: 'Projetos',
       metrics: 'Métricas',
+      techStack: 'Stack Tech',
       contact: 'Contato',
     },
     aiTools: {
@@ -523,6 +589,37 @@ export const translations: Record<Language, Translations> = {
       title: 'Habilidades & Competências',
       coreStrengths: 'Forças Principais',
       growingAreas: 'Áreas em Crescimento',
+    },
+    techStack: {
+      title: 'Stack Tecnológico & Ferramentas',
+      subtitle: 'Tecnologias e frameworks que uso para construir soluções escaláveis',
+      categories: {
+        frontend: {
+          title: 'Frontend',
+          technologies: ['React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Vite', 'HTML5/CSS3']
+        },
+        backend: {
+          title: 'Backend',
+          technologies: ['Node.js', 'Express', 'API REST', 'Supabase', 'Edge Functions']
+        },
+        database: {
+          title: 'Banco de Dados',
+          technologies: ['PostgreSQL', 'SQL', 'Supabase', 'Design de BD', 'Políticas RLS']
+        },
+        cloud: {
+          title: 'Cloud & DevOps',
+          technologies: ['Vercel', 'Netlify', 'GitHub Actions', 'CI/CD', 'Lovable Cloud']
+        },
+        ai: {
+          title: 'IA & Automação',
+          technologies: ['GPT APIs', 'Claude', 'Midjourney', 'Make.com', 'Zapier', 'n8n']
+        },
+        tools: {
+          title: 'Ferramentas & Workflow',
+          technologies: ['Git', 'GitHub', 'VS Code', 'Figma', 'Notion', 'Linear']
+        }
+      },
+      footer: 'Sempre aprendendo e adaptando a novas tecnologias para entregar soluções de ponta.'
     },
     impact: {
       title: 'Métricas de Impacto',

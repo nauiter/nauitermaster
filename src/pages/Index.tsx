@@ -8,6 +8,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { AIToolsSection } from "@/components/sections/AIToolsSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
+import { TechStackSection } from "@/components/sections/TechStackSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SEOHead } from "@/components/SEOHead";
@@ -118,6 +119,9 @@ const Index = ({ forcedLanguage }: IndexProps) => {
 
       {/* Skills & Competencies Section */}
       <SkillsSection />
+
+      {/* Tech Stack Section */}
+      <TechStackSection />
 
       {/* Contact & Collaboration CTA */}
       <ContactSection />
