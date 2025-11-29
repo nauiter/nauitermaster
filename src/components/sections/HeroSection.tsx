@@ -140,62 +140,62 @@ export const HeroSection = () => {
 
         {/* Animated Skill Badges */}
         <motion.div
-          className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 sm:gap-6 px-4 max-w-2xl mx-auto"
+          className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 sm:gap-6 px-4 max-w-2xl mx-auto transition-all duration-500 ease-in-out"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <AnimatedBadge 
-            icon={<Brain className="w-5 h-5 sm:w-6 sm:h-6 text-[#7A5FFF]" />}
+            icon={<Brain className="w-5 h-5 sm:w-6 sm:h-6 text-[#7A5FFF] transition-all duration-500 ease-in-out" />}
             label={t.badges.aiStrategy.label}
             description={t.badges.aiStrategy.description}
             delay={0.1}
             color="purple"
           />
           <AnimatedBadge 
-            icon={<Code2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#00C4FF]" />}
+            icon={<Code2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#00C4FF] transition-all duration-500 ease-in-out" />}
             label={t.badges.development.label}
             description={t.badges.development.description}
             delay={0.2}
             color="cyan"
           />
           <AnimatedBadge 
-            icon={<Database className="w-5 h-5 sm:w-6 sm:h-6 text-[#EC4899]" />}
+            icon={<Database className="w-5 h-5 sm:w-6 sm:h-6 text-[#EC4899] transition-all duration-500 ease-in-out" />}
             label={t.badges.database.label}
             description={t.badges.database.description}
             delay={0.3}
             color="pink"
           />
           <AnimatedBadge 
-            icon={<Zap className="w-5 h-5 sm:w-6 sm:h-6 text-[#10B981]" />}
+            icon={<Zap className="w-5 h-5 sm:w-6 sm:h-6 text-[#10B981] transition-all duration-500 ease-in-out" />}
             label={t.badges.automation.label}
             description={t.badges.automation.description}
             delay={0.4}
             color="green"
           />
           <AnimatedBadge 
-            icon={<Terminal className="w-5 h-5 sm:w-6 sm:h-6 text-[#F59E0B]" />}
+            icon={<Terminal className="w-5 h-5 sm:w-6 sm:h-6 text-[#F59E0B] transition-all duration-500 ease-in-out" />}
             label={t.badges.systemsAnalysis.label}
             description={t.badges.systemsAnalysis.description}
             delay={0.5}
             color="orange"
           />
           <AnimatedBadge 
-            icon={<Share2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#3B82F6]" />}
+            icon={<Share2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#3B82F6] transition-all duration-500 ease-in-out" />}
             label={t.badges.socialMedia.label}
             description={t.badges.socialMedia.description}
             delay={0.6}
             color="blue"
           />
           <AnimatedBadge 
-            icon={<Video className="w-5 h-5 sm:w-6 sm:h-6 text-[#EF4444]" />}
+            icon={<Video className="w-5 h-5 sm:w-6 sm:h-6 text-[#EF4444] transition-all duration-500 ease-in-out" />}
             label={t.badges.contentCreator.label}
             description={t.badges.contentCreator.description}
             delay={0.7}
             color="red"
           />
           <AnimatedBadge 
-            icon={<Radio className="w-5 h-5 sm:w-6 sm:h-6 text-[#EAB308]" />}
+            icon={<Radio className="w-5 h-5 sm:w-6 sm:h-6 text-[#EAB308] transition-all duration-500 ease-in-out" />}
             label={t.badges.militaryTelecom.label}
             description={t.badges.militaryTelecom.description}
             delay={0.8}
