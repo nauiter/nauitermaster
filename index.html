@@ -43,10 +43,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Async Google Fonts Loading - Non-render-blocking -->
+    <!-- Async Google Fonts Loading - Non-render-blocking with font-display swap -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
+    
+    <!-- Inline fallback font style to prevent FOIT -->
+    <style>
+      body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    </style>
     
     <!-- Favicon & Preloads -->
     <link rel="icon" type="image/x-icon" href="https://storage.googleapis.com/gpt-engineer-file-uploads/GbaOPfHXUFalxxIEHWeI9J04XVJ2/uploads/1761947874564-ai-technology.png">
