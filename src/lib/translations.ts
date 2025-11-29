@@ -133,6 +133,38 @@ export interface Translations {
     };
     footer: string;
   };
+  // Soft Skills Section
+  softSkills: {
+    title: string;
+    subtitle: string;
+    categories: {
+      teamwork: {
+        title: string;
+        skills: string[];
+      };
+      leadership: {
+        title: string;
+        skills: string[];
+      };
+      communication: {
+        title: string;
+        skills: string[];
+      };
+      problemSolving: {
+        title: string;
+        skills: string[];
+      };
+      timeManagement: {
+        title: string;
+        skills: string[];
+      };
+      adaptability: {
+        title: string;
+        skills: string[];
+      };
+    };
+    footer: string;
+  };
   // Impact Metrics Section
   impact: {
     title: string;
@@ -382,6 +414,37 @@ export const translations: Record<Language, Translations> = {
       },
       footer: 'Always learning and adapting to new technologies to deliver cutting-edge solutions.'
     },
+    softSkills: {
+      title: 'Soft Skills & Human Competencies',
+      subtitle: 'Essential interpersonal abilities shaped by military discipline and tech experience',
+      categories: {
+        teamwork: {
+          title: 'Teamwork & Collaboration',
+          skills: ['Cross-functional Teams', 'Peer Mentoring', 'Active Listening', 'Conflict Resolution']
+        },
+        leadership: {
+          title: 'Leadership & Management',
+          skills: ['Team Management', 'Strategic Planning', 'Decision Making', 'Mission-Driven Focus']
+        },
+        communication: {
+          title: 'Communication',
+          skills: ['Clear Documentation', 'Technical Writing', 'Client Relations', 'Presentation Skills']
+        },
+        problemSolving: {
+          title: 'Problem Solving',
+          skills: ['Critical Thinking', 'Creative Solutions', 'Crisis Management', 'Analytical Mindset']
+        },
+        timeManagement: {
+          title: 'Time Management',
+          skills: ['Priority Setting', 'Deadline Focus', 'Multitasking', 'Resource Optimization']
+        },
+        adaptability: {
+          title: 'Adaptability & Resilience',
+          skills: ['Change Management', 'Stress Tolerance', 'Fast Learning', 'Continuous Growth']
+        }
+      },
+      footer: 'Combining military discipline with tech agility to deliver exceptional results under any conditions.'
+    },
     impact: {
       title: 'Impact Metrics',
       subtitle: 'Expressing creativity through data - each number tells part of the story.',
@@ -625,6 +688,37 @@ export const translations: Record<Language, Translations> = {
         }
       },
       footer: 'Sempre aprendendo e adaptando a novas tecnologias para entregar soluções de ponta.'
+    },
+    softSkills: {
+      title: 'Soft Skills & Competências Humanas',
+      subtitle: 'Habilidades interpessoais essenciais moldadas pela disciplina militar e experiência tech',
+      categories: {
+        teamwork: {
+          title: 'Trabalho em Equipe & Colaboração',
+          skills: ['Times Multifuncionais', 'Mentoria de Pares', 'Escuta Ativa', 'Resolução de Conflitos']
+        },
+        leadership: {
+          title: 'Liderança & Gestão',
+          skills: ['Gestão de Equipes', 'Planejamento Estratégico', 'Tomada de Decisão', 'Foco em Missão']
+        },
+        communication: {
+          title: 'Comunicação',
+          skills: ['Documentação Clara', 'Escrita Técnica', 'Relações com Cliente', 'Habilidades de Apresentação']
+        },
+        problemSolving: {
+          title: 'Resolução de Problemas',
+          skills: ['Pensamento Crítico', 'Soluções Criativas', 'Gestão de Crises', 'Mentalidade Analítica']
+        },
+        timeManagement: {
+          title: 'Gestão de Tempo',
+          skills: ['Definição de Prioridades', 'Foco em Prazos', 'Multitarefa', 'Otimização de Recursos']
+        },
+        adaptability: {
+          title: 'Adaptabilidade & Resiliência',
+          skills: ['Gestão de Mudanças', 'Tolerância ao Estresse', 'Aprendizado Rápido', 'Crescimento Contínuo']
+        }
+      },
+      footer: 'Combinando disciplina militar com agilidade tech para entregar resultados excepcionais sob quaisquer condições.'
     },
     impact: {
       title: 'Métricas de Impacto',

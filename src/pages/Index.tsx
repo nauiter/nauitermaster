@@ -9,6 +9,7 @@ import { AIToolsSection } from "@/components/sections/AIToolsSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { TechStackSection } from "@/components/sections/TechStackSection";
+import { SoftSkillsSection } from "@/components/sections/SoftSkillsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SEOHead } from "@/components/SEOHead";
@@ -122,6 +123,9 @@ const Index = ({ forcedLanguage }: IndexProps) => {
 
       {/* Tech Stack Section */}
       <TechStackSection />
+
+      {/* Soft Skills Section */}
+      <SoftSkillsSection />
 
       {/* Contact & Collaboration CTA */}
       <ContactSection />
