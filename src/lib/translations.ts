@@ -39,6 +39,18 @@ export interface Translations {
         label: string;
         description: string;
       };
+      socialMedia: {
+        label: string;
+        description: string;
+      };
+      contentCreator: {
+        label: string;
+        description: string;
+      };
+      militaryTelecom: {
+        label: string;
+        description: string;
+      };
     };
   // Navigation
   nav: {
@@ -297,6 +309,18 @@ export const translations: Record<Language, Translations> = {
       systemsAnalysis: {
         label: 'Systems Analysis',
         description: 'Requirements analysis, system architecture design and technical documentation for complex projects.',
+      },
+      socialMedia: {
+        label: 'Social Media',
+        description: 'Building engaged communities and creating impactful digital content strategies across platforms.',
+      },
+      contentCreator: {
+        label: 'Content Creator',
+        description: 'Crafting compelling narratives and visual stories that resonate with diverse audiences.',
+      },
+      militaryTelecom: {
+        label: 'Military Telecom',
+        description: '10+ years managing critical communication systems and secure tactical networks in the Brazilian Army.',
       },
     },
     nav: {
@@ -572,6 +596,18 @@ export const translations: Record<Language, Translations> = {
       systemsAnalysis: {
         label: 'Análise de Sistemas',
         description: 'Análise de requisitos, arquitetura de sistemas e documentação técnica para projetos complexos.',
+      },
+      socialMedia: {
+        label: 'Social Media',
+        description: 'Construindo comunidades engajadas e criando estratégias de conteúdo digital impactantes nas plataformas.',
+      },
+      contentCreator: {
+        label: 'Criador de Conteúdo',
+        description: 'Criando narrativas convincentes e histórias visuais que ressoam com audiências diversas.',
+      },
+      militaryTelecom: {
+        label: 'Telecom Militar',
+        description: '10+ anos gerenciando sistemas de comunicação críticos e redes táticas seguras no Exército Brasileiro.',
       },
     },
     nav: {

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import type { Container, Engine } from "@tsparticles/engine";
-import { Download, Code2, Database, Zap, Brain, Terminal } from "lucide-react";
+import { Download, Code2, Database, Zap, Brain, Terminal, Radio, Video, Share2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -179,6 +179,27 @@ export const HeroSection = () => {
             description={t.badges.systemsAnalysis.description}
             delay={0.5}
             color="orange"
+          />
+          <AnimatedBadge 
+            icon={<Share2 className="w-6 h-6 text-[#3B82F6]" />}
+            label={t.badges.socialMedia.label}
+            description={t.badges.socialMedia.description}
+            delay={0.6}
+            color="cyan"
+          />
+          <AnimatedBadge 
+            icon={<Video className="w-6 h-6 text-[#F43F5E]" />}
+            label={t.badges.contentCreator.label}
+            description={t.badges.contentCreator.description}
+            delay={0.7}
+            color="pink"
+          />
+          <AnimatedBadge 
+            icon={<Radio className="w-6 h-6 text-[#84CC16]" />}
+            label={t.badges.militaryTelecom.label}
+            description={t.badges.militaryTelecom.description}
+            delay={0.8}
+            color="green"
           />
         </motion.div>
 
