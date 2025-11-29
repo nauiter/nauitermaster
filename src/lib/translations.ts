@@ -359,19 +359,19 @@ export const translations: Record<Language, Translations> = {
       technicalAI: 'Technical AI',
       textAI: {
         title: 'Text AI (Prompt Engineering)',
-        description: 'GPTs, Claude, Llama - advanced prompt engineering & ideation workflows.',
+        description: 'GPTs, Claude, Llama. Advanced prompt engineering & ideation workflows.',
       },
       imageVideoAI: {
         title: 'Image / Video AI',
-        description: 'Midjourney, Leonardo, Runway - creative workflow efficiency.',
+        description: 'Midjourney, Leonardo, Runway. Creative workflow efficiency.',
       },
       audioAI: {
         title: 'Audio AI',
-        description: 'Suno, Udio, ElevenLabs - voice & audio production expertise.',
+        description: 'Suno, Udio, ElevenLabs. Voice & audio production expertise.',
       },
       automation: {
         title: 'Automation',
-        description: 'Make, Zapier, n8n - no-code workflow orchestration & optimization.',
+        description: 'Make, Zapier, n8n. No-code workflow orchestration & optimization.',
       },
       proficiency: 'Proficiency',
     },
@@ -515,7 +515,7 @@ export const translations: Record<Language, Translations> = {
     },
     impact: {
       title: 'Impact Metrics',
-      subtitle: 'Expressing creativity through data - each number tells part of the story.',
+      subtitle: 'Expressing creativity through data, each number tells part of the story.',
       aiVisualsGenerated: 'AI Visuals Generated',
       ecosystemsBuilt: 'Creative Ecosystems Built',
       aiDrivenBrands: 'AI-Driven Brands',
@@ -524,7 +524,7 @@ export const translations: Record<Language, Translations> = {
     },
     contact: {
       title: "Let's Co-Create the Future",
-      subtitle: 'If your vision connects with mine - let\'s build something extraordinary.',
+      subtitle: 'If your vision connects with mine, let\'s build something extraordinary.',
       bookCall: 'Book a Discovery Call',
       email: 'Email',
       followMe: 'Follow Me',
@@ -668,19 +668,19 @@ export const translations: Record<Language, Translations> = {
       technicalAI: 'IA Técnica',
       textAI: {
         title: 'IA de Texto (Prompt Engineering)',
-        description: 'GPTs, Claude, Llama - engenharia avançada de prompts (instruções estruturadas para IA) & workflows de ideação.',
+        description: 'GPTs, Claude, Llama. Engenharia avançada de prompts (instruções estruturadas para IA) & workflows de ideação.',
       },
       imageVideoAI: {
         title: 'IA de Imagem / Vídeo',
-        description: 'Midjourney, Leonardo, Runway - eficiência em workflows criativos (pipelines de produção visual).',
+        description: 'Midjourney, Leonardo, Runway. Eficiência em workflows criativos (pipelines de produção visual).',
       },
       audioAI: {
         title: 'IA de Áudio',
-        description: 'Suno, Udio, ElevenLabs - expertise em produção de voz & áudio.',
+        description: 'Suno, Udio, ElevenLabs. Expertise em produção de voz & áudio.',
       },
       automation: {
         title: 'Automação (No-Code)',
-        description: 'Make, Zapier, n8n - orquestração & otimização de workflows sem código (integração entre sistemas).',
+        description: 'Make, Zapier, n8n. Orquestração & otimização de workflows sem código (integração entre sistemas).',
       },
       proficiency: 'Proficiência',
     },
@@ -824,7 +824,7 @@ export const translations: Record<Language, Translations> = {
     },
     impact: {
       title: 'Métricas de Impacto',
-      subtitle: 'Expressando criatividade através de dados - cada número conta parte da história.',
+      subtitle: 'Expressando criatividade através de dados, cada número conta parte da história.',
       aiVisualsGenerated: 'Visuais de IA Gerados',
       ecosystemsBuilt: 'Ecossistemas Criativos Construídos',
       aiDrivenBrands: 'Marcas Impulsionadas por IA',
@@ -833,7 +833,7 @@ export const translations: Record<Language, Translations> = {
     },
     contact: {
       title: 'Vamos Co-Criar o Futuro',
-      subtitle: 'Se sua visão se conecta com a minha - vamos construir algo extraordinário.',
+      subtitle: 'Se sua visão se conecta com a minha, vamos construir algo extraordinário.',
       bookCall: 'Agendar uma Chamada',
       email: 'Email',
       followMe: 'Me Siga',
