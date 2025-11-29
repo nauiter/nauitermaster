@@ -66,7 +66,8 @@ export const ImpactMetrics = () => {
     { value: METRICS.AI_VISUALS_GENERATED, label: t.impact.aiVisualsGenerated, delay: 100 },
     { value: METRICS.ECOSYSTEMS_BUILT, label: t.impact.ecosystemsBuilt, delay: 200 },
     { value: METRICS.AI_DRIVEN_BRANDS, label: t.impact.aiDrivenBrands, delay: 300 },
-    { value: METRICS.IDEAS_IN_MOTION, label: t.impact.ideasInMotion, delay: 400 },
+    { value: "10+", label: t.impact.militaryExperience, delay: 400 },
+    { value: METRICS.IDEAS_IN_MOTION, label: t.impact.ideasInMotion, delay: 500 },
   ];
 
   return (
@@ -84,7 +85,7 @@ export const ImpactMetrics = () => {
     >
       <div ref={sectionRef}>
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
           {metrics.map((metric, index) => (
             <MetricCard
               key={index}
