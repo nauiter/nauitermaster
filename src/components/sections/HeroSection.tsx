@@ -185,21 +185,21 @@ export const HeroSection = () => {
             label={t.badges.socialMedia.label}
             description={t.badges.socialMedia.description}
             delay={0.6}
-            color="cyan"
+            color="blue"
           />
           <AnimatedBadge 
-            icon={<Video className="w-6 h-6 text-[#F43F5E]" />}
+            icon={<Video className="w-6 h-6 text-[#EF4444]" />}
             label={t.badges.contentCreator.label}
             description={t.badges.contentCreator.description}
             delay={0.7}
-            color="pink"
+            color="red"
           />
           <AnimatedBadge 
-            icon={<Radio className="w-6 h-6 text-[#84CC16]" />}
+            icon={<Radio className="w-6 h-6 text-[#EAB308]" />}
             label={t.badges.militaryTelecom.label}
             description={t.badges.militaryTelecom.description}
             delay={0.8}
-            color="green"
+            color="yellow"
           />
         </motion.div>
 
