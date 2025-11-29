@@ -56,7 +56,7 @@ export const AnimatedBadge = ({ icon, label, description, delay = 0, color = "pu
               rotate: [0, -5, 5, -5, 0],
               transition: { duration: 0.3 }
             }}
-            className="group relative cursor-pointer"
+            className="group relative cursor-pointer transition-all duration-500 ease-in-out"
           >
             {/* Glow effect */}
             <motion.div
@@ -72,9 +72,9 @@ export const AnimatedBadge = ({ icon, label, description, delay = 0, color = "pu
             />
             
             {/* Badge content */}
-            <div className={`relative flex flex-col items-center gap-1.5 sm:gap-2 px-3 py-3 sm:px-5 sm:py-4 bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/10 ${glowVariants[color]} transition-all duration-300 group-hover:bg-white/10 group-hover:border-white/20`}>
+            <div className={`relative flex flex-col items-center gap-1.5 sm:gap-2 px-3 py-3 sm:px-5 sm:py-4 bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/10 ${glowVariants[color]} transition-all duration-500 ease-in-out group-hover:bg-white/10 group-hover:border-white/20`}>
               <motion.div
-                className="text-2xl sm:text-3xl"
+                className="text-2xl sm:text-3xl transition-all duration-500 ease-in-out"
                 animate={{
                   y: [0, -5, 0],
                 }}
@@ -88,7 +88,7 @@ export const AnimatedBadge = ({ icon, label, description, delay = 0, color = "pu
                 {icon}
               </motion.div>
               
-              <span className={`text-[10px] sm:text-xs font-medium text-transparent bg-clip-text bg-gradient-to-r ${colorVariants[color]} text-center leading-tight`}>
+              <span className={`text-[10px] sm:text-xs font-medium text-transparent bg-clip-text bg-gradient-to-r ${colorVariants[color]} text-center leading-tight transition-all duration-500 ease-in-out`}>
                 {label}
               </span>
             </div>
