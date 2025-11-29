@@ -204,7 +204,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'Exploring the edge between Intelligence, Art, and Automation.',
-      description: 'AI Strategist & Digital Artist | Founder of Sweet Life Animes & O Verme Passeia',
+      description: 'Systems Analyst & AI Strategist | Dev (TS/JS/SQL) | Content Creator & Digital Strategy',
       downloadCV: 'Download CV',
       viewProjects: 'View My Projects',
       linkedinFollowers: 'LinkedIn Followers',
@@ -414,7 +414,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'Explorando a fronteira entre Inteligência, Arte e Automação.',
-      description: 'Estrategista de IA & Artista Digital | Fundador de Sweet Life Animes & O Verme Passeia',
+      description: 'Analista de Sistemas & AI Strategist | Dev (TS/JS/SQL) | Criador de Conteúdo & Estratégia Digital',
       downloadCV: 'Baixar CV',
       viewProjects: 'Ver Meus Projetos',
       linkedinFollowers: 'Seguidores LinkedIn',
