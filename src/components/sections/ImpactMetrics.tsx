@@ -85,7 +85,7 @@ export const ImpactMetrics = () => {
     >
       <div ref={sectionRef}>
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
           {metrics.map((metric, index) => (
             <MetricCard
               key={index}

@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Facebook, Instagram, Linkedin, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Section } from "@/components/ui/section";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import { triggerMobileHaptic } from "@/lib/haptic";
@@ -8,6 +9,7 @@ import { useRippleEffect } from "@/hooks/useRippleEffect";
 
 export const ContactSection = () => {
   const { t, language } = useLanguage();
+  const isMobile = useIsMobile();
   
   const { createRipple } = useRippleEffect({
     color: 'rgba(122, 95, 255, 0.4)',
@@ -43,13 +45,13 @@ export const ContactSection = () => {
         <div className="mt-12 flex flex-wrap justify-center gap-4">
           <motion.a
             href={SOCIAL_LINKS.EMAIL}
-            whileHover={{ scale: 1.05 }}
+            whileHover={!isMobile ? { scale: 1.05 } : undefined}
             onTouchStart={(e) => {
               triggerMobileHaptic('medium');
               createRipple(e);
             }}
             onClick={(e) => createRipple(e)}
-            className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-white font-medium shadow-lg hover:shadow-[0_0_20px_rgba(122,95,255,0.5)] transition-all"
+            className="flex items-center gap-2 px-6 py-3 min-h-[44px] rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-white font-medium shadow-lg hover:shadow-[0_0_20px_rgba(122,95,255,0.5)] transition-all"
           >
             <Mail size={18} />
             <AnimatePresence mode="wait">
@@ -66,13 +68,13 @@ export const ContactSection = () => {
           </motion.a>
           <motion.a
             href="#projects"
-            whileHover={{ scale: 1.05 }}
+            whileHover={!isMobile ? { scale: 1.05 } : undefined}
             onTouchStart={(e) => {
               triggerMobileHaptic('light');
               createRipple(e);
             }}
             onClick={(e) => createRipple(e)}
-            className="flex items-center gap-2 px-6 py-3 rounded-full border border-[#7A5FFF80] text-white/90 hover:bg-white/10 transition-all"
+            className="flex items-center gap-2 px-6 py-3 min-h-[44px] rounded-full border border-[#7A5FFF80] text-white/90 hover:bg-white/10 transition-all"
           >
             <ArrowRight size={18} />
             <AnimatePresence mode="wait">
@@ -95,61 +97,61 @@ export const ContactSection = () => {
             href={SOCIAL_LINKS.EMAIL}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.1, color: "#7A5FFF" }}
+            whileHover={!isMobile ? { scale: 1.1, color: "#7A5FFF" } : undefined}
             onTouchStart={(e) => {
               triggerMobileHaptic('light');
               createRipple(e);
             }}
             onClick={(e) => createRipple(e)}
-            className="transition-colors"
+            className="transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Contact via email"
           >
-            <Mail size={24} />
+            <Mail size={28} />
           </motion.a>
           <motion.a
             href={SOCIAL_LINKS.FACEBOOK}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.1, color: "#00C4FF" }}
+            whileHover={!isMobile ? { scale: 1.1, color: "#00C4FF" } : undefined}
             onTouchStart={(e) => {
               triggerMobileHaptic('light');
               createRipple(e);
             }}
             onClick={(e) => createRipple(e)}
-            className="transition-colors"
+            className="transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Follow on Facebook"
           >
-            <Facebook size={24} />
+            <Facebook size={28} />
           </motion.a>
           <motion.a
             href={SOCIAL_LINKS.INSTAGRAM}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.1, color: "#7A5FFF" }}
+            whileHover={!isMobile ? { scale: 1.1, color: "#7A5FFF" } : undefined}
             onTouchStart={(e) => {
               triggerMobileHaptic('light');
               createRipple(e);
             }}
             onClick={(e) => createRipple(e)}
-            className="transition-colors"
+            className="transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Follow on Instagram"
           >
-            <Instagram size={24} />
+            <Instagram size={28} />
           </motion.a>
           <motion.a
             href={SOCIAL_LINKS.LINKEDIN}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.1, color: "#00C4FF" }}
+            whileHover={!isMobile ? { scale: 1.1, color: "#00C4FF" } : undefined}
             onTouchStart={(e) => {
               triggerMobileHaptic('light');
               createRipple(e);
             }}
             onClick={(e) => createRipple(e)}
-            className="transition-colors"
+            className="transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Connect on LinkedIn"
           >
-            <Linkedin size={24} />
+            <Linkedin size={28} />
           </motion.a>
         </div>
       </motion.div>

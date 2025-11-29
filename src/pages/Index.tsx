@@ -2,6 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FloatingNavbar } from "@/components/FloatingNavbar";
+import { SkipToContent } from "@/components/SkipToContent";
 import { EcosystemCarousel } from "@/components/EcosystemCarousel";
 import { ImpactMetrics } from "@/components/sections/ImpactMetrics";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -46,6 +47,9 @@ const Index = ({ forcedLanguage }: IndexProps) => {
       {/* SEO Head with dynamic meta tags and structured data */}
       <SEOHead forcedLanguage={forcedLanguage} />
       
+      {/* Skip to Content Link for Accessibility */}
+      <SkipToContent />
+      
       <FloatingNavbar />
       
       <AnimatePresence mode="wait">
@@ -68,6 +72,8 @@ const Index = ({ forcedLanguage }: IndexProps) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
+      {/* Main Content Wrapper */}
+      <main id="main-content">
       {/* Hero Section */}
       <HeroSection />
 
@@ -81,33 +87,33 @@ const Index = ({ forcedLanguage }: IndexProps) => {
       <EcosystemCarousel 
         projects={[
           {
-            name: "Sweet Life Animes",
-            purpose: "Empowering digital artists and storytellers.",
-            type: "Creative Brand",
+            name: t.ecosystem.projects.sweetLifeAnimes.name,
+            purpose: t.ecosystem.projects.sweetLifeAnimes.purpose,
+            type: t.ecosystem.projects.sweetLifeAnimes.type,
             color: "from-pink-500 to-fuchsia-400",
             image: sweetLifeAnimes,
             url: "https://sweetlifeanimes.com"
           },
           {
-            name: "Sweet Life Academy",
-            purpose: "AI education and automation for creators.",
-            type: "AI Education",
+            name: t.ecosystem.projects.sweetLifeAcademy.name,
+            purpose: t.ecosystem.projects.sweetLifeAcademy.purpose,
+            type: t.ecosystem.projects.sweetLifeAcademy.type,
             color: "from-purple-500 to-cyan-400",
             image: sweetLifeAcademy,
             url: "https://sweetlifeacademy.coursify.me/"
           },
           {
-            name: "O Verme Passeia",
-            purpose: "Exploring philosophy and aesthetics through design.",
-            type: "Art & Philosophy",
+            name: t.ecosystem.projects.oVermePasseia.name,
+            purpose: t.ecosystem.projects.oVermePasseia.purpose,
+            type: t.ecosystem.projects.oVermePasseia.type,
             color: "from-amber-500 to-yellow-400",
             image: oVermePasseia,
             url: "https://overmepasseia.com.br"
           },
           {
-            name: "Figueiredo Law",
-            purpose: "Law, technology, and AI ethics consultancy.",
-            type: "Ethics & AI",
+            name: t.ecosystem.projects.figueiredoLaw.name,
+            purpose: t.ecosystem.projects.figueiredoLaw.purpose,
+            type: t.ecosystem.projects.figueiredoLaw.type,
             color: "from-rose-600 to-gray-500",
             image: figueiredoLaw,
             url: "https://advocaciafigueiredo.adv.br"
@@ -129,10 +135,11 @@ const Index = ({ forcedLanguage }: IndexProps) => {
 
       {/* Contact & Collaboration CTA */}
       <ContactSection />
+      </main>
 
       {/* Footer */}
       <footer className="relative bg-gradient-to-b from-[#0c1324] to-[#000000]">
-        <div className="max-w-6xl mx-auto px-6 py-6">
+        <div className="max-w-6xl mx-auto px-6 py-8 sm:py-10">
           {/* Top Section - Links & Info */}
           <div className="grid md:grid-cols-2 gap-6 mb-4">
             {/* Quick Links */}
@@ -146,19 +153,19 @@ const Index = ({ forcedLanguage }: IndexProps) => {
                   transition={{ duration: 0.2 }}
                   className="text-white font-semibold mb-3 text-sm uppercase tracking-wider"
                 >
-                  {language === 'pt' ? 'Legal' : 'Legal'}
+                  {language === 'pt' ? 'Jurídico' : 'Legal'}
                 </motion.h4>
               </AnimatePresence>
               <div className="flex flex-col gap-2">
                 <Link 
                   to={`/${language}/privacy-policy`}
-                  className="text-gray-400 hover:text-[#00C4FF] transition-colors text-sm"
+                  className="text-gray-400 hover:text-[#00C4FF] transition-colors text-sm py-2 px-2 min-h-[44px] inline-flex items-center"
                 >
                   {language === 'pt' ? 'Política de Privacidade' : 'Privacy Policy'}
                 </Link>
                 <Link 
                   to={`/${language}/terms-of-use`}
-                  className="text-gray-400 hover:text-[#00C4FF] transition-colors text-sm"
+                  className="text-gray-400 hover:text-[#00C4FF] transition-colors text-sm py-2 px-2 min-h-[44px] inline-flex items-center"
                 >
                   {language === 'pt' ? 'Termos de Uso' : 'Terms of Use'}
                 </Link>
@@ -184,7 +191,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
                   href="https://linkedin.com/in/nauiter-master-678a71144"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#00C4FF]/20 hover:border-[#00C4FF] transition-all group"
+                  className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#00C4FF]/20 hover:border-[#00C4FF] transition-all group min-h-[44px] min-w-[44px]"
                   aria-label="LinkedIn"
                 >
                   <svg className="w-5 h-5 text-gray-400 group-hover:text-[#00C4FF]" fill="currentColor" viewBox="0 0 24 24">
@@ -195,7 +202,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
                   href="https://instagram.com/nauiter.master"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#7A5FFF]/20 hover:border-[#7A5FFF] transition-all group"
+                  className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#7A5FFF]/20 hover:border-[#7A5FFF] transition-all group min-h-[44px] min-w-[44px]"
                   aria-label="Instagram"
                 >
                   <svg className="w-5 h-5 text-gray-400 group-hover:text-[#7A5FFF]" fill="currentColor" viewBox="0 0 24 24">
@@ -206,7 +213,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
                   href="https://facebook.com/nauiter.master"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#00C4FF]/20 hover:border-[#00C4FF] transition-all group"
+                  className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#00C4FF]/20 hover:border-[#00C4FF] transition-all group min-h-[44px] min-w-[44px]"
                   aria-label="Facebook"
                 >
                   <svg className="w-5 h-5 text-gray-400 group-hover:text-[#00C4FF]" fill="currentColor" viewBox="0 0 24 24">
