@@ -13,6 +13,7 @@ export const FloatingNavbar = () => {
   const navItems = [
     { id: 'hero', label: t.nav.home },
     { id: 'projects', label: t.nav.projects },
+    { id: 'tech-stack', label: t.nav.techStack },
     { id: 'impact', label: t.nav.metrics },
     { id: 'contact', label: t.nav.contact },
   ];
