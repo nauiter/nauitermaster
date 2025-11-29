@@ -18,29 +18,28 @@ export interface Translations {
     yearsExperience: string;
     activeProjects: string;
   };
-  // Skill Badges
-  badges: {
-    aiStrategy: {
-      label: string;
-      description: string;
+    badges: {
+      aiStrategy: {
+        label: string;
+        description: string;
+      };
+      development: {
+        label: string;
+        description: string;
+      };
+      database: {
+        label: string;
+        description: string;
+      };
+      automation: {
+        label: string;
+        description: string;
+      };
+      systemsAnalysis: {
+        label: string;
+        description: string;
+      };
     };
-    digitalArt: {
-      label: string;
-      description: string;
-    };
-    promptEng: {
-      label: string;
-      description: string;
-    };
-    automation: {
-      label: string;
-      description: string;
-    };
-    creativeAI: {
-      label: string;
-      description: string;
-    };
-  };
   // Navigation
   nav: {
     home: string;
@@ -216,21 +215,21 @@ export const translations: Record<Language, Translations> = {
         label: 'AI Strategy',
         description: 'Developing AI strategies for optimizing creative processes and intelligent workflow automation.',
       },
-      digitalArt: {
-        label: 'Digital Art',
-        description: 'Creating digital art using generative AI tools, focusing on visual composition and creative storytelling.',
+      development: {
+        label: 'TS/JS Dev',
+        description: 'Full-stack development with TypeScript, JavaScript, React, Node.js and modern web technologies.',
       },
-      promptEng: {
-        label: 'Prompt Eng',
-        description: 'Specialization in prompt engineering to maximize results in language models and image generation.',
+      database: {
+        label: 'SQL/DB',
+        description: 'Database design, optimization and management with SQL, PostgreSQL, Supabase and cloud solutions.',
       },
       automation: {
         label: 'Automation',
         description: 'Automating creative and operational processes using AI APIs and intelligent systems integration.',
       },
-      creativeAI: {
-        label: 'Creative AI',
-        description: 'Exploring creative AI for generating original content, storytelling and unique interactive experiences.',
+      systemsAnalysis: {
+        label: 'Systems Analysis',
+        description: 'Requirements analysis, system architecture design and technical documentation for complex projects.',
       },
     },
     nav: {
@@ -426,21 +425,21 @@ export const translations: Record<Language, Translations> = {
         label: 'Estratégia IA',
         description: 'Desenvolvimento de estratégias de IA para otimização de processos criativos e automação inteligente de workflows.',
       },
-      digitalArt: {
-        label: 'Arte Digital',
-        description: 'Criação de arte digital usando ferramentas de IA generativa, com foco em composição visual e narrativa criativa.',
+      development: {
+        label: 'Dev TS/JS',
+        description: 'Desenvolvimento full-stack com TypeScript, JavaScript, React, Node.js e tecnologias web modernas.',
       },
-      promptEng: {
-        label: 'Eng. Prompts',
-        description: 'Especialização em engenharia de prompts para maximizar resultados em modelos de linguagem e geração de imagens.',
+      database: {
+        label: 'SQL/BD',
+        description: 'Design, otimização e gerenciamento de banco de dados com SQL, PostgreSQL, Supabase e soluções cloud.',
       },
       automation: {
         label: 'Automação',
         description: 'Automação de processos criativos e operacionais usando APIs de IA e integração de sistemas inteligentes.',
       },
-      creativeAI: {
-        label: 'IA Criativa',
-        description: 'Exploração de IA criativa para geração de conteúdo original, storytelling e experiências interativas únicas.',
+      systemsAnalysis: {
+        label: 'Análise Sistemas',
+        description: 'Análise de requisitos, arquitetura de sistemas e documentação técnica para projetos complexos.',
       },
     },
     nav: {

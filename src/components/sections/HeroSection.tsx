@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import type { Container, Engine } from "@tsparticles/engine";
-import { Download, Sparkles, Palette, Wand2, Zap, Brain } from "lucide-react";
+import { Download, Code2, Database, Zap, Brain, Terminal } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -153,16 +153,16 @@ export const HeroSection = () => {
             color="purple"
           />
           <AnimatedBadge 
-            icon={<Palette className="w-6 h-6 text-[#00C4FF]" />}
-            label={t.badges.digitalArt.label}
-            description={t.badges.digitalArt.description}
+            icon={<Code2 className="w-6 h-6 text-[#00C4FF]" />}
+            label={t.badges.development.label}
+            description={t.badges.development.description}
             delay={0.2}
             color="cyan"
           />
           <AnimatedBadge 
-            icon={<Wand2 className="w-6 h-6 text-[#EC4899]" />}
-            label={t.badges.promptEng.label}
-            description={t.badges.promptEng.description}
+            icon={<Database className="w-6 h-6 text-[#EC4899]" />}
+            label={t.badges.database.label}
+            description={t.badges.database.description}
             delay={0.3}
             color="pink"
           />
@@ -174,11 +174,11 @@ export const HeroSection = () => {
             color="green"
           />
           <AnimatedBadge 
-            icon={<Sparkles className="w-6 h-6 text-[#7A5FFF]" />}
-            label={t.badges.creativeAI.label}
-            description={t.badges.creativeAI.description}
+            icon={<Terminal className="w-6 h-6 text-[#F59E0B]" />}
+            label={t.badges.systemsAnalysis.label}
+            description={t.badges.systemsAnalysis.description}
             delay={0.5}
-            color="purple"
+            color="orange"
           />
         </motion.div>
 
