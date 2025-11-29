@@ -105,6 +105,28 @@ export interface Translations {
     title: string;
     subtitle: string;
     centralNode: string;
+    projects: {
+      sweetLifeAnimes: {
+        name: string;
+        purpose: string;
+        type: string;
+      };
+      sweetLifeAcademy: {
+        name: string;
+        purpose: string;
+        type: string;
+      };
+      oVermePasseia: {
+        name: string;
+        purpose: string;
+        type: string;
+      };
+      figueiredoLaw: {
+        name: string;
+        purpose: string;
+        type: string;
+      };
+    };
   };
   // Skills Section
   skills: {
@@ -400,6 +422,28 @@ export const translations: Record<Language, Translations> = {
       title: 'Creative & Strategic Ecosystem',
       subtitle: 'An interconnected network of brands, projects, and ideas.',
       centralNode: 'Creator, Strategist & AI Visionary',
+      projects: {
+        sweetLifeAnimes: {
+          name: 'Sweet Life Animes',
+          purpose: 'Empowering digital artists and storytellers.',
+          type: 'Creative Brand'
+        },
+        sweetLifeAcademy: {
+          name: 'Sweet Life Academy',
+          purpose: 'AI education and automation for creators.',
+          type: 'AI Education'
+        },
+        oVermePasseia: {
+          name: 'O Verme Passeia',
+          purpose: 'Exploring philosophy and aesthetics through design.',
+          type: 'Art & Philosophy'
+        },
+        figueiredoLaw: {
+          name: 'Figueiredo Law',
+          purpose: 'Law, technology, and AI ethics consultancy.',
+          type: 'Ethics & AI'
+        }
+      }
     },
     skills: {
       title: 'Skills & Competencies',
@@ -687,6 +731,28 @@ export const translations: Record<Language, Translations> = {
       title: 'Ecossistema Criativo & Estratégico',
       subtitle: 'Uma rede interconectada de marcas, projetos e ideias.',
       centralNode: 'Criador, Estrategista & Visionário de IA',
+      projects: {
+        sweetLifeAnimes: {
+          name: 'Sweet Life Animes',
+          purpose: 'Capacitando artistas digitais e contadores de histórias.',
+          type: 'Marca Criativa'
+        },
+        sweetLifeAcademy: {
+          name: 'Sweet Life Academy',
+          purpose: 'Educação em IA e automação para criadores.',
+          type: 'Educação IA'
+        },
+        oVermePasseia: {
+          name: 'O Verme Passeia',
+          purpose: 'Explorando filosofia e estética através do design.',
+          type: 'Arte & Filosofia'
+        },
+        figueiredoLaw: {
+          name: 'Figueiredo Law',
+          purpose: 'Consultoria em direito, tecnologia e ética de IA.',
+          type: 'Ética & IA'
+        }
+      }
     },
     skills: {
       title: 'Habilidades & Competências',
