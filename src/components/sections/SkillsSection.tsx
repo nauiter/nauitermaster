@@ -12,6 +12,11 @@ export const SkillsSection = () => {
   const skill4 = useCard3D(6);
   const skill5 = useCard3D(6);
   const skill6 = useCard3D(6);
+  const skill7 = useCard3D(6);
+  const skill8 = useCard3D(6);
+  const skill9 = useCard3D(6);
+  const skill10 = useCard3D(6);
+  const skill11 = useCard3D(6);
 
   return (
     <Section
@@ -28,7 +33,8 @@ export const SkillsSection = () => {
       className="motion-safe:opacity-0 motion-safe:translate-y-6 motion-safe:transition-all motion-safe:duration-700 motion-safe:[animation:fadeInUp_0.7s_ease-out_forwards]"
       containerClassName="mb-12"
     >
-      <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+        {/* Core Strengths */}
         <div>
           <AnimatePresence mode="wait">
             <motion.h3
@@ -83,6 +89,7 @@ export const SkillsSection = () => {
           </div>
         </div>
 
+        {/* Growing Areas */}
         <div>
           <AnimatePresence mode="wait">
             <motion.h3
@@ -133,6 +140,85 @@ export const SkillsSection = () => {
             >
               <span className="text-gray-300">Multi-modal AI Systems</span>
               <div className="w-2 h-2 bg-accent rounded-full shadow-glow"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Leadership & Ops - New Category */}
+        <div>
+          <AnimatePresence mode="wait">
+            <motion.h3
+              key={`leadership-ops-${language}`}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ duration: 0.3 }}
+              className="font-semibold text-white mb-6 text-xl md:text-2xl flex items-center gap-2"
+            >
+              <div className="w-2 h-2 bg-[#FFD700] rounded-full"></div>
+              {t.skills.leadershipOps}
+            </motion.h3>
+          </AnimatePresence>
+          <div className="space-y-4">
+            <div 
+              onMouseMove={skill7.handleMouseMove}
+              onMouseLeave={skill7.handleMouseLeave}
+              onTouchStart={skill7.handleTouchStart}
+              onTouchMove={skill7.handleTouchMove}
+              onTouchEnd={skill7.handleTouchEnd}
+              style={skill7.cardStyle}
+              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#FFD700]/20 active:bg-white/20 active:shadow-xl active:shadow-[#FFD700]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.1s_forwards]"
+            >
+              <span className="text-gray-300">{language === 'pt' ? 'Telecom & Redes Militares' : 'Military Telecom & Networks'}</span>
+              <div className="w-2 h-2 bg-[#FFD700] rounded-full shadow-glow"></div>
+            </div>
+            <div 
+              onMouseMove={skill8.handleMouseMove}
+              onMouseLeave={skill8.handleMouseLeave}
+              onTouchStart={skill8.handleTouchStart}
+              onTouchMove={skill8.handleTouchMove}
+              onTouchEnd={skill8.handleTouchEnd}
+              style={skill8.cardStyle}
+              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#FFD700]/20 active:bg-white/20 active:shadow-xl active:shadow-[#FFD700]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.2s_forwards]"
+            >
+              <span className="text-gray-300">{language === 'pt' ? 'Liderança de Equipes (10+ Anos)' : 'Team Leadership (10+ Years)'}</span>
+              <div className="w-2 h-2 bg-[#FFD700] rounded-full shadow-glow"></div>
+            </div>
+            <div 
+              onMouseMove={skill9.handleMouseMove}
+              onMouseLeave={skill9.handleMouseLeave}
+              onTouchStart={skill9.handleTouchStart}
+              onTouchMove={skill9.handleTouchMove}
+              onTouchEnd={skill9.handleTouchEnd}
+              style={skill9.cardStyle}
+              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#FFD700]/20 active:bg-white/20 active:shadow-xl active:shadow-[#FFD700]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.3s_forwards]"
+            >
+              <span className="text-gray-300">{language === 'pt' ? 'Gestão de Crises' : 'Crisis Management'}</span>
+              <div className="w-2 h-2 bg-[#FFD700] rounded-full shadow-glow"></div>
+            </div>
+            <div 
+              onMouseMove={skill10.handleMouseMove}
+              onMouseLeave={skill10.handleMouseLeave}
+              onTouchStart={skill10.handleTouchStart}
+              onTouchMove={skill10.handleTouchMove}
+              onTouchEnd={skill10.handleTouchEnd}
+              style={skill10.cardStyle}
+              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#FFD700]/20 active:bg-white/20 active:shadow-xl active:shadow-[#FFD700]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.4s_forwards]"
+            >
+              <span className="text-gray-300">{language === 'pt' ? 'Logística Operacional' : 'Operational Logistics'}</span>
+              <div className="w-2 h-2 bg-[#FFD700] rounded-full shadow-glow"></div>
+            </div>
+            <div 
+              onMouseMove={skill11.handleMouseMove}
+              onMouseLeave={skill11.handleMouseLeave}
+              onTouchStart={skill11.handleTouchStart}
+              onTouchMove={skill11.handleTouchMove}
+              onTouchEnd={skill11.handleTouchEnd}
+              style={skill11.cardStyle}
+              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#FFD700]/20 active:bg-white/20 active:shadow-xl active:shadow-[#FFD700]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.5s_forwards]"
+            >
+              <span className="text-gray-300">{language === 'pt' ? 'Instrução & Treinamento' : 'Instruction & Training'}</span>
+              <div className="w-2 h-2 bg-[#FFD700] rounded-full shadow-glow"></div>
             </div>
           </div>
         </div>

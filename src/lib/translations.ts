@@ -99,6 +99,7 @@ export interface Translations {
     title: string;
     coreStrengths: string;
     growingAreas: string;
+    leadershipOps: string;
   };
   // Tech Stack Section
   techStack: {
@@ -139,6 +140,7 @@ export interface Translations {
     aiVisualsGenerated: string;
     ecosystemsBuilt: string;
     aiDrivenBrands: string;
+    militaryExperience: string;
     ideasInMotion: string;
   };
   // Contact Section
@@ -236,7 +238,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'Exploring the edge between Intelligence, Art, and Automation.',
-      description: 'Systems Analyst & AI Strategist | Dev (TS/JS/SQL) | Content Creator & Digital Strategy',
+      description: 'With over 10 years of service in the Brazilian Army as a Communications Sergeant, my professional foundation is built on discipline, team leadership, and critical systems management. I have translated this "mission accomplished" mindset into software development and AI strategy. I don\'t just write code; I architect resilient systems and lead strategic execution.',
       downloadCV: 'Download CV',
       viewProjects: 'View My Projects',
       linkedinFollowers: 'LinkedIn Followers',
@@ -347,6 +349,7 @@ export const translations: Record<Language, Translations> = {
       title: 'Skills & Competencies',
       coreStrengths: 'Core Strengths',
       growingAreas: 'Growing Areas',
+      leadershipOps: 'Leadership & Ops',
     },
     techStack: {
       title: 'Tech Stack & Tools',
@@ -385,6 +388,7 @@ export const translations: Record<Language, Translations> = {
       aiVisualsGenerated: 'AI Visuals Generated',
       ecosystemsBuilt: 'Creative Ecosystems Built',
       aiDrivenBrands: 'AI-Driven Brands',
+      militaryExperience: 'Years Military Leadership & Telecom',
       ideasInMotion: 'Ideas in Motion',
     },
     contact: {
@@ -478,7 +482,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'Explorando a fronteira entre Inteligência, Arte e Automação.',
-      description: 'Analista de Sistemas & AI Strategist | Dev (TS/JS/SQL) | Criador de Conteúdo & Estratégia Digital',
+      description: 'Com mais de 10 anos de carreira no Exército Brasileiro como Sargento de Comunicações, minha base profissional é a disciplina, a liderança de equipes e a gestão de sistemas críticos. Transpus essa mentalidade de "missão dada é missão cumprida" para o desenvolvimento de software e estratégia de IA. Não apenas escrevo código; eu projeto sistemas resilientes e lidero a execução estratégica.',
       downloadCV: 'Baixar CV',
       viewProjects: 'Ver Meus Projetos',
       linkedinFollowers: 'Seguidores LinkedIn',
@@ -589,6 +593,7 @@ export const translations: Record<Language, Translations> = {
       title: 'Habilidades & Competências',
       coreStrengths: 'Forças Principais',
       growingAreas: 'Áreas em Crescimento',
+      leadershipOps: 'Liderança & Ops',
     },
     techStack: {
       title: 'Stack Tecnológico & Ferramentas',
@@ -627,6 +632,7 @@ export const translations: Record<Language, Translations> = {
       aiVisualsGenerated: 'Visuais de IA Gerados',
       ecosystemsBuilt: 'Ecossistemas Criativos Construídos',
       aiDrivenBrands: 'Marcas Impulsionadas por IA',
+      militaryExperience: 'Anos de Liderança Militar & Telecom',
       ideasInMotion: 'Ideias em Movimento',
     },
     contact: {
