@@ -12,6 +12,7 @@ interface AnimatedBadgeProps {
   label: string;
   description: string;
   delay?: number;
+  duration?: number;
   color?: "purple" | "cyan" | "pink" | "green" | "orange" | "blue" | "red" | "yellow";
 }
 
@@ -37,7 +38,7 @@ const glowVariants = {
   yellow: "shadow-[0_0_20px_rgba(234,179,8,0.4)]",
 };
 
-export const AnimatedBadge = ({ icon, label, description, delay = 0, color = "purple" }: AnimatedBadgeProps) => {
+export const AnimatedBadge = ({ icon, label, description, delay = 0, duration = 0.5, color = "purple" }: AnimatedBadgeProps) => {
   return (
     <TooltipProvider delayDuration={200}>
       <Tooltip>
@@ -46,7 +47,7 @@ export const AnimatedBadge = ({ icon, label, description, delay = 0, color = "pu
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{
-              duration: 0.5,
+              duration,
               delay,
               type: "spring",
               stiffness: 200,

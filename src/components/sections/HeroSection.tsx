@@ -7,6 +7,7 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 import { AnimatedBadge } from "@/components/ui/animated-badge";
 import portfolioAvatar from "@/assets/portfolio-avatar.webp";
 import { useLanguage } from "@/hooks/useLanguage";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { PARTICLES_OPTIONS } from "@/lib/particlesConfig";
 import { triggerMobileHaptic } from "@/lib/haptic";
 import { useRippleEffect } from "@/hooks/useRippleEffect";
@@ -15,8 +16,14 @@ const Particles = lazy(() => import("@tsparticles/react"));
 
 export const HeroSection = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
   const [init, setInit] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  
+  // Different animation timings for mobile vs desktop
+  const baseDelay = isMobile ? 0.4 : 0.6;
+  const badgeDelay = isMobile ? 0.05 : 0.1;
+  const badgeDuration = isMobile ? 0.3 : 0.5;
   
   const { createRipple } = useRippleEffect({
     color: 'rgba(122, 95, 255, 0.4)',
@@ -112,7 +119,7 @@ export const HeroSection = () => {
           className="space-y-4 sm:space-y-6 px-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          transition={{ duration: isMobile ? 0.6 : 1, delay: isMobile ? 0.15 : 0.3 }}
           style={{
             willChange: 'opacity, transform',
             transform: 'translateZ(0)',
@@ -143,62 +150,70 @@ export const HeroSection = () => {
           className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 sm:gap-6 px-4 max-w-2xl mx-auto transition-all duration-500 ease-in-out"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: isMobile ? 0.3 : 0.5 }}
         >
           <AnimatedBadge 
             icon={<Brain className="w-5 h-5 sm:w-6 sm:h-6 text-[#7A5FFF] transition-all duration-500 ease-in-out" />}
             label={t.badges.aiStrategy.label}
             description={t.badges.aiStrategy.description}
-            delay={0.1}
+            delay={baseDelay + (badgeDelay * 0)}
+            duration={badgeDuration}
             color="purple"
           />
           <AnimatedBadge 
             icon={<Code2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#00C4FF] transition-all duration-500 ease-in-out" />}
             label={t.badges.development.label}
             description={t.badges.development.description}
-            delay={0.2}
+            delay={baseDelay + (badgeDelay * 1)}
+            duration={badgeDuration}
             color="cyan"
           />
           <AnimatedBadge 
             icon={<Database className="w-5 h-5 sm:w-6 sm:h-6 text-[#EC4899] transition-all duration-500 ease-in-out" />}
             label={t.badges.database.label}
             description={t.badges.database.description}
-            delay={0.3}
+            delay={baseDelay + (badgeDelay * 2)}
+            duration={badgeDuration}
             color="pink"
           />
           <AnimatedBadge 
             icon={<Zap className="w-5 h-5 sm:w-6 sm:h-6 text-[#10B981] transition-all duration-500 ease-in-out" />}
             label={t.badges.automation.label}
             description={t.badges.automation.description}
-            delay={0.4}
+            delay={baseDelay + (badgeDelay * 3)}
+            duration={badgeDuration}
             color="green"
           />
           <AnimatedBadge 
             icon={<Terminal className="w-5 h-5 sm:w-6 sm:h-6 text-[#F59E0B] transition-all duration-500 ease-in-out" />}
             label={t.badges.systemsAnalysis.label}
             description={t.badges.systemsAnalysis.description}
-            delay={0.5}
+            delay={baseDelay + (badgeDelay * 4)}
+            duration={badgeDuration}
             color="orange"
           />
           <AnimatedBadge 
             icon={<Share2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#3B82F6] transition-all duration-500 ease-in-out" />}
             label={t.badges.socialMedia.label}
             description={t.badges.socialMedia.description}
-            delay={0.6}
+            delay={baseDelay + (badgeDelay * 5)}
+            duration={badgeDuration}
             color="blue"
           />
           <AnimatedBadge 
             icon={<Video className="w-5 h-5 sm:w-6 sm:h-6 text-[#EF4444] transition-all duration-500 ease-in-out" />}
             label={t.badges.contentCreator.label}
             description={t.badges.contentCreator.description}
-            delay={0.7}
+            delay={baseDelay + (badgeDelay * 6)}
+            duration={badgeDuration}
             color="red"
           />
           <AnimatedBadge 
             icon={<Radio className="w-5 h-5 sm:w-6 sm:h-6 text-[#EAB308] transition-all duration-500 ease-in-out" />}
             label={t.badges.militaryTelecom.label}
             description={t.badges.militaryTelecom.description}
-            delay={0.8}
+            delay={baseDelay + (badgeDelay * 7)}
+            duration={badgeDuration}
             color="yellow"
           />
         </motion.div>
@@ -208,7 +223,7 @@ export const HeroSection = () => {
           className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
+          transition={{ duration: isMobile ? 0.4 : 0.8, delay: isMobile ? 0.75 : 0.9 }}
         >
           <Button
             asChild
