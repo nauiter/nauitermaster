@@ -480,7 +480,7 @@ export const translations: Record<Language, Translations> = {
           technologies: ['Git', 'GitHub', 'VS Code', 'Figma', 'Notion', 'Linear']
         }
       },
-      footer: 'Always learning and adapting to new technologies to deliver cutting-edge solutions.'
+      footer: ''
     },
     softSkills: {
       title: 'Soft Skills & Human Competencies',
@@ -511,7 +511,7 @@ export const translations: Record<Language, Translations> = {
           skills: ['Change Management', 'Stress Tolerance', 'Fast Learning', 'Continuous Growth']
         }
       },
-      footer: 'Combining military discipline with tech agility to deliver exceptional results under any conditions.'
+      footer: ''
     },
     impact: {
       title: 'Impact Metrics',
@@ -789,7 +789,7 @@ export const translations: Record<Language, Translations> = {
           technologies: ['Git', 'GitHub', 'VS Code', 'Figma', 'Notion', 'Linear']
         }
       },
-      footer: 'Sempre aprendendo e adaptando a novas tecnologias para entregar soluções de ponta.'
+      footer: ''
     },
     softSkills: {
       title: 'Soft Skills & Competências Humanas',
@@ -820,7 +820,7 @@ export const translations: Record<Language, Translations> = {
           skills: ['Gestão de Mudanças', 'Tolerância ao Estresse', 'Aprendizado Rápido', 'Crescimento Contínuo']
         }
       },
-      footer: 'Combinando disciplina militar com agilidade tech para entregar resultados excepcionais sob quaisquer condições.'
+      footer: ''
     },
     impact: {
       title: 'Métricas de Impacto',
