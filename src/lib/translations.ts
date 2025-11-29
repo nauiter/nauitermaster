@@ -503,7 +503,7 @@ export const translations: Record<Language, Translations> = {
         description: 'Automação de processos criativos e operacionais usando APIs de IA e integração de sistemas inteligentes.',
       },
       systemsAnalysis: {
-        label: 'Análise Sistemas',
+        label: 'Análise de Sistemas',
         description: 'Análise de requisitos, arquitetura de sistemas e documentação técnica para projetos complexos.',
       },
     },
