@@ -620,12 +620,44 @@ export const translations: Record<Language, Translations> = {
           color: 'from-pink-500 to-rose-500'
         },
         {
+          title: 'Curriculum and Didactics for Indirect Teaching Agents',
+          issuer: 'Personnel Studies Center - CEP',
+          date: 'May 2023',
+          credentialId: '645671ee-1868-44b0-b8f9-bfa5c0a80174',
+          skills: ['Teamwork', 'Public Speaking', 'Server Administration'],
+          color: 'from-amber-500 to-orange-500'
+        },
+        {
+          title: 'Competency-Based Teaching',
+          issuer: 'Personnel Studies Center - CEP',
+          date: 'May 2023',
+          credentialId: '64593aa4-4cd4-4eeb-bd13-50e2c0a80174',
+          skills: ['Cybersecurity', 'Military Logistics', 'AI Systems'],
+          color: 'from-violet-500 to-purple-500'
+        },
+        {
+          title: 'Learning Assessment Theory and Practice',
+          issuer: 'Personnel Studies Center - CEP',
+          date: 'May 2023',
+          credentialId: '64593f43-cac8-498e-b70c-50efc0a80174',
+          skills: ['Cybersecurity', 'Military Logistics', 'AI Systems'],
+          color: 'from-sky-500 to-blue-500'
+        },
+        {
           title: 'Personal Management - Leadership Base',
           issuer: 'Enap - National School of Public Administration',
           date: 'May 2023',
           credentialId: 'Vw3a9272046lH9H',
           skills: ['Leadership', 'Team Management', 'Strategic Thinking'],
           color: 'from-blue-500 to-indigo-500'
+        },
+        {
+          title: 'Veterans and Pensioners Service Internship',
+          issuer: 'ESIE - Specialized Instruction School',
+          date: 'April 2022',
+          credentialId: '624c91d5-b4e8-4173-85b5-e4a5c0a80174',
+          skills: ['Cybersecurity', 'Military Logistics', 'AI Systems'],
+          color: 'from-emerald-500 to-green-500'
         },
         {
           title: 'Innovation Management',
@@ -649,6 +681,30 @@ export const translations: Record<Language, Translations> = {
           credentialId: 'CVVm4539307hchM',
           skills: ['Ethics', 'Social Responsibility', 'Public Policy'],
           color: 'from-green-500 to-teal-500'
+        },
+        {
+          title: 'Basic Procurement Course - Facing (and winning) taboos',
+          issuer: 'Enap - National School of Public Administration',
+          date: 'March 2021',
+          credentialId: 'egrF42458838JXo',
+          skills: ['Cybersecurity', 'Teamwork', 'Server Administration'],
+          color: 'from-lime-500 to-green-500'
+        },
+        {
+          title: 'Statistics',
+          issuer: 'Enap - National School of Public Administration',
+          date: 'March 2021',
+          credentialId: 'mtrj4425905xHAl',
+          skills: ['Cybersecurity', 'Teamwork', 'Public Speaking'],
+          color: 'from-fuchsia-500 to-pink-500'
+        },
+        {
+          title: 'One For All and All For One',
+          issuer: 'Enap - National School of Public Administration',
+          date: 'January 2021',
+          credentialId: 'L9tN4133067hLa1',
+          skills: ['Cybersecurity', 'AI Systems', 'Teamwork'],
+          color: 'from-rose-500 to-red-500'
         },
         {
           title: 'Introduction to Cybersecurity',
@@ -1049,12 +1105,44 @@ export const translations: Record<Language, Translations> = {
           color: 'from-pink-500 to-rose-500'
         },
         {
+          title: 'Capacitação - Currículo e Didática',
+          issuer: 'Centro de Estudos de Pessoal - CEP',
+          date: 'Maio 2023',
+          credentialId: '645671ee-1868-44b0-b8f9-bfa5c0a80174',
+          skills: ['Trabalho em Equipe', 'Oratória', 'Administração de Servidores'],
+          color: 'from-amber-500 to-orange-500'
+        },
+        {
+          title: 'Capacitação - Ensino por Competências',
+          issuer: 'Centro de Estudos de Pessoal - CEP',
+          date: 'Maio 2023',
+          credentialId: '64593aa4-4cd4-4eeb-bd13-50e2c0a80174',
+          skills: ['Cibersegurança', 'Logística Militar', 'Sistemas de IA'],
+          color: 'from-violet-500 to-purple-500'
+        },
+        {
+          title: 'Capacitação - Avaliação da Aprendizagem',
+          issuer: 'Centro de Estudos de Pessoal - CEP',
+          date: 'Maio 2023',
+          credentialId: '64593f43-cac8-498e-b70c-50efc0a80174',
+          skills: ['Cibersegurança', 'Logística Militar', 'Sistemas de IA'],
+          color: 'from-sky-500 to-blue-500'
+        },
+        {
           title: 'EVG Gestão Pessoal - Base da Liderança',
           issuer: 'Enap - Escola Nacional de Administração Pública',
           date: 'Maio 2023',
           credentialId: 'Vw3a9272046lH9H',
           skills: ['Liderança', 'Gestão de Equipe', 'Pensamento Estratégico'],
           color: 'from-blue-500 to-indigo-500'
+        },
+        {
+          title: 'Estágio Setorial - Veteranos e Pensionistas',
+          issuer: 'ESIE - Escola de Instrução Especializada',
+          date: 'Abril 2022',
+          credentialId: '624c91d5-b4e8-4173-85b5-e4a5c0a80174',
+          skills: ['Cibersegurança', 'Logística Militar', 'Sistemas de IA'],
+          color: 'from-emerald-500 to-green-500'
         },
         {
           title: 'Gestão da Inovação',
@@ -1078,6 +1166,30 @@ export const translations: Record<Language, Translations> = {
           credentialId: 'CVVm4539307hchM',
           skills: ['Ética', 'Responsabilidade Social', 'Políticas Públicas'],
           color: 'from-green-500 to-teal-500'
+        },
+        {
+          title: 'EVG Licitações - Enfrentando (e vencendo) tabus',
+          issuer: 'Enap - Escola Nacional de Administração Pública',
+          date: 'Março 2021',
+          credentialId: 'egrF42458838JXo',
+          skills: ['Cibersegurança', 'Trabalho em Equipe', 'Administração de Servidores'],
+          color: 'from-lime-500 to-green-500'
+        },
+        {
+          title: 'EVG Estatística',
+          issuer: 'Enap - Escola Nacional de Administração Pública',
+          date: 'Março 2021',
+          credentialId: 'mtrj4425905xHAl',
+          skills: ['Cibersegurança', 'Trabalho em Equipe', 'Oratória'],
+          color: 'from-fuchsia-500 to-pink-500'
+        },
+        {
+          title: 'EVG Um Por Todos e Todos Por Um',
+          issuer: 'Enap - Escola Nacional de Administração Pública',
+          date: 'Janeiro 2021',
+          credentialId: 'L9tN4133067hLa1',
+          skills: ['Cibersegurança', 'Sistemas de IA', 'Trabalho em Equipe'],
+          color: 'from-rose-500 to-red-500'
         },
         {
           title: 'Introduction to Cybersecurity',
