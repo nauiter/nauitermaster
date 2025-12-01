@@ -11,6 +11,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { PARTICLES_OPTIONS } from "@/lib/particlesConfig";
 import { triggerMobileHaptic } from "@/lib/haptic";
 import { useRippleEffect } from "@/hooks/useRippleEffect";
+import { trackCVDownload, trackCTAClick } from "@/lib/analytics";
 
 const Particles = lazy(() => import("@tsparticles/react"));
 
@@ -271,6 +272,7 @@ export const HeroSection = () => {
               onClick={(e) => {
                 triggerMobileHaptic('success');
                 createRipple(e);
+                trackCVDownload('hero_section');
               }}
             >
               <Download size={18} />
@@ -290,7 +292,10 @@ export const HeroSection = () => {
                 triggerMobileHaptic('light');
                 createRipple(e);
               }}
-              onClick={(e) => createRipple(e)}
+              onClick={(e) => {
+                createRipple(e);
+                trackCTAClick('view_projects', 'hero_section');
+              }}
             >
               {t.hero.viewProjects}
             </a>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Language } from '@/lib/translations';
+import { trackLanguageChange } from '@/lib/analytics';
 
 export const LanguageToggle = () => {
   const { language, setLanguage } = useLanguage();
@@ -10,6 +11,9 @@ export const LanguageToggle = () => {
 
   const handleToggle = (newLang: Language) => {
     if (newLang === language) return;
+    
+    // Track language change
+    trackLanguageChange(language, newLang, location.pathname);
     
     setLanguage(newLang);
     
