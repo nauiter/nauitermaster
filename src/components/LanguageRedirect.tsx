@@ -25,9 +25,9 @@ const detectLanguageFromBrowser = (): Language | null => {
 // IP Geolocation detection
 const detectLanguageFromIP = async (): Promise<Language> => {
   try {
-    // Create a timeout promise
+    // Create a timeout promise (2 seconds for faster UX)
     const timeoutPromise = new Promise<never>((_, reject) =>
-      setTimeout(() => reject(new Error('IP detection timeout')), 3000)
+      setTimeout(() => reject(new Error('IP detection timeout')), 2000)
     );
     
     // Race between fetch and timeout
@@ -132,13 +132,24 @@ export const LanguageRedirect = () => {
     performRedirect();
   }, [navigate, location.pathname]);
 
-  // Show loading state during redirect
+  // Show loading state during redirect with SEO and accessibility improvements
   if (isRedirecting) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0c1324]">
+      <div 
+        className="min-h-screen flex items-center justify-center bg-[#0c1324]"
+        role="status"
+        aria-live="polite"
+        aria-label="Detecting your preferred language and loading content"
+      >
+        <noscript>
+          <meta name="description" content="Portfolio of Nauiter Master - AI Strategist, Systems Analyst, and Digital Artist specializing in AI creative workflows, automation, and digital art." />
+        </noscript>
         <div className="flex flex-col items-center gap-4">
-          <div className="w-12 h-12 border-4 border-[#7A5FFF]/30 border-t-[#7A5FFF] rounded-full animate-spin"></div>
-          <p className="text-gray-400 text-sm">Loading...</p>
+          <div 
+            className="w-12 h-12 border-4 border-[#7A5FFF]/30 border-t-[#7A5FFF] rounded-full animate-spin"
+            aria-hidden="true"
+          ></div>
+          <p className="text-gray-400 text-sm" role="alert">Loading...</p>
         </div>
       </div>
     );
