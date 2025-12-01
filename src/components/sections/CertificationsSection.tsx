@@ -89,7 +89,7 @@ export const CertificationsSection = () => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="group relative"
           >
-            {/* Glow effect */}
+            {/* Glow effect - matches certification color */}
             <div 
               className={`absolute -inset-0.5 bg-gradient-to-r ${cert.color} rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-300`}
             />
