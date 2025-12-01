@@ -580,7 +580,7 @@ export const translations: Record<Language, Translations> = {
           color: 'from-green-500 to-emerald-500'
         },
         {
-          title: 'Google Cloud Computing Foundations',
+          title: 'Google Cloud Computing',
           issuer: 'Google',
           date: 'August 2023',
           credentialId: '4825058',
@@ -1068,7 +1068,7 @@ export const translations: Record<Language, Translations> = {
           color: 'from-green-500 to-emerald-500'
         },
         {
-          title: 'Google Cloud Computing Foundations',
+          title: 'Google Cloud Computing',
           issuer: 'Google',
           date: 'Agosto 2023',
           credentialId: '4825058',
