@@ -6,6 +6,7 @@ import { Section } from "@/components/ui/section";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import { triggerMobileHaptic } from "@/lib/haptic";
 import { useRippleEffect } from "@/hooks/useRippleEffect";
+import { trackCTAClick, trackContactInteraction, trackSocialClick } from "@/lib/analytics";
 
 export const ContactSection = () => {
   const { t, language } = useLanguage();
@@ -50,7 +51,10 @@ export const ContactSection = () => {
               triggerMobileHaptic('medium');
               createRipple(e);
             }}
-            onClick={(e) => createRipple(e)}
+            onClick={(e) => {
+              createRipple(e);
+              trackContactInteraction('call_booking');
+            }}
             className="flex items-center gap-2 px-6 py-3 min-h-[44px] rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-white font-medium shadow-lg hover:shadow-[0_0_20px_rgba(122,95,255,0.5)] transition-all"
           >
             <Mail size={18} />
@@ -73,7 +77,10 @@ export const ContactSection = () => {
               triggerMobileHaptic('light');
               createRipple(e);
             }}
-            onClick={(e) => createRipple(e)}
+            onClick={(e) => {
+              createRipple(e);
+              trackCTAClick('view_projects', 'contact_section');
+            }}
             className="flex items-center gap-2 px-6 py-3 min-h-[44px] rounded-full border border-[#7A5FFF80] text-white/90 hover:bg-white/10 transition-all"
           >
             <ArrowRight size={18} />
@@ -102,7 +109,10 @@ export const ContactSection = () => {
               triggerMobileHaptic('light');
               createRipple(e);
             }}
-            onClick={(e) => createRipple(e)}
+            onClick={(e) => {
+              createRipple(e);
+              trackSocialClick('email', 'contact_section');
+            }}
             className="transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Contact via email"
           >
@@ -117,7 +127,10 @@ export const ContactSection = () => {
               triggerMobileHaptic('light');
               createRipple(e);
             }}
-            onClick={(e) => createRipple(e)}
+            onClick={(e) => {
+              createRipple(e);
+              trackSocialClick('facebook', 'contact_section');
+            }}
             className="transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Follow on Facebook"
           >
@@ -132,7 +145,10 @@ export const ContactSection = () => {
               triggerMobileHaptic('light');
               createRipple(e);
             }}
-            onClick={(e) => createRipple(e)}
+            onClick={(e) => {
+              createRipple(e);
+              trackSocialClick('instagram', 'contact_section');
+            }}
             className="transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Follow on Instagram"
           >
@@ -147,7 +163,10 @@ export const ContactSection = () => {
               triggerMobileHaptic('light');
               createRipple(e);
             }}
-            onClick={(e) => createRipple(e)}
+            onClick={(e) => {
+              createRipple(e);
+              trackSocialClick('linkedin', 'contact_section');
+            }}
             className="transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Connect on LinkedIn"
           >

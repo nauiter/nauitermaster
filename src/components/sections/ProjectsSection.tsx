@@ -5,6 +5,7 @@ import { LazyImage } from "@/components/LazyImage";
 import { Section } from "@/components/ui/section";
 import { ExternalLink } from "lucide-react";
 import { triggerMobileHaptic } from "@/lib/haptic";
+import { trackProjectNavigation, trackProjectVisit } from "@/lib/analytics";
 import {
   Carousel,
   CarouselContent,
@@ -32,7 +33,15 @@ export const ProjectsSection = () => {
     setCurrent(api.selectedScrollSnap());
 
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
+      const newIndex = api.selectedScrollSnap();
+      setCurrent(newIndex);
+      
+      // Track project navigation
+      trackProjectNavigation(
+        projects[newIndex].title,
+        'autoplay',
+        newIndex
+      );
     });
   }, [api]);
 
@@ -195,6 +204,7 @@ export const ProjectsSection = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         onTouchStart={() => triggerMobileHaptic('medium')}
+                        onClick={() => trackProjectVisit(project.title, project.url)}
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-white font-semibold hover:shadow-lg hover:shadow-[#7A5FFF]/50 transform hover:scale-105 transition-all duration-300"
                       >
                         <ExternalLink size={20} />
@@ -259,6 +269,11 @@ export const ProjectsSection = () => {
                 onClick={() => {
                   api?.scrollTo(index);
                   triggerMobileHaptic('light');
+                  trackProjectNavigation(
+                    projects[index].title,
+                    'dot',
+                    index
+                  );
                 }}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   current === index 

@@ -22,6 +22,7 @@ import { AIToolsSkeleton } from "@/components/skeletons/AIToolsSkeleton";
 import { useLanguage } from "@/hooks/useLanguage";
 import { usePageLoading } from "@/hooks/usePageLoading";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+import { trackSocialClick } from "@/lib/analytics";
 import sweetLifeAnimes from "@/assets/sweet-life-animes.webp";
 import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
 import oVermePasseia from "@/assets/o-verme-passeia.webp";
@@ -195,6 +196,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
                   href="https://linkedin.com/in/nauiter-master-678a71144"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackSocialClick('linkedin', 'footer')}
                   className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#00C4FF]/20 hover:border-[#00C4FF] transition-all group min-h-[44px] min-w-[44px]"
                   aria-label="LinkedIn"
                 >
@@ -206,6 +208,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
                   href="https://instagram.com/nauiter.master"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackSocialClick('instagram', 'footer')}
                   className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#7A5FFF]/20 hover:border-[#7A5FFF] transition-all group min-h-[44px] min-w-[44px]"
                   aria-label="Instagram"
                 >
@@ -217,6 +220,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
                   href="https://facebook.com/nauiter.master"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackSocialClick('facebook', 'footer')}
                   className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#00C4FF]/20 hover:border-[#00C4FF] transition-all group min-h-[44px] min-w-[44px]"
                   aria-label="Facebook"
                 >
