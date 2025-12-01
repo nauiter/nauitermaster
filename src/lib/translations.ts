@@ -580,7 +580,7 @@ export const translations: Record<Language, Translations> = {
           color: 'from-green-500 to-emerald-500'
         },
         {
-          title: 'Google Cloud Computing Foundations: Fundamentals',
+          title: 'Google Cloud Computing Foundations',
           issuer: 'Google',
           date: 'August 2023',
           credentialId: '4825058',
@@ -613,7 +613,7 @@ export const translations: Record<Language, Translations> = {
           color: 'from-yellow-500 to-orange-500'
         },
         {
-          title: 'Digital Technologies in Education',
+          title: 'Digital Technologies on Traditional Education',
           issuer: 'Army Distance Education Center',
           date: 'May 2023',
           credentialId: '645b9700-4604-40a7-8a24-0edcc0a80174',
@@ -629,7 +629,7 @@ export const translations: Record<Language, Translations> = {
           color: 'from-amber-500 to-orange-500'
         },
         {
-          title: 'Competency-Based Teaching',
+          title: 'Competency Based Teaching in Digital',
           issuer: 'Personnel Studies Center - CEP',
           date: 'May 2023',
           credentialId: '64593aa4-4cd4-4eeb-bd13-50e2c0a80174',
@@ -653,7 +653,7 @@ export const translations: Record<Language, Translations> = {
           color: 'from-blue-500 to-indigo-500'
         },
         {
-          title: 'Veterans and Pensioners Service Internship',
+          title: 'Veterans and Pensioners Service',
           issuer: 'ESIE - Specialized Instruction School',
           date: 'April 2022',
           credentialId: '624c91d5-b4e8-4173-85b5-e4a5c0a80174',
@@ -685,7 +685,7 @@ export const translations: Record<Language, Translations> = {
           color: 'from-green-500 to-teal-500'
         },
         {
-          title: 'Basic Procurement Course - Facing (and winning) taboos',
+          title: 'Basic Procurement Course',
           issuer: 'Enap - National School of Public Administration',
           date: 'March 2021',
           credentialId: 'egrF42458838JXo',
@@ -1068,7 +1068,7 @@ export const translations: Record<Language, Translations> = {
           color: 'from-green-500 to-emerald-500'
         },
         {
-          title: 'Google Cloud Computing Foundations: Fundamentos',
+          title: 'Google Cloud Computing Foundations',
           issuer: 'Google',
           date: 'Agosto 2023',
           credentialId: '4825058',
@@ -1101,7 +1101,7 @@ export const translations: Record<Language, Translations> = {
           color: 'from-yellow-500 to-orange-500'
         },
         {
-          title: 'Capacitação em Tecnologias Digitais na Educação',
+          title: 'Tecnologias Digitais na Educação Tradicional',
           issuer: 'Centro de Educação a Distância do Exército',
           date: 'Maio 2023',
           credentialId: '645b9700-4604-40a7-8a24-0edcc0a80174',
@@ -1117,7 +1117,7 @@ export const translations: Record<Language, Translations> = {
           color: 'from-amber-500 to-orange-500'
         },
         {
-          title: 'Capacitação - Ensino por Competências',
+          title: 'Ensino por Competências em Digital',
           issuer: 'Centro de Estudos de Pessoal - CEP',
           date: 'Maio 2023',
           credentialId: '64593aa4-4cd4-4eeb-bd13-50e2c0a80174',
@@ -1141,7 +1141,7 @@ export const translations: Record<Language, Translations> = {
           color: 'from-blue-500 to-indigo-500'
         },
         {
-          title: 'Estágio Setorial - Veteranos e Pensionistas',
+          title: 'Serviço de Veteranos e Pensionistas',
           issuer: 'ESIE - Escola de Instrução Especializada',
           date: 'Abril 2022',
           credentialId: '624c91d5-b4e8-4173-85b5-e4a5c0a80174',
@@ -1173,7 +1173,7 @@ export const translations: Record<Language, Translations> = {
           color: 'from-green-500 to-teal-500'
         },
         {
-          title: 'EVG Licitações - Enfrentando (e vencendo) tabus',
+          title: 'EVG Curso Básico de Licitações',
           issuer: 'Enap - Escola Nacional de Administração Pública',
           date: 'Março 2021',
           credentialId: 'egrF42458838JXo',
