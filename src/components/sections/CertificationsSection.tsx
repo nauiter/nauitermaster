@@ -1,7 +1,7 @@
 import { Section } from "@/components/ui/section";
 import { useLanguage } from "@/hooks/useLanguage";
 import { motion } from "framer-motion";
-import { Award, Calendar, CheckCircle2, ExternalLink } from "lucide-react";
+import { Award, Calendar, CheckCircle2, ExternalLink, Cloud, Shield, Brain, Building2, GraduationCap } from "lucide-react";
 
 interface Certification {
   title: string;
@@ -17,6 +17,52 @@ export const CertificationsSection = () => {
   const { t } = useLanguage();
 
   const certifications: Certification[] = t.certifications.items;
+
+  // Function to determine technology badges for each certification
+  const getTechBadges = (cert: Certification) => {
+    const badges = [];
+    
+    // Check issuer for specific badges
+    if (cert.issuer.toLowerCase().includes('google')) {
+      badges.push({ label: 'Google Cloud', icon: Cloud, color: 'from-blue-500 to-cyan-500' });
+    }
+    if (cert.issuer.toLowerCase().includes('cisco')) {
+      badges.push({ label: 'Cisco', icon: Shield, color: 'from-indigo-500 to-blue-500' });
+    }
+    if (cert.issuer.toLowerCase().includes('enap')) {
+      badges.push({ label: 'Enap', icon: GraduationCap, color: 'from-green-500 to-emerald-500' });
+    }
+    if (cert.issuer.toLowerCase().includes('coursera')) {
+      badges.push({ label: 'Coursera', icon: GraduationCap, color: 'from-blue-400 to-blue-600' });
+    }
+    if (cert.issuer.toLowerCase().includes('militar') || cert.issuer.toLowerCase().includes('exército') || cert.issuer.toLowerCase().includes('esie') || cert.issuer.toLowerCase().includes('cep')) {
+      badges.push({ label: 'Military', icon: Building2, color: 'from-slate-500 to-slate-700' });
+    }
+    
+    // Check title and skills for AI-related content
+    const aiKeywords = ['artificial intelligence', 'inteligência artificial', 'ai', 'ia'];
+    const hasAI = aiKeywords.some(keyword => 
+      cert.title.toLowerCase().includes(keyword) || 
+      cert.skills.some(skill => skill.toLowerCase().includes(keyword))
+    );
+    
+    if (hasAI && !badges.some(b => b.label === 'AI')) {
+      badges.push({ label: 'AI', icon: Brain, color: 'from-purple-500 to-pink-500' });
+    }
+    
+    // Check for cybersecurity
+    const cyberKeywords = ['cybersecurity', 'cibersegurança', 'cyber'];
+    const hasCyber = cyberKeywords.some(keyword => 
+      cert.title.toLowerCase().includes(keyword) || 
+      cert.skills.some(skill => skill.toLowerCase().includes(keyword))
+    );
+    
+    if (hasCyber && !badges.some(b => b.label === 'Cybersecurity')) {
+      badges.push({ label: 'Cybersecurity', icon: Shield, color: 'from-red-500 to-orange-500' });
+    }
+    
+    return badges;
+  };
 
   return (
     <Section
@@ -82,6 +128,23 @@ export const CertificationsSection = () => {
               <div className="flex items-center gap-2 mb-4 text-sm text-gray-400 h-5">
                 <Calendar className="w-4 h-4 flex-shrink-0" />
                 <span className="line-clamp-1">{cert.date}</span>
+              </div>
+
+              {/* Technology badges */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {getTechBadges(cert).map((badge) => {
+                  const BadgeIcon = badge.icon;
+                  return (
+                    <motion.div
+                      key={badge.label}
+                      whileHover={{ scale: 1.05 }}
+                      className={`px-3 py-1 rounded-full bg-gradient-to-r ${badge.color} text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg`}
+                    >
+                      <BadgeIcon className="w-3 h-3" />
+                      {badge.label}
+                    </motion.div>
+                  );
+                })}
               </div>
 
               {/* Credential ID - Fixed height */}
