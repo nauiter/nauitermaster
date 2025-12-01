@@ -57,10 +57,10 @@ export const SkillsSection = () => {
               onTouchMove={skill1.handleTouchMove}
               onTouchEnd={skill1.handleTouchEnd}
               style={skill1.cardStyle}
-              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#7A5FFF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#7A5FFF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.1s_forwards]"
+              className="group flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#7A5FFF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#7A5FFF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.1s_forwards]"
             >
               <span className="text-gray-300">{t.skills.items.promptEngineering}</span>
-              <div className="w-2 h-2 bg-[#F59E0B] rounded-full shadow-glow"></div>
+              <div className="w-2 h-2 bg-[#F59E0B] rounded-full shadow-glow group-hover:animate-pulse group-hover:shadow-[0_0_12px_4px_rgba(245,158,11,0.6)] transition-shadow duration-300"></div>
             </div>
             <div 
               onMouseMove={skill2.handleMouseMove}
@@ -69,10 +69,10 @@ export const SkillsSection = () => {
               onTouchMove={skill2.handleTouchMove}
               onTouchEnd={skill2.handleTouchEnd}
               style={skill2.cardStyle}
-              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#7A5FFF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#7A5FFF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.2s_forwards]"
+              className="group flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#7A5FFF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#7A5FFF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.2s_forwards]"
             >
               <span className="text-gray-300">{t.skills.items.aiEthicsSafety}</span>
-              <div className="w-2 h-2 bg-[#F59E0B] rounded-full shadow-glow"></div>
+              <div className="w-2 h-2 bg-[#F59E0B] rounded-full shadow-glow group-hover:animate-pulse group-hover:shadow-[0_0_12px_4px_rgba(245,158,11,0.6)] transition-shadow duration-300"></div>
             </div>
             <div 
               onMouseMove={skill3.handleMouseMove}
@@ -81,10 +81,10 @@ export const SkillsSection = () => {
               onTouchMove={skill3.handleTouchMove}
               onTouchEnd={skill3.handleTouchEnd}
               style={skill3.cardStyle}
-              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#7A5FFF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#7A5FFF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.3s_forwards]"
+              className="group flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#7A5FFF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#7A5FFF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.3s_forwards]"
             >
               <span className="text-gray-300">{t.skills.items.humanAiCollaboration}</span>
-              <div className="w-2 h-2 bg-[#F59E0B] rounded-full shadow-glow"></div>
+              <div className="w-2 h-2 bg-[#F59E0B] rounded-full shadow-glow group-hover:animate-pulse group-hover:shadow-[0_0_12px_4px_rgba(245,158,11,0.6)] transition-shadow duration-300"></div>
             </div>
           </div>
         </div>
@@ -112,10 +112,10 @@ export const SkillsSection = () => {
               onTouchMove={skill4.handleTouchMove}
               onTouchEnd={skill4.handleTouchEnd}
               style={skill4.cardStyle}
-              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#00C4FF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#00C4FF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.1s_forwards]"
+              className="group flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#00C4FF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#00C4FF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.1s_forwards]"
             >
               <span className="text-gray-300">{t.skills.items.dataHandlingPrivacy}</span>
-              <div className="w-2 h-2 bg-accent rounded-full shadow-glow"></div>
+              <div className="w-2 h-2 bg-accent rounded-full shadow-glow group-hover:animate-pulse group-hover:shadow-[0_0_12px_4px_rgba(0,196,255,0.6)] transition-shadow duration-300"></div>
             </div>
             <div 
               onMouseMove={skill5.handleMouseMove}
@@ -124,10 +124,10 @@ export const SkillsSection = () => {
               onTouchMove={skill5.handleTouchMove}
               onTouchEnd={skill5.handleTouchEnd}
               style={skill5.cardStyle}
-              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#00C4FF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#00C4FF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.2s_forwards]"
+              className="group flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#00C4FF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#00C4FF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.2s_forwards]"
             >
               <span className="text-gray-300">{t.skills.items.aiModelFineTuning}</span>
-              <div className="w-2 h-2 bg-accent rounded-full shadow-glow"></div>
+              <div className="w-2 h-2 bg-accent rounded-full shadow-glow group-hover:animate-pulse group-hover:shadow-[0_0_12px_4px_rgba(0,196,255,0.6)] transition-shadow duration-300"></div>
             </div>
             <div 
               onMouseMove={skill6.handleMouseMove}
@@ -136,10 +136,10 @@ export const SkillsSection = () => {
               onTouchMove={skill6.handleTouchMove}
               onTouchEnd={skill6.handleTouchEnd}
               style={skill6.cardStyle}
-              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#00C4FF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#00C4FF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.3s_forwards]"
+              className="group flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#00C4FF]/20 active:bg-white/20 active:shadow-xl active:shadow-[#00C4FF]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.3s_forwards]"
             >
               <span className="text-gray-300">{t.skills.items.multiModalAiSystems}</span>
-              <div className="w-2 h-2 bg-accent rounded-full shadow-glow"></div>
+              <div className="w-2 h-2 bg-accent rounded-full shadow-glow group-hover:animate-pulse group-hover:shadow-[0_0_12px_4px_rgba(0,196,255,0.6)] transition-shadow duration-300"></div>
             </div>
           </div>
         </div>
@@ -167,10 +167,10 @@ export const SkillsSection = () => {
               onTouchMove={skill7.handleTouchMove}
               onTouchEnd={skill7.handleTouchEnd}
               style={skill7.cardStyle}
-              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#10B981]/20 active:bg-white/20 active:shadow-xl active:shadow-[#10B981]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.1s_forwards]"
+              className="group flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#10B981]/20 active:bg-white/20 active:shadow-xl active:shadow-[#10B981]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.1s_forwards]"
             >
               <span className="text-gray-300">{language === 'pt' ? 'Telecom & Redes Militares' : 'Military Telecom & Networks'}</span>
-              <div className="w-2 h-2 bg-[#10B981] rounded-full shadow-glow"></div>
+              <div className="w-2 h-2 bg-[#10B981] rounded-full shadow-glow group-hover:animate-pulse group-hover:shadow-[0_0_12px_4px_rgba(16,185,129,0.6)] transition-shadow duration-300"></div>
             </div>
             <div 
               onMouseMove={skill8.handleMouseMove}
@@ -179,10 +179,10 @@ export const SkillsSection = () => {
               onTouchMove={skill8.handleTouchMove}
               onTouchEnd={skill8.handleTouchEnd}
               style={skill8.cardStyle}
-              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#10B981]/20 active:bg-white/20 active:shadow-xl active:shadow-[#10B981]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.2s_forwards]"
+              className="group flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#10B981]/20 active:bg-white/20 active:shadow-xl active:shadow-[#10B981]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.2s_forwards]"
             >
               <span className="text-gray-300">{language === 'pt' ? 'Liderança de Equipes (10+ Anos)' : 'Team Leadership (10+ Years)'}</span>
-              <div className="w-2 h-2 bg-[#10B981] rounded-full shadow-glow"></div>
+              <div className="w-2 h-2 bg-[#10B981] rounded-full shadow-glow group-hover:animate-pulse group-hover:shadow-[0_0_12px_4px_rgba(16,185,129,0.6)] transition-shadow duration-300"></div>
             </div>
             <div 
               onMouseMove={skill9.handleMouseMove}
@@ -191,10 +191,10 @@ export const SkillsSection = () => {
               onTouchMove={skill9.handleTouchMove}
               onTouchEnd={skill9.handleTouchEnd}
               style={skill9.cardStyle}
-              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#10B981]/20 active:bg-white/20 active:shadow-xl active:shadow-[#10B981]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.3s_forwards]"
+              className="group flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#10B981]/20 active:bg-white/20 active:shadow-xl active:shadow-[#10B981]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.3s_forwards]"
             >
               <span className="text-gray-300">{language === 'pt' ? 'Gestão de Crises' : 'Crisis Management'}</span>
-              <div className="w-2 h-2 bg-[#10B981] rounded-full shadow-glow"></div>
+              <div className="w-2 h-2 bg-[#10B981] rounded-full shadow-glow group-hover:animate-pulse group-hover:shadow-[0_0_12px_4px_rgba(16,185,129,0.6)] transition-shadow duration-300"></div>
             </div>
             <div 
               onMouseMove={skill10.handleMouseMove}
@@ -203,10 +203,10 @@ export const SkillsSection = () => {
               onTouchMove={skill10.handleTouchMove}
               onTouchEnd={skill10.handleTouchEnd}
               style={skill10.cardStyle}
-              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#10B981]/20 active:bg-white/20 active:shadow-xl active:shadow-[#10B981]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.4s_forwards]"
+              className="group flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#10B981]/20 active:bg-white/20 active:shadow-xl active:shadow-[#10B981]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.4s_forwards]"
             >
               <span className="text-gray-300">{language === 'pt' ? 'Logística Operacional' : 'Operational Logistics'}</span>
-              <div className="w-2 h-2 bg-[#10B981] rounded-full shadow-glow"></div>
+              <div className="w-2 h-2 bg-[#10B981] rounded-full shadow-glow group-hover:animate-pulse group-hover:shadow-[0_0_12px_4px_rgba(16,185,129,0.6)] transition-shadow duration-300"></div>
             </div>
             <div 
               onMouseMove={skill11.handleMouseMove}
@@ -215,10 +215,10 @@ export const SkillsSection = () => {
               onTouchMove={skill11.handleTouchMove}
               onTouchEnd={skill11.handleTouchEnd}
               style={skill11.cardStyle}
-              className="flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#10B981]/20 active:bg-white/20 active:shadow-xl active:shadow-[#10B981]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.5s_forwards]"
+              className="group flex items-center justify-between p-3 bg-white/10 backdrop-blur-lg rounded-lg border border-white/10 hover:bg-white/15 hover:shadow-lg hover:shadow-[#10B981]/20 active:bg-white/20 active:shadow-xl active:shadow-[#10B981]/30 transition-all duration-300 motion-safe:opacity-0 motion-safe:translate-x-4 motion-safe:[animation:fadeInUp_0.4s_ease-out_0.5s_forwards]"
             >
               <span className="text-gray-300">{language === 'pt' ? 'Instrução & Treinamento' : 'Instruction & Training'}</span>
-              <div className="w-2 h-2 bg-[#10B981] rounded-full shadow-glow"></div>
+              <div className="w-2 h-2 bg-[#10B981] rounded-full shadow-glow group-hover:animate-pulse group-hover:shadow-[0_0_12px_4px_rgba(16,185,129,0.6)] transition-shadow duration-300"></div>
             </div>
           </div>
         </div>
