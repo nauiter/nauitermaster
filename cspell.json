@@ -1,0 +1,75 @@
+{
+  "version": "0.2",
+  "language": "en,pt",
+  "words": [
+    "Nauiter",
+    "LinkedIn",
+    "Instagram",
+    "sweetlife",
+    "Beacons",
+    "Figueiredo",
+    "verme",
+    "passeia",
+    "LGPD",
+    "prompting",
+    "workflows",
+    "automação",
+    "criativos",
+    "estratégias",
+    "inclusivo",
+    "audiovisuais",
+    "escalabilidade",
+    "marketplaces",
+    "educacional",
+    "transmídia",
+    "criatividade",
+    "visão",
+    "filosofia",
+    "estética",
+    "telecom",
+    "infraestrutura",
+    "chatbots",
+    "glassmorphism",
+    "webp",
+    "avif",
+    "linkedin",
+    "instagram",
+    "facebook",
+    "supabase",
+    "tailwind",
+    "vite",
+    "tsparticles",
+    "lucide",
+    "shadcn",
+    "tanstack"
+  ],
+  "ignorePaths": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    ".git/**",
+    "*.lock",
+    "*.json",
+    "*.svg",
+    "*.png",
+    "*.jpg",
+    "*.webp",
+    "*.ico"
+  ],
+  "dictionaries": ["en", "pt"],
+  "dictionaryDefinitions": [
+    {
+      "name": "en",
+      "path": "./node_modules/cspell-dict-en-us/cspell-ext.json"
+    },
+    {
+      "name": "pt",
+      "path": "./node_modules/cspell-dict-pt-br/cspell-ext.json"
+    }
+  ],
+  "files": [
+    "src/**/*.{ts,tsx}",
+    "src/lib/translations.ts"
+  ],
+  "enableFiletypes": ["typescript", "typescriptreact"]
+}
