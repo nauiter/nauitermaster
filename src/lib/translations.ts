@@ -207,6 +207,24 @@ export interface Translations {
     };
     footer: string;
   };
+  // Certifications Section
+  certifications: {
+    title: string;
+    subtitle: string;
+    viewCredential: string;
+    credentialId: string;
+    skillsGained: string;
+    footer: string;
+    items: Array<{
+      title: string;
+      issuer: string;
+      date: string;
+      credentialId?: string;
+      credentialUrl?: string;
+      skills: string[];
+      color: string;
+    }>;
+  };
   // Impact Metrics Section
   impact: {
     title: string;
@@ -529,6 +547,46 @@ export const translations: Record<Language, Translations> = {
       },
       footer: ''
     },
+    certifications: {
+      title: 'Certifications & Achievements',
+      subtitle: 'Professional credentials and recognized accomplishments in AI, technology, and leadership',
+      viewCredential: 'View Credential',
+      credentialId: 'Credential ID',
+      skillsGained: 'Skills Gained',
+      footer: 'Continuously learning and expanding expertise through recognized industry certifications.',
+      items: [
+        {
+          title: 'AI Strategy & Implementation',
+          issuer: 'Sweet Life Academy',
+          date: 'January 2024',
+          credentialId: 'SLA-AI-2024-001',
+          credentialUrl: 'https://sweetlifeacademy.coursify.me/',
+          skills: ['AI Strategy', 'Process Automation', 'AI Integration', 'Business Intelligence'],
+          color: 'from-purple-500 to-cyan-400'
+        },
+        {
+          title: 'Military Leadership & Telecommunications',
+          issuer: 'Brazilian Army',
+          date: '2014 - 2024',
+          skills: ['Team Leadership', 'Strategic Planning', 'Military Networks', 'Crisis Management', 'Operations'],
+          color: 'from-green-500 to-emerald-400'
+        },
+        {
+          title: 'Full Stack Development',
+          issuer: 'Self-Taught & Projects',
+          date: '2023 - Present',
+          skills: ['React', 'TypeScript', 'Node.js', 'Supabase', 'PostgreSQL', 'API Development'],
+          color: 'from-blue-500 to-cyan-400'
+        },
+        {
+          title: 'Digital Marketing & Content Creation',
+          issuer: 'Sweet Life Brands Ecosystem',
+          date: '2022 - Present',
+          skills: ['Content Strategy', 'Social Media', 'Brand Building', 'Community Management'],
+          color: 'from-pink-500 to-rose-400'
+        }
+      ]
+    },
     impact: {
       title: 'Impact Metrics',
       subtitle: 'Expressing creativity through data, each number tells part of the story.',
@@ -845,6 +903,46 @@ export const translations: Record<Language, Translations> = {
         }
       },
       footer: ''
+    },
+    certifications: {
+      title: 'Certificações & Conquistas',
+      subtitle: 'Credenciais profissionais e conquistas reconhecidas em IA, tecnologia e liderança',
+      viewCredential: 'Ver Credencial',
+      credentialId: 'ID da Credencial',
+      skillsGained: 'Habilidades Adquiridas',
+      footer: 'Aprendizado contínuo e expansão de expertise através de certificações reconhecidas pela indústria.',
+      items: [
+        {
+          title: 'Estratégia e Implementação de IA',
+          issuer: 'Sweet Life Academy',
+          date: 'Janeiro 2024',
+          credentialId: 'SLA-AI-2024-001',
+          credentialUrl: 'https://sweetlifeacademy.coursify.me/',
+          skills: ['Estratégia de IA', 'Automação de Processos', 'Integração de IA', 'Business Intelligence'],
+          color: 'from-purple-500 to-cyan-400'
+        },
+        {
+          title: 'Liderança Militar & Telecomunicações',
+          issuer: 'Exército Brasileiro',
+          date: '2014 - 2024',
+          skills: ['Liderança de Equipes', 'Planejamento Estratégico', 'Redes Militares', 'Gestão de Crises', 'Operações'],
+          color: 'from-green-500 to-emerald-400'
+        },
+        {
+          title: 'Desenvolvimento Full Stack',
+          issuer: 'Autodidata & Projetos',
+          date: '2023 - Presente',
+          skills: ['React', 'TypeScript', 'Node.js', 'Supabase', 'PostgreSQL', 'Desenvolvimento de APIs'],
+          color: 'from-blue-500 to-cyan-400'
+        },
+        {
+          title: 'Marketing Digital & Criação de Conteúdo',
+          issuer: 'Ecossistema Sweet Life Brands',
+          date: '2022 - Presente',
+          skills: ['Estratégia de Conteúdo', 'Redes Sociais', 'Construção de Marca', 'Gestão de Comunidade'],
+          color: 'from-pink-500 to-rose-400'
+        }
+      ]
     },
     impact: {
       title: 'Métricas de Impacto',
