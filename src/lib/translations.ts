@@ -724,7 +724,7 @@ export const translations: Record<Language, Translations> = {
       aiVisualsGenerated: 'AI Visuals Generated',
       ecosystemsBuilt: 'Creative Ecosystems Built',
       aiDrivenBrands: 'AI-Driven Brands',
-      militaryExperience: 'Years Military Leadership & Telecom',
+      militaryExperience: 'Years Military Leadership',
       ideasInMotion: 'Ideas in Motion',
     },
     contact: {
@@ -1212,7 +1212,7 @@ export const translations: Record<Language, Translations> = {
       aiVisualsGenerated: 'Visuais de IA Gerados',
       ecosystemsBuilt: 'Ecossistemas Criativos Construídos',
       aiDrivenBrands: 'Marcas Impulsionadas por IA',
-      militaryExperience: 'Anos de Liderança Militar & Telecom',
+      militaryExperience: 'Anos de Liderança Militar',
       ideasInMotion: 'Ideias em Movimento',
     },
     contact: {
