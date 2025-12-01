@@ -27,30 +27,38 @@ const MetricCard = ({ value, label, delay, isVisible, language }: MetricCardProp
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: delay / 1000 }}
-      onMouseMove={card3D.handleMouseMove}
-      onMouseLeave={card3D.handleMouseLeave}
-      onTouchStart={card3D.handleTouchStart}
-      onTouchMove={card3D.handleTouchMove}
-      onTouchEnd={card3D.handleTouchEnd}
-      style={card3D.cardStyle}
-      className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:shadow-lg hover:shadow-[#7A5FFF]/20 transition-shadow duration-300 text-center"
+      className="group relative"
     >
-      <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
-        {displayValue}
-        {typeof value === 'string' && value.includes('+') && ''}
-      </h3>
-      <AnimatePresence mode="wait">
-        <motion.p
-          key={language}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="text-gray-300 text-sm"
-        >
-          {label}
-        </motion.p>
-      </AnimatePresence>
+      {/* Glow effect */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] rounded-xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+      
+      {/* Card content */}
+      <div
+        onMouseMove={card3D.handleMouseMove}
+        onMouseLeave={card3D.handleMouseLeave}
+        onTouchStart={card3D.handleTouchStart}
+        onTouchMove={card3D.handleTouchMove}
+        onTouchEnd={card3D.handleTouchEnd}
+        style={card3D.cardStyle}
+        className="relative p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:shadow-lg hover:shadow-[#7A5FFF]/20 transition-shadow duration-300 text-center"
+      >
+        <h3 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] mb-2">
+          {displayValue}
+          {typeof value === 'string' && value.includes('+') && ''}
+        </h3>
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={language}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="text-gray-300 text-sm"
+          >
+            {label}
+          </motion.p>
+        </AnimatePresence>
+      </div>
     </motion.div>
   );
 };
