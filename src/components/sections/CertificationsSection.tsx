@@ -132,11 +132,19 @@ export const CertificationsSection = () => {
 
               {/* Technology badges */}
               <div className="flex flex-wrap gap-2 mb-4">
-                {getTechBadges(cert).map((badge) => {
+                {getTechBadges(cert).map((badge, badgeIndex) => {
                   const BadgeIcon = badge.icon;
                   return (
                     <motion.div
                       key={badge.label}
+                      initial={{ opacity: 0, scale: 0.8, y: -10 }}
+                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ 
+                        duration: 0.3, 
+                        delay: index * 0.1 + badgeIndex * 0.1,
+                        ease: "easeOut"
+                      }}
                       whileHover={{ scale: 1.05 }}
                       className={`px-3 py-1 rounded-full bg-gradient-to-r ${badge.color} text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg`}
                     >
