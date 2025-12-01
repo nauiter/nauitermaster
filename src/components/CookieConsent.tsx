@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/hooks/useLanguage';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -18,6 +19,7 @@ const STORAGE_KEY = 'cookie-consent-settings';
 
 export const CookieConsent = () => {
   const { t, language } = useLanguage();
+  const isMobile = useIsMobile();
   const [showBanner, setShowBanner] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
   const [settings, setSettings] = useState<CookieSettings>({
@@ -71,6 +73,11 @@ export const CookieConsent = () => {
   const handleSavePreferences = () => {
     saveSettings(settings);
   };
+
+  // Don't render on mobile
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <>
