@@ -21,13 +21,13 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
 
   const seoData = {
     pt: {
-      title: 'Nauiter Master | Estrategista de IA, Arte Digital & Automação',
-      description: 'Estrategista de IA e artista digital. Projetos criativos em automação, arte e educação com tecnologia de ponta.',
+      title: 'Nauiter Master | IA, Arte Digital & Automação',
+      description: 'Estrategista de IA e artista digital especializado em prompt engineering, automação criativa e educação. Projetos inovadores combinando tecnologia e arte com IA.',
       keywords: 'IA criativa, automação digital, arte digital, educação em IA, filosofia e design, prompt engineering',
     },
     en: {
-      title: 'Nauiter Master | AI Strategist, Digital Art & Automation',
-      description: 'AI strategist and digital artist. Creative projects in automation, art, and education with cutting-edge technology.',
+      title: 'Nauiter Master | AI, Digital Art & Automation',
+      description: 'AI strategist and digital artist specialized in prompt engineering, creative automation and education. Innovative projects combining technology and art with AI.',
       keywords: 'AI creative workflows, digital automation, digital art, AI education, philosophy & design, prompt engineering',
     },
   };
