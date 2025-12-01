@@ -49,18 +49,18 @@ export const CertificationsSection = () => {
             />
             
             {/* Card content */}
-            <div className="relative h-full bg-[#0c1324]/80 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
+            <div className="relative h-full bg-[#0c1324]/80 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300 hover:scale-[1.02] flex flex-col">
               {/* Header with badge */}
               <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className={`p-3 rounded-xl bg-gradient-to-br ${cert.color} shadow-lg`}>
+                <div className="flex items-center gap-3 flex-1 min-w-0">
+                  <div className={`p-3 rounded-xl bg-gradient-to-br ${cert.color} shadow-lg flex-shrink-0`}>
                     <Award className="w-6 h-6 text-white" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold text-white mb-1">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg font-bold text-white mb-1 line-clamp-2">
                       {cert.title}
                     </h3>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-gray-400 line-clamp-1">
                       {cert.issuer}
                     </p>
                   </div>
@@ -70,7 +70,7 @@ export const CertificationsSection = () => {
                     href={cert.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group/link"
+                    className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group/link flex-shrink-0 ml-2"
                     aria-label={t.certifications.viewCredential}
                   >
                     <ExternalLink className="w-4 h-4 text-gray-400 group-hover/link:text-primary transition-colors" />
@@ -78,19 +78,17 @@ export const CertificationsSection = () => {
                 )}
               </div>
 
-              {/* Date */}
-              <div className="flex items-center gap-2 mb-4 text-sm text-gray-400">
-                <Calendar className="w-4 h-4" />
-                <span>{cert.date}</span>
+              {/* Date - Fixed height */}
+              <div className="flex items-center gap-2 mb-4 text-sm text-gray-400 h-5">
+                <Calendar className="w-4 h-4 flex-shrink-0" />
+                <span className="line-clamp-1">{cert.date}</span>
               </div>
 
-              {/* Credential ID */}
-              {cert.credentialId && (
-                <div className="mb-4 p-3 bg-white/5 rounded-lg border border-white/5">
-                  <p className="text-xs text-gray-500 mb-1">{t.certifications.credentialId}</p>
-                  <p className="text-sm text-gray-300 font-mono">{cert.credentialId}</p>
-                </div>
-              )}
+              {/* Credential ID - Fixed height */}
+              <div className="mb-4 p-3 bg-white/5 rounded-lg border border-white/5 min-h-[4.5rem]">
+                <p className="text-xs text-gray-500 mb-1">{t.certifications.credentialId}</p>
+                <p className="text-sm text-gray-300 font-mono break-all">{cert.credentialId}</p>
+              </div>
 
               {/* Skills gained */}
               <div className="space-y-2">

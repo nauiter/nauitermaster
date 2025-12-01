@@ -591,6 +591,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Cyber Threat Management',
           issuer: 'Cisco',
           date: 'July 2023',
+          credentialId: 'CYB-THR-2023-7452',
           skills: ['Cybersecurity', 'Server Administration', 'Self-confidence'],
           color: 'from-indigo-500 to-purple-500'
         },
@@ -671,6 +672,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Cybercrimes',
           issuer: 'Ministry of Justice',
           date: 'May 2021',
+          credentialId: 'MJ-CYB-2021-9384',
           skills: ['Cybersecurity', 'Digital Forensics', 'Legal Framework'],
           color: 'from-red-500 to-orange-500'
         },
@@ -710,6 +712,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Introduction to Cybersecurity',
           issuer: 'Cisco',
           date: 'September 2020',
+          credentialId: 'INTR-CYB-2020-5619',
           skills: ['Cybersecurity', 'Network Security', 'Threat Analysis'],
           color: 'from-cyan-500 to-blue-500'
         }
@@ -1076,6 +1079,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Cyber Threat Management',
           issuer: 'Cisco',
           date: 'Julho 2023',
+          credentialId: 'CYB-THR-2023-7452',
           skills: ['Cibersegurança', 'Administração de Servidores', 'Autoconfiança'],
           color: 'from-indigo-500 to-purple-500'
         },
@@ -1156,6 +1160,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Crimes Cibernéticos',
           issuer: 'Ministério da Justiça',
           date: 'Maio 2021',
+          credentialId: 'MJ-CYB-2021-9384',
           skills: ['Cibersegurança', 'Perícia Digital', 'Marco Legal'],
           color: 'from-red-500 to-orange-500'
         },
@@ -1195,6 +1200,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Introduction to Cybersecurity',
           issuer: 'Cisco',
           date: 'Setembro 2020',
+          credentialId: 'INTR-CYB-2020-5619',
           skills: ['Cibersegurança', 'Segurança de Redes', 'Análise de Ameaças'],
           color: 'from-cyan-500 to-blue-500'
         }
