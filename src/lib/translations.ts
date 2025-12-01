@@ -556,34 +556,106 @@ export const translations: Record<Language, Translations> = {
       footer: 'Continuously learning and expanding expertise through recognized industry certifications.',
       items: [
         {
-          title: 'AI Strategy & Implementation',
-          issuer: 'Sweet Life Academy',
-          date: 'January 2024',
-          credentialId: 'SLA-AI-2024-001',
-          credentialUrl: 'https://sweetlifeacademy.coursify.me/',
-          skills: ['AI Strategy', 'Process Automation', 'AI Integration', 'Business Intelligence'],
-          color: 'from-purple-500 to-cyan-400'
+          title: 'Google Cloud Computing Foundations: Infrastructure',
+          issuer: 'Google Cloud',
+          date: 'December 2023',
+          credentialId: '6601547',
+          skills: ['Cybersecurity', 'Server Administration', 'Artificial Intelligence'],
+          color: 'from-blue-500 to-cyan-500'
         },
         {
-          title: 'Military Leadership & Telecommunications',
-          issuer: 'Brazilian Army',
-          date: '2014 - 2024',
-          skills: ['Team Leadership', 'Strategic Planning', 'Military Networks', 'Crisis Management', 'Operations'],
-          color: 'from-green-500 to-emerald-400'
+          title: 'Create and Manage Cloud Resources',
+          issuer: 'Google Cloud',
+          date: 'August 2023',
+          credentialId: '4756822',
+          skills: ['Teamwork', 'Server Administration', 'Technical Problem Solving'],
+          color: 'from-purple-500 to-pink-500'
         },
         {
-          title: 'Full Stack Development',
-          issuer: 'Self-Taught & Projects',
-          date: '2023 - Present',
-          skills: ['React', 'TypeScript', 'Node.js', 'Supabase', 'PostgreSQL', 'API Development'],
-          color: 'from-blue-500 to-cyan-400'
+          title: 'Digital Transformation with Google Cloud',
+          issuer: 'Google',
+          date: 'August 2023',
+          credentialId: '4641486',
+          skills: ['Cybersecurity', 'AI Systems', 'Teamwork'],
+          color: 'from-green-500 to-emerald-500'
         },
         {
-          title: 'Digital Marketing & Content Creation',
-          issuer: 'Sweet Life Brands Ecosystem',
-          date: '2022 - Present',
-          skills: ['Content Strategy', 'Social Media', 'Brand Building', 'Community Management'],
-          color: 'from-pink-500 to-rose-400'
+          title: 'Google Cloud Computing Foundations: Fundamentals',
+          issuer: 'Google',
+          date: 'August 2023',
+          credentialId: '4825058',
+          skills: ['Cybersecurity', 'AI Systems', 'Team Coordination'],
+          color: 'from-orange-500 to-red-500'
+        },
+        {
+          title: 'Cyber Threat Management',
+          issuer: 'Cisco',
+          date: 'July 2023',
+          skills: ['Cybersecurity', 'Server Administration', 'Self-confidence'],
+          color: 'from-indigo-500 to-purple-500'
+        },
+        {
+          title: 'AI in Public Service Context',
+          issuer: 'Enap - National School of Public Administration',
+          date: 'July 2023',
+          credentialId: 'fSSv9968151xypř',
+          skills: ['AI Systems', 'Teamwork', 'Server Administration'],
+          color: 'from-teal-500 to-cyan-500'
+        },
+        {
+          title: 'Introduction to Artificial Intelligence',
+          issuer: 'Coursera',
+          date: 'July 2023',
+          credentialId: 'U7ST992X4UM2',
+          credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/U7ST992X4UM2',
+          skills: ['Cybersecurity', 'AI Systems', 'Server Administration'],
+          color: 'from-yellow-500 to-orange-500'
+        },
+        {
+          title: 'Digital Technologies in Education',
+          issuer: 'Army Distance Education Center',
+          date: 'May 2023',
+          credentialId: '645b9700-4604-40a7-8a24-0edcc0a80174',
+          skills: ['Teamwork', 'Public Speaking', 'Self-confidence'],
+          color: 'from-pink-500 to-rose-500'
+        },
+        {
+          title: 'Personal Management - Leadership Base',
+          issuer: 'Enap - National School of Public Administration',
+          date: 'May 2023',
+          credentialId: 'Vw3a9272046lH9H',
+          skills: ['Leadership', 'Team Management', 'Strategic Thinking'],
+          color: 'from-blue-500 to-indigo-500'
+        },
+        {
+          title: 'Innovation Management',
+          issuer: 'Military Institute of Engineering',
+          date: 'September 2021',
+          credentialId: '6151f217-7088-4968-81f9-3deec0a80174',
+          skills: ['Innovation', 'Strategic Planning', 'Project Management'],
+          color: 'from-purple-500 to-indigo-500'
+        },
+        {
+          title: 'Cybercrimes',
+          issuer: 'Ministry of Justice',
+          date: 'May 2021',
+          skills: ['Cybersecurity', 'Digital Forensics', 'Legal Framework'],
+          color: 'from-red-500 to-orange-500'
+        },
+        {
+          title: 'Human Rights Education',
+          issuer: 'Enap - National School of Public Administration',
+          date: 'April 2021',
+          credentialId: 'CVVm4539307hchM',
+          skills: ['Ethics', 'Social Responsibility', 'Public Policy'],
+          color: 'from-green-500 to-teal-500'
+        },
+        {
+          title: 'Introduction to Cybersecurity',
+          issuer: 'Cisco',
+          date: 'September 2020',
+          skills: ['Cybersecurity', 'Network Security', 'Threat Analysis'],
+          color: 'from-cyan-500 to-blue-500'
         }
       ]
     },
@@ -913,34 +985,106 @@ export const translations: Record<Language, Translations> = {
       footer: 'Aprendizado contínuo e expansão de expertise através de certificações reconhecidas pela indústria.',
       items: [
         {
-          title: 'Estratégia e Implementação de IA',
-          issuer: 'Sweet Life Academy',
-          date: 'Janeiro 2024',
-          credentialId: 'SLA-AI-2024-001',
-          credentialUrl: 'https://sweetlifeacademy.coursify.me/',
-          skills: ['Estratégia de IA', 'Automação de Processos', 'Integração de IA', 'Business Intelligence'],
-          color: 'from-purple-500 to-cyan-400'
+          title: 'Google Cloud Computing Foundations: Infrastructure',
+          issuer: 'Google Cloud',
+          date: 'Dezembro 2023',
+          credentialId: '6601547',
+          skills: ['Cibersegurança', 'Administração de Servidores', 'Inteligência Artificial'],
+          color: 'from-blue-500 to-cyan-500'
         },
         {
-          title: 'Liderança Militar & Telecomunicações',
-          issuer: 'Exército Brasileiro',
-          date: '2014 - 2024',
-          skills: ['Liderança de Equipes', 'Planejamento Estratégico', 'Redes Militares', 'Gestão de Crises', 'Operações'],
-          color: 'from-green-500 to-emerald-400'
+          title: 'Create and Manage Cloud Resources',
+          issuer: 'Google Cloud',
+          date: 'Agosto 2023',
+          credentialId: '4756822',
+          skills: ['Trabalho em Equipe', 'Administração de Servidores', 'Resolução de Problemas Técnicos'],
+          color: 'from-purple-500 to-pink-500'
         },
         {
-          title: 'Desenvolvimento Full Stack',
-          issuer: 'Autodidata & Projetos',
-          date: '2023 - Presente',
-          skills: ['React', 'TypeScript', 'Node.js', 'Supabase', 'PostgreSQL', 'Desenvolvimento de APIs'],
-          color: 'from-blue-500 to-cyan-400'
+          title: 'Digital Transformation with Google Cloud',
+          issuer: 'Google',
+          date: 'Agosto 2023',
+          credentialId: '4641486',
+          skills: ['Cibersegurança', 'Sistemas de IA', 'Trabalho em Equipe'],
+          color: 'from-green-500 to-emerald-500'
         },
         {
-          title: 'Marketing Digital & Criação de Conteúdo',
-          issuer: 'Ecossistema Sweet Life Brands',
-          date: '2022 - Presente',
-          skills: ['Estratégia de Conteúdo', 'Redes Sociais', 'Construção de Marca', 'Gestão de Comunidade'],
-          color: 'from-pink-500 to-rose-400'
+          title: 'Google Cloud Computing Foundations: Fundamentos',
+          issuer: 'Google',
+          date: 'Agosto 2023',
+          credentialId: '4825058',
+          skills: ['Cibersegurança', 'Sistemas de IA', 'Coordenação de Equipe'],
+          color: 'from-orange-500 to-red-500'
+        },
+        {
+          title: 'Cyber Threat Management',
+          issuer: 'Cisco',
+          date: 'Julho 2023',
+          skills: ['Cibersegurança', 'Administração de Servidores', 'Autoconfiança'],
+          color: 'from-indigo-500 to-purple-500'
+        },
+        {
+          title: 'Inteligência Artificial no Contexto do Serviço Público',
+          issuer: 'Enap - Escola Nacional de Administração Pública',
+          date: 'Julho 2023',
+          credentialId: 'fSSv9968151xypř',
+          skills: ['Sistemas de IA', 'Trabalho em Equipe', 'Administração de Servidores'],
+          color: 'from-teal-500 to-cyan-500'
+        },
+        {
+          title: 'Introduction to Artificial Intelligence',
+          issuer: 'Coursera',
+          date: 'Julho 2023',
+          credentialId: 'U7ST992X4UM2',
+          credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/U7ST992X4UM2',
+          skills: ['Cibersegurança', 'Sistemas de IA', 'Administração de Servidores'],
+          color: 'from-yellow-500 to-orange-500'
+        },
+        {
+          title: 'Capacitação em Tecnologias Digitais na Educação',
+          issuer: 'Centro de Educação a Distância do Exército',
+          date: 'Maio 2023',
+          credentialId: '645b9700-4604-40a7-8a24-0edcc0a80174',
+          skills: ['Trabalho em Equipe', 'Oratória', 'Autoconfiança'],
+          color: 'from-pink-500 to-rose-500'
+        },
+        {
+          title: 'EVG Gestão Pessoal - Base da Liderança',
+          issuer: 'Enap - Escola Nacional de Administração Pública',
+          date: 'Maio 2023',
+          credentialId: 'Vw3a9272046lH9H',
+          skills: ['Liderança', 'Gestão de Equipe', 'Pensamento Estratégico'],
+          color: 'from-blue-500 to-indigo-500'
+        },
+        {
+          title: 'Gestão da Inovação',
+          issuer: 'Instituto Militar de Engenharia',
+          date: 'Setembro 2021',
+          credentialId: '6151f217-7088-4968-81f9-3deec0a80174',
+          skills: ['Inovação', 'Planejamento Estratégico', 'Gestão de Projetos'],
+          color: 'from-purple-500 to-indigo-500'
+        },
+        {
+          title: 'Crimes Cibernéticos',
+          issuer: 'Ministério da Justiça',
+          date: 'Maio 2021',
+          skills: ['Cibersegurança', 'Perícia Digital', 'Marco Legal'],
+          color: 'from-red-500 to-orange-500'
+        },
+        {
+          title: 'EVG Educação em Direitos Humanos',
+          issuer: 'Enap - Escola Nacional de Administração Pública',
+          date: 'Abril 2021',
+          credentialId: 'CVVm4539307hchM',
+          skills: ['Ética', 'Responsabilidade Social', 'Políticas Públicas'],
+          color: 'from-green-500 to-teal-500'
+        },
+        {
+          title: 'Introduction to Cybersecurity',
+          issuer: 'Cisco',
+          date: 'Setembro 2020',
+          skills: ['Cibersegurança', 'Segurança de Redes', 'Análise de Ameaças'],
+          color: 'from-cyan-500 to-blue-500'
         }
       ]
     },
