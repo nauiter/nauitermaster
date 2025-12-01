@@ -729,7 +729,7 @@ export const translations: Record<Language, Translations> = {
     },
     contact: {
       title: "Let's Co-Create the Future",
-      subtitle: 'If your vision connects with mine, let\'s build something extraordinary.',
+      subtitle: "If your vision connects with mine, let's build something extraordinary.",
       bookCall: 'Book a Discovery Call',
       email: 'Email',
       followMe: 'Follow Me',
@@ -767,11 +767,11 @@ export const translations: Record<Language, Translations> = {
         sections: {
           introduction: {
             title: '1. Introduction',
-            content: 'Your privacy is important to us. It is Nauiter Master\'s policy to respect your privacy regarding any information we may collect from the Nauiter Master website and other sites we own and operate.',
+            content: "Your privacy is important to us. It is Nauiter Master's policy to respect your privacy regarding any information we may collect from the Nauiter Master website and other sites we own and operate.",
           },
           dataCollection: {
             title: '2. Data Collection',
-            content: 'We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we\'re collecting it and how it will be used.',
+            content: "We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we're collecting it and how it will be used.",
           },
           cookies: {
             title: '3. Use of Cookies',
@@ -783,7 +783,7 @@ export const translations: Record<Language, Translations> = {
           },
           sharing: {
             title: '5. Sharing',
-            content: 'We don\'t share any personally identifying information publicly or with third parties, except when required by law.',
+            content: "We don't share any personally identifying information publicly or with third parties, except when required by law.",
           },
           rights: {
             title: '6. Your Rights (LGPD)',
@@ -800,15 +800,15 @@ export const translations: Record<Language, Translations> = {
           },
           license: {
             title: '2. Use License',
-            content: 'Permission is granted to temporarily download one copy of the materials (information or software) on Nauiter Master\'s website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.',
+            content: "Permission is granted to temporarily download one copy of the materials (information or software) on Nauiter Master's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.",
           },
           disclaimer: {
             title: '3. Disclaimer',
-            content: 'The materials on Nauiter Master\'s website are provided on an \'as is\' basis. Nauiter Master makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.',
+            content: "The materials on Nauiter Master's website are provided on an 'as is' basis. Nauiter Master makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.",
           },
           limitations: {
             title: '4. Limitations',
-            content: 'In no event shall Nauiter Master or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Nauiter Master\'s website.',
+            content: "In no event shall Nauiter Master or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Nauiter Master's website.",
           },
         },
       },
