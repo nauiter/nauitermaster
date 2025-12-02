@@ -109,11 +109,19 @@ export const CertificationsSection = () => {
     return badges;
   };
 
-  const CertificationCard = ({ cert, index }: { cert: Certification; index: number }) => (
+  const CertificationCard = ({ cert, index, isActive }: { cert: Certification; index: number; isActive: boolean }) => (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      animate={{ 
+        opacity: isActive ? 1 : 0.3, 
+        y: isActive ? 0 : 10, 
+        scale: isActive ? 1 : 0.98 
+      }}
+      transition={{ 
+        duration: 0.5, 
+        delay: isActive ? index * 0.08 : 0,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }}
       className="group relative h-full"
     >
       {/* Glow effect */}
@@ -229,21 +237,24 @@ export const CertificationsSection = () => {
                 key={slideIndex} 
                 className="flex-[0_0_100%] min-w-0 px-2"
               >
-                <motion.div 
+              <motion.div 
+                  key={`slide-${slideIndex}-${selectedIndex}`}
                   className={`grid gap-4 ${
                     isMobile 
                       ? 'grid-cols-1 sm:grid-cols-3' 
                       : 'grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3'
                   }`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
                   {slideCards.map((cert, cardIndex) => (
                     <CertificationCard 
                       key={cert.title} 
                       cert={cert} 
-                      index={cardIndex} 
+                      index={cardIndex}
+                      isActive={slideIndex === selectedIndex}
                     />
                   ))}
                 </motion.div>
