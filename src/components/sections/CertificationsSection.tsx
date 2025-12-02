@@ -1,9 +1,10 @@
 import { Section } from "@/components/ui/section";
 import { useLanguage } from "@/hooks/useLanguage";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Award, Calendar, CheckCircle2, ExternalLink, Cloud, Shield, Brain, Building2, GraduationCap, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Certification {
@@ -30,11 +31,15 @@ export const CertificationsSection = () => {
     slides.push(certifications.slice(i, i + cardsPerSlide));
   }
 
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
+
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
     align: "start",
     skipSnaps: false,
-  });
+  }, [autoplayPlugin.current]);
   
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
