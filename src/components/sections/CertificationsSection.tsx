@@ -32,7 +32,7 @@ export const CertificationsSection = () => {
   }
 
   const autoplayPlugin = useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 7500, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
