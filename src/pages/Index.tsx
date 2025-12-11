@@ -27,6 +27,7 @@ import sweetLifeAnimes from "@/assets/sweet-life-animes.webp";
 import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
 import oVermePasseia from "@/assets/o-verme-passeia.webp";
 import figueiredoLaw from "@/assets/figueiredo-law.webp";
+import avaliaMacapa from "@/assets/avalia-macapa.webp";
 
 interface IndexProps {
   forcedLanguage?: 'pt' | 'en';
@@ -119,6 +120,14 @@ const Index = ({ forcedLanguage }: IndexProps) => {
             color: "from-rose-600 to-gray-500",
             image: figueiredoLaw,
             url: "https://advocaciafigueiredo.adv.br"
+          },
+          {
+            name: t.ecosystem.projects.avaliaMacapa.name,
+            purpose: t.ecosystem.projects.avaliaMacapa.purpose,
+            type: t.ecosystem.projects.avaliaMacapa.type,
+            color: "from-blue-500 to-green-400",
+            image: avaliaMacapa,
+            url: "https://avaliamacapa.com.br"
           }
         ]}
       />
