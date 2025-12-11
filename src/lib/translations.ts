@@ -127,6 +127,11 @@ export interface Translations {
         purpose: string;
         type: string;
       };
+      avaliaMacapa: {
+        name: string;
+        purpose: string;
+        type: string;
+      };
     };
   };
   // Skills Section
@@ -474,6 +479,11 @@ export const translations: Record<Language, Translations> = {
           name: 'Figueiredo Law',
           purpose: 'Law, technology, and AI ethics consultancy.',
           type: 'Ethics & AI'
+        },
+        avaliaMacapa: {
+          name: 'Avalia Macapá',
+          purpose: 'Urban assessment platform for mapping and rating locations.',
+          type: 'Tech Solutions'
         }
       }
     },
@@ -967,6 +977,11 @@ export const translations: Record<Language, Translations> = {
           name: 'Figueiredo Law',
           purpose: 'Consultoria em direito, tecnologia e ética de IA.',
           type: 'Ética & IA'
+        },
+        avaliaMacapa: {
+          name: 'Avalia Macapá',
+          purpose: 'Plataforma de avaliação urbana para mapear e avaliar locais.',
+          type: 'Soluções Tech'
         }
       }
     },
