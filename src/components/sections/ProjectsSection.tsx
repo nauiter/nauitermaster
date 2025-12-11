@@ -19,6 +19,7 @@ import sweetLifeAnimes from "@/assets/sweet-life-animes.webp";
 import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
 import oVermePasseia from "@/assets/o-verme-passeia.webp";
 import figueiredoLaw from "@/assets/figueiredo-law.webp";
+import avaliaMacapa from "@/assets/avalia-macapa.webp";
 
 export const ProjectsSection = () => {
   const { t, language } = useLanguage();
@@ -83,6 +84,16 @@ export const ProjectsSection = () => {
       description: t.projects.figueiredoLaw.description,
       tools: t.projects.figueiredoLaw.tools,
       url: "https://advocaciafigueiredo.adv.br",
+      category: t.projects.experimentalConcepts,
+      categoryColor: "text-[#00C4FF]",
+    },
+    {
+      image: avaliaMacapa,
+      alt: "Avalia Macapá - Plataforma web de avaliação urbana com React, TypeScript e Supabase | Urban assessment web platform with React, TypeScript and Supabase",
+      title: t.projects.avaliaMacapa.title,
+      description: t.projects.avaliaMacapa.description,
+      tools: t.projects.avaliaMacapa.tools,
+      url: "https://avaliamacapa.com.br",
       category: t.projects.experimentalConcepts,
       categoryColor: "text-[#00C4FF]",
     },

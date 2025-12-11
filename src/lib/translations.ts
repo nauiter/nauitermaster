@@ -99,6 +99,7 @@ export interface Translations {
     pomodoroProject: ProjectData;
     figueiredoLaw: ProjectData;
     decisionDie: ProjectData;
+    avaliaMacapa: ProjectData;
   };
   // Ecosystem Section
   ecosystem: {
@@ -442,6 +443,11 @@ export const translations: Record<Language, Translations> = {
         title: 'Decision Die',
         description: 'A playful AI experiment to simulate random creativity.',
         tools: ['Game', 'AI', 'Design'],
+      },
+      avaliaMacapa: {
+        title: 'Avalia Macapá',
+        description: 'Urban assessment platform for mapping, rating and organizing locations, services and businesses in Macapá city.',
+        tools: ['React', 'TypeScript', 'Supabase', 'AvaliAI'],
       },
     },
     ecosystem: {
@@ -930,6 +936,11 @@ export const translations: Record<Language, Translations> = {
         title: 'Decision Die',
         description: 'Um experimento lúdico de IA para simular criatividade aleatória.',
         tools: ['Jogo', 'IA', 'Design'],
+      },
+      avaliaMacapa: {
+        title: 'Avalia Macapá',
+        description: 'Plataforma de avaliação urbana para mapear, avaliar e organizar locais, serviços e comércios da cidade de Macapá.',
+        tools: ['React', 'TypeScript', 'Supabase', 'AvaliAI'],
       },
     },
     ecosystem: {
