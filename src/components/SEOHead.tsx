@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useLocation } from 'react-router-dom';
 
@@ -23,12 +23,12 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
     pt: {
       title: 'Nauiter Master | IA, Arte Digital & Automação',
       description: 'Estrategista de IA e artista digital especializado em prompt engineering, automação criativa e educação. Projetos inovadores combinando tecnologia e arte com IA.',
-      keywords: 'IA criativa, automação digital, arte digital, educação em IA, filosofia e design, prompt engineering',
+      keywords: 'IA criativa, automação digital, arte digital, educação em IA, filosofia e design, prompt engineering, automação criativa com IA, portfólio IA Macapá',
     },
     en: {
       title: 'Nauiter Master | AI, Digital Art & Automation',
       description: 'AI strategist and digital artist specialized in prompt engineering, creative automation and education. Innovative projects combining technology and art with AI.',
-      keywords: 'AI creative workflows, digital automation, digital art, AI education, philosophy & design, prompt engineering',
+      keywords: 'AI creative workflows, digital automation, digital art, AI education, philosophy & design, prompt engineering, creative AI automation',
     },
   };
 
@@ -37,6 +37,9 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
   useEffect(() => {
     // Update document title
     document.title = currentSEO.title;
+
+    // Update document lang attribute dynamically
+    document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
 
     // Update meta tags
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -89,7 +92,7 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
           "jobTitle": currentLang === 'pt' ? "Estrategista de IA e Artista Digital" : "AI Strategist & Digital Artist",
           "description": currentSEO.description,
           "url": baseUrl,
-          "image": `${baseUrl}/src/assets/portfolio-avatar.webp`,
+          "image": `${baseUrl}/og-image.png`,
           "sameAs": [
             "https://linkedin.com/in/nauiter-master-678a71144",
             "https://instagram.com/nauiter.master",
@@ -149,7 +152,16 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
               "description": currentLang === 'pt'
                 ? "Consultoria em IA conectando direito, ética e tecnologia"
                 : "AI consultancy connecting law, ethics, and technology",
-              "url": "https://figueiredo-landing-amapa.lovable.app/",
+              "url": "https://advocaciafigueiredo.adv.br",
+              "creator": { "@type": "Person", "name": "Nauiter Master" }
+            },
+            {
+              "@type": "WebApplication",
+              "name": "Avalia Macapá",
+              "description": currentLang === 'pt'
+                ? "Plataforma web de avaliação urbana para mapear e avaliar locais e serviços"
+                : "Urban assessment web platform for mapping and rating locations and services",
+              "url": "https://avaliamacapa.com.br",
               "creator": { "@type": "Person", "name": "Nauiter Master" }
             }
           ]
