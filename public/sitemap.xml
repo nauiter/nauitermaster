@@ -5,24 +5,13 @@
   <!-- ========================= -->
   <!-- HOMEPAGE URLS -->
   <!-- ========================= -->
-  
-  <!-- Homepage - Root (auto-detection) -->
-  <url>
-    <loc>https://nauitermaster.com/</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.com/pt" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.com/en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/" />
-    <lastmod>2025-12-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
 
   <!-- Homepage - Portuguese Version -->
   <url>
     <loc>https://nauitermaster.com/pt</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.com/en" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.com/pt" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/en" />
     <lastmod>2025-12-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -33,7 +22,7 @@
     <loc>https://nauitermaster.com/en</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.com/pt" />
     <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.com/en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/en" />
     <lastmod>2025-12-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -43,23 +32,12 @@
   <!-- PRIVACY POLICY URLS -->
   <!-- ========================= -->
 
-  <!-- Privacy Policy - Generic (redirects) -->
-  <url>
-    <loc>https://nauitermaster.com/privacy-policy</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.com/pt/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.com/en/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/privacy-policy" />
-    <lastmod>2025-12-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
   <!-- Privacy Policy - Portuguese Version -->
   <url>
     <loc>https://nauitermaster.com/pt/privacy-policy</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.com/en/privacy-policy" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.com/pt/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/en/privacy-policy" />
     <lastmod>2025-12-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -70,7 +48,7 @@
     <loc>https://nauitermaster.com/en/privacy-policy</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.com/pt/privacy-policy" />
     <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.com/en/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/en/privacy-policy" />
     <lastmod>2025-12-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -80,23 +58,12 @@
   <!-- TERMS OF USE URLS -->
   <!-- ========================= -->
 
-  <!-- Terms of Use - Generic (redirects) -->
-  <url>
-    <loc>https://nauitermaster.com/terms-of-use</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.com/pt/terms-of-use" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.com/en/terms-of-use" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/terms-of-use" />
-    <lastmod>2025-12-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
   <!-- Terms of Use - Portuguese Version -->
   <url>
     <loc>https://nauitermaster.com/pt/terms-of-use</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.com/en/terms-of-use" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.com/pt/terms-of-use" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/en/terms-of-use" />
     <lastmod>2025-12-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -107,7 +74,7 @@
     <loc>https://nauitermaster.com/en/terms-of-use</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.com/pt/terms-of-use" />
     <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.com/en/terms-of-use" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/en/terms-of-use" />
     <lastmod>2025-12-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
