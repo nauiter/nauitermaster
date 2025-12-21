@@ -193,12 +193,12 @@ export const ProjectsSection = () => {
                       </h3>
 
                       {/* Description */}
-                      <p className="text-gray-400 text-lg md:text-xl mb-8 leading-relaxed">
+                      <p className="text-gray-400 text-lg md:text-xl mb-8 leading-relaxed min-h-[4.5rem] sm:min-h-[5rem] md:min-h-0">
                         {project.description}
                       </p>
 
                       {/* Tools */}
-                      <div className="flex flex-wrap gap-2 mb-8">
+                      <div className="flex flex-wrap gap-2 mb-8 min-h-[5rem] sm:min-h-[4.5rem] md:min-h-0">
                         {project.tools.map((tool, toolIndex) => (
                           <span
                             key={toolIndex}
