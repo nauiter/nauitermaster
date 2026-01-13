@@ -16,7 +16,7 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
   const { language } = useLanguage();
   const location = useLocation();
   const currentLang = forcedLanguage || language;
-  const baseUrl = 'https://nauitermaster.lovable.app';
+  const baseUrl = 'https://nauitermaster.com';
   const currentPath = location.pathname;
 
   const seoData = {
