@@ -1,36 +1,16 @@
 
 
-## Plano: Padronizar Tags Mobile pelo Sweet Life Academy
-
-### Análise Visual
-
-**Sweet Life Academy (Modelo):**
-- Tags com fundo escuro sólido
-- Texto branco nítido
-- Bordas definidas
-- Visual limpo e consistente
-
-**Sweet Life Animes (Problema):**
-- Tags com fundo transparente demais
-- Efeito "lavado" ou esbranquiçado
-- Fundo do card vazando através das tags
-
----
+## Plano: Padronizar Altura das Tags de Projetos
 
 ### Problema Identificado
 
-O estilo atual das tags (linha 205):
-```tsx
-className="px-3 py-1.5 rounded-full bg-white/5 text-white/90 text-sm font-medium border border-white/20"
-```
-
-O `bg-white/5` é muito transparente, fazendo com que o conteúdo atrás vaze e crie inconsistências visuais entre os diferentes cards.
+Na imagem, as tags "AI Education", "Automation" e "Strategy" apresentam alturas visuais ligeiramente diferentes. Isso ocorre porque o padding vertical (`py-1.5`) não garante uma altura consistente quando combinado com diferentes conteúdos de texto.
 
 ---
 
 ### Solução Proposta
 
-Alterar o estilo das tags para usar um fundo escuro mais opaco, igual ao visual do Sweet Life Academy:
+Adicionar uma altura fixa às tags para garantir uniformidade visual em todas elas.
 
 **Arquivo:** `src/components/sections/ProjectsSection.tsx`
 **Linha:** 203-208
@@ -38,14 +18,14 @@ Alterar o estilo das tags para usar um fundo escuro mais opaco, igual ao visual 
 **De:**
 ```tsx
 <span
-  className="px-3 py-1.5 rounded-full bg-white/5 text-white/90 text-sm font-medium border border-white/20 transition-all duration-300"
+  className="px-3 py-1.5 rounded-full bg-[#1a1f2e] text-white text-sm font-medium border border-white/20 transition-all duration-300"
 >
 ```
 
 **Para:**
 ```tsx
 <span
-  className="px-3 py-1.5 rounded-full bg-[#1a1f2e] text-white text-sm font-medium border border-white/20 transition-all duration-300"
+  className="px-3 h-8 inline-flex items-center rounded-full bg-[#1a1f2e] text-white text-sm font-medium border border-white/20 transition-all duration-300"
 >
 ```
 
@@ -55,24 +35,16 @@ Alterar o estilo das tags para usar um fundo escuro mais opaco, igual ao visual 
 
 | Propriedade | Antes | Depois | Motivo |
 |-------------|-------|--------|--------|
-| background | `bg-white/5` | `bg-[#1a1f2e]` | Fundo sólido escuro, sem transparência |
-| text | `text-white/90` | `text-white` | Texto totalmente branco para máximo contraste |
+| height | - | `h-8` | Altura fixa de 32px para todas as tags |
+| display | inline | `inline-flex items-center` | Centraliza o texto verticalmente |
+| padding-y | `py-1.5` | (removido) | Não necessário com altura fixa |
 
 ---
 
 ### Resultado Esperado
 
-Todas as tags em todos os 5 projetos terão:
-- Fundo escuro sólido e consistente
-- Visual idêntico ao Sweet Life Academy
-- Sem efeito de transparência problemático
-- Legibilidade máxima em mobile
-
----
-
-### Arquivo a Modificar
-
-| Arquivo | Linha | Alteração |
-|---------|-------|-----------|
-| `src/components/sections/ProjectsSection.tsx` | 203-208 | Ajustar classes CSS das tags |
+- Todas as tags terão exatamente a mesma altura (32px)
+- Texto centralizado verticalmente
+- Bordas e cantos arredondados uniformes
+- Visual consistente em todos os 5 projetos
 
