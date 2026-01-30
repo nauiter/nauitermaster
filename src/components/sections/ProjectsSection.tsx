@@ -202,7 +202,7 @@ export const ProjectsSection = () => {
                         {project.tools.map((tool, toolIndex) => (
                           <span
                             key={toolIndex}
-                            className="px-3 py-1.5 rounded-full bg-white/10 text-gray-300 text-sm backdrop-blur-md border border-white/10 hover:bg-white/20 hover:border-white/30 transition-all duration-300"
+                            className="px-3 py-1.5 rounded-full bg-white/5 text-white/90 text-sm font-medium border border-white/20 transition-all duration-300"
                           >
                             {tool}
                           </span>

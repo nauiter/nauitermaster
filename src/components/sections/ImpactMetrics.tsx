@@ -53,7 +53,7 @@ const MetricCard = ({ value, label, delay, isVisible, language }: MetricCardProp
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="text-gray-300 text-sm"
+            className="text-gray-300 text-sm min-h-[2.5rem] flex items-center justify-center"
           >
             {label}
           </motion.p>

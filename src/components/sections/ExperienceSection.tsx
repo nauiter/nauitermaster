@@ -3,12 +3,6 @@ import { motion, Variants } from 'framer-motion';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useSection } from '@/hooks/useSection';
 import { SectionTitle } from '@/components/ui/section-title';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
 
 // Import experience logos
 import exercitoBrasileiroLogo from '@/assets/experience/exercitobrasileiro_logo.webp';
@@ -128,63 +122,41 @@ export const ExperienceSection: React.FC = () => {
           dataAttr="experience-title"
         />
 
-        <TooltipProvider delayDuration={100}>
-          <motion.div
-            className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mt-12"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
-          >
-            {experiences.map((exp) => {
-              const LogoWrapper = exp.url ? 'a' : 'div';
-              const wrapperProps = exp.url
-                ? {
-                    href: exp.url,
-                    target: '_blank',
-                    rel: 'noopener noreferrer',
-                    'aria-label': `${exp.name} - ${exp.role[language]}`,
-                  }
-                : {};
+        <motion.div
+          className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mt-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+        >
+          {experiences.map((exp) => {
+            const LogoWrapper = exp.url ? 'a' : 'div';
+            const wrapperProps = exp.url
+              ? {
+                  href: exp.url,
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                  'aria-label': `${exp.name} - ${exp.role[language]}`,
+                }
+              : {};
 
-              return (
-                <motion.div key={exp.name} variants={itemVariants}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <LogoWrapper
-                        {...wrapperProps}
-                        className="group flex items-center justify-center p-3 md:p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 cursor-pointer min-h-[80px] md:min-h-[100px] w-[90px] sm:w-[100px] md:w-[120px]"
-                      >
-                        <img
-                          src={exp.logo}
-                          alt={`${exp.name} logo`}
-                          className="h-12 md:h-16 w-auto object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
-                          loading="lazy"
-                        />
-                      </LogoWrapper>
-                    </TooltipTrigger>
-                    <TooltipContent
-                      side="bottom"
-                      className="bg-popover/95 backdrop-blur-sm border-border text-popover-foreground px-4 py-3 rounded-xl shadow-xl"
-                    >
-                      <div className="text-center">
-                        <p className="font-semibold text-sm text-popover-foreground">
-                          {exp.name}
-                        </p>
-                        <p className="text-xs text-primary mt-1">
-                          {exp.role[language]}
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-0.5">
-                          {exp.period[language]}
-                        </p>
-                      </div>
-                    </TooltipContent>
-                  </Tooltip>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </TooltipProvider>
+            return (
+              <motion.div key={exp.name} variants={itemVariants}>
+                <LogoWrapper
+                  {...wrapperProps}
+                  className="group flex items-center justify-center p-3 md:p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 cursor-pointer min-h-[80px] md:min-h-[100px] w-[90px] sm:w-[100px] md:w-[120px]"
+                >
+                  <img
+                    src={exp.logo}
+                    alt={`${exp.name} logo`}
+                    className="h-12 md:h-16 w-auto object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                    loading="lazy"
+                  />
+                </LogoWrapper>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
