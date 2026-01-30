@@ -157,7 +157,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
 
       {/* Footer */}
       <footer className="relative bg-gradient-to-b from-[#0c1324] to-[#000000]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 py-8 sm:py-10 md:py-12">
           {/* Top Section - Links & Info */}
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-6">
             {/* Quick Links */}
