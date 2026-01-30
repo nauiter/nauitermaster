@@ -130,7 +130,7 @@ export const ExperienceSection: React.FC = () => {
 
         <TooltipProvider delayDuration={100}>
           <motion.div
-            className="flex flex-wrap justify-center gap-4 md:gap-6 mt-12"
+            className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mt-12"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -153,7 +153,7 @@ export const ExperienceSection: React.FC = () => {
                     <TooltipTrigger asChild>
                       <LogoWrapper
                         {...wrapperProps}
-                        className="group flex items-center justify-center p-3 md:p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 cursor-pointer min-h-[80px] md:min-h-[100px] w-[100px] md:w-[120px]"
+                        className="group flex items-center justify-center p-3 md:p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 cursor-pointer min-h-[80px] md:min-h-[100px] w-[90px] sm:w-[100px] md:w-[120px]"
                       >
                         <img
                           src={exp.logo}

@@ -75,8 +75,8 @@ export const HeroSection = () => {
     return () => clearTimeout(timer);
   }, [isMobile]);
 
-  const particlesLoaded = useCallback(async (container?: Container) => {
-    console.log('Particles loaded successfully');
+  const particlesLoaded = useCallback(async (_container?: Container) => {
+    // Particles loaded successfully
   }, []);
 
   return (

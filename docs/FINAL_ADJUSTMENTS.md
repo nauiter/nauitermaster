@@ -41,10 +41,10 @@
 
 - [x] **Hreflang & Canonical URLs**:
   ```html
-  <link rel="canonical" href="https://nauitermaster.lovable.app/[current-path]" />
-  <link rel="alternate" hrefLang="pt-BR" href="https://nauitermaster.lovable.app/pt" />
-  <link rel="alternate" hrefLang="en" href="https://nauitermaster.lovable.app/en" />
-  <link rel="alternate" hrefLang="x-default" href="https://nauitermaster.lovable.app/" />
+  <link rel="canonical" href="https://nauitermaster.com/[current-path]" />
+  <link rel="alternate" hrefLang="pt-BR" href="https://nauitermaster.com/pt" />
+  <link rel="alternate" hrefLang="en" href="https://nauitermaster.com/en" />
+  <link rel="alternate" hrefLang="x-default" href="https://nauitermaster.com/" />
   ```
 
 - [x] **Schema.org Structured Data**:

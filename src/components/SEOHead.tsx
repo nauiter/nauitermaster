@@ -134,7 +134,7 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
       <link rel="alternate" hrefLang="en" href={`${baseUrl}/en`} />
       <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/`} />
 
-      {/* Structured Data - Person */}
+      {/* Structured Data - Person with Experience */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
@@ -154,13 +154,54 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
             : ["Artificial Intelligence", "Digital Art", "Prompt Engineering", "AI Automation", "Creative AI", "AI Education"],
           "alumniOf": currentLang === 'pt' ? "Análise de Sistemas" : "Systems Analysis",
           "email": "nauitermaster@hotmail.com",
-          "worksFor": {
-            "@type": "Organization",
-            "name": "Sweet Life Academy",
-            "description": currentLang === 'pt' 
-              ? "Educação em IA e automação para criadores" 
-              : "AI education and automation for creators"
-          }
+          "worksFor": [
+            {
+              "@type": "Organization",
+              "name": "Exército Brasileiro",
+              "description": currentLang === 'pt' ? "Militar de Telecomunicações" : "Military Telecommunications",
+              "url": "https://www.eb.mil.br/"
+            },
+            {
+              "@type": "Organization",
+              "name": "Google",
+              "description": "Cloud Partner",
+              "url": "https://cloud.google.com/"
+            },
+            {
+              "@type": "Organization",
+              "name": "Blizzard Entertainment",
+              "description": currentLang === 'pt' ? "Comunidade" : "Community",
+              "url": "https://www.blizzard.com/"
+            },
+            {
+              "@type": "Organization",
+              "name": "10xBank",
+              "description": currentLang === 'pt' ? "Desenvolvimento" : "Development"
+            },
+            {
+              "@type": "Organization",
+              "name": "Local Host Soluções",
+              "description": currentLang === 'pt' ? "Soluções Tech" : "Tech Solutions"
+            },
+            {
+              "@type": "Organization",
+              "name": "Sweet Life Animes",
+              "description": currentLang === 'pt' ? "Fundador & Criador" : "Founder & Creator",
+              "url": "https://sweetlifeanimes.com/"
+            },
+            {
+              "@type": "Organization",
+              "name": "Advocacia Figueiredo",
+              "description": currentLang === 'pt' ? "Desenvolvimento Web" : "Web Development",
+              "url": "https://advocaciafigueiredo.adv.br"
+            },
+            {
+              "@type": "Organization",
+              "name": "Avalia Macapá",
+              "description": currentLang === 'pt' ? "Desenvolvimento de Plataforma" : "Platform Development",
+              "url": "https://avaliamacapa.com.br"
+            }
+          ]
         })
       }} />
 
