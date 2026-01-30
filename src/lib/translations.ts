@@ -241,6 +241,11 @@ export interface Translations {
     militaryExperience: string;
     ideasInMotion: string;
   };
+  // Experience Section
+  experience: {
+    title: string;
+    subtitle: string;
+  };
   // Contact Section
   contact: {
     title: string;
@@ -743,6 +748,10 @@ export const translations: Record<Language, Translations> = {
       militaryExperience: 'Years Military Leadership',
       ideasInMotion: 'Ideas in Motion',
     },
+    experience: {
+      title: 'Experience & Partnerships',
+      subtitle: 'Organizations and brands I have collaborated with throughout my career',
+    },
     contact: {
       title: "Let's Co-Create the Future",
       subtitle: "If your vision connects with mine, let's build something extraordinary.",
@@ -1240,6 +1249,10 @@ export const translations: Record<Language, Translations> = {
       aiDrivenBrands: 'Marcas Impulsionadas por IA',
       militaryExperience: 'Anos de Liderança Militar',
       ideasInMotion: 'Ideias em Movimento',
+    },
+    experience: {
+      title: 'Experiência & Parcerias',
+      subtitle: 'Organizações e marcas com as quais colaborei ao longo da minha carreira',
     },
     contact: {
       title: 'Vamos Co-Criar o Futuro',
