@@ -18,16 +18,17 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
   const currentLang = forcedLanguage || language;
   const baseUrl = 'https://nauitermaster.com';
   const currentPath = location.pathname;
+  const fullUrl = `${baseUrl}${currentPath}`;
 
   const seoData = {
     pt: {
       title: 'Nauiter Master | IA, Arte Digital & Automação',
-      description: 'Estrategista de IA e artista digital especializado em prompt engineering, automação criativa e educação. Projetos inovadores combinando tecnologia e arte com IA.',
+      description: 'Estrategista de IA com 14+ anos em tecnologia, especializado em prompt engineering para workflows criativos. Desenvolvedor de 5+ plataformas ativas usando React, TypeScript e Supabase.',
       keywords: 'IA criativa, automação digital, arte digital, educação em IA, filosofia e design, prompt engineering, automação criativa com IA, portfólio IA Macapá',
     },
     en: {
       title: 'Nauiter Master | AI, Digital Art & Automation',
-      description: 'AI strategist and digital artist specialized in prompt engineering, creative automation and education. Innovative projects combining technology and art with AI.',
+      description: 'AI Strategist with 14+ years in technology, specialized in prompt engineering for creative workflows. Developer of 5+ active platforms using React, TypeScript and Supabase.',
       keywords: 'AI creative workflows, digital automation, digital art, AI education, philosophy & design, prompt engineering, creative AI automation',
     },
   };
@@ -63,6 +64,11 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
       ogDescription.setAttribute('content', currentSEO.description);
     }
 
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) {
+      ogUrl.setAttribute('content', fullUrl);
+    }
+
     // Update Twitter tags
     const twitterTitle = document.querySelector('meta[name="twitter:title"]');
     if (twitterTitle) {
@@ -73,12 +79,57 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
     if (twitterDescription) {
       twitterDescription.setAttribute('content', currentSEO.description);
     }
-  }, [currentLang, currentSEO]);
+
+    const twitterUrl = document.querySelector('meta[name="twitter:url"]');
+    if (twitterUrl) {
+      twitterUrl.setAttribute('content', fullUrl);
+    }
+  }, [currentLang, currentSEO, fullUrl]);
+
+  // FAQ Data for Schema
+  const faqData = currentLang === 'pt' ? [
+    {
+      question: "O que é Prompt Engineering?",
+      answer: "Prompt Engineering é a prática de criar instruções estruturadas e otimizadas para modelos de IA como ChatGPT, Claude e Midjourney, visando obter resultados mais precisos e criativos."
+    },
+    {
+      question: "Quais serviços de IA são oferecidos?",
+      answer: "Oferecemos consultoria em estratégia de IA, automação de workflows criativos, desenvolvimento de aplicações com IA, e educação em prompt engineering através da Sweet Life Academy."
+    },
+    {
+      question: "Como a automação com IA pode ajudar criadores?",
+      answer: "A automação com IA permite que criadores foquem no trabalho criativo enquanto tarefas repetitivas são automatizadas, aumentando produtividade e qualidade do output."
+    }
+  ] : [
+    {
+      question: "What is Prompt Engineering?",
+      answer: "Prompt Engineering is the practice of creating structured and optimized instructions for AI models like ChatGPT, Claude, and Midjourney, aiming to achieve more precise and creative results."
+    },
+    {
+      question: "What AI services are offered?",
+      answer: "We offer AI strategy consulting, creative workflow automation, AI-powered application development, and prompt engineering education through Sweet Life Academy."
+    },
+    {
+      question: "How can AI automation help creators?",
+      answer: "AI automation allows creators to focus on creative work while repetitive tasks are automated, increasing productivity and output quality."
+    }
+  ];
+
+  // Service Data for Schema
+  const serviceData = {
+    name: currentLang === 'pt' ? "Consultoria em Estratégia de IA & Automação" : "AI Strategy & Automation Consulting",
+    description: currentLang === 'pt' 
+      ? "Serviços de consultoria especializada em estratégia de inteligência artificial, automação de workflows criativos e educação em prompt engineering."
+      : "Specialized consulting services in artificial intelligence strategy, creative workflow automation, and prompt engineering education.",
+    serviceTypes: currentLang === 'pt'
+      ? ["Consultoria em IA", "Prompt Engineering", "Automação Criativa", "Educação em IA"]
+      : ["AI Consulting", "Prompt Engineering", "Creative Automation", "AI Education"]
+  };
 
   return (
     <>
       {/* Canonical and Hreflang */}
-      <link rel="canonical" href={`${baseUrl}${currentPath}`} />
+      <link rel="canonical" href={fullUrl} />
       <link rel="alternate" hrefLang="pt-BR" href={`${baseUrl}/pt`} />
       <link rel="alternate" hrefLang="en" href={`${baseUrl}/en`} />
       <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/`} />
@@ -125,7 +176,7 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
               "description": currentLang === 'pt'
                 ? "Marca criativa focada em empoderar artistas digitais e contadores de histórias"
                 : "Creative brand focused on empowering digital artists and storytellers",
-              "url": "https://sweetlifeanimes.lovable.app/",
+              "url": "https://sweetlifeanimes.com/",
               "creator": { "@type": "Person", "name": "Nauiter Master" }
             },
             {
@@ -143,7 +194,7 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
               "description": currentLang === 'pt'
                 ? "Explorando filosofia e estética através do design"
                 : "Exploring philosophy and aesthetics through design",
-              "url": "https://overmepasseia.lovable.app",
+              "url": "https://overmepasseia.com.br",
               "creator": { "@type": "Person", "name": "Nauiter Master" }
             },
             {
@@ -165,6 +216,48 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
               "creator": { "@type": "Person", "name": "Nauiter Master" }
             }
           ]
+        })
+      }} />
+
+      {/* Structured Data - FAQPage (GEO Optimization) */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqData.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
+        })
+      }} />
+
+      {/* Structured Data - Service (GEO Optimization) */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": serviceData.name,
+          "description": serviceData.description,
+          "provider": {
+            "@type": "Person",
+            "name": "Nauiter Master",
+            "url": baseUrl
+          },
+          "serviceType": serviceData.serviceTypes,
+          "areaServed": {
+            "@type": "Place",
+            "name": "Worldwide"
+          },
+          "availableChannel": {
+            "@type": "ServiceChannel",
+            "serviceUrl": baseUrl,
+            "servicePhone": "",
+            "availableLanguage": ["Portuguese", "English"]
+          }
         })
       }} />
     </>

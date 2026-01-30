@@ -340,8 +340,8 @@ export const translations: Record<Language, Translations> = {
   en: {
     hero: {
       title: 'Nauiter Master',
-      subtitle: 'Exploring the edge between Intelligence, Art, and Automation.',
-      description: 'Systems Analyst & AI Strategist | Dev (TS/JS/SQL) | Content Creator & Digital Strategy',
+      subtitle: 'AI Strategist with 14+ years in technology, specialized in prompt engineering for creative workflows.',
+      description: 'Systems Analyst & AI Strategist | Developer of 5+ active platforms using React, TypeScript & Supabase | Content Creator',
       downloadCV: 'Download CV',
       viewProjects: 'View My Projects',
       linkedinFollowers: 'LinkedIn Followers',
@@ -842,8 +842,8 @@ export const translations: Record<Language, Translations> = {
   pt: {
     hero: {
       title: 'Nauiter Master',
-      subtitle: 'Explorando a fronteira entre Inteligência, Arte e Automação.',
-      description: 'Analista de Sistemas & Estrategista de IA | Dev (TS/JS/SQL) | Criador de Conteúdo & Estratégia Digital',
+      subtitle: 'Estrategista de IA com 14+ anos em tecnologia, especializado em prompt engineering para workflows criativos.',
+      description: 'Analista de Sistemas & Estrategista de IA | Desenvolvedor de 5+ plataformas ativas usando React, TypeScript & Supabase | Criador de Conteúdo',
       downloadCV: 'Baixar CV',
       viewProjects: 'Ver Meus Projetos',
       linkedinFollowers: 'Seguidores LinkedIn',
