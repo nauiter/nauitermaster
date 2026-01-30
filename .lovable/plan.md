@@ -1,209 +1,128 @@
 
-## Revisao Geral do Portfolio - Analise SEO + GEO
+## Plano: Adicionar 2 Novas Empresas + Layout Horizontal
 
-Apos analise completa do projeto, identifiquei **problemas criticos**, **melhorias de SEO** e **oportunidades de GEO (Generative Engine Optimization)**.
-
----
-
-### Problemas Criticos Identificados
-
-#### 1. URLs Inconsistentes (SEO Critico)
-
-**Problema:** Arquivos ainda referenciam dominios antigos `.lovable.app` em vez do dominio de producao `nauitermaster.com`:
-
-| Arquivo | Linha | URL Incorreta |
-|---------|-------|---------------|
-| `robots.txt` | 18 | `nauitermaster.lovable.app/sitemap.xml` |
-| `SEOHead.tsx` | 128 | `sweetlifeanimes.lovable.app/` |
-| `SEOHead.tsx` | 146 | `overmepasseia.lovable.app` |
-| `Breadcrumbs.tsx` | 47 | `nauitermaster.lovable.app` |
-
-**Impacto:** Penalizacao por duplicidade de conteudo, fragmentacao de autoridade de dominio.
-
-**Solucao:** Atualizar todos os arquivos para usar `nauitermaster.com` como dominio unico.
+### Visao Geral
+Adicionar as duas novas empresas (Advocacia Figueiredo e Avalia Macapa) na secao Experience & Partnerships e ajustar o grid para exibir todos os 8 logos lado a lado em uma linha horizontal.
 
 ---
 
-#### 2. Sitemap Desatualizado
+### 1. Copiar Novas Imagens
 
-**Problema:** O sitemap tem `lastmod: 2025-12-16` mas o projeto foi modificado recentemente (nova secao Experience adicionada).
+**Destino:** `src/assets/experience/`
 
-**Solucao:** Atualizar datas do sitemap para refletir modificacoes recentes.
-
----
-
-### Melhorias de SEO
-
-#### 3. Schema.org Incompleto
-
-**Problemas encontrados:**
-- Falta `FAQPage` schema (perguntas frequentes melhoram rich snippets)
-- Falta `Service` schema para os servicos oferecidos
-- Creative Works no SEOHead usam URLs antigas
-- Nao existe `Occupation` schema detalhando experiencia profissional
-
-**Solucao:** Adicionar schemas adicionais para melhorar rich snippets:
-- FAQPage com perguntas sobre servicos de IA
-- Service schema para consultoria
-- Atualizar URLs dos Creative Works
+Arquivos a copiar:
+- `adv-figueiredo.webp` → `advocacia_figueiredo_logo.webp`
+- `avalia-macapa.webp` → `avalia_macapa_logo.webp`
 
 ---
 
-#### 4. Meta Tags Dinamicas Incompletas
+### 2. Atualizar ExperienceSection.tsx
 
-**Problema:** As meta tags de OG e Twitter nao atualizam a URL dinamicamente com a rota atual (sempre mostram `/` em vez de `/pt` ou `/en`).
+**Arquivo:** `src/components/sections/ExperienceSection.tsx`
 
-**Arquivo:** `SEOHead.tsx`
+#### 2.1 Adicionar Novos Imports
 
-**Solucao:** Atualizar `og:url` e `twitter:url` dinamicamente baseado no `currentPath`.
-
----
-
-### GEO (Generative Engine Optimization)
-
-GEO e a otimizacao para motores de busca baseados em IA (ChatGPT, Perplexity, Gemini, etc). Para melhorar visibilidade:
-
-#### 5. Adicionar Conteudo Citavel
-
-**Problema:** O portfolio nao tem conteudo estruturado de forma que AIs possam citar facilmente (ex: definicoes, estatisticas, metodologias).
-
-**Solucao:** 
-- Adicionar secao "About Me" mais detalhada com metodologia de trabalho
-- Incluir citacoes/frases marcantes que AIs possam referenciar
-- Adicionar dados estatisticos verificaveis
-
----
-
-#### 6. Melhorar Semântica e Contexto
-
-**Problema atual:** As descricoes sao genericas. AIs preferem conteudo especifico e factual.
-
-**Exemplo atual:** "Estrategista de IA e artista digital"
-
-**Melhoria:** "Estrategista de IA com 14+ anos em tecnologia, especializado em prompt engineering para workflows criativos. Desenvolvedor de 5+ plataformas ativas usando React, TypeScript e Supabase."
-
----
-
-#### 7. E-E-A-T Signals (Experience, Expertise, Authority, Trust)
-
-Para melhor ranking em buscadores e AIs:
-
-| Sinal | Status Atual | Melhoria |
-|-------|--------------|----------|
-| Experience | Parcial (10+ anos EB) | Adicionar datas especificas, projetos com metricas |
-| Expertise | Bom (certificacoes) | Linkar certificacoes verificaveis |
-| Authority | Medio | Adicionar testimonials/social proof |
-| Trust | Bom (LGPD) | Adicionar selo de verificacao, case studies |
-
----
-
-### Plano de Implementacao
-
-#### Fase 1: Correcoes Criticas (Prioridade Alta)
-
-**Arquivo:** `public/robots.txt`
-```text
-Sitemap: https://nauitermaster.com/sitemap.xml
+```typescript
+import advocaciaFigueiredoLogo from '@/assets/experience/advocacia_figueiredo_logo.webp';
+import avaliaMacapaLogo from '@/assets/experience/avalia_macapa_logo.webp';
 ```
 
-**Arquivo:** `src/components/SEOHead.tsx`
-- Linha 128: Atualizar URL Sweet Life Animes para `https://sweetlifeanimes.com/`
-- Linha 146: Atualizar URL O Verme Passeia para `https://overmepasseia.com.br`
-- Adicionar atualizacao dinamica de `og:url` e `twitter:url`
+#### 2.2 Adicionar Novas Empresas ao Array
 
-**Arquivo:** `src/components/Breadcrumbs.tsx`
-- Linha 47: Atualizar para `https://nauitermaster.com`
-
-**Arquivo:** `public/sitemap.xml`
-- Atualizar lastmod para data atual
-
----
-
-#### Fase 2: Melhorias de Schema (Prioridade Media)
-
-**Arquivo:** `src/components/SEOHead.tsx`
-
-Adicionar FAQPage schema:
 ```typescript
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "O que e Prompt Engineering?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Prompt Engineering e a pratica de criar instrucoes estruturadas para modelos de IA..."
-      }
-    },
-    // ... mais perguntas
-  ]
-}
-```
-
-Adicionar Service schema:
-```typescript
+  name: 'Advocacia Figueiredo',
+  logo: advocaciaFigueiredoLogo,
+  period: { en: 'Project', pt: 'Projeto' },
+  role: { en: 'Web Development', pt: 'Desenvolvimento Web' },
+  url: 'https://advocaciafigueiredo.adv.br',
+},
 {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "AI Strategy & Automation Consulting",
-  "provider": { "@type": "Person", "name": "Nauiter Master" },
-  "serviceType": ["AI Consulting", "Prompt Engineering", "Automation"],
-  "areaServed": "Worldwide"
-}
+  name: 'Avalia Macapá',
+  logo: avaliaMacapaLogo,
+  period: { en: 'Project', pt: 'Projeto' },
+  role: { en: 'Platform Development', pt: 'Desenvolvimento de Plataforma' },
+  url: 'https://avaliamacapa.com.br',
+},
+```
+
+#### 2.3 Atualizar Layout do Grid
+
+**De:**
+```tsx
+className="grid grid-cols-3 md:grid-cols-6 gap-6 md:gap-8 mt-12"
+```
+
+**Para:**
+```tsx
+className="flex flex-wrap justify-center gap-4 md:gap-6 mt-12"
+```
+
+Isso cria um layout flexivel horizontal onde todos os icones ficam lado a lado, quebrando linha apenas quando necessario em telas menores.
+
+#### 2.4 Ajustar Tamanho dos Cards
+
+Para acomodar 8 logos, reduzir levemente o tamanho dos cards:
+
+**De:**
+```tsx
+className="... p-4 md:p-6 ... min-h-[100px] md:min-h-[120px]"
+```
+
+**Para:**
+```tsx
+className="... p-3 md:p-4 ... min-h-[80px] md:min-h-[100px] w-[100px] md:w-[120px]"
 ```
 
 ---
 
-#### Fase 3: GEO Optimization (Prioridade Media)
+### 3. Resultado Visual Esperado
 
-**Arquivo:** `src/lib/translations.ts`
+**Desktop (8 icones em linha):**
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                     EXPERIENCE & PARTNERSHIPS                                │
+│                                                                             │
+│  [EB]  [Google]  [Blizz]  [10x]  [LH]  [SLA]  [Figueiredo]  [Avalia]       │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
 
-Enriquecer descricoes com dados especificos:
-- Hero description com anos de experiencia e numero de projetos
-- Adicionar metodologia de trabalho
-- Incluir metricas verificaveis
-
-**Arquivo:** `index.html` - noscript fallback
-
-Adicionar mais conteudo estruturado para crawlers que nao executam JS:
-- Metodologia de trabalho
-- Lista completa de servicos
-- FAQ basico
-
----
-
-### Resumo de Arquivos a Modificar
-
-| Arquivo | Alteracoes |
-|---------|------------|
-| `public/robots.txt` | Corrigir URL do sitemap |
-| `public/sitemap.xml` | Atualizar lastmod |
-| `src/components/SEOHead.tsx` | URLs dos projetos, meta tags dinamicas, novos schemas |
-| `src/components/Breadcrumbs.tsx` | Corrigir URL base |
-| `src/lib/translations.ts` | Enriquecer descricoes para GEO |
-| `index.html` | Expandir noscript content |
+**Mobile (4 icones por linha):**
+```
+┌─────────────────────────┐
+│  EXPERIENCE & PARTNERS  │
+│                         │
+│  [EB]  [Goo]  [Blz] [10]│
+│  [LH]  [SLA] [Fig] [Ava]│
+│                         │
+└─────────────────────────┘
+```
 
 ---
 
-### Checklist de Validacao Pos-Implementacao
+### 4. Arquivos a Modificar
 
-- [ ] Testar todas as URLs no Google Search Console
-- [ ] Validar schemas com Schema.org Validator
-- [ ] Verificar OG tags com Facebook Debugger
-- [ ] Testar Twitter Cards com Card Validator
-- [ ] Confirmar hreflang com SEO tools
-- [ ] Testar sitemap no Google Search Console
+| Arquivo | Acao |
+|---------|------|
+| `src/assets/experience/advocacia_figueiredo_logo.webp` | Copiar imagem |
+| `src/assets/experience/avalia_macapa_logo.webp` | Copiar imagem |
+| `src/components/sections/ExperienceSection.tsx` | Adicionar logos + ajustar layout |
 
 ---
 
-### Impacto Esperado
+### 5. Detalhes das Novas Empresas
 
-| Metrica | Antes | Depois |
-|---------|-------|--------|
-| Rich Snippets | Basico (Person) | Expandido (FAQ, Service, CreativeWork) |
-| URL Consistency | 4 inconsistencias | 100% consistente |
-| GEO Readiness | Baixo | Medio-Alto |
-| Sitemap Freshness | Desatualizado | Atualizado |
+| Empresa | Tipo | URL |
+|---------|------|-----|
+| Advocacia Figueiredo | Desenvolvimento Web (Escritorio de advocacia) | https://advocaciafigueiredo.adv.br |
+| Avalia Macapa | Desenvolvimento de Plataforma (Avaliacoes) | https://avaliamacapa.com.br |
 
+---
+
+### Beneficios
+
+- 8 empresas demonstrando experiencia diversificada
+- Layout horizontal mantendo todos os logos visiveis
+- Responsivo com quebra automatica em mobile
+- Icones uniformes e alinhados
