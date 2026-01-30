@@ -17,6 +17,8 @@ import blizzardLogo from '@/assets/experience/blizzard_entertainment_logo.webp';
 import tenXBankLogo from '@/assets/experience/10xbank_logo.webp';
 import localHostLogo from '@/assets/experience/local_host_solucoes_logo.webp';
 import sweetLifeAnimesLogo from '@/assets/experience/sweet_life_animes_logo.webp';
+import advocaciaFigueiredoLogo from '@/assets/experience/advocacia_figueiredo_logo.webp';
+import avaliaMacapaLogo from '@/assets/experience/avalia_macapa_logo.webp';
 
 interface Experience {
   name: string;
@@ -69,6 +71,20 @@ const experiences: Experience[] = [
     role: { en: 'Founder & Creator', pt: 'Fundador & Criador' },
     url: 'https://sweetlifeanimes.com/',
   },
+  {
+    name: 'Advocacia Figueiredo',
+    logo: advocaciaFigueiredoLogo,
+    period: { en: 'Project', pt: 'Projeto' },
+    role: { en: 'Web Development', pt: 'Desenvolvimento Web' },
+    url: 'https://advocaciafigueiredo.adv.br',
+  },
+  {
+    name: 'Avalia Macapá',
+    logo: avaliaMacapaLogo,
+    period: { en: 'Project', pt: 'Projeto' },
+    role: { en: 'Platform Development', pt: 'Desenvolvimento de Plataforma' },
+    url: 'https://avaliamacapa.com.br',
+  },
 ];
 
 export const ExperienceSection: React.FC = () => {
@@ -114,7 +130,7 @@ export const ExperienceSection: React.FC = () => {
 
         <TooltipProvider delayDuration={100}>
           <motion.div
-            className="grid grid-cols-3 md:grid-cols-6 gap-6 md:gap-8 mt-12"
+            className="flex flex-wrap justify-center gap-4 md:gap-6 mt-12"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -137,7 +153,7 @@ export const ExperienceSection: React.FC = () => {
                     <TooltipTrigger asChild>
                       <LogoWrapper
                         {...wrapperProps}
-                        className="group flex items-center justify-center p-4 md:p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 cursor-pointer min-h-[100px] md:min-h-[120px]"
+                        className="group flex items-center justify-center p-3 md:p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 cursor-pointer min-h-[80px] md:min-h-[100px] w-[100px] md:w-[120px]"
                       >
                         <img
                           src={exp.logo}
