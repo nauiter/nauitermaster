@@ -44,7 +44,7 @@ export const Breadcrumbs = () => {
       "@type": "ListItem",
       "position": index + 1,
       "name": crumb.name,
-      "item": `https://nauitermaster.lovable.app${crumb.path}`
+      "item": `https://nauitermaster.com${crumb.path}`
     }))
   };
 
