@@ -13,6 +13,7 @@ import { TechStackSection } from "@/components/sections/TechStackSection";
 import { SoftSkillsSection } from "@/components/sections/SoftSkillsSection";
 import { CertificationsSection } from "@/components/sections/CertificationsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SEOHead } from "@/components/SEOHead";
 import { HeroSkeleton } from "@/components/skeletons/HeroSkeleton";
@@ -134,6 +135,9 @@ const Index = ({ forcedLanguage }: IndexProps) => {
 
       {/* Impact Metrics Section */}
       <ImpactMetrics />
+
+      {/* Experience & Partnerships Section */}
+      <ExperienceSection />
 
       {/* Skills & Competencies Section */}
       <SkillsSection />
