@@ -1,50 +1,64 @@
 
 
-## Plano: Padronizar Altura das Tags de Projetos
+## Plano: Corrigir Duplicação do FAQPage Schema
 
-### Problema Identificado
+### Problema Detectado pelo Google Search Console
 
-Na imagem, as tags "AI Education", "Automation" e "Strategy" apresentam alturas visuais ligeiramente diferentes. Isso ocorre porque o padding vertical (`py-1.5`) não garante uma altura consistente quando combinado com diferentes conteúdos de texto.
+O erro "O campo FAQPage está duplicado" ocorre porque o schema `FAQPage` está sendo definido em **dois lugares diferentes**:
 
----
+| Localização | Tipo | Linhas |
+|-------------|------|--------|
+| `index.html` | Estático | 184-216 |
+| `SEOHead.tsx` | Dinâmico (React) | 263-277 |
 
-### Solução Proposta
-
-Adicionar uma altura fixa às tags para garantir uniformidade visual em todas elas.
-
-**Arquivo:** `src/components/sections/ProjectsSection.tsx`
-**Linha:** 203-208
-
-**De:**
-```tsx
-<span
-  className="px-3 py-1.5 rounded-full bg-[#1a1f2e] text-white text-sm font-medium border border-white/20 transition-all duration-300"
->
-```
-
-**Para:**
-```tsx
-<span
-  className="px-3 h-8 inline-flex items-center rounded-full bg-[#1a1f2e] text-white text-sm font-medium border border-white/20 transition-all duration-300"
->
-```
+Quando a aplicação carrega, ambos os scripts `application/ld+json` com `@type: FAQPage` são renderizados no DOM, causando duplicação.
 
 ---
 
-### Mudanças Específicas
+### Solução Recomendada
 
-| Propriedade | Antes | Depois | Motivo |
-|-------------|-------|--------|--------|
-| height | - | `h-8` | Altura fixa de 32px para todas as tags |
-| display | inline | `inline-flex items-center` | Centraliza o texto verticalmente |
-| padding-y | `py-1.5` | (removido) | Não necessário com altura fixa |
+**Remover o FAQPage do `index.html`** e manter apenas a versão dinâmica no `SEOHead.tsx`.
+
+**Motivos:**
+1. A versão no `SEOHead.tsx` é **bilíngue** (muda conforme o idioma PT/EN)
+2. A versão no `index.html` é estática (apenas PT)
+3. Para SEO multilíngue, a versão dinâmica é a correta
+
+---
+
+### Alterações Necessárias
+
+**Arquivo:** `index.html`
+
+**Remover linhas 184-216:**
+```html
+<!-- Structured Data - FAQPage (GEO Optimization) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    ...
+  ]
+}
+</script>
+```
+
+---
+
+### Verificação Pós-Deploy
+
+Após aplicar a correção:
+
+1. Usar o [Rich Results Test](https://search.google.com/test/rich-results) do Google para validar que apenas 1 FAQPage existe
+2. Aguardar reindexação no Search Console (solicitar via "Inspecionar URL" > "Solicitar indexação")
 
 ---
 
 ### Resultado Esperado
 
-- Todas as tags terão exatamente a mesma altura (32px)
-- Texto centralizado verticalmente
-- Bordas e cantos arredondados uniformes
-- Visual consistente em todos os 5 projetos
+- Apenas 1 schema FAQPage por página
+- FAQPage dinâmico em PT quando `/pt`
+- FAQPage dinâmico em EN quando `/en`
+- Erro do Search Console resolvido
 
