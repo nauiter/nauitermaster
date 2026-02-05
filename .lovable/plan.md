@@ -1,98 +1,52 @@
 
 
-## Plano: i18n de Precos e Configuracao de Acesso Admin
+## Plano: Correção do Email Admin + Legibilidade da Lucy
 
 ---
 
-## Problema 1: Internacionalizacao de Precos
+## Problema 1: Email Admin Incorreto
 
-### Situacao Atual
+### Situação Atual
+O email cadastrado no banco é `nauiter-master@hotmail.com` (com hífen).
+O email correto deve ser `nauitermaster@hotmail.com` (sem hífen).
 
-A tabela `mentorship_tiers` tem apenas uma coluna `price` com valores em Reais:
-- Strategic Insight: `R$ 497`
-- Ecosystem Builder: `R$ 1.997/mes`
-- Private Partnership: `Sob consulta`
-
-### Solucao: Adicionar colunas `price_pt` e `price_en`
-
-**Alteracoes no Banco de Dados:**
-```sql
--- Adicionar novas colunas
-ALTER TABLE mentorship_tiers ADD COLUMN price_pt text;
-ALTER TABLE mentorship_tiers ADD COLUMN price_en text;
-
--- Migrar dados existentes
-UPDATE mentorship_tiers SET 
-  price_pt = price,
-  price_en = CASE 
-    WHEN tier_key = 'strategic_insight' THEN 'US$ 97'
-    WHEN tier_key = 'ecosystem_builder' THEN 'US$ 397/month'
-    WHEN tier_key = 'private_partnership' THEN 'Upon request'
-  END;
-
--- Remover coluna antiga
-ALTER TABLE mentorship_tiers DROP COLUMN price;
-```
-
-**Alteracoes no Componente `MentorshipSection.tsx`:**
-- Linha 15: Atualizar interface para `price_pt` e `price_en`
-- Linha 162: Usar `language === "pt" ? tier.price_pt : tier.price_en`
-
-**Alteracoes no Admin `MentorshipManager.tsx`:**
-- Adicionar campos separados para editar `price_pt` e `price_en`
+### Solução
+Atualizar o email do usuário admin via Supabase Auth usando uma Edge Function temporária que usa a Admin API.
 
 ---
 
-## Problema 2: Configuracao de Acesso Administrativo
+## Problema 2: Texto Ilegível na Lucy
 
-### Situacao Atual
+### Situação Atual
+- Fundo das mensagens: `bg-white/5` (5% opacidade - muito transparente)
+- Texto: `text-gray-200` (cinza claro com baixo contraste)
+- Markdown não herda estilos de texto adequados
 
-A tabela `user_roles` esta **vazia** - nenhum admin configurado.
+### Solução
 
-### Solucao: Criar usuario admin via Supabase Auth
+**Arquivo:** `src/components/LucyAssistant.tsx`
 
-**Passo 1:** Criar usuario no Supabase Auth com as credenciais fornecidas:
-- Email: `nauiter-master@hotmail.com`
-- Senha: `nN!120895`
-
-**Passo 2:** Atribuir role admin na tabela `user_roles`:
-```sql
-INSERT INTO user_roles (user_id, role) 
-VALUES ('<uid-do-usuario>', 'admin');
-```
-
-**Nota de Seguranca:** O usuario sera criado via Edge Function dedicada para garantir que a senha seja tratada de forma segura. O UID sera automaticamente inserido na tabela `user_roles` apos a criacao.
+| Linha | Atual | Novo |
+|-------|-------|------|
+| 104 | `bg-white/5 ... text-gray-200` | `bg-white/10 ... text-white` |
+| 125 | `bg-white/5 text-gray-200` | `bg-white/10 text-white` |
+| 129 | `prose prose-sm prose-invert` | `prose prose-sm prose-invert [&>*]:text-white [&_p]:text-white [&_li]:text-white` |
+| 145 | `bg-white/5` | `bg-white/10` |
 
 ---
 
-## Arquivos a Modificar
+## Fluxo de Implementação
 
-| Arquivo | Alteracoes |
-|---------|------------|
-| Banco de dados | Adicionar `price_pt`, `price_en`, migrar dados |
-| `MentorshipSection.tsx` | Atualizar interface e exibicao de preco |
-| `MentorshipManager.tsx` | Campos separados para precos PT/EN |
-| `useAdmin.tsx` | Suportar novos campos de preco |
-| `types.ts` | Sera auto-atualizado |
+1. Criar Edge Function temporária para atualizar email do admin
+2. Executar função e confirmar atualização
+3. Deletar Edge Function (segurança)
+4. Atualizar estilos do `LucyAssistant.tsx`
 
 ---
 
-## Fluxo de Implementacao
+## Validação
 
-1. Executar migracao SQL para adicionar colunas de preco
-2. Atualizar componente `MentorshipSection.tsx` para exibir preco por idioma
-3. Atualizar painel admin para editar precos em ambos idiomas
-4. Criar usuario admin e atribuir role
-5. Testar login e acesso ao `/fimo_admin`
-
----
-
-## Checklist de Validacao
-
-- Versao EN exibe precos em US$
-- Versao PT exibe precos em R$
-- Admin pode editar precos em ambos idiomas
-- Login com credenciais fornecidas funciona
-- `/fimo_admin` acessivel apos login
-- Acesso anonimo redireciona para `/login`
+- Login com `nauitermaster@hotmail.com` + `nN!120895` funciona
+- Mensagens da Lucy são claramente legíveis
+- Markdown renderizado com texto branco visível
 
