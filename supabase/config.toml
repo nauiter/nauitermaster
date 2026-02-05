@@ -1,1 +1,4 @@
 project_id = "udzjrhvimujhofmlndqt"
+
+[functions.lucy-chat]
+verify_jwt = false

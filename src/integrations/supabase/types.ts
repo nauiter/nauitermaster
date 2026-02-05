@@ -14,6 +14,184 @@ export type Database = {
   }
   public: {
     Tables: {
+      lucy_conversations: {
+        Row: {
+          created_at: string
+          id: string
+          lead_id: string | null
+          messages: Json | null
+          session_id: string
+          updated_at: string
+          user_info: Json | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          lead_id?: string | null
+          messages?: Json | null
+          session_id: string
+          updated_at?: string
+          user_info?: Json | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          lead_id?: string | null
+          messages?: Json | null
+          session_id?: string
+          updated_at?: string
+          user_info?: Json | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lucy_conversations_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "mentorship_leads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      lucy_knowledge: {
+        Row: {
+          answer_en: string
+          answer_pt: string
+          category: string
+          created_at: string
+          id: string
+          is_active: boolean | null
+          priority: number | null
+          question_en: string
+          question_pt: string
+          updated_at: string
+        }
+        Insert: {
+          answer_en: string
+          answer_pt: string
+          category: string
+          created_at?: string
+          id?: string
+          is_active?: boolean | null
+          priority?: number | null
+          question_en: string
+          question_pt: string
+          updated_at?: string
+        }
+        Update: {
+          answer_en?: string
+          answer_pt?: string
+          category?: string
+          created_at?: string
+          id?: string
+          is_active?: boolean | null
+          priority?: number | null
+          question_en?: string
+          question_pt?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      mentorship_leads: {
+        Row: {
+          company: string | null
+          conversation: Json | null
+          created_at: string
+          email: string
+          id: string
+          interest_tier: string | null
+          name: string
+          phone: string | null
+          qualification_score: number | null
+          qualified_at: string | null
+          status: string | null
+          updated_at: string
+        }
+        Insert: {
+          company?: string | null
+          conversation?: Json | null
+          created_at?: string
+          email: string
+          id?: string
+          interest_tier?: string | null
+          name: string
+          phone?: string | null
+          qualification_score?: number | null
+          qualified_at?: string | null
+          status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          company?: string | null
+          conversation?: Json | null
+          created_at?: string
+          email?: string
+          id?: string
+          interest_tier?: string | null
+          name?: string
+          phone?: string | null
+          qualification_score?: number | null
+          qualified_at?: string | null
+          status?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "mentorship_leads_interest_tier_fkey"
+            columns: ["interest_tier"]
+            isOneToOne: false
+            referencedRelation: "mentorship_tiers"
+            referencedColumns: ["tier_key"]
+          },
+        ]
+      }
+      mentorship_tiers: {
+        Row: {
+          created_at: string
+          description_en: string | null
+          description_pt: string | null
+          display_order: number | null
+          features_en: Json | null
+          features_pt: Json | null
+          id: string
+          is_available: boolean | null
+          name_en: string
+          name_pt: string
+          price: string | null
+          tier_key: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description_en?: string | null
+          description_pt?: string | null
+          display_order?: number | null
+          features_en?: Json | null
+          features_pt?: Json | null
+          id?: string
+          is_available?: boolean | null
+          name_en: string
+          name_pt: string
+          price?: string | null
+          tier_key: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description_en?: string | null
+          description_pt?: string | null
+          display_order?: number | null
+          features_en?: Json | null
+          features_pt?: Json | null
+          id?: string
+          is_available?: boolean | null
+          name_en?: string
+          name_pt?: string
+          price?: string | null
+          tier_key?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -41,6 +219,30 @@ export type Database = {
           id?: string
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      site_settings: {
+        Row: {
+          id: string
+          key: string
+          updated_at: string
+          updated_by: string | null
+          value: Json
+        }
+        Insert: {
+          id?: string
+          key: string
+          updated_at?: string
+          updated_by?: string | null
+          value?: Json
+        }
+        Update: {
+          id?: string
+          key?: string
+          updated_at?: string
+          updated_by?: string | null
+          value?: Json
         }
         Relationships: []
       }
