@@ -14,7 +14,8 @@ interface MentorshipTier {
   name_en: string;
   description_pt: string | null;
   description_en: string | null;
-  price: string | null;
+  price_pt: string | null;
+  price_en: string | null;
   features_pt: unknown[];
   features_en: unknown[];
   is_available: boolean;
@@ -37,7 +38,8 @@ export const MentorshipManager = ({ tiers, onUpdate }: MentorshipManagerProps) =
       name_en: tier.name_en,
       description_pt: tier.description_pt || "",
       description_en: tier.description_en || "",
-      price: tier.price || "",
+      price_pt: tier.price_pt || "",
+      price_en: tier.price_en || "",
       is_available: tier.is_available,
     });
   };
@@ -115,20 +117,31 @@ export const MentorshipManager = ({ tiers, onUpdate }: MentorshipManagerProps) =
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <Label className="text-gray-300 mb-2 block">Price</Label>
+                    <Label className="text-gray-300 mb-2 block">Price (PT - R$)</Label>
                     <Input
-                      value={editData.price || ""}
-                      onChange={(e) => setEditData({ ...editData, price: e.target.value })}
+                      value={editData.price_pt || ""}
+                      onChange={(e) => setEditData({ ...editData, price_pt: e.target.value })}
                       className="bg-white/5 border-white/10 text-white"
+                      placeholder="R$ 497"
                     />
                   </div>
-                  <div className="flex items-center gap-3 pt-6">
-                    <Switch
-                      checked={editData.is_available}
-                      onCheckedChange={(checked) => setEditData({ ...editData, is_available: checked })}
+                  <div>
+                    <Label className="text-gray-300 mb-2 block">Price (EN - US$)</Label>
+                    <Input
+                      value={editData.price_en || ""}
+                      onChange={(e) => setEditData({ ...editData, price_en: e.target.value })}
+                      className="bg-white/5 border-white/10 text-white"
+                      placeholder="US$ 97"
                     />
-                    <Label className="text-gray-300">Available</Label>
                   </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <Switch
+                    checked={editData.is_available}
+                    onCheckedChange={(checked) => setEditData({ ...editData, is_available: checked })}
+                  />
+                  <Label className="text-gray-300">Available</Label>
                 </div>
 
                 <div className="flex gap-2">
@@ -156,7 +169,7 @@ export const MentorshipManager = ({ tiers, onUpdate }: MentorshipManagerProps) =
                     </span>
                   </div>
                   <p className="text-gray-400 text-sm mb-2">{tier.description_pt}</p>
-                  <p className="text-[#7A5FFF] font-semibold">{tier.price}</p>
+                  <p className="text-[#7A5FFF] font-semibold">{tier.price_pt} / {tier.price_en}</p>
                 </div>
                 <Button onClick={() => startEdit(tier)} variant="ghost" className="text-gray-400 hover:text-white">
                   <Edit2 className="w-4 h-4" />

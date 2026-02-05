@@ -12,7 +12,8 @@ interface MentorshipTier {
   name_en: string;
   description_pt: string | null;
   description_en: string | null;
-  price: string | null;
+  price_pt: string | null;
+  price_en: string | null;
   features_pt: unknown[];
   features_en: unknown[];
   is_available: boolean;
@@ -159,7 +160,7 @@ export const MentorshipSection = () => {
                     {/* Price */}
                     <div className="mb-6">
                       <span className={`text-2xl lg:text-3xl font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
-                        {tier.price}
+                        {language === "pt" ? tier.price_pt : tier.price_en}
                       </span>
                     </div>
 
