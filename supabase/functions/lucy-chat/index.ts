@@ -23,6 +23,38 @@ interface RequestBody {
   };
 }
 
+// Helper function to extract name from conversation
+function extractNameFromMessages(messages: ChatMessage[]): string | null {
+  const namePatterns = [
+    /(?:me chamo|meu nome é|sou o|sou a|i'm|my name is|i am)\s+([A-Za-zÀ-ÿ]+(?:\s+[A-Za-zÀ-ÿ]+)?)/i,
+    /^([A-Za-zÀ-ÿ]+(?:\s+[A-Za-zÀ-ÿ]+)?)$/i, // Simple name response
+  ];
+  
+  for (const msg of messages) {
+    if (msg.role === "user") {
+      for (const pattern of namePatterns) {
+        const match = msg.content.match(pattern);
+        if (match && match[1] && match[1].length > 2 && match[1].length < 50) {
+          return match[1].trim();
+        }
+      }
+    }
+  }
+  return null;
+}
+
+// Helper function to extract email from messages
+function extractEmailFromMessages(messages: ChatMessage[]): string | null {
+  const emailRegex = /[\w.-]+@[\w.-]+\.\w+/;
+  for (const msg of messages) {
+    if (msg.role === "user") {
+      const match = msg.content.match(emailRegex);
+      if (match) return match[0].toLowerCase();
+    }
+  }
+  return null;
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -41,6 +73,32 @@ serve(async (req) => {
 
     // Create Supabase client with service role for database operations
     const supabase = createClient(SUPABASE_URL!, SUPABASE_SERVICE_ROLE_KEY!);
+
+    // Extract email and name from conversation to auto-save leads
+    const extractedEmail = extractEmailFromMessages(messages);
+    const extractedName = extractNameFromMessages(messages) || userInfo?.name || "Lead via Lucy";
+    
+    // If email found, save/update lead automatically
+    if (extractedEmail) {
+      const leadData = {
+        email: extractedEmail,
+        name: extractedName,
+        phone: userInfo?.phone || null,
+        company: userInfo?.company || null,
+        conversation: messages,
+        status: "new",
+        qualification_score: 1,
+        updated_at: new Date().toISOString(),
+      };
+      
+      await supabase
+        .from("mentorship_leads")
+        .upsert(leadData, { onConflict: "email" })
+        .then(({ error }) => {
+          if (error) console.error("Error saving lead:", error);
+          else console.log("Lead saved/updated:", extractedEmail);
+        });
+    }
 
     // Fetch knowledge base
     const { data: knowledge } = await supabase
@@ -65,48 +123,48 @@ serve(async (req) => {
 
     const tiersContext = tiers?.map(t => 
       language === "pt"
-        ? `- ${t.name_pt}: ${t.description_pt} (${t.price})`
-        : `- ${t.name_en}: ${t.description_en} (${t.price})`
+        ? `- ${t.name_pt}: ${t.description_pt} (${t.price_pt})`
+        : `- ${t.name_en}: ${t.description_en} (${t.price_en})`
     ).join("\n") || "";
 
     const systemPrompt = language === "pt" 
       ? `Você é Lucy, Assistente Estratégica do Nauiter Master. Sua missão é:
-1. Responder perguntas sobre o ecossistema e serviços de forma acolhedora e profissional
-2. Qualificar interessados em mentorias (entender nível de experiência, orçamento, objetivos)
-3. Quando o visitante estiver qualificado (demonstrou interesse real, compartilhou contexto), oferecer o link de agendamento
-4. Manter tom profissional, acolhedor e estratégico
+1. Responder perguntas de forma BREVE e direta (máximo 2-3 frases)
+2. Qualificar interessados coletando: nome, email e principal desafio
+3. Quando tiver os dados, informar que a equipe entrará em contato em breve
 
-PROGRAMAS DE MENTORIA DISPONÍVEIS:
+PROGRAMAS DE MENTORIA:
 ${tiersContext}
 
 BASE DE CONHECIMENTO:
 ${knowledgeContext}
 
-REGRAS:
-- Nunca invente informações que não estejam na base de conhecimento
-- Seja concisa mas informativa (respostas de 2-4 frases idealmente)
-- Quando qualificar um lead, pergunte: nome, email, área de atuação e principal desafio
-- O link de agendamento só deve ser fornecido após coleta de dados básicos
-- Link de agendamento: https://calendly.com/nauiter-master
+REGRAS CRÍTICAS:
+- Seja EXTREMAMENTE concisa - usuários não leem textos longos
+- Use frases curtas e objetivas (máximo 2-3 frases por resposta)
+- NÃO faça listas longas
+- Quando qualificar, pergunte UMA informação por vez
+- Após coletar email, agradeça e diga que entraremos em contato
+- Nunca invente informações
 - Responda sempre em português brasileiro`
       : `You are Lucy, Strategic Assistant to Nauiter Master. Your mission is:
-1. Answer questions about the ecosystem and services in a welcoming and professional manner
-2. Qualify interested leads (understand experience level, budget, goals)
-3. When the visitor is qualified (showed real interest, shared context), offer the scheduling link
-4. Maintain a professional, welcoming and strategic tone
+1. Answer questions BRIEFLY and directly (max 2-3 sentences)
+2. Qualify interested leads by collecting: name, email, and main challenge
+3. When you have the data, inform that the team will get in touch soon
 
-AVAILABLE MENTORSHIP PROGRAMS:
+MENTORSHIP PROGRAMS:
 ${tiersContext}
 
 KNOWLEDGE BASE:
 ${knowledgeContext}
 
-RULES:
-- Never make up information not in the knowledge base
-- Be concise but informative (2-4 sentence responses ideally)
-- When qualifying a lead, ask for: name, email, field of work and main challenge
-- The scheduling link should only be provided after collecting basic data
-- Scheduling link: https://calendly.com/nauiter-master
+CRITICAL RULES:
+- Be EXTREMELY concise - users don't read long texts
+- Use short, direct sentences (max 2-3 sentences per response)
+- Do NOT make long lists
+- When qualifying, ask ONE piece of information at a time
+- After collecting email, thank them and say we'll be in touch
+- Never make up information
 - Always respond in English`;
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
