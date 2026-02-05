@@ -11,12 +11,16 @@ import { LanguageRedirect } from "@/components/LanguageRedirect";
 import { LegalPageRedirect } from "@/components/LegalPageRedirect";
 import { HeroSkeleton } from "@/components/skeletons/HeroSkeleton";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { ProtectedRoute } from "@/components/ProtectedRoute";
+import { LucyAssistant } from "@/components/LucyAssistant";
 
 // Code splitting by route for better performance
 const Index = lazy(() => import("./pages/Index"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const FimoAdmin = lazy(() => import("./pages/FimoAdmin"));
 
 const queryClient = new QueryClient();
 
@@ -51,10 +55,15 @@ const App = () => (
                 <Route path="/en/privacy-policy" element={<PrivacyPolicy forcedLanguage="en" />} />
                 <Route path="/en/terms-of-use" element={<TermsOfUse forcedLanguage="en" />} />
                 
+                {/* Admin routes */}
+                <Route path="/login" element={<AdminLogin />} />
+                <Route path="/fimo_admin/*" element={<ProtectedRoute><FimoAdmin /></ProtectedRoute>} />
+                
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
+            <LucyAssistant />
           </BrowserRouter>
         </TooltipProvider>
       </LanguageProvider>
