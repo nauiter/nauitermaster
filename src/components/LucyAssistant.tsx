@@ -13,14 +13,12 @@ export const LucyAssistant = () => {
   const [input, setInput] = useState("");
   const { messages, isLoading, sendMessage } = useLucy();
   const { language } = useLanguage();
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Auto-scroll to bottom
+  // Auto-scroll to bottom when messages change
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   // Focus input when opened
@@ -93,7 +91,7 @@ export const LucyAssistant = () => {
             </div>
 
             {/* Messages */}
-            <ScrollArea className="flex-1 p-4" ref={scrollRef}>
+            <ScrollArea className="flex-1 p-4">
               <div className="space-y-4">
                 {/* Initial greeting */}
                 {messages.length === 0 && (
@@ -147,6 +145,9 @@ export const LucyAssistant = () => {
                     </div>
                   </div>
                 )}
+                
+                {/* Scroll anchor */}
+                <div ref={messagesEndRef} />
               </div>
             </ScrollArea>
 
