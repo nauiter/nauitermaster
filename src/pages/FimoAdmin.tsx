@@ -8,7 +8,8 @@ import {
   LogOut,
   Menu,
   X,
-  Crown
+  Crown,
+  BarChart3
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAdmin } from "@/hooks/useAdmin";
@@ -16,18 +17,20 @@ import { MentorshipManager } from "@/components/admin/MentorshipManager";
 import { LeadsTable } from "@/components/admin/LeadsTable";
 import { LucyKnowledgeEditor } from "@/components/admin/LucyKnowledgeEditor";
 import { SettingsPanel } from "@/components/admin/SettingsPanel";
+import { AdminDashboard } from "@/components/admin/AdminDashboard";
 
-type TabId = "dashboard" | "leads" | "knowledge" | "settings";
+type TabId = "overview" | "mentorship" | "leads" | "knowledge" | "settings";
 
 const tabs = [
-  { id: "dashboard" as TabId, label: "Mentorship", icon: Crown },
+  { id: "overview" as TabId, label: "Dashboard", icon: BarChart3 },
+  { id: "mentorship" as TabId, label: "Mentorship", icon: Crown },
   { id: "leads" as TabId, label: "Leads", icon: Users },
   { id: "knowledge" as TabId, label: "Knowledge Base", icon: BookOpen },
   { id: "settings" as TabId, label: "Settings", icon: Settings },
 ];
 
 const FimoAdmin = () => {
-  const [activeTab, setActiveTab] = useState<TabId>("dashboard");
+  const [activeTab, setActiveTab] = useState<TabId>("overview");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const { 
     logout, 
@@ -56,7 +59,9 @@ const FimoAdmin = () => {
 
   const renderContent = () => {
     switch (activeTab) {
-      case "dashboard":
+      case "overview":
+        return <AdminDashboard leads={leads} />;
+      case "mentorship":
         return <MentorshipManager tiers={tiers} onUpdate={updateTier} />;
       case "leads":
         return <LeadsTable leads={leads} onStatusUpdate={updateLeadStatus} />;
