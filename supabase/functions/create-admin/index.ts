@@ -11,15 +11,22 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { secret } = await req.json();
+    const body = await req.json();
+    const { secret } = body;
     const expectedSecret = Deno.env.get("ADMIN_CREATION_SECRET");
     
+    console.log("Received secret:", secret ? "provided" : "missing");
+    console.log("Expected secret configured:", expectedSecret ? "yes" : "no");
+    
     if (!expectedSecret || secret !== expectedSecret) {
+      console.log("Secret mismatch");
       return new Response(JSON.stringify({ error: "Unauthorized" }), { 
         status: 401, 
         headers: { ...corsHeaders, "Content-Type": "application/json" } 
       });
     }
+
+    console.log("Secret validated, creating admin...");
 
     const supabaseAdmin = createClient(
       Deno.env.get("SUPABASE_URL")!,
@@ -37,6 +44,7 @@ Deno.serve(async (req) => {
     let userId: string;
     if (existing) {
       userId = existing.id;
+      console.log("User exists:", userId);
     } else {
       const { data, error } = await supabaseAdmin.auth.admin.createUser({
         email,
@@ -45,6 +53,7 @@ Deno.serve(async (req) => {
       });
       if (error) throw error;
       userId = data.user!.id;
+      console.log("User created:", userId);
     }
 
     // Check/add admin role
@@ -60,6 +69,9 @@ Deno.serve(async (req) => {
         .from("user_roles")
         .insert({ user_id: userId, role: "admin" });
       if (error) throw error;
+      console.log("Admin role assigned");
+    } else {
+      console.log("Admin role exists");
     }
 
     return new Response(JSON.stringify({ success: true, userId }), { 
@@ -67,6 +79,7 @@ Deno.serve(async (req) => {
       headers: { ...corsHeaders, "Content-Type": "application/json" } 
     });
   } catch (error) {
+    console.error("Error:", error);
     return new Response(JSON.stringify({ error: error.message }), { 
       status: 500, 
       headers: { ...corsHeaders, "Content-Type": "application/json" } 
