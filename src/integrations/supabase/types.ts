@@ -156,7 +156,8 @@ export type Database = {
           is_available: boolean | null
           name_en: string
           name_pt: string
-          price: string | null
+          price_en: string | null
+          price_pt: string | null
           tier_key: string
           updated_at: string
         }
@@ -171,7 +172,8 @@ export type Database = {
           is_available?: boolean | null
           name_en: string
           name_pt: string
-          price?: string | null
+          price_en?: string | null
+          price_pt?: string | null
           tier_key: string
           updated_at?: string
         }
@@ -186,7 +188,8 @@ export type Database = {
           is_available?: boolean | null
           name_en?: string
           name_pt?: string
-          price?: string | null
+          price_en?: string | null
+          price_pt?: string | null
           tier_key?: string
           updated_at?: string
         }

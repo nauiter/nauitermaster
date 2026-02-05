@@ -10,7 +10,8 @@ interface MentorshipTier {
   name_en: string;
   description_pt: string | null;
   description_en: string | null;
-  price: string | null;
+  price_pt: string | null;
+  price_en: string | null;
   features_pt: unknown[];
   features_en: unknown[];
   is_available: boolean;
