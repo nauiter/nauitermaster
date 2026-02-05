@@ -101,7 +101,7 @@ export const LucyAssistant = () => {
                     <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] flex-shrink-0 flex items-center justify-center">
                       <Sparkles className="w-4 h-4 text-white" />
                     </div>
-                    <div className="bg-white/5 rounded-2xl rounded-tl-none p-3 text-sm text-gray-200 max-w-[85%]">
+                    <div className="bg-white/10 rounded-2xl rounded-tl-none p-3 text-sm text-white max-w-[85%]">
                       {greeting}
                     </div>
                   </div>
@@ -122,11 +122,11 @@ export const LucyAssistant = () => {
                       className={`rounded-2xl p-3 text-sm max-w-[85%] ${
                         msg.role === "user"
                           ? "bg-[#7A5FFF] text-white rounded-tr-none"
-                          : "bg-white/5 text-gray-200 rounded-tl-none"
+                          : "bg-white/10 text-white rounded-tl-none"
                       }`}
                     >
                       {msg.role === "assistant" ? (
-                        <div className="prose prose-sm prose-invert max-w-none">
+                        <div className="prose prose-sm prose-invert max-w-none [&>*]:text-white [&_p]:text-white [&_li]:text-white">
                           <ReactMarkdown>{msg.content}</ReactMarkdown>
                         </div>
                       ) : (
@@ -142,7 +142,7 @@ export const LucyAssistant = () => {
                     <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] flex-shrink-0 flex items-center justify-center">
                       <Sparkles className="w-4 h-4 text-white" />
                     </div>
-                    <div className="bg-white/5 rounded-2xl rounded-tl-none p-3 text-sm text-gray-400">
+                    <div className="bg-white/10 rounded-2xl rounded-tl-none p-3 text-sm text-gray-400">
                       <Loader2 className="w-4 h-4 animate-spin" />
                     </div>
                   </div>
