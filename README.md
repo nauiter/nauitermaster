@@ -13,6 +13,27 @@ This project is an interactive **Single Page Application (SPA)** featuring:
 - **Impact Metrics:** Animated data visualization regarding professional reach.
 - **Compliance:** Full LGPD implementation (Cookie Consent, Terms of Use, and Privacy Policy).
 
+## 🤖 AI Assistant & Admin Features
+
+### Lucy AI Chat
+- Floating chat assistant for lead qualification
+- Extremely brief responses (2-3 sentences max)
+- Automatic lead capture from email detection in conversations
+- Success notification when lead is captured
+- Multi-language support (PT/EN)
+
+### Admin Panel (/fimo_admin)
+- **Dashboard**: Lead metrics, conversion rates, status breakdown
+- **Leads Management**: Search, filter, CSV export, conversation history
+- **Mentorship Tiers**: Edit pricing and features (PT/EN)
+- **Knowledge Base**: Configure Lucy's responses
+- **Settings**: Site-wide configurations
+
+### Security
+- Row Level Security (RLS) on all tables
+- Admin-only access to sensitive data
+- GDPR-compliant conversation management (DELETE policy)
+
 ## 🚀 Tech Stack
 
 The project was built using the most modern technologies in the React ecosystem:

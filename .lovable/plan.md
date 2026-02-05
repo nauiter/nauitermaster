@@ -1,4 +1,25 @@
+## Funcionalidades Implementadas
 
+### Lucy AI Assistant
+- Prompt otimizado para brevidade (max 2-3 frases)
+- Extracao automatica de leads (email/nome via regex)
+- Salvamento em `mentorship_leads` via upsert
+- Mensagem de sucesso apos captura de lead (toast)
+- Auto-scroll no chat
+
+### Admin Panel
+- Dashboard com metricas (total leads, novos, taxas de conversao)
+- Tabela de leads com busca/filtros/export CSV
+- Historico de conversa por lead
+- Gestao de tiers de mentoria (PT/EN)
+- Editor de knowledge base
+
+### Seguranca
+- RLS em todas as tabelas
+- DELETE policy para conversations (GDPR)
+- Acesso admin-only para dados sensiveis
+
+---
 
 ## Plano: Mensagem de Sucesso + Revisao Geral + Documentacao
 
