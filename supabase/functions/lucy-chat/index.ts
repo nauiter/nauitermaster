@@ -78,7 +78,9 @@ serve(async (req) => {
     const extractedEmail = extractEmailFromMessages(messages);
     const extractedName = extractNameFromMessages(messages) || userInfo?.name || "Lead via Lucy";
     
-    // If email found, save/update lead automatically
+  // If email found, save/update lead automatically
+    let leadCaptured = false;
+    
     if (extractedEmail) {
       const leadData = {
         email: extractedEmail,
@@ -91,13 +93,16 @@ serve(async (req) => {
         updated_at: new Date().toISOString(),
       };
       
-      await supabase
+      const { error } = await supabase
         .from("mentorship_leads")
-        .upsert(leadData, { onConflict: "email" })
-        .then(({ error }) => {
-          if (error) console.error("Error saving lead:", error);
-          else console.log("Lead saved/updated:", extractedEmail);
-        });
+        .upsert(leadData, { onConflict: "email" });
+      
+      if (error) {
+        console.error("Error saving lead:", error);
+      } else {
+        leadCaptured = true;
+        console.log("Lead saved/updated:", extractedEmail);
+      }
     }
 
     // Fetch knowledge base
@@ -217,7 +222,11 @@ CRITICAL RULES:
       .then(() => console.log("Conversation saved"));
 
     return new Response(response.body, {
-      headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
+      headers: { 
+        ...corsHeaders, 
+        "Content-Type": "text/event-stream",
+        "X-Lead-Captured": leadCaptured ? "true" : "false",
+      },
     });
   } catch (e) {
     console.error("Lucy chat error:", e);

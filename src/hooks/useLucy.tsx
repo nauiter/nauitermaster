@@ -75,6 +75,17 @@ export const useLucy = () => {
         throw new Error("Failed to start stream");
       }
 
+      // Check if lead was captured and show success message
+      const leadCaptured = response.headers.get("X-Lead-Captured") === "true";
+      if (leadCaptured) {
+        toast({
+          title: language === "pt" ? "Recebemos seu interesse!" : "We received your interest!",
+          description: language === "pt" 
+            ? "Em breve entraremos em contato." 
+            : "We'll be in touch soon.",
+        });
+      }
+
       if (!response.body) throw new Error("No response body");
 
       const reader = response.body.getReader();
