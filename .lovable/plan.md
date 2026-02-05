@@ -1,149 +1,93 @@
 
 
-## Plano: Melhorias no Painel Admin + Otimizacao da Lucy AI
+## Plano: Correção de Leads + Auto-Scroll do Chat Lucy
 
 ---
 
-## Resumo dos Problemas
+## Problema 1: Leads Não Estão Sendo Salvos
 
-1. **Lucy AI com respostas muito longas** - usuarios nao leem textos extensos
-2. **Referencia ao Calendly inexistente** - precisa coletar leads diretamente
-3. **Lucy nao esta salvando leads na tabela `mentorship_leads`** - apenas salva conversas
-4. **Painel Admin pode ser melhorado** - funcionalidades extras para gestao de leads
-
----
-
-## Parte 1: Otimizar Prompt da Lucy (Respostas Curtas)
-
-**Arquivo:** `supabase/functions/lucy-chat/index.ts`
-
-### Alteracoes no System Prompt
-
-**Remover:**
-- Link Calendly: `https://calendly.com/nauiter-master`
-- Instrucao de fornecer link de agendamento
-
-**Adicionar:**
-- Regra de brevidade: "Responda em no maximo 2-3 frases curtas"
-- Foco em coleta de dados: nome, email, interesse
-- Quando qualificado, informar que a equipe entrara em contato
-
-### Novo Prompt (PT):
+### Diagnóstico
+Os logs da Edge Function mostram o erro:
 ```
-Voce e Lucy, Assistente Estrategica do Nauiter Master. Sua missao e:
-1. Responder perguntas de forma BREVE e direta (maximo 2-3 frases)
-2. Qualificar interessados coletando: nome, email e principal desafio
-3. Quando tiver os dados, informar que a equipe entrara em contato em breve
-
-REGRAS CRITICAS:
-- Seja EXTREMAMENTE concisa - usuarios nao leem textos longos
-- Use frases curtas e objetivas
-- Nao faca listas longas
-- Quando qualificar, pergunte UMA informacao por vez
-- Apos coletar email, agradeca e diga que entraremos em contato
-```
-
----
-
-## Parte 2: Salvar Leads Automaticamente
-
-**Arquivo:** `supabase/functions/lucy-chat/index.ts`
-
-### Logica de Extracao de Leads
-
-Adicionar funcao para detectar quando o usuario fornece email/nome na conversa e salvar automaticamente na tabela `mentorship_leads`:
-
-```typescript
-// Detectar email no conteudo
-const emailRegex = /[\w.-]+@[\w.-]+\.\w+/;
-const emailMatch = lastUserMessage.match(emailRegex);
-
-if (emailMatch) {
-  // Salvar lead automaticamente
-  await supabase.from("mentorship_leads").upsert({
-    email: emailMatch[0],
-    name: extractedName || "Lead via Lucy",
-    conversation: allMessages,
-    status: "new",
-    qualification_score: 1,
-  }, { onConflict: "email" });
+Error saving lead: {
+  code: "42P10",
+  message: "there is no unique or exclusion constraint matching the ON CONFLICT specification"
 }
 ```
 
+A tabela `mentorship_leads` **não tem constraint UNIQUE** na coluna `email`. O código tenta fazer `upsert(..., { onConflict: "email" })`, mas o Postgres requer uma constraint UNIQUE para isso funcionar.
+
+### Solução
+Criar uma constraint UNIQUE na coluna `email`:
+
+```sql
+ALTER TABLE mentorship_leads 
+ADD CONSTRAINT mentorship_leads_email_unique UNIQUE (email);
+```
+
 ---
 
-## Parte 3: Melhorias no Painel Admin
+## Problema 2: Scroll Não Acompanha Novas Mensagens
 
-### 3.1 Dashboard com Metricas
+### Diagnóstico
+O componente `ScrollArea` usa Radix UI. O `ref` está sendo passado para o `Root`, mas o elemento que realmente faz scroll é o `Viewport` interno.
 
-**Arquivo:** `src/pages/FimoAdmin.tsx`
+No `LucyAssistant.tsx`:
+```tsx
+<ScrollArea className="flex-1 p-4" ref={scrollRef}>
+```
 
-Adicionar tab "Dashboard" com:
-- Total de leads por status (novo, qualificado, contactado, convertido)
-- Leads recentes (ultimos 7 dias)
-- Taxa de conversao
+O `scrollRef.current.scrollTop` não funciona porque está no elemento errado.
 
-### 3.2 Melhorar LeadsTable
+### Solução
+Duas alterações necessárias:
 
-**Arquivo:** `src/components/admin/LeadsTable.tsx`
+1. **Modificar `scroll-area.tsx`**: Expor uma ref para o Viewport para controle externo do scroll
 
-Adicionar:
-- Filtro por status
-- Busca por nome/email
-- Botao de exportar leads (CSV)
-- Indicador de "qualification_score"
-- Acao rapida para copiar email
-- Destaque para leads novos
-
-### 3.3 Novo Componente: AdminDashboard
-
-**Criar:** `src/components/admin/AdminDashboard.tsx`
-
-Cards com metricas:
-- Total Leads
-- Leads Novos (esta semana)
-- Taxa de Qualificacao
-- Leads por Tier de Interesse
+2. **Modificar `LucyAssistant.tsx`**: Usar uma ref direta no container interno das mensagens e fazer scroll no elemento correto
 
 ---
 
 ## Arquivos a Modificar
 
-| Arquivo | Alteracao |
+| Arquivo | Alteração |
 |---------|-----------|
-| `supabase/functions/lucy-chat/index.ts` | Prompt curto + salvar leads automaticamente |
-| `src/pages/FimoAdmin.tsx` | Adicionar tab Dashboard |
-| `src/components/admin/LeadsTable.tsx` | Filtros, busca, exportar, melhorias visuais |
-| `src/components/admin/AdminDashboard.tsx` | CRIAR - metricas e overview |
-| `src/hooks/useAdmin.tsx` | Adicionar funcao de stats |
+| Migration SQL | Adicionar UNIQUE constraint na coluna `email` |
+| `src/components/ui/scroll-area.tsx` | Expor ref do Viewport |
+| `src/components/LucyAssistant.tsx` | Corrigir lógica de auto-scroll |
 
 ---
 
-## Fluxo de Qualificacao Atualizado
+## Implementação Detalhada
 
-```text
-Usuario abre chat -> Lucy cumprimenta brevemente
-                          |
-                          v
-                  Pergunta objetivo (1 frase)
-                          |
-                          v
-                  Pergunta email para contato
-                          |
-                          v
-              Lead salvo automaticamente
-                          |
-                          v
-        Lucy agradece: "Entraremos em contato!"
+### 1. Migration para UNIQUE constraint
+
+```sql
+ALTER TABLE mentorship_leads 
+ADD CONSTRAINT mentorship_leads_email_unique UNIQUE (email);
+```
+
+### 2. LucyAssistant.tsx - Nova lógica de scroll
+
+Em vez de tentar controlar o ScrollArea via ref (que é complexo), usar um div interno com ref e `scrollIntoView`:
+
+```tsx
+const messagesEndRef = useRef<HTMLDivElement>(null);
+
+useEffect(() => {
+  messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+}, [messages]);
+
+// No final do container de mensagens:
+<div ref={messagesEndRef} />
 ```
 
 ---
 
-## Validacao
+## Validação
 
-1. Testar chat Lucy - respostas curtas (2-3 frases)
-2. Fornecer email no chat - verificar se lead aparece no admin
-3. Verificar painel admin - dashboard com metricas
-4. Testar filtros e busca na tabela de leads
-5. Login admin funcionando com `nauitermaster@hotmail.com`
+1. Testar chat Lucy fornecendo um email
+2. Verificar se lead aparece no painel admin
+3. Verificar se scroll acompanha automaticamente novas mensagens
+4. Confirmar que streaming de tokens não causa problemas de scroll
 
