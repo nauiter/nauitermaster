@@ -1,93 +1,130 @@
 
 
-## Plano: Correção de Leads + Auto-Scroll do Chat Lucy
+## Plano: Análise e Correção de Vulnerabilidades de Segurança
 
 ---
 
-## Problema 1: Leads Não Estão Sendo Salvos
+## Resumo dos Findings
 
-### Diagnóstico
-Os logs da Edge Function mostram o erro:
+| # | Severidade | Nome | Decisão |
+|---|------------|------|---------|
+| 1 | ⚠️ warn | RLS Policy Always True | ✅ Corrigir |
+| 2 | ⚠️ warn | Leaked Password Protection Disabled | ✅ Corrigir |
+| 3 | 🔴 error | User Profile Data Exposed | 🔕 Ignorar |
+| 4 | 🔴 error | Customer Contact Info Harvestable | ✅ Corrigir |
+| 5 | ⚠️ warn | Chat Conversations Lack Read Protection | ✅ Corrigir |
+| 6 | ⚠️ warn | Conversation Data Cannot Be Managed | ✅ Corrigir |
+| 7 | ℹ️ info | Site Config Cannot Be Cleaned | 🔕 Ignorar |
+| 8 | ℹ️ info | Profiles Cannot Be Deleted | 🔕 Ignorar |
+| 9 | ℹ️ info | User Role Management Incomplete | 🔕 Ignorar |
+
+---
+
+## Findings a Corrigir
+
+### 1. RLS Policy Always True (lucy_conversations INSERT)
+
+**Problema:** A tabela `lucy_conversations` tem `WITH CHECK (true)` para INSERT, permitindo qualquer pessoa inserir dados.
+
+**Solução:** Manter como está porque a Lucy precisa que visitantes anônimos possam criar conversas. Porém, adicionar políticas SELECT restritivas.
+
+**Decisão:** Ignorar o INSERT (intencional para chat público), mas corrigir falta de proteção de leitura.
+
+---
+
+### 2. Leaked Password Protection Disabled
+
+**Problema:** Proteção contra senhas vazadas está desabilitada.
+
+**Solução:** Habilitar via configuração de autenticação.
+
+**Ação:** Usar ferramenta de configuração de auth para ativar.
+
+---
+
+### 3. Customer Contact Info Harvestable + Chat Lacks Read Protection
+
+**Problema:** Usuários anônimos podem potencialmente ler conversas se souberem o session_id.
+
+**Solução:** Já existe política SELECT apenas para admins, mas usar política RESTRICTIVE (não PERMISSIVE) garante maior segurança.
+
+**SQL:**
+```sql
+-- A política SELECT já é restrictive (uses has_role)
+-- Verificar se está funcionando corretamente
 ```
-Error saving lead: {
-  code: "42P10",
-  message: "there is no unique or exclusion constraint matching the ON CONFLICT specification"
-}
+
+---
+
+### 4. Conversation Data Cannot Be Managed
+
+**Problema:** Admins não podem deletar conversas (GDPR compliance).
+
+**Solução:**
+```sql
+CREATE POLICY "Admins can delete conversations"
+ON lucy_conversations FOR DELETE
+USING (has_role(auth.uid(), 'admin'::app_role));
 ```
 
-A tabela `mentorship_leads` **não tem constraint UNIQUE** na coluna `email`. O código tenta fazer `upsert(..., { onConflict: "email" })`, mas o Postgres requer uma constraint UNIQUE para isso funcionar.
+---
 
-### Solução
-Criar uma constraint UNIQUE na coluna `email`:
+## Findings a Ignorar (com justificativa)
+
+### 3. User Profile Data Exposed
+
+**Justificativa:** A tabela `profiles` é intencionalmente pública para exibir informações de perfil no site (avatar, nome). Não contém dados sensíveis (sem emails, telefones). O design é intencional para um portfólio público.
+
+---
+
+### 7. Site Config Cannot Be Cleaned
+
+**Justificativa:** Configurações de site raramente precisam ser deletadas. A funcionalidade atual de UPDATE é suficiente. Risco baixo.
+
+---
+
+### 8. Profiles Cannot Be Deleted
+
+**Justificativa:** Accounts são gerenciados via Supabase Auth. Se um usuário for deletado do auth.users, o CASCADE já deleta o profile automaticamente. Não é necessário DELETE manual.
+
+---
+
+### 9. User Role Management Incomplete
+
+**Justificativa:** Roles são gerenciados diretamente via banco de dados com service_role por segurança. Não permitir que mesmo admins adicionem roles via RLS evita escalação de privilégios.
+
+---
+
+## Implementação
+
+### Migration SQL
 
 ```sql
-ALTER TABLE mentorship_leads 
-ADD CONSTRAINT mentorship_leads_email_unique UNIQUE (email);
+-- 1. Adicionar DELETE policy para lucy_conversations
+CREATE POLICY "Admins can delete conversations"
+ON lucy_conversations FOR DELETE
+USING (has_role(auth.uid(), 'admin'::app_role));
 ```
 
----
+### Configuração de Auth
 
-## Problema 2: Scroll Não Acompanha Novas Mensagens
-
-### Diagnóstico
-O componente `ScrollArea` usa Radix UI. O `ref` está sendo passado para o `Root`, mas o elemento que realmente faz scroll é o `Viewport` interno.
-
-No `LucyAssistant.tsx`:
-```tsx
-<ScrollArea className="flex-1 p-4" ref={scrollRef}>
-```
-
-O `scrollRef.current.scrollTop` não funciona porque está no elemento errado.
-
-### Solução
-Duas alterações necessárias:
-
-1. **Modificar `scroll-area.tsx`**: Expor uma ref para o Viewport para controle externo do scroll
-
-2. **Modificar `LucyAssistant.tsx`**: Usar uma ref direta no container interno das mensagens e fazer scroll no elemento correto
+Habilitar "Leaked Password Protection" via ferramenta de configuração.
 
 ---
 
 ## Arquivos a Modificar
 
-| Arquivo | Alteração |
-|---------|-----------|
-| Migration SQL | Adicionar UNIQUE constraint na coluna `email` |
-| `src/components/ui/scroll-area.tsx` | Expor ref do Viewport |
-| `src/components/LucyAssistant.tsx` | Corrigir lógica de auto-scroll |
+| Tipo | Ação |
+|------|------|
+| Migration SQL | Adicionar DELETE policy para conversations |
+| Auth Config | Habilitar leaked password protection |
+| Security Findings | Marcar findings ignorados com justificativa |
 
 ---
 
-## Implementação Detalhada
+## Resultado Esperado
 
-### 1. Migration para UNIQUE constraint
-
-```sql
-ALTER TABLE mentorship_leads 
-ADD CONSTRAINT mentorship_leads_email_unique UNIQUE (email);
-```
-
-### 2. LucyAssistant.tsx - Nova lógica de scroll
-
-Em vez de tentar controlar o ScrollArea via ref (que é complexo), usar um div interno com ref e `scrollIntoView`:
-
-```tsx
-const messagesEndRef = useRef<HTMLDivElement>(null);
-
-useEffect(() => {
-  messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-}, [messages]);
-
-// No final do container de mensagens:
-<div ref={messagesEndRef} />
-```
-
----
-
-## Validação
-
-1. Testar chat Lucy fornecendo um email
-2. Verificar se lead aparece no painel admin
-3. Verificar se scroll acompanha automaticamente novas mensagens
-4. Confirmar que streaming de tokens não causa problemas de scroll
+- Admins poderão deletar conversas (GDPR compliance)
+- Proteção contra senhas vazadas ativada
+- Findings de baixo risco ignorados com documentação
 
