@@ -1,105 +1,108 @@
 
 
-## Plano: Adicionar Projeto "Chaos Oracle" ao Portfolio
+## Plano: Revisao Geral + SEO/GEO + Documentacao
 
 ---
 
-## Resumo
+## Problemas Encontrados
 
-Adicionar o projeto **Chaos Oracle** como 6o projeto ativo no carousel de projetos e no ecossistema criativo. A imagem da borboleta roxa sera usada como imagem do projeto.
+| # | Arquivo | Problema |
+|---|---------|----------|
+| 1 | `index.html` noscript | Falta projeto Chaos Oracle na lista |
+| 2 | `index.html` structured data | Falta Chaos Oracle no CreativeWorks schema |
+| 3 | `index.html` meta description | Diz "5+ plataformas" - deveria ser "6+" |
+| 4 | `index.html` noscript footer | Copyright diz "2024" - deveria ser "2025" |
+| 5 | `SEOHead.tsx` CreativeWorks | Falta Chaos Oracle no schema |
+| 6 | `SEOHead.tsx` description | Diz "5+ active platforms" - deveria ser "6+" |
+| 7 | `SEOHead.tsx` Person worksFor | Falta Chaos Oracle na lista de organizacoes |
+| 8 | `public/sitemap.xml` | lastmod desatualizado (2026-01-30 -> 2026-02-14) |
+| 9 | `src/lib/constants.ts` | Falta AVALIA_MACAPA em PROJECT_URLS |
+| 10 | `README.md` | Lista de projetos desatualizada (falta Chaos Oracle e Avalia Macapa) |
+| 11 | `.lovable/plan.md` | Nao reflete estado atual do projeto |
 
 ---
 
-## Arquivos a Modificar
+## Alteracoes por Arquivo
 
-| Arquivo | Alteracao |
-|---------|-----------|
-| `src/assets/chaos-oracle.webp` | Copiar imagem uploadada |
-| `src/lib/translations.ts` | Adicionar textos PT/EN para o projeto (tipo + ecosystem) |
-| `src/components/sections/ProjectsSection.tsx` | Adicionar card no carousel |
-| `src/pages/Index.tsx` | Adicionar entrada no EcosystemCarousel + importar imagem |
-| `src/lib/constants.ts` | Adicionar URL + atualizar ACTIVE_PROJECTS para 6 |
+### 1. index.html
 
----
+- Adicionar Chaos Oracle no noscript (artigo com descricao e link)
+- Adicionar Chaos Oracle no schema CreativeWorks (ItemList)
+- Atualizar meta description: "5+" para "6+"
+- Atualizar OG description: "5+" para "6+"
+- Atualizar Twitter description: "5+" para "6+"
+- Corrigir copyright noscript: "2024" para "2025"
 
-## Detalhes por Arquivo
-
-### 1. Imagem do Projeto
-
-Copiar `user-uploads://purple-butterfly-with-soft-glow.webp` para `src/assets/chaos-oracle.webp`.
-
-### 2. translations.ts
-
-**Tipo:** Adicionar `chaosOracle` no type interface e nas traducoes EN/PT.
-
-**EN:**
-```
-chaosOracle: {
-  title: 'Chaos Oracle',
-  description: 'A digital experience inspired by chaos theory, designed to help indecisive people make decisions without overthinking. Click, accept, and embrace uncertainty.',
-  tools: ['Chaos Theory', 'Generative Design', 'Ambient Sound', 'Lovable'],
-}
+**Chaos Oracle noscript:**
+```html
+<article>
+  <h3>Chaos Oracle</h3>
+  <p>Experiencia digital inspirada na teoria do caos, criada para ajudar pessoas indecisas a tomar decisoes. Um oraculo moderno que abraca a incerteza como metodo.</p>
+  <p><a href="https://chaos-bloom-decision.lovable.app/">Visitar Chaos Oracle</a></p>
+</article>
 ```
 
-**PT:**
-```
-chaosOracle: {
-  title: 'Chaos Oracle',
-  description: 'Uma experiencia digital inspirada na teoria do caos, criada para ajudar pessoas indecisas a tomar decisoes sem recorrer a logica excessiva. Clique, aceite e abrace a incerteza.',
-  tools: ['Teoria do Caos', 'Design Generativo', 'Som Ambiente', 'Lovable'],
-}
-```
-
-**Ecosystem EN:**
-```
-chaosOracle: {
-  name: 'Chaos Oracle',
-  purpose: 'Digital oracle embracing uncertainty as method.',
-  type: 'Chaos & Philosophy'
-}
-```
-
-**Ecosystem PT:**
-```
-chaosOracle: {
-  name: 'Chaos Oracle',
-  purpose: 'Oraculo digital que abraca a incerteza como metodo.',
-  type: 'Caos & Filosofia'
-}
-```
-
-### 3. ProjectsSection.tsx
-
-Adicionar novo projeto ao array `projects` com:
-- Imagem: `chaos-oracle.webp`
-- URL: `https://chaos-bloom-decision.lovable.app/`
-- Categoria: `experimentalConcepts` (cor `text-[#00C4FF]`)
-
-### 4. Index.tsx
-
-Adicionar entrada no array `EcosystemCarousel projects`:
-```
+**Chaos Oracle schema:**
+```json
 {
-  name: t.ecosystem.projects.chaosOracle.name,
-  purpose: t.ecosystem.projects.chaosOracle.purpose,
-  type: t.ecosystem.projects.chaosOracle.type,
-  color: "from-violet-500 to-purple-400",
-  image: chaosOracle,
-  url: "https://chaos-bloom-decision.lovable.app/"
+  "@type": "WebApplication",
+  "name": "Chaos Oracle",
+  "description": "Experiencia digital inspirada na teoria do caos para tomada de decisoes",
+  "url": "https://chaos-bloom-decision.lovable.app/",
+  "creator": { "@type": "Person", "name": "Nauiter Master" }
 }
 ```
 
-### 5. constants.ts
+### 2. SEOHead.tsx
 
-- Adicionar `CHAOS_ORACLE: 'https://chaos-bloom-decision.lovable.app/'` em PROJECT_URLS
-- Atualizar `ACTIVE_PROJECTS: 6`
+- Atualizar descriptions PT/EN: "5+" para "6+"
+- Adicionar Chaos Oracle no CreativeWorks ItemList
+- Adicionar Chaos Oracle no Person worksFor array
+
+### 3. public/sitemap.xml
+
+- Atualizar todas as datas lastmod para 2026-02-14
+
+### 4. src/lib/constants.ts
+
+- Adicionar `AVALIA_MACAPA: 'https://avaliamacapa.com.br'` em PROJECT_URLS
+
+### 5. README.md
+
+- Atualizar lista de projetos no "Project Overview" para incluir Chaos Oracle e Avalia Macapa
+- Atualizar "5+" para "6+" na descricao do hero
+
+### 6. .lovable/plan.md
+
+- Substituir conteudo com resumo completo do estado atual do projeto incluindo todas as funcionalidades implementadas
 
 ---
 
-## Resultado
+## Detalhes Tecnicos SEO/GEO
 
-- 6 projetos ativos no carousel (era 5)
-- Chaos Oracle aparece no carousel e no ecossistema
-- Metricas atualizadas para refletir 6 projetos
-- Categoria: Experimental Concepts (azul)
+### Schema.org Updates
+
+O Chaos Oracle sera adicionado como `WebApplication` no schema (mesmo tipo do Avalia Macapa), pois e uma aplicacao web interativa.
+
+### Noscript GEO Content
+
+O conteudo noscript sera expandido com o Chaos Oracle para manter paridade com os projetos visíveis na SPA, garantindo que crawlers de motores de IA (ChatGPT, Perplexity) indexem todos os 6 projetos.
+
+### Meta Descriptions
+
+Atualizacao de "5+" para "6+" em todas as instancias:
+- `index.html` meta description
+- `index.html` OG description
+- `index.html` Twitter description
+- `SEOHead.tsx` PT description
+- `SEOHead.tsx` EN description
+
+---
+
+## Resultado Esperado
+
+- 6 projetos documentados em todos os canais (schema, noscript, sitemap, README)
+- Metricas consistentes em todo o codebase ("6+ plataformas")
+- Datas de sitemap atualizadas
+- Documentacao completa e atualizada
 
