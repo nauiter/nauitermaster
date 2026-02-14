@@ -20,6 +20,7 @@ import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
 import oVermePasseia from "@/assets/o-verme-passeia.webp";
 import figueiredoLaw from "@/assets/figueiredo-law.webp";
 import avaliaMacapa from "@/assets/avalia-macapa.webp";
+import chaosOracle from "@/assets/chaos-oracle.webp";
 
 export const ProjectsSection = () => {
   const { t, language } = useLanguage();
@@ -94,6 +95,16 @@ export const ProjectsSection = () => {
       description: t.projects.avaliaMacapa.description,
       tools: t.projects.avaliaMacapa.tools,
       url: "https://avaliamacapa.com.br",
+      category: t.projects.experimentalConcepts,
+      categoryColor: "text-[#00C4FF]",
+    },
+    {
+      image: chaosOracle,
+      alt: "Chaos Oracle - Experiência digital inspirada na teoria do caos para tomada de decisões | Digital experience inspired by chaos theory for decision making",
+      title: t.projects.chaosOracle.title,
+      description: t.projects.chaosOracle.description,
+      tools: t.projects.chaosOracle.tools,
+      url: "https://chaos-bloom-decision.lovable.app/",
       category: t.projects.experimentalConcepts,
       categoryColor: "text-[#00C4FF]",
     },
