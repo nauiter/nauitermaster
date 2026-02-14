@@ -1,190 +1,105 @@
-## Funcionalidades Implementadas
 
-### Lucy AI Assistant
-- Prompt otimizado para brevidade (max 2-3 frases)
-- Extracao automatica de leads (email/nome via regex)
-- Salvamento em `mentorship_leads` via upsert
-- Mensagem de sucesso apos captura de lead (toast)
-- Auto-scroll no chat
 
-### Admin Panel
-- Dashboard com metricas (total leads, novos, taxas de conversao)
-- Tabela de leads com busca/filtros/export CSV
-- Historico de conversa por lead
-- Gestao de tiers de mentoria (PT/EN)
-- Editor de knowledge base
-
-### Seguranca
-- RLS em todas as tabelas
-- DELETE policy para conversations (GDPR)
-- Acesso admin-only para dados sensiveis
+## Plano: Adicionar Projeto "Chaos Oracle" ao Portfolio
 
 ---
 
-## Plano: Mensagem de Sucesso + Revisao Geral + Documentacao
+## Resumo
+
+Adicionar o projeto **Chaos Oracle** como 6o projeto ativo no carousel de projetos e no ecossistema criativo. A imagem da borboleta roxa sera usada como imagem do projeto.
 
 ---
 
-## Parte 1: Mensagem de Sucesso Apos Captura de Lead
-
-### Problema
-Quando um usuario fornece um email no chat da Lucy, o lead e salvo automaticamente, mas nao ha nenhum feedback visual confirmando o recebimento.
-
-### Solucao
-Modificar a Edge Function `lucy-chat` para retornar um header customizado indicando que o lead foi capturado, e o `useLucy` hook exibir um toast de sucesso.
-
-### Arquivos a Modificar
+## Arquivos a Modificar
 
 | Arquivo | Alteracao |
 |---------|-----------|
-| `supabase/functions/lucy-chat/index.ts` | Adicionar header `X-Lead-Captured: true` quando lead for salvo |
-| `src/hooks/useLucy.tsx` | Ler header e exibir toast de sucesso |
+| `src/assets/chaos-oracle.webp` | Copiar imagem uploadada |
+| `src/lib/translations.ts` | Adicionar textos PT/EN para o projeto (tipo + ecosystem) |
+| `src/components/sections/ProjectsSection.tsx` | Adicionar card no carousel |
+| `src/pages/Index.tsx` | Adicionar entrada no EcosystemCarousel + importar imagem |
+| `src/lib/constants.ts` | Adicionar URL + atualizar ACTIVE_PROJECTS para 6 |
 
-### Detalhes Tecnicos
+---
 
-**Edge Function - Retornar indicador de lead salvo:**
-```typescript
-// Apos salvar lead com sucesso
-let leadCaptured = false;
+## Detalhes por Arquivo
 
-if (extractedEmail) {
-  const { error } = await supabase
-    .from("mentorship_leads")
-    .upsert(leadData, { onConflict: "email" });
-  
-  if (!error) {
-    leadCaptured = true;
-    console.log("Lead saved/updated:", extractedEmail);
-  }
-}
+### 1. Imagem do Projeto
 
-// No response headers
-return new Response(response.body, {
-  headers: { 
-    ...corsHeaders, 
-    "Content-Type": "text/event-stream",
-    "X-Lead-Captured": leadCaptured ? "true" : "false"
-  },
-});
+Copiar `user-uploads://purple-butterfly-with-soft-glow.webp` para `src/assets/chaos-oracle.webp`.
+
+### 2. translations.ts
+
+**Tipo:** Adicionar `chaosOracle` no type interface e nas traducoes EN/PT.
+
+**EN:**
 ```
-
-**Hook useLucy - Mostrar toast:**
-```typescript
-const response = await fetch(CHAT_URL, { ... });
-
-// Verificar se lead foi capturado
-const leadCaptured = response.headers.get("X-Lead-Captured") === "true";
-
-if (leadCaptured) {
-  toast({
-    title: language === "pt" ? "Recebemos seu interesse!" : "We received your interest!",
-    description: language === "pt" 
-      ? "Em breve entraremos em contato." 
-      : "We'll be in touch soon.",
-  });
+chaosOracle: {
+  title: 'Chaos Oracle',
+  description: 'A digital experience inspired by chaos theory, designed to help indecisive people make decisions without overthinking. Click, accept, and embrace uncertainty.',
+  tools: ['Chaos Theory', 'Generative Design', 'Ambient Sound', 'Lovable'],
 }
 ```
 
----
-
-## Parte 2: Revisao Geral dos Ajustes de Hoje
-
-### Checklist de Validacao
-
-| Funcionalidade | Status | Observacao |
-|----------------|--------|------------|
-| Lucy respostas curtas (2-3 frases) | ✅ | System prompt atualizado |
-| Remocao Calendly | ✅ | Sem referencias no prompt |
-| Extracao automatica de email/nome | ✅ | Regex implementado |
-| Salvamento automatico de leads | ✅ | Upsert com onConflict |
-| UNIQUE constraint email | ✅ | Migration aplicada |
-| Auto-scroll chat | ✅ | messagesEndRef + scrollIntoView |
-| Dashboard Admin | ✅ | Metricas e estatisticas |
-| LeadsTable filtros/busca/export | ✅ | Completo |
-| RLS DELETE para conversations | ✅ | GDPR compliance |
-| Documentacao seguranca | ✅ | `.lovable/plan.md` |
-
-### Pontos a Revisar no Codigo
-
-1. **Verificar dependencias do useEffect** - Garantir que nao ha loops infinitos
-2. **Tratamento de erros** - Mensagens amigaveis para falhas
-3. **Performance** - Nenhum re-render desnecessario
-
----
-
-## Parte 3: Atualizacao da Documentacao
-
-### Arquivos a Atualizar
-
-| Arquivo | Conteudo |
-|---------|----------|
-| `README.md` | Adicionar secao sobre Lucy AI e Admin Panel |
-| `.lovable/plan.md` | Atualizar com todas funcionalidades implementadas |
-
-### Novo Conteudo README.md
-
-Adicionar apos a secao "Project Overview":
-
-```markdown
-## AI Assistant & Admin Features
-
-### Lucy AI Chat
-- Floating chat assistant for lead qualification
-- Extremely brief responses (2-3 sentences max)
-- Automatic lead capture from email detection
-- Multi-language support (PT/EN)
-
-### Admin Panel (/fimo_admin)
-- **Dashboard**: Lead metrics, conversion rates, status breakdown
-- **Leads Management**: Search, filter, CSV export, conversation history
-- **Mentorship Tiers**: Edit pricing and features (PT/EN)
-- **Knowledge Base**: Configure Lucy's responses
-- **Settings**: Site-wide configurations
-
-### Security
-- Row Level Security (RLS) on all tables
-- Admin-only access to sensitive data
-- GDPR-compliant conversation management
+**PT:**
+```
+chaosOracle: {
+  title: 'Chaos Oracle',
+  description: 'Uma experiencia digital inspirada na teoria do caos, criada para ajudar pessoas indecisas a tomar decisoes sem recorrer a logica excessiva. Clique, aceite e abrace a incerteza.',
+  tools: ['Teoria do Caos', 'Design Generativo', 'Som Ambiente', 'Lovable'],
+}
 ```
 
-### Atualizar .lovable/plan.md
-
-Adicionar secao de funcionalidades implementadas:
-
-```markdown
-## Funcionalidades Implementadas
-
-### Lucy AI Assistant
-- Prompt otimizado para brevidade (max 2-3 frases)
-- Extracao automatica de leads (email/nome via regex)
-- Salvamento em `mentorship_leads` via upsert
-- Mensagem de sucesso apos captura de lead
-- Auto-scroll no chat
-
-### Admin Panel
-- Dashboard com metricas (total, novos, taxas)
-- Tabela de leads com busca/filtros/export CSV
-- Historico de conversa por lead
-- Gestao de tiers de mentoria
-- Editor de knowledge base
+**Ecosystem EN:**
+```
+chaosOracle: {
+  name: 'Chaos Oracle',
+  purpose: 'Digital oracle embracing uncertainty as method.',
+  type: 'Chaos & Philosophy'
+}
 ```
 
+**Ecosystem PT:**
+```
+chaosOracle: {
+  name: 'Chaos Oracle',
+  purpose: 'Oraculo digital que abraca a incerteza como metodo.',
+  type: 'Caos & Filosofia'
+}
+```
+
+### 3. ProjectsSection.tsx
+
+Adicionar novo projeto ao array `projects` com:
+- Imagem: `chaos-oracle.webp`
+- URL: `https://chaos-bloom-decision.lovable.app/`
+- Categoria: `experimentalConcepts` (cor `text-[#00C4FF]`)
+
+### 4. Index.tsx
+
+Adicionar entrada no array `EcosystemCarousel projects`:
+```
+{
+  name: t.ecosystem.projects.chaosOracle.name,
+  purpose: t.ecosystem.projects.chaosOracle.purpose,
+  type: t.ecosystem.projects.chaosOracle.type,
+  color: "from-violet-500 to-purple-400",
+  image: chaosOracle,
+  url: "https://chaos-bloom-decision.lovable.app/"
+}
+```
+
+### 5. constants.ts
+
+- Adicionar `CHAOS_ORACLE: 'https://chaos-bloom-decision.lovable.app/'` em PROJECT_URLS
+- Atualizar `ACTIVE_PROJECTS: 6`
+
 ---
 
-## Resumo das Alteracoes
+## Resultado
 
-| Arquivo | Acao |
-|---------|------|
-| `supabase/functions/lucy-chat/index.ts` | Adicionar header X-Lead-Captured |
-| `src/hooks/useLucy.tsx` | Toast de sucesso apos captura |
-| `README.md` | Documentar Lucy AI e Admin |
-| `.lovable/plan.md` | Atualizar funcionalidades |
-
----
-
-## Resultado Final
-
-1. Usuario fornece email no chat → Toast "Recebemos seu interesse!"
-2. Documentacao completa das funcionalidades
-3. Codigo revisado e validado
+- 6 projetos ativos no carousel (era 5)
+- Chaos Oracle aparece no carousel e no ecossistema
+- Metricas atualizadas para refletir 6 projetos
+- Categoria: Experimental Concepts (azul)
 
