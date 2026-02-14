@@ -30,6 +30,7 @@ import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
 import oVermePasseia from "@/assets/o-verme-passeia.webp";
 import figueiredoLaw from "@/assets/figueiredo-law.webp";
 import avaliaMacapa from "@/assets/avalia-macapa.webp";
+import chaosOracle from "@/assets/chaos-oracle.webp";
 
 interface IndexProps {
   forcedLanguage?: 'pt' | 'en';
@@ -130,6 +131,14 @@ const Index = ({ forcedLanguage }: IndexProps) => {
             color: "from-blue-500 to-green-400",
             image: avaliaMacapa,
             url: "https://avaliamacapa.com.br"
+          },
+          {
+            name: t.ecosystem.projects.chaosOracle.name,
+            purpose: t.ecosystem.projects.chaosOracle.purpose,
+            type: t.ecosystem.projects.chaosOracle.type,
+            color: "from-violet-500 to-purple-400",
+            image: chaosOracle,
+            url: "https://chaos-bloom-decision.lovable.app/"
           }
         ]}
       />

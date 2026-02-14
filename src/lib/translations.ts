@@ -100,6 +100,7 @@ export interface Translations {
     figueiredoLaw: ProjectData;
     decisionDie: ProjectData;
     avaliaMacapa: ProjectData;
+    chaosOracle: ProjectData;
   };
   // Ecosystem Section
   ecosystem: {
@@ -128,6 +129,11 @@ export interface Translations {
         type: string;
       };
       avaliaMacapa: {
+        name: string;
+        purpose: string;
+        type: string;
+      };
+      chaosOracle: {
         name: string;
         purpose: string;
         type: string;
@@ -459,6 +465,11 @@ export const translations: Record<Language, Translations> = {
         description: 'Urban assessment platform for mapping, rating and organizing locations, services and businesses in Macapá city.',
         tools: ['React', 'TypeScript', 'Supabase', 'AvaliAI'],
       },
+      chaosOracle: {
+        title: 'Chaos Oracle',
+        description: 'A digital experience inspired by chaos theory, designed to help indecisive people make decisions without overthinking. Click, accept, and embrace uncertainty.',
+        tools: ['Chaos Theory', 'Generative Design', 'Ambient Sound', 'Lovable'],
+      },
     },
     ecosystem: {
       title: 'Creative & Strategic Ecosystem',
@@ -489,6 +500,11 @@ export const translations: Record<Language, Translations> = {
           name: 'Avalia Macapá',
           purpose: 'Urban assessment platform for mapping and rating locations.',
           type: 'Tech Solutions'
+        },
+        chaosOracle: {
+          name: 'Chaos Oracle',
+          purpose: 'Digital oracle embracing uncertainty as method.',
+          type: 'Chaos & Philosophy'
         }
       }
     },
@@ -961,6 +977,11 @@ export const translations: Record<Language, Translations> = {
         description: 'Plataforma de avaliação urbana para mapear, avaliar e organizar locais, serviços e comércios da cidade de Macapá.',
         tools: ['React', 'TypeScript', 'Supabase', 'AvaliAI'],
       },
+      chaosOracle: {
+        title: 'Chaos Oracle',
+        description: 'Uma experiência digital inspirada na teoria do caos, criada para ajudar pessoas indecisas a tomar decisões sem recorrer à lógica excessiva. Clique, aceite e abrace a incerteza.',
+        tools: ['Teoria do Caos', 'Design Generativo', 'Som Ambiente', 'Lovable'],
+      },
     },
     ecosystem: {
       title: 'Ecossistema Criativo & Estratégico',
@@ -991,6 +1012,11 @@ export const translations: Record<Language, Translations> = {
           name: 'Avalia Macapá',
           purpose: 'Plataforma de avaliação urbana para mapear e avaliar locais.',
           type: 'Soluções Tech'
+        },
+        chaosOracle: {
+          name: 'Chaos Oracle',
+          purpose: 'Oráculo digital que abraça a incerteza como método.',
+          type: 'Caos & Filosofia'
         }
       }
     },
