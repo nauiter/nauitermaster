@@ -23,12 +23,12 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
   const seoData = {
     pt: {
       title: 'Nauiter Master | IA, Arte Digital & Automação',
-      description: 'Estrategista de IA com 14+ anos em tecnologia, especializado em prompt engineering para workflows criativos. Desenvolvedor de 5+ plataformas ativas usando React, TypeScript e Supabase.',
+      description: 'Estrategista de IA com 14+ anos em tecnologia, especializado em prompt engineering para workflows criativos. Desenvolvedor de 6+ plataformas ativas usando React, TypeScript e Supabase.',
       keywords: 'IA criativa, automação digital, arte digital, educação em IA, filosofia e design, prompt engineering, automação criativa com IA, portfólio IA Macapá',
     },
     en: {
       title: 'Nauiter Master | AI, Digital Art & Automation',
-      description: 'AI Strategist with 14+ years in technology, specialized in prompt engineering for creative workflows. Developer of 5+ active platforms using React, TypeScript and Supabase.',
+      description: 'AI Strategist with 14+ years in technology, specialized in prompt engineering for creative workflows. Developer of 6+ active platforms using React, TypeScript and Supabase.',
       keywords: 'AI creative workflows, digital automation, digital art, AI education, philosophy & design, prompt engineering, creative AI automation',
     },
   };
@@ -200,6 +200,12 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
               "name": "Avalia Macapá",
               "description": currentLang === 'pt' ? "Desenvolvimento de Plataforma" : "Platform Development",
               "url": "https://avaliamacapa.com.br"
+            },
+            {
+              "@type": "Organization",
+              "name": "Chaos Oracle",
+              "description": currentLang === 'pt' ? "Experiência Digital & Filosofia" : "Digital Experience & Philosophy",
+              "url": "https://chaos-bloom-decision.lovable.app/"
             }
           ]
         })
@@ -254,6 +260,15 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
                 ? "Plataforma web de avaliação urbana para mapear e avaliar locais e serviços"
                 : "Urban assessment web platform for mapping and rating locations and services",
               "url": "https://avaliamacapa.com.br",
+              "creator": { "@type": "Person", "name": "Nauiter Master" }
+            },
+            {
+              "@type": "WebApplication",
+              "name": "Chaos Oracle",
+              "description": currentLang === 'pt'
+                ? "Experiência digital inspirada na teoria do caos para tomada de decisões"
+                : "Digital experience inspired by chaos theory for decision making",
+              "url": "https://chaos-bloom-decision.lovable.app/",
               "creator": { "@type": "Person", "name": "Nauiter Master" }
             }
           ]
