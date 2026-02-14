@@ -9,7 +9,7 @@ This repository contains the source code for Nauiter Master's professional portf
 This project is an interactive **Single Page Application (SPA)** featuring:
 - **"Cosmic" Design System:** A futuristic aesthetic with glassmorphism, neon gradients, and particle animations.
 - **Internationalization (i18n):** Native and fluid support for English (EN) and Portuguese (PT).
-- **Project Showcase:** An interactive carousel displaying initiatives such as *Sweet Life Animes*, *O Verme Passeia*, and *Figueiredo Law*.
+- **Project Showcase:** An interactive carousel displaying 6+ active initiatives: *Sweet Life Animes*, *Sweet Life Academy*, *O Verme Passeia*, *Figueiredo Law*, *Avalia Macapá*, and *Chaos Oracle*.
 - **Impact Metrics:** Animated data visualization regarding professional reach.
 - **Compliance:** Full LGPD implementation (Cookie Consent, Terms of Use, and Privacy Policy).
 

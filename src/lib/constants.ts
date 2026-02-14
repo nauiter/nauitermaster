@@ -24,6 +24,7 @@ export const PROJECT_URLS = {
   O_VERME_PASSEIA: 'https://overmepasseia.com.br',
   FIGUEIREDO_LAW: 'https://advocaciafigueiredo.adv.br',
   CHAOS_ORACLE: 'https://chaos-bloom-decision.lovable.app/',
+  AVALIA_MACAPA: 'https://avaliamacapa.com.br',
 } as const;
 
 export const NAVBAR_CONFIG = {
