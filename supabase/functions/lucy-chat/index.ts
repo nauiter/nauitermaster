@@ -230,7 +230,9 @@ CRITICAL RULES:
     });
   } catch (e) {
     console.error("Lucy chat error:", e);
-    return new Response(JSON.stringify({ error: e instanceof Error ? e.message : "Unknown error" }), {
+    return new Response(JSON.stringify({ 
+      error: "An error occurred processing your message. Please try again." 
+    }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
