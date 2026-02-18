@@ -158,7 +158,7 @@ export const HeroSection = () => {
             }}
           >
             <span className="block text-white mb-2 sm:mb-3">Nauiter Master</span>
-            <span className="block text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] via-[#A855F7] to-[#00C4FF]">
+            <span className="block text-xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#7A5FFF] via-[#A855F7] to-[#00C4FF]">
               {t.hero.subtitle}
             </span>
           </h1>

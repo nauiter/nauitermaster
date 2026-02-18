@@ -132,7 +132,7 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
       <link rel="canonical" href={fullUrl} />
       <link rel="alternate" hrefLang="pt-BR" href={`${baseUrl}/pt`} />
       <link rel="alternate" hrefLang="en" href={`${baseUrl}/en`} />
-      <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/`} />
+      <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/en`} />
 
       {/* Structured Data - Person with Experience */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
@@ -314,6 +314,34 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
             "servicePhone": "",
             "availableLanguage": ["Portuguese", "English"]
           }
+        })
+      }} />
+
+      {/* Structured Data - BreadcrumbList (Navigation) */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": `${baseUrl}/${currentLang === 'pt' ? 'pt' : 'en'}`
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": currentLang === 'pt' ? "Projetos" : "Projects",
+              "item": `${baseUrl}/${currentLang === 'pt' ? 'pt' : 'en'}#projects`
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": currentLang === 'pt' ? "Contato" : "Contact",
+              "item": `${baseUrl}/${currentLang === 'pt' ? 'pt' : 'en'}#contact`
+            }
+          ]
         })
       }} />
     </>
