@@ -437,7 +437,7 @@ section h2 {
 /* Responsive Typography for Section Titles */
 @media (max-width: 768px) {
   section h2 {
-    font-size: 1.5rem !important; /* 24px - Otimizado para mobile */
+    font-size: 1.5rem; /* 24px - Otimizado para mobile */
     line-height: 1.8rem;
     padding: 0 1rem;
   }
@@ -450,14 +450,14 @@ section h2 {
   }
   
   section h2 {
-    font-size: 1.25rem !important; /* 20px */
+    font-size: 1.25rem; /* 20px */
     line-height: 1.5rem;
   }
 }
 
 @media (min-width: 769px) {
   section h2 {
-    font-size: 3rem !important; /* 48px */
+    font-size: 3rem; /* 48px */
     line-height: 1.2;
   }
 }
