@@ -304,6 +304,7 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
             "url": baseUrl
           },
           "serviceType": serviceData.serviceTypes,
+          "priceRange": "$$",
           "areaServed": {
             "@type": "Place",
             "name": "Worldwide"
