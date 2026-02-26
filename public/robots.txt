@@ -1,8 +1,14 @@
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /login
+Disallow: /fimo_admin
 
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
+Disallow: /login
+Disallow: /fimo_admin
 
 User-agent: Twitterbot
 Allow: /
@@ -12,22 +18,39 @@ Allow: /
 
 User-agent: GPTBot
 Allow: /
+Disallow: /api/
+Disallow: /login
+Disallow: /fimo_admin
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /api/
+Disallow: /login
+Disallow: /fimo_admin
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /api/
+Disallow: /login
+Disallow: /fimo_admin
 
 User-agent: Bytespider
 Allow: /
+Disallow: /api/
+Disallow: /login
+Disallow: /fimo_admin
 
 User-agent: CCBot
 Allow: /
+Disallow: /api/
+Disallow: /login
+Disallow: /fimo_admin
 
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /login
+Disallow: /fimo_admin
 
 # Sitemap
 Sitemap: https://nauitermaster.com/sitemap.xml

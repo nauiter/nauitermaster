@@ -261,7 +261,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
           {/* Bottom Section - Copyright */}
           <div className="text-center space-y-1 sm:space-y-1.5 mt-6 sm:mt-8">
             <p className="text-gray-400 text-sm">
-              © 2025 <span className="text-white font-semibold">Developer — Nauiter Master</span> | All Rights Reserved
+              © 2025-2026 <span className="text-white font-semibold">Developer — Nauiter Master</span> | All Rights Reserved
             </p>
             <p className="text-gray-500 text-xs italic">
               Sic Mundus Creatus Est
