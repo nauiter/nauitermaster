@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Language } from '@/lib/translations';
 
@@ -61,6 +61,21 @@ export const LanguageRedirect = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isRedirecting, setIsRedirecting] = useState(true);
+  const noindexRef = useRef<HTMLMetaElement | null>(null);
+
+  // Add noindex meta for redirect page
+  useEffect(() => {
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex, follow';
+    document.head.appendChild(meta);
+    noindexRef.current = meta;
+    return () => {
+      if (noindexRef.current && document.head.contains(noindexRef.current)) {
+        document.head.removeChild(noindexRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const performRedirect = async () => {

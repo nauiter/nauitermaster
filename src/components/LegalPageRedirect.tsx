@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Language } from '@/lib/translations';
 
@@ -33,6 +33,21 @@ interface LegalPageRedirectProps {
  */
 export const LegalPageRedirect = ({ pagePath }: LegalPageRedirectProps) => {
   const navigate = useNavigate();
+  const noindexRef = useRef<HTMLMetaElement | null>(null);
+
+  // Add noindex meta for redirect page
+  useEffect(() => {
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex, follow';
+    document.head.appendChild(meta);
+    noindexRef.current = meta;
+    return () => {
+      if (noindexRef.current && document.head.contains(noindexRef.current)) {
+        document.head.removeChild(noindexRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const performRedirect = () => {
