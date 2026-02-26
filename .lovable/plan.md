@@ -1,27 +1,54 @@
 
 
-## Plano: Estado Atual - SEO, GEO, Index e Tipografia
+## Plano: Corrigir Erros de Indexacao do Google Search Console
 
 ---
 
-## Melhorias Implementadas (2026-02-18)
+## Diagnostico
 
-| # | Categoria | Arquivo | Correcao |
-|---|-----------|---------|----------|
-| 1 | SEO | `src/lib/translations.ts` | Hero description corrigido de "5+" para "6+" (PT e EN) |
-| 2 | GEO | `public/robots.txt` | Adicionadas regras para GPTBot, Claude-Web, PerplexityBot, Bytespider, CCBot |
-| 3 | GEO | `index.html` | Adicionada secao "Mentoria em IA" no noscript |
-| 4 | SEO | `index.html` | x-default hreflang corrigido de "/" para "/en" |
-| 5 | Tipografia | `src/index.css` | Removidos `!important` das regras section h2 |
-| 6 | SEO | `src/components/SEOHead.tsx` | x-default corrigido para "/en", adicionado BreadcrumbList schema |
-| 7 | Tipografia | `src/components/sections/HeroSection.tsx` | Subtitle mobile reduzido de text-2xl para text-xl |
+O Google Search Console reporta 4 paginas nao indexadas:
+
+| Erro | Qtd | Causa |
+|------|-----|-------|
+| Pagina alternativa com tag canonica adequada | 3 | As paginas `/pt/privacy-policy`, `/pt/terms-of-use` e `/pt` sao vistas como alternativas da versao EN (canonical aponta para a raiz `/` que redireciona) |
+| Pagina com redirecionamento | 1 | A raiz `/` (canonical no index.html) e uma pagina de redirect, nao conteudo real |
+
+**Causa raiz:** O `index.html` declara `<link rel="canonical" href="https://nauitermaster.com/" />` — mas `/` e uma pagina de redirect (302/JS redirect para `/pt` ou `/en`). O Google indexa a canonical `/` como redirect e marca as variantes linguisticas como "alternativas com canonical adequada" (nao indexaveis independentemente).
 
 ---
 
-## Estado Atual do Portfolio
+## Alteracoes
 
-- 6 projetos documentados em todos os canais (schema, noscript, sitemap, README)
-- Metricas consistentes ("6+ plataformas" em todo o codebase)
-- GEO otimizado para crawlers de IA generativa
-- BreadcrumbList schema para rich snippets
-- Tipografia responsiva sem !important conflitantes
+### 1. index.html - Corrigir canonical e og:url
+
+O canonical estatico no `index.html` deve apontar para `/en` (a pagina x-default real com conteudo), nao para `/` (redirect).
+
+- Linha 28: `canonical` de `https://nauitermaster.com/` para `https://nauitermaster.com/en`
+- Linha 35: `og:url` de `https://nauitermaster.com/` para `https://nauitermaster.com/en`
+
+### 2. LanguageRedirect.tsx - Adicionar noindex na pagina de redirect
+
+A pagina `/` (redirect) deve sinalizar ao Google que nao deve ser indexada, apenas seguida.
+
+- Adicionar `<meta name="robots" content="noindex, follow" />` via `useEffect` quando a rota e `/`
+- Remover o meta ao desmontar o componente
+
+### 3. LegalPageRedirect.tsx - Adicionar noindex nas paginas de redirect legal
+
+As rotas `/privacy-policy` e `/terms-of-use` (sem prefixo de idioma) tambem sao redirects.
+
+- Adicionar `<meta name="robots" content="noindex, follow" />` da mesma forma
+
+### 4. SEOHead.tsx - Garantir canonical correto por rota
+
+O SEOHead ja gera canonical dinamico com `fullUrl`, mas quando esta em `/pt` gera canonical `https://nauitermaster.com/pt` e em `/en` gera `https://nauitermaster.com/en` — isso esta correto. Nenhuma alteracao necessaria.
+
+---
+
+## Resultado Esperado
+
+- `/` deixa de ser indexada (noindex) — resolve "Pagina com redirecionamento"
+- Canonical aponta para `/en` (conteudo real) — resolve "Pagina alternativa com tag canonica adequada"
+- `/pt` e `/en` sao indexadas independentemente via seus proprios canonicals dinamicos
+- As 3 paginas alternativas passam a ser indexadas corretamente na proxima re-crawl
+
