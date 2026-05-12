@@ -183,7 +183,7 @@ export const useAdmin = () => {
   const updateTier = useCallback(async (id: string, updates: Record<string, unknown>) => {
     const { error } = await supabase
       .from("mentorship_tiers")
-      .update(updates)
+      .update(updates as never)
       .eq("id", id);
     
     if (error) {
@@ -205,7 +205,7 @@ export const useAdmin = () => {
     
     const { error } = await supabase
       .from("mentorship_leads")
-      .update(updates)
+      .update(updates as never)
       .eq("id", id);
     
     if (error) {
