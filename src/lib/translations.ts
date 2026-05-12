@@ -92,8 +92,6 @@ export interface Translations {
     experimentalConcepts: string;
     visitWebsite: string;
     tools: string;
-    sweetLifeAnimes: ProjectData;
-    sweetLifeAcademy: ProjectData;
     oVermePasseia: ProjectData;
     clickNoPoint: ProjectData;
     pomodoroProject: ProjectData;
@@ -108,16 +106,6 @@ export interface Translations {
     subtitle: string;
     centralNode: string;
     projects: {
-      sweetLifeAnimes: {
-        name: string;
-        purpose: string;
-        type: string;
-      };
-      sweetLifeAcademy: {
-        name: string;
-        purpose: string;
-        type: string;
-      };
       oVermePasseia: {
         name: string;
         purpose: string;
@@ -347,7 +335,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'AI Strategist with 14+ years in technology, specialized in prompt engineering for creative workflows.',
-      description: 'Systems Analyst & AI Strategist | Developer of 6+ active platforms using React, TypeScript & Supabase | Content Creator',
+      description: 'Systems Analyst & AI Strategist | Developer of 4+ active platforms using React, TypeScript & Supabase | Content Creator',
       downloadCV: 'Download CV',
       viewProjects: 'View My Projects',
       linkedinFollowers: 'LinkedIn Followers',
@@ -425,16 +413,6 @@ export const translations: Record<Language, Translations> = {
       experimentalConcepts: 'Experimental Concepts',
       visitWebsite: 'Visit Website',
       tools: 'Tools',
-      sweetLifeAnimes: {
-        title: 'Sweet Life Animes',
-        description: 'Empowering digital artists and creative communities.',
-        tools: ['AI', 'Digital Art', 'Community'],
-      },
-      sweetLifeAcademy: {
-        title: 'Sweet Life Academy',
-        description: 'Helping creators grow with AI strategy and education.',
-        tools: ['AI Education', 'Automation', 'Strategy'],
-      },
       oVermePasseia: {
         title: 'O Verme Passeia',
         description: 'Exploring philosophy and aesthetics through design.',
@@ -476,16 +454,6 @@ export const translations: Record<Language, Translations> = {
       subtitle: 'An interconnected network of brands, projects, and ideas.',
       centralNode: 'Creator, Strategist & AI Visionary',
       projects: {
-        sweetLifeAnimes: {
-          name: 'Sweet Life Animes',
-          purpose: 'Empowering digital artists and storytellers.',
-          type: 'Creative Brand'
-        },
-        sweetLifeAcademy: {
-          name: 'Sweet Life Academy',
-          purpose: 'AI education and automation for creators.',
-          type: 'AI Education'
-        },
         oVermePasseia: {
           name: 'O Verme Passeia',
           purpose: 'Exploring philosophy and aesthetics through design.',
@@ -859,7 +827,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'Estrategista de IA com 14+ anos em tecnologia, especializado em prompt engineering para workflows criativos.',
-      description: 'Analista de Sistemas & Estrategista de IA | Desenvolvedor de 6+ plataformas ativas usando React, TypeScript & Supabase | Criador de Conteúdo',
+      description: 'Analista de Sistemas & Estrategista de IA | Desenvolvedor de 4+ plataformas ativas usando React, TypeScript & Supabase | Criador de Conteúdo',
       downloadCV: 'Baixar CV',
       viewProjects: 'Ver Meus Projetos',
       linkedinFollowers: 'Seguidores LinkedIn',
@@ -937,16 +905,6 @@ export const translations: Record<Language, Translations> = {
       experimentalConcepts: 'Conceitos Experimentais',
       visitWebsite: 'Visitar Website',
       tools: 'Ferramentas',
-      sweetLifeAnimes: {
-        title: 'Sweet Life Animes',
-        description: 'Empoderando artistas digitais e comunidades criativas.',
-        tools: ['IA', 'Arte Digital', 'Comunidade'],
-      },
-      sweetLifeAcademy: {
-        title: 'Sweet Life Academy',
-        description: 'Ajudando criadores a crescer com estratégia e educação em IA.',
-        tools: ['Educação IA', 'Automação', 'Estratégia'],
-      },
       oVermePasseia: {
         title: 'O Verme Passeia',
         description: 'Explorando filosofia e estética através do design.',
@@ -988,16 +946,6 @@ export const translations: Record<Language, Translations> = {
       subtitle: 'Uma rede interconectada de marcas, projetos e ideias.',
       centralNode: 'Criador, Estrategista & Visionário de IA',
       projects: {
-        sweetLifeAnimes: {
-          name: 'Sweet Life Animes',
-          purpose: 'Capacitando artistas digitais e contadores de histórias.',
-          type: 'Marca Criativa'
-        },
-        sweetLifeAcademy: {
-          name: 'Sweet Life Academy',
-          purpose: 'Educação em IA e automação para criadores.',
-          type: 'Educação IA'
-        },
         oVermePasseia: {
           name: 'O Verme Passeia',
           purpose: 'Explorando filosofia e estética através do design.',

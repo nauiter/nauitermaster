@@ -25,8 +25,6 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { usePageLoading } from "@/hooks/usePageLoading";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import { trackSocialClick } from "@/lib/analytics";
-import sweetLifeAnimes from "@/assets/sweet-life-animes.webp";
-import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
 import oVermePasseia from "@/assets/o-verme-passeia.webp";
 import figueiredoLaw from "@/assets/figueiredo-law.webp";
 import avaliaMacapa from "@/assets/avalia-macapa.webp";
@@ -92,22 +90,6 @@ const Index = ({ forcedLanguage }: IndexProps) => {
       {/* Creative & Strategic Ecosystem */}
       <EcosystemCarousel 
         projects={[
-          {
-            name: t.ecosystem.projects.sweetLifeAnimes.name,
-            purpose: t.ecosystem.projects.sweetLifeAnimes.purpose,
-            type: t.ecosystem.projects.sweetLifeAnimes.type,
-            color: "from-pink-500 to-fuchsia-400",
-            image: sweetLifeAnimes,
-            url: "https://sweetlifeanimes.com"
-          },
-          {
-            name: t.ecosystem.projects.sweetLifeAcademy.name,
-            purpose: t.ecosystem.projects.sweetLifeAcademy.purpose,
-            type: t.ecosystem.projects.sweetLifeAcademy.type,
-            color: "from-purple-500 to-cyan-400",
-            image: sweetLifeAcademy,
-            url: "https://sweetlifeacademy.coursify.me/"
-          },
           {
             name: t.ecosystem.projects.oVermePasseia.name,
             purpose: t.ecosystem.projects.oVermePasseia.purpose,

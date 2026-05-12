@@ -15,8 +15,6 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import sweetLifeAnimes from "@/assets/sweet-life-animes.webp";
-import sweetLifeAcademy from "@/assets/sweet-life-academy.webp";
 import oVermePasseia from "@/assets/o-verme-passeia.webp";
 import figueiredoLaw from "@/assets/figueiredo-law.webp";
 import avaliaMacapa from "@/assets/avalia-macapa.webp";
@@ -48,26 +46,6 @@ export const ProjectsSection = () => {
   }, [api]);
 
   const projects = [
-    {
-      image: sweetLifeAnimes,
-      alt: "Sweet Life Animes - Projeto de arte digital criado com IA focado em empoderar artistas digitais e storytellers | Digital art project created with AI focused on empowering digital artists and storytellers",
-      title: t.projects.sweetLifeAnimes.title,
-      description: t.projects.sweetLifeAnimes.description,
-      tools: t.projects.sweetLifeAnimes.tools,
-      url: "https://sweetlifeanimes.com",
-      category: t.projects.creativeUniverse,
-      categoryColor: "text-[#7A5FFF]",
-    },
-    {
-      image: sweetLifeAcademy,
-      alt: "Sweet Life Academy - Plataforma de educação em IA e automação para criadores digitais | AI education and automation platform for digital creators",
-      title: t.projects.sweetLifeAcademy.title,
-      description: t.projects.sweetLifeAcademy.description,
-      tools: t.projects.sweetLifeAcademy.tools,
-      url: "https://sweetlifeacademy.coursify.me",
-      category: t.projects.creativeUniverse,
-      categoryColor: "text-[#7A5FFF]",
-    },
     {
       image: oVermePasseia,
       alt: "O Verme Passeia - Projeto explorando filosofia e estética através do design digital | Project exploring philosophy and aesthetics through digital design",

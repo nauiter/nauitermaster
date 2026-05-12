@@ -4,7 +4,7 @@
 export const METRICS = {
   LINKEDIN_FOLLOWERS: 5750,
   YEARS_EXPERIENCE: 14,
-  ACTIVE_PROJECTS: 6,
+  ACTIVE_PROJECTS: 4,
   AI_VISUALS_GENERATED: '200+',
   ECOSYSTEMS_BUILT: '10+',
   AI_DRIVEN_BRANDS: 5,
@@ -19,8 +19,6 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const PROJECT_URLS = {
-  SWEET_LIFE_ANIMES: 'https://sweetlifeanimes.com',
-  SWEET_LIFE_ACADEMY: 'https://sweetlifeacademy.coursify.me/',
   O_VERME_PASSEIA: 'https://overmepasseia.com.br',
   FIGUEIREDO_LAW: 'https://advocaciafigueiredo.adv.br',
   CHAOS_ORACLE: 'https://chaos-bloom-decision.lovable.app/',
