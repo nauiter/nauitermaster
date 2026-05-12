@@ -23,12 +23,12 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
   const seoData = {
     pt: {
       title: 'Nauiter Master | IA, Arte Digital & Automação',
-      description: 'Estrategista de IA com 14+ anos em tecnologia, especializado em prompt engineering para workflows criativos. Desenvolvedor de 6+ plataformas ativas usando React, TypeScript e Supabase.',
+      description: 'Estrategista de IA com 14+ anos em tecnologia, especializado em prompt engineering para workflows criativos. Desenvolvedor de 4+ plataformas ativas usando React, TypeScript e Supabase.',
       keywords: 'IA criativa, automação digital, arte digital, educação em IA, filosofia e design, prompt engineering, automação criativa com IA, portfólio IA Macapá',
     },
     en: {
       title: 'Nauiter Master | AI, Digital Art & Automation',
-      description: 'AI Strategist with 14+ years in technology, specialized in prompt engineering for creative workflows. Developer of 6+ active platforms using React, TypeScript and Supabase.',
+      description: 'AI Strategist with 14+ years in technology, specialized in prompt engineering for creative workflows. Developer of 4+ active platforms using React, TypeScript and Supabase.',
       keywords: 'AI creative workflows, digital automation, digital art, AI education, philosophy & design, prompt engineering, creative AI automation',
     },
   };
@@ -94,7 +94,7 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
     },
     {
       question: "Quais serviços de IA são oferecidos?",
-      answer: "Oferecemos consultoria em estratégia de IA, automação de workflows criativos, desenvolvimento de aplicações com IA, e educação em prompt engineering através da Sweet Life Academy."
+      answer: "Oferecemos consultoria em estratégia de IA, automação de workflows criativos, desenvolvimento de aplicações com IA, e educação em prompt engineering através de programas de mentoria personalizados."
     },
     {
       question: "Como a automação com IA pode ajudar criadores?",
@@ -107,7 +107,7 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
     },
     {
       question: "What AI services are offered?",
-      answer: "We offer AI strategy consulting, creative workflow automation, AI-powered application development, and prompt engineering education through Sweet Life Academy."
+      answer: "We offer AI strategy consulting, creative workflow automation, AI-powered application development, and prompt engineering education through personalized mentorship programs."
     },
     {
       question: "How can AI automation help creators?",
@@ -185,12 +185,6 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
             },
             {
               "@type": "Organization",
-              "name": "Sweet Life Animes",
-              "description": currentLang === 'pt' ? "Fundador & Criador" : "Founder & Creator",
-              "url": "https://sweetlifeanimes.com/"
-            },
-            {
-              "@type": "Organization",
               "name": "Advocacia Figueiredo",
               "description": currentLang === 'pt' ? "Desenvolvimento Web" : "Web Development",
               "url": "https://advocaciafigueiredo.adv.br"
@@ -217,24 +211,6 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
           "@context": "https://schema.org",
           "@type": "ItemList",
           "itemListElement": [
-            {
-              "@type": "CreativeWork",
-              "name": "Sweet Life Animes",
-              "description": currentLang === 'pt'
-                ? "Marca criativa focada em empoderar artistas digitais e contadores de histórias"
-                : "Creative brand focused on empowering digital artists and storytellers",
-              "url": "https://sweetlifeanimes.com/",
-              "creator": { "@type": "Person", "name": "Nauiter Master" }
-            },
-            {
-              "@type": "EducationalOrganization",
-              "name": "Sweet Life Academy",
-              "description": currentLang === 'pt'
-                ? "Educação em IA e automação para criadores"
-                : "AI education and automation for creators",
-              "url": "https://sweetlifeacademy.coursify.me/",
-              "founder": { "@type": "Person", "name": "Nauiter Master" }
-            },
             {
               "@type": "CreativeWork",
               "name": "O Verme Passeia",
