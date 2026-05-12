@@ -10,7 +10,7 @@ import googleLogo from '@/assets/experience/google_logo.webp';
 import blizzardLogo from '@/assets/experience/blizzard_entertainment_logo.webp';
 import tenXBankLogo from '@/assets/experience/10xbank_logo.webp';
 import localHostLogo from '@/assets/experience/local_host_solucoes_logo.webp';
-import sweetLifeAnimesLogo from '@/assets/experience/sweet_life_animes_logo.webp';
+
 import advocaciaFigueiredoLogo from '@/assets/experience/advocacia_figueiredo_logo.webp';
 import avaliaMacapaLogo from '@/assets/experience/avalia_macapa_logo.webp';
 
@@ -57,13 +57,6 @@ const experiences: Experience[] = [
     period: { en: 'Freelance', pt: 'Freelance' },
     role: { en: 'Tech Solutions', pt: 'Soluções Tech' },
     url: null,
-  },
-  {
-    name: 'Sweet Life Animes',
-    logo: sweetLifeAnimesLogo,
-    period: { en: 'Current', pt: 'Atual' },
-    role: { en: 'Founder & Creator', pt: 'Fundador & Criador' },
-    url: 'https://sweetlifeanimes.com/',
   },
   {
     name: 'Advocacia Figueiredo',
