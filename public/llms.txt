@@ -1,0 +1,22 @@
+# Nauiter Master
+
+> AI Strategist & Digital Artist with 14+ years in technology. Specialized in prompt engineering, creative AI automation, and full-stack development with React, TypeScript and Supabase.
+
+Nauiter Master is the personal portfolio and professional hub of an AI strategist based in Macapá, Brazil, blending military telecommunications experience, philosophy, and digital art with modern AI workflows. The site offers an overview of active platforms, mentorship programs, and creative AI services, available in Portuguese and English.
+
+## Pages
+
+- [Home (English)](/en): Portfolio overview, projects, experience, services, and mentorship in English.
+- [Home (Portuguese)](/pt): Portfólio, projetos, experiência, serviços e mentoria em português.
+- [Privacy Policy (EN)](/en/privacy-policy): How user data is handled, LGPD-compliant.
+- [Privacy Policy (PT)](/pt/privacy-policy): Política de privacidade conforme LGPD.
+- [Terms of Use (EN)](/en/terms-of-use): Terms governing use of the site and services.
+- [Terms of Use (PT)](/pt/terms-of-use): Termos de uso do site e serviços.
+
+## Topics
+
+- Prompt Engineering for ChatGPT, Claude, Midjourney, Leonardo, Runway
+- Creative AI automation with Make, Zapier, n8n
+- Web development: React, TypeScript, Supabase, PostgreSQL
+- AI mentorship and education
+- Digital art, philosophy, and design
