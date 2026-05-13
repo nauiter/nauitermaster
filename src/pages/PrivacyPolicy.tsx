@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { SEOHead } from '@/components/SEOHead';
 
 interface PrivacyPolicyProps {
   forcedLanguage?: 'pt' | 'en';
@@ -36,6 +37,7 @@ export default function PrivacyPolicy({ forcedLanguage }: PrivacyPolicyProps) {
 
   return (
     <div className="min-h-screen bg-gradient-cosmic">
+      <SEOHead forcedLanguage={forcedLanguage} pageType="privacy" />
       <div className="container mx-auto px-4 py-12 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -2,17 +2,20 @@ import { useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useLocation } from 'react-router-dom';
 
+type PageType = 'home' | 'privacy' | 'terms';
+
 interface SEOHeadProps {
   forcedLanguage?: 'pt' | 'en';
+  pageType?: PageType;
 }
 
 /**
  * SEO Head Component
- * 
+ *
  * Dynamic SEO meta tags, hreflang, canonical URLs and structured data.
  * Updates based on current route and language.
  */
-export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
+export const SEOHead = ({ forcedLanguage, pageType = 'home' }: SEOHeadProps) => {
   const { language } = useLanguage();
   const location = useLocation();
   const currentLang = forcedLanguage || language;
@@ -20,20 +23,46 @@ export const SEOHead = ({ forcedLanguage }: SEOHeadProps) => {
   const currentPath = location.pathname;
   const fullUrl = `${baseUrl}${currentPath}`;
 
-  const seoData = {
-    pt: {
-      title: 'Nauiter Master | IA, Arte Digital & Automação',
-      description: 'Estrategista de IA com 14+ anos em tecnologia, especializado em prompt engineering para workflows criativos. Desenvolvedor de 4+ plataformas ativas usando React, TypeScript e Supabase.',
-      keywords: 'IA criativa, automação digital, arte digital, educação em IA, filosofia e design, prompt engineering, automação criativa com IA, portfólio IA Macapá',
+  const pageMeta: Record<PageType, { pt: { title: string; description: string }; en: { title: string; description: string } }> = {
+    home: {
+      pt: {
+        title: 'Nauiter Master | IA, Arte Digital & Automação',
+        description: 'Estrategista de IA com 14+ anos em tecnologia. Prompt engineering, automação criativa e desenvolvimento com React, TypeScript e Supabase.',
+      },
+      en: {
+        title: 'Nauiter Master | AI, Digital Art & Automation',
+        description: 'AI Strategist with 14+ years in tech. Prompt engineering, creative automation and platform development with React, TypeScript and Supabase.',
+      },
     },
-    en: {
-      title: 'Nauiter Master | AI, Digital Art & Automation',
-      description: 'AI Strategist with 14+ years in technology, specialized in prompt engineering for creative workflows. Developer of 4+ active platforms using React, TypeScript and Supabase.',
-      keywords: 'AI creative workflows, digital automation, digital art, AI education, philosophy & design, prompt engineering, creative AI automation',
+    privacy: {
+      pt: {
+        title: 'Política de Privacidade | Nauiter Master',
+        description: 'Política de Privacidade do site Nauiter Master, em conformidade com a LGPD. Saiba como seus dados são coletados, usados e protegidos.',
+      },
+      en: {
+        title: 'Privacy Policy | Nauiter Master',
+        description: 'Privacy Policy for the Nauiter Master site. Learn how your data is collected, used and protected under GDPR and LGPD compliance.',
+      },
+    },
+    terms: {
+      pt: {
+        title: 'Termos de Uso | Nauiter Master',
+        description: 'Termos de Uso que regem o acesso ao site Nauiter Master e aos serviços de consultoria, mentoria e desenvolvimento em IA.',
+      },
+      en: {
+        title: 'Terms of Use | Nauiter Master',
+        description: 'Terms of Use governing access to the Nauiter Master website and AI consulting, mentorship and development services.',
+      },
     },
   };
 
-  const currentSEO = seoData[currentLang];
+  const currentSEO = {
+    ...pageMeta[pageType][currentLang],
+    keywords: currentLang === 'pt'
+      ? 'IA criativa, automação digital, arte digital, educação em IA, filosofia e design, prompt engineering, automação criativa com IA, portfólio IA Macapá'
+      : 'AI creative workflows, digital automation, digital art, AI education, philosophy & design, prompt engineering, creative AI automation',
+  };
+
 
   useEffect(() => {
     // Update document title
