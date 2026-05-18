@@ -282,6 +282,7 @@ export const SEOHead = ({ forcedLanguage, pageType = 'home' }: SEOHeadProps) => 
               "description": currentLang === 'pt'
                 ? "Plataforma local-first de auditoria e controle de qualidade estratégico com arquitetura multi-projeto e gamificação"
                 : "Local-first platform for strategic auditing and quality control with multi-project architecture and gamification",
+              "url": "https://audit-ace-77.lovable.app",
               "creator": { "@type": "Person", "name": "Nauiter Master" }
             }
           ]

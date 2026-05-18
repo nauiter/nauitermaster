@@ -129,7 +129,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
             type: t.ecosystem.projects.qaMaster.type,
             color: "from-cyan-500 to-blue-400",
             image: qaMaster,
-            url: "#"
+            url: "https://audit-ace-77.lovable.app"
           }
         ]}
       />

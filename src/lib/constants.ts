@@ -23,7 +23,7 @@ export const PROJECT_URLS = {
   FIGUEIREDO_LAW: 'https://advocaciafigueiredo.adv.br',
   CHAOS_ORACLE: 'https://chaos-bloom-decision.lovable.app/',
   AVALIA_MACAPA: 'https://avaliamacapa.com.br',
-  QA_MASTER: '#', // TODO: atualizar com URL pública quando disponível
+  QA_MASTER: 'https://audit-ace-77.lovable.app',
 
 } as const;
 
