@@ -29,6 +29,7 @@ import oVermePasseia from "@/assets/o-verme-passeia.webp";
 import figueiredoLaw from "@/assets/figueiredo-law.webp";
 import avaliaMacapa from "@/assets/avalia-macapa.webp";
 import chaosOracle from "@/assets/chaos-oracle.webp";
+import qaMaster from "@/assets/qa-master.webp";
 
 interface IndexProps {
   forcedLanguage?: 'pt' | 'en';
@@ -121,6 +122,14 @@ const Index = ({ forcedLanguage }: IndexProps) => {
             color: "from-violet-500 to-purple-400",
             image: chaosOracle,
             url: "https://chaos-bloom-decision.lovable.app/"
+          },
+          {
+            name: t.ecosystem.projects.qaMaster.name,
+            purpose: t.ecosystem.projects.qaMaster.purpose,
+            type: t.ecosystem.projects.qaMaster.type,
+            color: "from-cyan-500 to-blue-400",
+            image: qaMaster,
+            url: "#"
           }
         ]}
       />

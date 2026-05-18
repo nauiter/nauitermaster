@@ -4,7 +4,7 @@
 export const METRICS = {
   LINKEDIN_FOLLOWERS: 5750,
   YEARS_EXPERIENCE: 14,
-  ACTIVE_PROJECTS: 4,
+  ACTIVE_PROJECTS: 5,
   AI_VISUALS_GENERATED: '200+',
   ECOSYSTEMS_BUILT: '10+',
   AI_DRIVEN_BRANDS: 5,
@@ -23,6 +23,8 @@ export const PROJECT_URLS = {
   FIGUEIREDO_LAW: 'https://advocaciafigueiredo.adv.br',
   CHAOS_ORACLE: 'https://chaos-bloom-decision.lovable.app/',
   AVALIA_MACAPA: 'https://avaliamacapa.com.br',
+  QA_MASTER: '#', // TODO: atualizar com URL pública quando disponível
+
 } as const;
 
 export const NAVBAR_CONFIG = {

@@ -275,6 +275,14 @@ export const SEOHead = ({ forcedLanguage, pageType = 'home' }: SEOHeadProps) => 
                 : "Digital experience inspired by chaos theory for decision making",
               "url": "https://chaos-bloom-decision.lovable.app/",
               "creator": { "@type": "Person", "name": "Nauiter Master" }
+            },
+            {
+              "@type": "WebApplication",
+              "name": "QA Master",
+              "description": currentLang === 'pt'
+                ? "Plataforma local-first de auditoria e controle de qualidade estratégico com arquitetura multi-projeto e gamificação"
+                : "Local-first platform for strategic auditing and quality control with multi-project architecture and gamification",
+              "creator": { "@type": "Person", "name": "Nauiter Master" }
             }
           ]
         })
