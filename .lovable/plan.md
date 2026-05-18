@@ -1,62 +1,43 @@
-## Plano: Remover Sweet Life Animes e Sweet Life Academy
+## Adicionar QA Master + Atualizar Contadores (4 → 5)
 
-Os dois projetos foram desativados e devem sair de toda a UI, dados estruturados (JSON-LD), traduções e métricas.
+### 1. Asset
+- Copiar `user-uploads://Screenshot_6.webp` → `src/assets/qa-master.webp`.
+- (URL pública pendente — usar placeholder `#` no card até você fornecer)
 
----
+### 2. `src/lib/translations.ts`
+- Adicionar tipo `qaMaster: ProjectData` em `projects` e em `ecosystem.projects` (PT e EN).
+- Conteúdo:
+  - **PT title:** "QA Master"
+  - **PT description:** "Plataforma local-first de auditoria e controle de qualidade estratégico. Sistematiza fluxos de testes em arquitetura multi-projeto escalável, transformando QA em processo ágil, rastreável e gamificado."
+  - **EN description:** "Local-first platform for strategic auditing and quality control. Systematizes testing flows through a scalable multi-project architecture, turning QA into an agile, traceable and gamified process."
+  - **tools:** `["React","TypeScript","Local-First","Gamification","QA"]`
+  - **ecosystem.type PT:** "Auditoria & QA" | **EN:** "Auditing & QA"
+- Substituir todas as 4 ocorrências de `4+ plataformas ativas` / `4+ active platforms` → `5+`.
 
-## Arquivos e Alterações
+### 3. `src/components/sections/ProjectsSection.tsx`
+- Importar `qaMaster from "@/assets/qa-master.webp"`.
+- Adicionar 5º objeto no array (categoria **Experimental Concepts** ciano, `url: "#"` temporário).
 
-### 1. `src/components/sections/ProjectsSection.tsx`
-- Remover imports `sweetLifeAnimes` e `sweetLifeAcademy`.
-- Remover os 2 objetos do array de projetos do carrossel (Sweet Life Animes e Sweet Life Academy).
-
-### 2. `src/pages/Index.tsx` (Ecosystem Carousel)
-- Remover imports das imagens `sweetLifeAnimes` e `sweetLifeAcademy`.
-- Remover as 2 entradas correspondentes no array `projects` passado para `<EcosystemCarousel />`.
-
-### 3. `src/components/sections/ExperienceSection.tsx`
-- Remover import `sweetLifeAnimesLogo`.
-- Remover a entrada `Sweet Life Animes` do array `experiences` (resta 7 organizações).
-
-### 4. `src/lib/translations.ts`
-- Remover chaves `sweetLifeAnimes` e `sweetLifeAcademy` em:
-  - `projects.sweetLifeAnimes/Academy` (PT e EN)
-  - `ecosystem.projects.sweetLifeAnimes/Academy` (PT e EN)
-- Remover do tipo `ProjectData` as propriedades `sweetLifeAnimes` e `sweetLifeAcademy`.
-- Atualizar descrições do Hero (PT e EN) de "6+ plataformas ativas" → "4+ plataformas ativas".
+### 4. `src/pages/Index.tsx` (Ecosystem)
+- Importar asset + adicionar 5ª entrada (mesma categoria/cor ciano).
 
 ### 5. `src/lib/constants.ts`
-- `ACTIVE_PROJECTS: 6` → `ACTIVE_PROJECTS: 4`.
-- Remover `SWEET_LIFE_ANIMES` e `SWEET_LIFE_ACADEMY` de `PROJECT_URLS`.
+- `ACTIVE_PROJECTS: 4` → `5`.
+- Adicionar `QA_MASTER: '#'` em `PROJECT_URLS` (atualizar depois).
 
 ### 6. `src/components/SEOHead.tsx`
-- Remover Sweet Life Animes do schema `ItemList`/`hasOfferCatalog` (linhas ~188 e ~222).
-- Remover Sweet Life Academy do schema (linha ~231).
-- Atualizar respostas FAQ (PT linha 97, EN linha 110) removendo "através da Sweet Life Academy" — substituir por "através de programas de mentoria" / "through mentorship programs".
+- Adicionar QA Master ao `ItemList`/`hasOfferCatalog` (CreativeWork).
+- Atualizar contagens "4+" → "5+" em descrições/FAQ se houver.
 
 ### 7. `index.html`
-- Remover entradas Sweet Life Animes/Academy do JSON-LD (linhas ~118, ~132, ~142).
-- Remover blocos `<h3>Sweet Life Animes</h3>` e `<h3>Sweet Life Academy</h3>` do `<noscript>` PT (linhas ~253, ~258) e EN (linhas ~366, ~371).
-- Remover bullet "Sweet Life Academy: Fundador e Educador em IA" (linha ~323).
-- Atualizar meta descriptions e textos do noscript (PT e EN): "6+ plataformas ativas" → "4+ plataformas ativas" (linhas 23, 94, 220, 221, 230, 235, 346, 351).
-- Atualizar resposta FAQ EN (linha 404) removendo menção a Sweet Life Academy.
+- Adicionar item QA Master no JSON-LD ItemList (linhas ~140-150).
+- Adicionar `<h3>QA Master</h3>` + parágrafo no `<noscript>` PT e EN.
+- Substituir todas as 4 ocorrências `4+ plataformas/active platforms` → `5+`.
 
-### 8. Assets (opcional — manter ou deletar)
-- Manter os arquivos `src/assets/sweet-life-animes.webp`, `sweet-life-academy.webp` e `experience/sweet_life_animes_logo.webp` no repositório por enquanto (não referenciados não impactam build). Se preferir limpeza total, podem ser deletados — confirmar.
+### Observações
+- URL fica `#` até você enviar; deixar TODO comment.
+- Não atualizo `ExperienceSection` (QA Master não é parceria/organização).
+- Não atualizo memórias do projeto agora (faço junto ao deploy se quiser).
 
-### 9. `public/sitemap.xml`
-- Sem entradas específicas dos projetos; nenhuma alteração necessária.
-
----
-
-## Resultado Esperado
-
-- Carrossel de Projetos: 4 projetos (O Verme Passeia, Figueiredo Law, Avalia Macapá, Chaos Oracle).
-- Ecosystem: 4 projetos.
-- Experience: 7 organizações.
-- Métrica "Active Projects": 4.
-- Hero/SEO descriptions: "4+ plataformas ativas".
-- Nenhuma referência a sweetlifeanimes.com ou sweetlifeacademy.coursify.me em código, JSON-LD ou noscript.
-
-## Pergunta opcional
-Deseja que eu delete os arquivos `.webp` de Sweet Life dos assets também? (Padrão: manter no repo)
+### Pergunta pendente
+Confirma os textos PT/EN propostos acima ou prefere ajustar antes de implementar?
