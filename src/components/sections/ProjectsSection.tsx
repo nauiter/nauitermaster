@@ -19,6 +19,7 @@ import oVermePasseia from "@/assets/o-verme-passeia.webp";
 import figueiredoLaw from "@/assets/figueiredo-law.webp";
 import avaliaMacapa from "@/assets/avalia-macapa.webp";
 import chaosOracle from "@/assets/chaos-oracle.webp";
+import qaMaster from "@/assets/qa-master.webp";
 
 export const ProjectsSection = () => {
   const { t, language } = useLanguage();
@@ -83,6 +84,16 @@ export const ProjectsSection = () => {
       description: t.projects.chaosOracle.description,
       tools: t.projects.chaosOracle.tools,
       url: "https://chaos-bloom-decision.lovable.app/",
+      category: t.projects.experimentalConcepts,
+      categoryColor: "text-[#00C4FF]",
+    },
+    {
+      image: qaMaster,
+      alt: "QA Master - Plataforma local-first de auditoria e controle de qualidade estratégico | Local-first platform for strategic auditing and quality control",
+      title: t.projects.qaMaster.title,
+      description: t.projects.qaMaster.description,
+      tools: t.projects.qaMaster.tools,
+      url: "#",
       category: t.projects.experimentalConcepts,
       categoryColor: "text-[#00C4FF]",
     },

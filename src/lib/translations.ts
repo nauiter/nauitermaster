@@ -99,6 +99,7 @@ export interface Translations {
     decisionDie: ProjectData;
     avaliaMacapa: ProjectData;
     chaosOracle: ProjectData;
+    qaMaster: ProjectData;
   };
   // Ecosystem Section
   ecosystem: {
@@ -122,6 +123,11 @@ export interface Translations {
         type: string;
       };
       chaosOracle: {
+        name: string;
+        purpose: string;
+        type: string;
+      };
+      qaMaster: {
         name: string;
         purpose: string;
         type: string;
@@ -335,7 +341,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'AI Strategist with 14+ years in technology, specialized in prompt engineering for creative workflows.',
-      description: 'Systems Analyst & AI Strategist | Developer of 4+ active platforms using React, TypeScript & Supabase | Content Creator',
+      description: 'Systems Analyst & AI Strategist | Developer of 5+ active platforms using React, TypeScript & Supabase | Content Creator',
       downloadCV: 'Download CV',
       viewProjects: 'View My Projects',
       linkedinFollowers: 'LinkedIn Followers',
@@ -448,6 +454,11 @@ export const translations: Record<Language, Translations> = {
         description: 'A digital experience inspired by chaos theory, designed to help indecisive people make decisions without overthinking. Click, accept, and embrace uncertainty.',
         tools: ['Chaos Theory', 'Generative Design', 'Ambient Sound', 'Lovable'],
       },
+      qaMaster: {
+        title: 'QA Master',
+        description: 'Local-first platform for strategic auditing and quality control. Systematizes testing flows through a scalable multi-project architecture, turning QA into an agile, traceable and gamified process.',
+        tools: ['React', 'TypeScript', 'Local-First', 'Gamification', 'QA'],
+      },
     },
     ecosystem: {
       title: 'Creative & Strategic Ecosystem',
@@ -473,6 +484,11 @@ export const translations: Record<Language, Translations> = {
           name: 'Chaos Oracle',
           purpose: 'Digital oracle embracing uncertainty as method.',
           type: 'Chaos & Philosophy'
+        },
+        qaMaster: {
+          name: 'QA Master',
+          purpose: 'Local-first strategic auditing and quality control platform.',
+          type: 'Auditing & QA'
         }
       }
     },
@@ -827,7 +843,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'Estrategista de IA com 14+ anos em tecnologia, especializado em prompt engineering para workflows criativos.',
-      description: 'Analista de Sistemas & Estrategista de IA | Desenvolvedor de 4+ plataformas ativas usando React, TypeScript & Supabase | Criador de Conteúdo',
+      description: 'Analista de Sistemas & Estrategista de IA | Desenvolvedor de 5+ plataformas ativas usando React, TypeScript & Supabase | Criador de Conteúdo',
       downloadCV: 'Baixar CV',
       viewProjects: 'Ver Meus Projetos',
       linkedinFollowers: 'Seguidores LinkedIn',
@@ -940,6 +956,11 @@ export const translations: Record<Language, Translations> = {
         description: 'Uma experiência digital inspirada na teoria do caos, criada para ajudar pessoas indecisas a tomar decisões sem recorrer à lógica excessiva. Clique, aceite e abrace a incerteza.',
         tools: ['Teoria do Caos', 'Design Generativo', 'Som Ambiente', 'Lovable'],
       },
+      qaMaster: {
+        title: 'QA Master',
+        description: 'Plataforma local-first de auditoria e controle de qualidade estratégico. Sistematiza fluxos de testes em arquitetura multi-projeto escalável, transformando QA em processo ágil, rastreável e gamificado.',
+        tools: ['React', 'TypeScript', 'Local-First', 'Gamificação', 'QA'],
+      },
     },
     ecosystem: {
       title: 'Ecossistema Criativo & Estratégico',
@@ -965,6 +986,11 @@ export const translations: Record<Language, Translations> = {
           name: 'Chaos Oracle',
           purpose: 'Oráculo digital que abraça a incerteza como método.',
           type: 'Caos & Filosofia'
+        },
+        qaMaster: {
+          name: 'QA Master',
+          purpose: 'Plataforma local-first de auditoria e controle de qualidade estratégico.',
+          type: 'Auditoria & QA'
         }
       }
     },
