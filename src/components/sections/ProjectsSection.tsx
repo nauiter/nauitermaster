@@ -93,7 +93,7 @@ export const ProjectsSection = () => {
       title: t.projects.qaMaster.title,
       description: t.projects.qaMaster.description,
       tools: t.projects.qaMaster.tools,
-      url: "#",
+      url: "https://audit-ace-77.lovable.app",
       category: t.projects.experimentalConcepts,
       categoryColor: "text-[#00C4FF]",
     },
