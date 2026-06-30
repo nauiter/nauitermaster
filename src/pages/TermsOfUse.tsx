@@ -50,9 +50,9 @@ export default function TermsOfUse({ forcedLanguage }: TermsOfUseProps) {
 
           <Card className="max-w-4xl mx-auto bg-cosmic-base/80 backdrop-blur-lg border-white/10 shadow-glow">
             <CardHeader className="space-y-4 pb-8">
-              <CardTitle className="text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-5xl font-bold leading-none tracking-tight bg-gradient-primary bg-clip-text text-transparent">
                 {t.lgpd.terms.title}
-              </CardTitle>
+              </h1>
             </CardHeader>
 
             <CardContent className="space-y-8">

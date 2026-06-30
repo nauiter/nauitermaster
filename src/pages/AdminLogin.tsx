@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import { PageMeta } from "@/components/PageMeta";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
@@ -79,6 +80,11 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen bg-[#0c1324] flex items-center justify-center p-4">
+      <PageMeta
+        title="Admin Login | Nauiter Master"
+        description="Restricted administrator sign-in for the Nauiter Master platform. Authorized access only."
+        noindex
+      />
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#7A5FFF]/10 rounded-full blur-3xl" />
