@@ -32,6 +32,18 @@
   <!-- PRIVACY POLICY URLS -->
   <!-- ========================= -->
 
+  <!-- Privacy Policy - Generic (redirects to language-specific) -->
+  <url>
+    <loc>https://nauitermaster.com/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.com/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.com/pt/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/en/privacy-policy" />
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+
   <!-- Privacy Policy - Portuguese Version -->
   <url>
     <loc>https://nauitermaster.com/pt/privacy-policy</loc>
@@ -57,6 +69,18 @@
   <!-- ========================= -->
   <!-- TERMS OF USE URLS -->
   <!-- ========================= -->
+
+  <!-- Terms of Use - Generic (redirects to language-specific) -->
+  <url>
+    <loc>https://nauitermaster.com/terms-of-use</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nauitermaster.com/en/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nauitermaster.com/pt/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nauitermaster.com/en/terms-of-use" />
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
 
   <!-- Terms of Use - Portuguese Version -->
   <url>
