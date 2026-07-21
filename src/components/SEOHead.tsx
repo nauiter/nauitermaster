@@ -228,7 +228,7 @@ export const SEOHead = ({ forcedLanguage, pageType = 'home' }: SEOHeadProps) => 
               "@type": "Organization",
               "name": "Chaos Oracle",
               "description": currentLang === 'pt' ? "Experiência Digital & Filosofia" : "Digital Experience & Philosophy",
-              "url": "https://chaos-bloom-decision.lovable.app/"
+              "url": "https://oraculodocaos.com.br"
             }
           ]
         })
@@ -273,7 +273,7 @@ export const SEOHead = ({ forcedLanguage, pageType = 'home' }: SEOHeadProps) => 
               "description": currentLang === 'pt'
                 ? "Experiência digital inspirada na teoria do caos para tomada de decisões"
                 : "Digital experience inspired by chaos theory for decision making",
-              "url": "https://chaos-bloom-decision.lovable.app/",
+              "url": "https://oraculodocaos.com.br",
               "creator": { "@type": "Person", "name": "Nauiter Master" }
             },
             {
