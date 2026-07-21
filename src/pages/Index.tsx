@@ -121,7 +121,7 @@ const Index = ({ forcedLanguage }: IndexProps) => {
             type: t.ecosystem.projects.chaosOracle.type,
             color: "from-violet-500 to-purple-400",
             image: chaosOracle,
-            url: "https://chaos-bloom-decision.lovable.app/"
+            url: "https://oraculodocaos.com.br"
           },
           {
             name: t.ecosystem.projects.qaMaster.name,

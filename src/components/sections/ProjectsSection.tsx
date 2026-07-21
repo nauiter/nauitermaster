@@ -83,7 +83,7 @@ export const ProjectsSection = () => {
       title: t.projects.chaosOracle.title,
       description: t.projects.chaosOracle.description,
       tools: t.projects.chaosOracle.tools,
-      url: "https://chaos-bloom-decision.lovable.app/",
+      url: "https://oraculodocaos.com.br",
       category: t.projects.experimentalConcepts,
       categoryColor: "text-[#00C4FF]",
     },

@@ -21,7 +21,7 @@ export const SOCIAL_LINKS = {
 export const PROJECT_URLS = {
   O_VERME_PASSEIA: 'https://overmepasseia.com.br',
   FIGUEIREDO_LAW: 'https://advocaciafigueiredo.adv.br',
-  CHAOS_ORACLE: 'https://chaos-bloom-decision.lovable.app/',
+  CHAOS_ORACLE: 'https://oraculodocaos.com.br',
   AVALIA_MACAPA: 'https://avaliamacapa.com.br',
   QA_MASTER: 'https://audit-ace-77.lovable.app',
 
