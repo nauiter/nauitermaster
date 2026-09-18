@@ -230,8 +230,8 @@ export const ProjectsSection = () => {
           </CarouselContent>
 
           {/* Navigation Arrows */}
-          <CarouselPrevious className="left-0 -translate-x-12 bg-white/10 border-white/20 hover:bg-white/20 backdrop-blur-md" />
-          <CarouselNext className="right-0 translate-x-12 bg-white/10 border-white/20 hover:bg-white/20 backdrop-blur-md" />
+          <CarouselPrevious className="left-0 -translate-x-12 h-11 w-11 bg-white/10 border-white/20 hover:bg-white/20 backdrop-blur-md" />
+          <CarouselNext className="right-0 translate-x-12 h-11 w-11 bg-white/10 border-white/20 hover:bg-white/20 backdrop-blur-md" />
         </Carousel>
 
         {/* Progress Counter */}
@@ -274,7 +274,7 @@ export const ProjectsSection = () => {
           </div>
 
           {/* Project Indicators Dots */}
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-1 mt-6">
             {projects.map((_, index) => (
               <motion.button
                 key={index}
@@ -287,15 +287,20 @@ export const ProjectsSection = () => {
                     index
                   );
                 }}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  current === index 
-                    ? 'w-8 bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]' 
-                    : 'w-2 bg-white/30 hover:bg-white/50'
-                }`}
-                whileHover={{ scale: 1.2 }}
+                className="h-11 w-11 inline-flex items-center justify-center"
+                whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 aria-label={`${language === 'pt' ? 'Ir para projeto' : 'Go to project'} ${index + 1}`}
-              />
+                aria-current={current === index}
+              >
+                <span
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    current === index
+                      ? 'w-8 bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF]'
+                      : 'w-2 bg-white/30 hover:bg-white/50'
+                  }`}
+                />
+              </motion.button>
             ))}
           </div>
         </div>

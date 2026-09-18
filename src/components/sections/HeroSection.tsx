@@ -67,11 +67,19 @@ export const HeroSection = () => {
       }
     };
     
-    // Delay particle initialization to prioritize LCP image rendering
-    const timer = setTimeout(() => {
-      initParticles();
-    }, 100);
-    
+    // Wait for the browser to be idle so particles never delay the first paint / LCP
+    const idle = (window as typeof window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+    }).requestIdleCallback;
+
+    if (idle) {
+      const handle = idle(() => initParticles(), { timeout: 2000 });
+      return () => (window as typeof window & {
+        cancelIdleCallback?: (h: number) => void;
+      }).cancelIdleCallback?.(handle);
+    }
+
+    const timer = setTimeout(() => initParticles(), 600);
     return () => clearTimeout(timer);
   }, [isMobile]);
 

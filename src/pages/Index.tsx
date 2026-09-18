@@ -37,7 +37,7 @@ interface IndexProps {
 
 const Index = ({ forcedLanguage }: IndexProps) => {
   const { t, language, setLanguage } = useLanguage();
-  const isLoading = usePageLoading(800);
+  const isLoading = usePageLoading(150);
   useSmoothScroll();
 
   // Force language if specified in route

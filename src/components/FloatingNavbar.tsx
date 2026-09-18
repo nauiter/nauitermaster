@@ -117,8 +117,10 @@ export const FloatingNavbar = () => {
           <Button
             variant="ghost"
             size="sm"
-            className="md:hidden text-white hover:text-accent"
+            className="md:hidden text-white hover:text-accent min-h-11 min-w-11"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
+            aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
           >
             {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </Button>
