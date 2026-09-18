@@ -138,8 +138,8 @@ export const ProjectsSection = () => {
           <CarouselContent>
             {projects.map((project, index) => (
               <CarouselItem key={index}>
-                <div className="p-3 sm:p-4 md:p-6">
-                  <div className="relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-sm shadow-2xl hover:shadow-[#7A5FFF]/20 transition-all duration-500 group">
+                <div className="h-full p-3 sm:p-4 md:p-6">
+                  <div className="relative h-full flex flex-col rounded-3xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-sm shadow-2xl hover:shadow-[#7A5FFF]/20 transition-all duration-500 group">
                     {/* Image Section with Parallax */}
                     <motion.div
                       key={`image-${index}`}
@@ -153,7 +153,7 @@ export const ProjectsSection = () => {
                         duration: 0.9,
                         ease: [0.25, 0.46, 0.45, 0.94]
                       }}
-                      className="relative aspect-video md:aspect-[21/9] overflow-hidden"
+                      className="relative aspect-video overflow-hidden shrink-0"
                     >
                       <LazyImage
                         src={project.image}
@@ -165,8 +165,8 @@ export const ProjectsSection = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0c1324] via-transparent to-transparent opacity-60"></div>
                       
                       {/* Category Badge */}
-                      <div className="absolute top-6 left-6">
-                        <span className={`inline-block px-4 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-sm font-semibold ${project.categoryColor} uppercase tracking-wider`}>
+                      <div className="absolute top-4 left-4 md:top-6 md:left-6">
+                        <span className={`inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-xs md:text-sm font-semibold ${project.categoryColor} uppercase tracking-wider`}>
                           {project.category}
                         </span>
                       </div>
@@ -185,20 +185,20 @@ export const ProjectsSection = () => {
                         delay: 0.2,
                         ease: [0.25, 0.46, 0.45, 0.94]
                       }}
-                      className="p-6 sm:p-8 md:p-10"
+                      className="flex flex-1 flex-col p-5 sm:p-8 md:p-10"
                     >
                       {/* Title */}
-                      <h3 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 mb-6">
+                      <h3 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 mb-4 md:mb-6">
                         {project.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-gray-400 text-lg md:text-xl mb-8 leading-relaxed min-h-[4.5rem] sm:min-h-[5rem] md:min-h-0">
+                      <p className="text-gray-400 text-base md:text-xl mb-6 md:mb-8 leading-relaxed">
                         {project.description}
                       </p>
 
                       {/* Tools */}
-                      <div className="flex flex-wrap gap-2 mb-8 min-h-[5rem] sm:min-h-[4.5rem] md:min-h-0">
+                      <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
                         {project.tools.map((tool, toolIndex) => (
                           <span
                             key={toolIndex}
@@ -208,6 +208,7 @@ export const ProjectsSection = () => {
                           </span>
                         ))}
                       </div>
+
 
                       {/* CTA Button */}
                       <a
