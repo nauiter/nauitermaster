@@ -126,10 +126,10 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     t: translations[language],
   };
 
-  // Always provide context, even during initialization
+  // Render immediately — language refines in the background if needed
   return (
     <LanguageContext.Provider value={value}>
-      {isInitialized ? children : null}
+      {children}
     </LanguageContext.Provider>
   );
 };
