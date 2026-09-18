@@ -217,7 +217,7 @@ export const ProjectsSection = () => {
                         rel="noopener noreferrer"
                         onTouchStart={() => triggerMobileHaptic('medium')}
                         onClick={() => trackProjectVisit(project.title, project.url)}
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-white font-semibold hover:shadow-lg hover:shadow-[#7A5FFF]/50 transform hover:scale-105 transition-all duration-300"
+                        className="mt-auto self-start inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#7A5FFF] to-[#00C4FF] text-white font-semibold hover:shadow-lg hover:shadow-[#7A5FFF]/50 transform hover:scale-105 transition-all duration-300"
                       >
                         <ExternalLink size={20} />
                         <span>{language === 'pt' ? 'Visitar Projeto' : 'Visit Project'}</span>
