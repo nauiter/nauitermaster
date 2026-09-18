@@ -151,7 +151,7 @@ export const CertificationsSection = () => {
               href={cert.credentialUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group/link flex-shrink-0 ml-2"
+              className="h-11 w-11 inline-flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 transition-colors group/link flex-shrink-0 ml-2"
               aria-label={t.certifications.viewCredential}
             >
               <ExternalLink className="w-3 h-3 lg:w-4 lg:h-4 text-gray-400 group-hover/link:text-primary transition-colors" />
@@ -266,7 +266,7 @@ export const CertificationsSection = () => {
         {/* Navigation arrows */}
         <button
           onClick={scrollPrev}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 z-10 p-2 lg:p-3 rounded-full bg-[#0c1324]/90 border border-white/10 hover:border-white/30 hover:bg-[#0c1324] transition-all duration-300 group shadow-lg backdrop-blur-sm"
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 z-10 h-11 w-11 inline-flex items-center justify-center rounded-full bg-[#0c1324]/90 border border-white/10 hover:border-white/30 hover:bg-[#0c1324] transition-all duration-300 group shadow-lg backdrop-blur-sm"
           aria-label="Previous certifications"
         >
           <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 text-gray-400 group-hover:text-white transition-colors" />
@@ -274,25 +274,30 @@ export const CertificationsSection = () => {
         
         <button
           onClick={scrollNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 lg:translate-x-4 z-10 p-2 lg:p-3 rounded-full bg-[#0c1324]/90 border border-white/10 hover:border-white/30 hover:bg-[#0c1324] transition-all duration-300 group shadow-lg backdrop-blur-sm"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 lg:translate-x-4 z-10 h-11 w-11 inline-flex items-center justify-center rounded-full bg-[#0c1324]/90 border border-white/10 hover:border-white/30 hover:bg-[#0c1324] transition-all duration-300 group shadow-lg backdrop-blur-sm"
           aria-label="Next certifications"
         >
           <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 text-gray-400 group-hover:text-white transition-colors" />
         </button>
 
         {/* Pagination dots */}
-        <div className="flex justify-center gap-2 mt-6">
+        <div className="flex justify-center gap-1 mt-6">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => emblaApi?.scrollTo(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === selectedIndex 
-                  ? 'bg-primary w-6' 
-                  : 'bg-white/20 hover:bg-white/40'
-              }`}
+              className="h-11 w-11 inline-flex items-center justify-center"
               aria-label={`Go to slide ${index + 1}`}
-            />
+              aria-current={index === selectedIndex}
+            >
+              <span
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === selectedIndex
+                    ? 'bg-primary w-6'
+                    : 'bg-white/20 hover:bg-white/40 w-2'
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>
