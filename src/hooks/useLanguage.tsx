@@ -66,46 +66,54 @@ const detectLanguageFromIP = async (): Promise<Language> => {
   }
 };
 
+// Synchronous resolution: localStorage → browser → 'en' (no network, never blocks render)
+const resolveInitialLanguage = (): { lang: Language; needsIPCheck: boolean } => {
+  try {
+    const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY) as Language | null;
+    if (stored === 'en' || stored === 'pt') {
+      return { lang: stored, needsIPCheck: false };
+    }
+  } catch (error) {
+    console.error('localStorage error:', error);
+  }
+
+  const browserLang = detectLanguageFromBrowser();
+  if (browserLang) {
+    try {
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, browserLang);
+    } catch (error) {
+      console.error('localStorage save error:', error);
+    }
+    return { lang: browserLang, needsIPCheck: false };
+  }
+
+  return { lang: 'en', needsIPCheck: true };
+};
+
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguageState] = useState<Language>('en');
-  const [isInitialized, setIsInitialized] = useState(false);
+  const [initial] = useState(resolveInitialLanguage);
+  const [language, setLanguageState] = useState<Language>(initial.lang);
 
   useEffect(() => {
-    const initializeLanguage = async () => {
-      // Priority 1: Check localStorage (user's explicit preference)
-      const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY) as Language | null;
-      
-      if (stored && (stored === 'en' || stored === 'pt')) {
-        setLanguageState(stored);
-        setIsInitialized(true);
-        return;
-      }
-      
-      // Priority 2: Check browser language (fast, no API call)
-      const browserLang = detectLanguageFromBrowser();
-      if (browserLang) {
-        setLanguageState(browserLang);
-        localStorage.setItem(LANGUAGE_STORAGE_KEY, browserLang);
-        setIsInitialized(true);
-        return;
-      }
-      
-      // Priority 3: Try IP geolocation (slower, but location-based)
+    if (!initial.needsIPCheck) return;
+
+    let cancelled = false;
+
+    // Refine in the background — UI already rendered in English
+    detectLanguageFromIP().then((ipLang) => {
+      if (cancelled) return;
+      setLanguageState(ipLang);
       try {
-        const ipLang = await detectLanguageFromIP();
-        setLanguageState(ipLang);
         localStorage.setItem(LANGUAGE_STORAGE_KEY, ipLang);
       } catch (error) {
-        // Priority 4: Final fallback to English
-        setLanguageState('en');
-        localStorage.setItem(LANGUAGE_STORAGE_KEY, 'en');
+        console.error('localStorage save error:', error);
       }
-      
-      setIsInitialized(true);
-    };
+    });
 
-    initializeLanguage();
-  }, []);
+    return () => {
+      cancelled = true;
+    };
+  }, [initial.needsIPCheck]);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
@@ -118,10 +126,10 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     t: translations[language],
   };
 
-  // Always provide context, even during initialization
+  // Render immediately — language refines in the background if needed
   return (
     <LanguageContext.Provider value={value}>
-      {isInitialized ? children : null}
+      {children}
     </LanguageContext.Provider>
   );
 };
