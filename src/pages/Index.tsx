@@ -30,6 +30,7 @@ import figueiredoLaw from "@/assets/figueiredo-law.webp";
 import avaliaMacapa from "@/assets/avalia-macapa.webp";
 import chaosOracle from "@/assets/chaos-oracle.webp";
 import qaMaster from "@/assets/qa-master.webp";
+import nyetFuture from "@/assets/nyet-future.webp";
 
 interface IndexProps {
   forcedLanguage?: 'pt' | 'en';
@@ -130,6 +131,14 @@ const Index = ({ forcedLanguage }: IndexProps) => {
             color: "from-cyan-500 to-blue-400",
             image: qaMaster,
             url: "https://audit-ace-77.lovable.app"
+          },
+          {
+            name: t.ecosystem.projects.nyetFuture.name,
+            purpose: t.ecosystem.projects.nyetFuture.purpose,
+            type: t.ecosystem.projects.nyetFuture.type,
+            color: "from-red-600 to-violet-500",
+            image: nyetFuture,
+            url: "https://www.youtube.com/@nyetfuture"
           }
         ]}
       />
