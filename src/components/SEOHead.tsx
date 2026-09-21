@@ -284,6 +284,15 @@ export const SEOHead = ({ forcedLanguage, pageType = 'home' }: SEOHeadProps) => 
                 : "Local-first platform for strategic auditing and quality control with multi-project architecture and gamification",
               "url": "https://audit-ace-77.lovable.app",
               "creator": { "@type": "Person", "name": "Nauiter Master" }
+            },
+            {
+              "@type": "CreativeWork",
+              "name": "Nyet Future",
+              "description": currentLang === 'pt'
+                ? "Canal de música dark/atmospheric criado com Suno AI para o público internacional de darkwave/coldwave/doomer/post-punk"
+                : "Dark/atmospheric music channel built with Suno AI for the international darkwave/coldwave/doomer/post-punk scene",
+              "url": "https://www.youtube.com/@nyetfuture",
+              "creator": { "@type": "Person", "name": "Nauiter Master" }
             }
           ]
         })

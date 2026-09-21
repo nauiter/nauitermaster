@@ -20,6 +20,7 @@ import figueiredoLaw from "@/assets/figueiredo-law.webp";
 import avaliaMacapa from "@/assets/avalia-macapa.webp";
 import chaosOracle from "@/assets/chaos-oracle.webp";
 import qaMaster from "@/assets/qa-master.webp";
+import nyetFuture from "@/assets/nyet-future.webp";
 
 export const ProjectsSection = () => {
   const { t, language } = useLanguage();
@@ -96,6 +97,16 @@ export const ProjectsSection = () => {
       url: "https://audit-ace-77.lovable.app",
       category: t.projects.experimentalConcepts,
       categoryColor: "text-[#00C4FF]",
+    },
+    {
+      image: nyetFuture,
+      alt: "Nyet Future - Canal de música dark/atmospheric criado com Suno AI para o público internacional de darkwave e post-punk | Dark/atmospheric music channel built with Suno AI for the international darkwave and post-punk scene",
+      title: t.projects.nyetFuture.title,
+      description: t.projects.nyetFuture.description,
+      tools: t.projects.nyetFuture.tools,
+      url: "https://www.youtube.com/@nyetfuture",
+      category: t.projects.creativeUniverse,
+      categoryColor: "text-[#7A5FFF]",
     },
   ];
 

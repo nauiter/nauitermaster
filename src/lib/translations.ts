@@ -100,6 +100,7 @@ export interface Translations {
     avaliaMacapa: ProjectData;
     chaosOracle: ProjectData;
     qaMaster: ProjectData;
+    nyetFuture: ProjectData;
   };
   // Ecosystem Section
   ecosystem: {
@@ -128,6 +129,11 @@ export interface Translations {
         type: string;
       };
       qaMaster: {
+        name: string;
+        purpose: string;
+        type: string;
+      };
+      nyetFuture: {
         name: string;
         purpose: string;
         type: string;
@@ -341,7 +347,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'AI Strategist with 14+ years in technology, specialized in prompt engineering for creative workflows.',
-      description: 'Systems Analyst & AI Strategist | Developer of 5+ active platforms using React, TypeScript & Supabase | Content Creator',
+      description: 'Systems Analyst & AI Strategist | Developer of 6+ active platforms using React, TypeScript & Supabase | Content Creator',
       downloadCV: 'Download CV',
       viewProjects: 'View My Projects',
       linkedinFollowers: 'LinkedIn Followers',
@@ -459,6 +465,11 @@ export const translations: Record<Language, Translations> = {
         description: 'Local-first platform for strategic auditing and quality control. Systematizes testing flows through a scalable multi-project architecture, turning QA into an agile, traceable and gamified process.',
         tools: ['React', 'TypeScript', 'Local-First', 'Gamification', 'QA'],
       },
+      nyetFuture: {
+        title: 'Nyet Future',
+        description: 'Dark/atmospheric music channel built with Suno AI for the international darkwave/coldwave/doomer/post-punk scene. Born as a single channel, it expanded into a 3-channel network: Nyet Future, Dead Signal and Fading Protocol.',
+        tools: ['Suno AI', 'YouTube', 'AI Music Production', 'Creative Direction'],
+      },
     },
     ecosystem: {
       title: 'Creative & Strategic Ecosystem',
@@ -489,6 +500,11 @@ export const translations: Record<Language, Translations> = {
           name: 'QA Master',
           purpose: 'Local-first strategic auditing and quality control platform.',
           type: 'Auditing & QA'
+        },
+        nyetFuture: {
+          name: 'Nyet Future',
+          purpose: 'Dark/atmospheric music channel for the international darkwave and post-punk scene.',
+          type: 'AI Music & Art'
         }
       }
     },
@@ -843,7 +859,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'Estrategista de IA com 14+ anos em tecnologia, especializado em prompt engineering para workflows criativos.',
-      description: 'Analista de Sistemas & Estrategista de IA | Desenvolvedor de 5+ plataformas ativas usando React, TypeScript & Supabase | Criador de Conteúdo',
+      description: 'Analista de Sistemas & Estrategista de IA | Desenvolvedor de 6+ plataformas ativas usando React, TypeScript & Supabase | Criador de Conteúdo',
       downloadCV: 'Baixar CV',
       viewProjects: 'Ver Meus Projetos',
       linkedinFollowers: 'Seguidores LinkedIn',
@@ -961,6 +977,11 @@ export const translations: Record<Language, Translations> = {
         description: 'Plataforma local-first de auditoria e controle de qualidade estratégico. Sistematiza fluxos de testes em arquitetura multi-projeto escalável, transformando QA em processo ágil, rastreável e gamificado.',
         tools: ['React', 'TypeScript', 'Local-First', 'Gamificação', 'QA'],
       },
+      nyetFuture: {
+        title: 'Nyet Future',
+        description: 'Canal de música dark/atmospheric criado com Suno AI para o público internacional de darkwave/coldwave/doomer/post-punk. Nasceu como canal único e expandiu para uma rede de 3 canais: Nyet Future, Dead Signal e Fading Protocol.',
+        tools: ['Suno AI', 'YouTube', 'Produção Musical com IA', 'Direção Criativa'],
+      },
     },
     ecosystem: {
       title: 'Ecossistema Criativo & Estratégico',
@@ -991,6 +1012,11 @@ export const translations: Record<Language, Translations> = {
           name: 'QA Master',
           purpose: 'Plataforma local-first de auditoria e controle de qualidade estratégico.',
           type: 'Auditoria & QA'
+        },
+        nyetFuture: {
+          name: 'Nyet Future',
+          purpose: 'Canal de música dark/atmospheric para o público internacional de darkwave e post-punk.',
+          type: 'Música & Arte com IA'
         }
       }
     },
