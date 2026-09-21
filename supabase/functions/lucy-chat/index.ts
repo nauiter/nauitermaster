@@ -112,25 +112,12 @@ serve(async (req) => {
       .eq("is_active", true)
       .order("priority", { ascending: false });
 
-    // Fetch mentorship tiers
-    const { data: tiers } = await supabase
-      .from("mentorship_tiers")
-      .select("*")
-      .eq("is_available", true)
-      .order("display_order");
-
     // Build knowledge context
     const knowledgeContext = knowledge?.map(k => 
       language === "pt" 
         ? `Q: ${k.question_pt}\nA: ${k.answer_pt}`
         : `Q: ${k.question_en}\nA: ${k.answer_en}`
     ).join("\n\n") || "";
-
-    const tiersContext = tiers?.map(t => 
-      language === "pt"
-        ? `- ${t.name_pt}: ${t.description_pt} (${t.price_pt})`
-        : `- ${t.name_en}: ${t.description_en} (${t.price_en})`
-    ).join("\n") || "";
 
     const systemPrompt = language === "pt" 
       ? `Você é Lucy, Assistente Estratégica do Nauiter Master. Sua missão é:
