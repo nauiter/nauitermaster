@@ -939,8 +939,8 @@ export const translations: Record<Language, Translations> = {
       tools: 'Ferramentas',
       oVermePasseia: {
         title: 'O Verme Passeia',
-        description: 'Explorando filosofia e estética através do design.',
-        tools: ['Filosofia', 'Arte Digital', 'IA'],
+        description: 'Um universo criativo que explora filosofia e estética pelo design digital, onde textos, imagens e experimentos com IA questionam nosso olhar sobre o mundo.',
+        tools: ['Filosofia', 'Arte Digital', 'IA', 'Design Editorial'],
       },
       clickNoPoint: {
         title: 'Click No Point',
@@ -954,8 +954,8 @@ export const translations: Record<Language, Translations> = {
       },
       figueiredoLaw: {
         title: 'Figueiredo Law',
-        description: 'Consultoria em IA conectando direito, ética e tecnologia.',
-        tools: ['Direito', 'Ética', 'Tecnologia'],
+        description: 'Consultoria que conecta direito, ética e tecnologia, orientando pessoas e empresas na adoção legal e responsável da inteligência artificial.',
+        tools: ['Direito', 'Ética', 'Tecnologia', 'Governança de IA'],
       },
       decisionDie: {
         title: 'Decision Die',
@@ -964,23 +964,23 @@ export const translations: Record<Language, Translations> = {
       },
       avaliaMacapa: {
         title: 'Avalia Macapá',
-        description: 'Plataforma de avaliação urbana para mapear, avaliar e organizar locais, serviços e comércios da cidade de Macapá.',
+        description: 'Plataforma de avaliação urbana para mapear, avaliar e organizar locais, serviços e comércios da cidade de Macapá, feita para moradores e negócios locais.',
         tools: ['React', 'TypeScript', 'Supabase', 'AvaliAI'],
       },
       chaosOracle: {
         title: 'Chaos Oracle',
-        description: 'Uma experiência digital inspirada na teoria do caos, criada para ajudar pessoas indecisas a tomar decisões sem recorrer à lógica excessiva. Clique, aceite e abrace a incerteza.',
+        description: 'Experiência digital inspirada na teoria do caos, feita para pessoas indecisas: clique, aceite a resposta e abrace a incerteza sem pensar demais.',
         tools: ['Teoria do Caos', 'Design Generativo', 'Som Ambiente', 'Lovable'],
       },
       qaMaster: {
         title: 'QA Master',
-        description: 'Plataforma local-first de auditoria e controle de qualidade estratégico. Sistematiza fluxos de testes em arquitetura multi-projeto escalável, transformando QA em processo ágil, rastreável e gamificado.',
-        tools: ['React', 'TypeScript', 'Local-First', 'Gamificação', 'QA'],
+        description: 'Plataforma local-first de auditoria e controle de qualidade, que transforma rotinas de testes em um processo multi-projeto ágil, rastreável e gamificado.',
+        tools: ['React', 'TypeScript', 'Local-First', 'Gamificação'],
       },
       nyetFuture: {
         title: 'Nyet Future',
-        description: 'Canal de música dark/atmospheric criado com Suno AI para o público internacional de darkwave/coldwave/doomer/post-punk. Nasceu como canal único e expandiu para uma rede de 3 canais: Nyet Future, Dead Signal e Fading Protocol.',
-        tools: ['Suno AI', 'YouTube', 'Produção Musical com IA', 'Direção Criativa'],
+        description: 'Canal de música dark e atmosférica criado com Suno AI para o público internacional de darkwave e post-punk, hoje expandido em uma rede de três canais.',
+        tools: ['Suno AI', 'YouTube', 'Música com IA', 'Direção Criativa'],
       },
     },
     ecosystem: {
