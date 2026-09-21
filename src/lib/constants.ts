@@ -4,7 +4,7 @@
 export const METRICS = {
   LINKEDIN_FOLLOWERS: 5750,
   YEARS_EXPERIENCE: 14,
-  ACTIVE_PROJECTS: 5,
+  ACTIVE_PROJECTS: 6,
   AI_VISUALS_GENERATED: '200+',
   ECOSYSTEMS_BUILT: '10+',
   AI_DRIVEN_BRANDS: 5,
@@ -24,6 +24,8 @@ export const PROJECT_URLS = {
   CHAOS_ORACLE: 'https://oraculodocaos.com.br',
   AVALIA_MACAPA: 'https://avaliamacapa.com.br',
   QA_MASTER: 'https://audit-ace-77.lovable.app',
+  NYET_FUTURE: 'https://www.youtube.com/@nyetfuture',
+
 
 } as const;
 
