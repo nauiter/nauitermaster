@@ -57,6 +57,7 @@ export const ProjectsSection = () => {
       url: "https://overmepasseia.com.br",
       category: t.projects.creativeUniverse,
       categoryColor: "text-[#7A5FFF]",
+      tagClass: "bg-[#7A5FFF]/10 border-[#7A5FFF]/30 text-[#D8CDFF]",
     },
     {
       image: figueiredoLaw,
@@ -67,6 +68,7 @@ export const ProjectsSection = () => {
       url: "https://advocaciafigueiredo.adv.br",
       category: t.projects.experimentalConcepts,
       categoryColor: "text-[#00C4FF]",
+      tagClass: "bg-[#00C4FF]/10 border-[#00C4FF]/30 text-[#BFEBFF]",
     },
     {
       image: avaliaMacapa,
@@ -77,6 +79,7 @@ export const ProjectsSection = () => {
       url: "https://avaliamacapa.com.br",
       category: t.projects.experimentalConcepts,
       categoryColor: "text-[#00C4FF]",
+      tagClass: "bg-[#00C4FF]/10 border-[#00C4FF]/30 text-[#BFEBFF]",
     },
     {
       image: chaosOracle,
@@ -87,6 +90,7 @@ export const ProjectsSection = () => {
       url: "https://oraculodocaos.com.br",
       category: t.projects.experimentalConcepts,
       categoryColor: "text-[#00C4FF]",
+      tagClass: "bg-[#00C4FF]/10 border-[#00C4FF]/30 text-[#BFEBFF]",
     },
     {
       image: qaMaster,
@@ -97,6 +101,7 @@ export const ProjectsSection = () => {
       url: "https://audit-ace-77.lovable.app",
       category: t.projects.experimentalConcepts,
       categoryColor: "text-[#00C4FF]",
+      tagClass: "bg-[#00C4FF]/10 border-[#00C4FF]/30 text-[#BFEBFF]",
     },
     {
       image: nyetFuture,
@@ -107,6 +112,7 @@ export const ProjectsSection = () => {
       url: "https://www.youtube.com/@nyetfuture",
       category: t.projects.creativeUniverse,
       categoryColor: "text-[#7A5FFF]",
+      tagClass: "bg-[#7A5FFF]/10 border-[#7A5FFF]/30 text-[#D8CDFF]",
     },
   ];
 
@@ -213,7 +219,7 @@ export const ProjectsSection = () => {
                         {project.tools.map((tool, toolIndex) => (
                           <span
                             key={toolIndex}
-                            className="px-3 h-8 inline-flex items-center rounded-full bg-[#1a1f2e] text-white text-sm font-medium border border-white/20 transition-all duration-300"
+                            className={`px-3 h-8 inline-flex items-center rounded-full text-sm font-medium border backdrop-blur-sm transition-all duration-300 ${project.tagClass}`}
                           >
                             {tool}
                           </span>
