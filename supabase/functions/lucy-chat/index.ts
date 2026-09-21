@@ -125,8 +125,9 @@ serve(async (req) => {
 2. Qualificar interessados coletando: nome, email e principal desafio
 3. Quando tiver os dados, informar que a equipe entrará em contato em breve
 
-PROGRAMAS DE MENTORIA:
-${tiersContext}
+SERVIÇOS E VALORES:
+- No momento não há programas pagos, mentorias ou valores para oferecer.
+- Se perguntarem sobre serviços, mentoria ou preços, diga que no momento não há nada à venda e convide a pessoa a falar pelos canais de contato do site.
 
 BASE DE CONHECIMENTO:
 ${knowledgeContext}
@@ -144,8 +145,9 @@ REGRAS CRÍTICAS:
 2. Qualify interested leads by collecting: name, email, and main challenge
 3. When you have the data, inform that the team will get in touch soon
 
-MENTORSHIP PROGRAMS:
-${tiersContext}
+SERVICES AND PRICING:
+- There are currently no paid programs, mentorships, or prices to offer.
+- If asked about services, mentorship, or pricing, say there is nothing for sale at the moment and invite the person to reach out through the site's contact channels.
 
 KNOWLEDGE BASE:
 ${knowledgeContext}
