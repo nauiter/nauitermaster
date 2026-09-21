@@ -47,11 +47,11 @@ export const SEOHead = ({ forcedLanguage, pageType = 'home' }: SEOHeadProps) => 
     terms: {
       pt: {
         title: 'Termos de Uso | Nauiter Master',
-        description: 'Termos de Uso que regem o acesso ao site Nauiter Master e aos serviços de consultoria, mentoria e desenvolvimento em IA.',
+        description: 'Termos de Uso que regem o acesso ao site Nauiter Master e aos conteúdos sobre consultoria e desenvolvimento em IA.',
       },
       en: {
         title: 'Terms of Use | Nauiter Master',
-        description: 'Terms of Use governing access to the Nauiter Master website and AI consulting, mentorship and development services.',
+        description: 'Terms of Use governing access to the Nauiter Master website and its content on AI consulting and development.',
       },
     },
   };
@@ -123,7 +123,7 @@ export const SEOHead = ({ forcedLanguage, pageType = 'home' }: SEOHeadProps) => 
     },
     {
       question: "Quais serviços de IA são oferecidos?",
-      answer: "Oferecemos consultoria em estratégia de IA, automação de workflows criativos, desenvolvimento de aplicações com IA, e educação em prompt engineering através de programas de mentoria personalizados."
+      answer: "O portfólio reúne projetos de consultoria em estratégia de IA, automação de workflows criativos e desenvolvimento de aplicações com IA. Para contato, utilize os canais disponíveis no site."
     },
     {
       question: "Como a automação com IA pode ajudar criadores?",
@@ -136,7 +136,7 @@ export const SEOHead = ({ forcedLanguage, pageType = 'home' }: SEOHeadProps) => 
     },
     {
       question: "What AI services are offered?",
-      answer: "We offer AI strategy consulting, creative workflow automation, AI-powered application development, and prompt engineering education through personalized mentorship programs."
+      answer: "The portfolio features AI strategy consulting, creative workflow automation, and AI-powered application development projects. For contact, use the channels available on the site."
     },
     {
       question: "How can AI automation help creators?",

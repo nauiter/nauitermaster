@@ -112,13 +112,6 @@ serve(async (req) => {
       .eq("is_active", true)
       .order("priority", { ascending: false });
 
-    // Fetch mentorship tiers
-    const { data: tiers } = await supabase
-      .from("mentorship_tiers")
-      .select("*")
-      .eq("is_available", true)
-      .order("display_order");
-
     // Build knowledge context
     const knowledgeContext = knowledge?.map(k => 
       language === "pt" 
@@ -126,20 +119,15 @@ serve(async (req) => {
         : `Q: ${k.question_en}\nA: ${k.answer_en}`
     ).join("\n\n") || "";
 
-    const tiersContext = tiers?.map(t => 
-      language === "pt"
-        ? `- ${t.name_pt}: ${t.description_pt} (${t.price_pt})`
-        : `- ${t.name_en}: ${t.description_en} (${t.price_en})`
-    ).join("\n") || "";
-
     const systemPrompt = language === "pt" 
       ? `Você é Lucy, Assistente Estratégica do Nauiter Master. Sua missão é:
 1. Responder perguntas de forma BREVE e direta (máximo 2-3 frases)
 2. Qualificar interessados coletando: nome, email e principal desafio
 3. Quando tiver os dados, informar que a equipe entrará em contato em breve
 
-PROGRAMAS DE MENTORIA:
-${tiersContext}
+SERVIÇOS E VALORES:
+- No momento não há programas pagos, mentorias ou valores para oferecer.
+- Se perguntarem sobre serviços, mentoria ou preços, diga que no momento não há nada à venda e convide a pessoa a falar pelos canais de contato do site.
 
 BASE DE CONHECIMENTO:
 ${knowledgeContext}
@@ -157,8 +145,9 @@ REGRAS CRÍTICAS:
 2. Qualify interested leads by collecting: name, email, and main challenge
 3. When you have the data, inform that the team will get in touch soon
 
-MENTORSHIP PROGRAMS:
-${tiersContext}
+SERVICES AND PRICING:
+- There are currently no paid programs, mentorships, or prices to offer.
+- If asked about services, mentorship, or pricing, say there is nothing for sale at the moment and invite the person to reach out through the site's contact channels.
 
 KNOWLEDGE BASE:
 ${knowledgeContext}

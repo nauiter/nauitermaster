@@ -13,7 +13,6 @@ import { TechStackSection } from "@/components/sections/TechStackSection";
 import { SoftSkillsSection } from "@/components/sections/SoftSkillsSection";
 import { CertificationsSection } from "@/components/sections/CertificationsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
-import { MentorshipSection } from "@/components/sections/MentorshipSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SEOHead } from "@/components/SEOHead";
@@ -164,8 +163,6 @@ const Index = ({ forcedLanguage }: IndexProps) => {
       {/* Contact & Collaboration CTA */}
       <ContactSection />
 
-      {/* Mentorship Programs */}
-      <MentorshipSection />
       </main>
 
       {/* Footer */}
