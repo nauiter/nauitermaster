@@ -82,11 +82,12 @@ export const LazyImage = ({
   alt,
   rootMargin = "300px",   // Padrão: 300px
   threshold = 0.01,       // Padrão: 1% visível
+  priority = false,       // true = primeira imagem above-the-fold
   ...props 
 }) => {
-  // Intersection Observer com configuração agressiva
-  // Blur placeholder animado
-  // Otimizações de GPU com transform: translateZ(0)
+  // priority → loading="eager" + fetchPriority="high" (sem observer)
+  // default  → loading="lazy"  + fetchPriority="low"  (Intersection Observer)
+  // sempre   → decoding="async"
 }
 ```
 
@@ -96,6 +97,8 @@ export const LazyImage = ({
 - ✅ Configuração agressiva de `rootMargin` e `threshold`
 - ✅ Otimizações de GPU com `translateZ(0)` e `backfaceVisibility`
 - ✅ `decoding="async"` para não bloquear thread principal
+- ✅ `priority` com `fetchPriority="high"` apenas no primeiro slide
+  (`ProjectsSection`: `priority={index === 0}`); as demais ficam `low`
 - ✅ Suporte a `loading="eager"` para bypass do lazy loading
 
 ## 📈 Métricas de Performance
