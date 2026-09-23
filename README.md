@@ -89,7 +89,16 @@ To run this project locally, follow the steps below:
 - `/src/hooks`: Custom hooks (i18n, Animations, Observer).
 - `/src/lib`: Utilities, constants, and translation configurations.
 - `/src/pages`: Main application routes.
+- `/public`: `robots.txt`, `sitemap.xml`, `llms.txt`, social image, résumé PDF.
+
+## 📚 Documentation
+
+- [`docs/PERFORMANCE_SEO_GEO_2026-09.md`](docs/PERFORMANCE_SEO_GEO_2026-09.md) — latest performance, SEO, GEO and robots round (Sept 2026).
+- [`docs/IMAGE_OPTIMIZATION.md`](docs/IMAGE_OPTIMIZATION.md) — image budgets, compression commands and loading strategy.
+- [`ANALISE_TECNICA_PROJETO.md`](ANALISE_TECNICA_PROJETO.md) — full technical analysis (architecture, performance, SEO, LGPD, i18n).
+- [`docs/SECTION_SYSTEM.md`](docs/SECTION_SYSTEM.md) — layout/section conventions.
+- [`docs/GA4_EVENTS_TRACKING.md`](docs/GA4_EVENTS_TRACKING.md) — analytics events.
 
 ---
 
-© 2025 Nauiter Master. All Rights Reserved.
+© 2025-2026 Nauiter Master. All Rights Reserved.
