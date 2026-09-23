@@ -44,43 +44,67 @@ export const HeroSection = () => {
   });
   
   useEffect(() => {
-    // Defer particle initialization until after LCP to reduce render blocking
-    // Skip particles on mobile for better performance
+    // Desktop only: particles add no value on mobile and cost load time
     if (isMobile) {
       setInit(false);
       return;
     }
-    
+
+    let cancelled = false;
+
     const initParticles = async () => {
       try {
         const { initParticlesEngine } = await import("@tsparticles/react");
         const { loadSlim } = await import("@tsparticles/slim");
-        
+
         await initParticlesEngine(async (engine: Engine) => {
           await loadSlim(engine);
         });
-        setInit(true);
+        if (!cancelled) setInit(true);
       } catch (error) {
         console.error('Failed to initialize particles:', error);
         // Continue without particles
         setInit(false);
       }
     };
-    
-    // Wait for the browser to be idle so particles never delay the first paint / LCP
-    const idle = (window as typeof window & {
-      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
-    }).requestIdleCallback;
 
-    if (idle) {
-      const handle = idle(() => initParticles(), { timeout: 2000 });
-      return () => (window as typeof window & {
-        cancelIdleCallback?: (h: number) => void;
-      }).cancelIdleCallback?.(handle);
+    // Wait for the browser to be idle so particles never delay the first paint / LCP
+    const schedule = () => {
+      const idle = (window as typeof window & {
+        requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      }).requestIdleCallback;
+
+      if (idle) {
+        idle(() => initParticles(), { timeout: 2000 });
+        return;
+      }
+      setTimeout(() => initParticles(), 600);
+    };
+
+    // Only load the engine while the hero is actually on screen
+    const node = sectionRef.current;
+    if (!node || typeof IntersectionObserver === 'undefined') {
+      schedule();
+      return () => {
+        cancelled = true;
+      };
     }
 
-    const timer = setTimeout(() => initParticles(), 600);
-    return () => clearTimeout(timer);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect();
+          schedule();
+        }
+      },
+      { rootMargin: '100px' }
+    );
+    observer.observe(node);
+
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+    };
   }, [isMobile]);
 
   const particlesLoaded = useCallback(async (_container?: Container) => {
