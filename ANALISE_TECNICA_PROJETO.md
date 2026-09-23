@@ -248,22 +248,32 @@ const Particles = lazy(() => import("@tsparticles/react"));
 | **Foco Visível** | AA | ⚠️ | Alguns elementos sem outline |
 | **Texto Alternativo** | A | ✅ | Todas as imagens têm alt |
 
-### 🎯 SEO Score: 92/100
+### 🎯 SEO / GEO — varredura de fundações 100% aprovada (2026-09-23)
 
 #### ✅ Implementado
-- ✅ Schema.org/Person structured data
-- ✅ Meta tags dinâmicas
-- ✅ Semantic HTML5 (`<section>`, `<nav>`, `<header>`)
-- ✅ Image optimization attributes (`loading="lazy"`, `width`, `height`)
-- ✅ Google Search Console verification
-- ✅ robots.txt configurado
-- ✅ Clean URLs
+- ✅ Schema.org: `Organization`, `Person` (com `sameAs` incl. YouTube),
+  `CreativeWork` (6 projetos), `Service`, `FAQPage` (6 perguntas PT/EN),
+  `BreadcrumbList`
+- ✅ Meta tags dinâmicas por rota (`SEOHead.tsx`, `PageMeta.tsx`)
+- ✅ Open Graph + Twitter Card com imagem absoluta (`/og-image.png`)
+- ✅ Canonical auto-referente em todas as rotas públicas; `noindex` nos
+  redirecionadores e nas rotas administrativas
+- ✅ Semantic HTML5 e H1 único por página
+- ✅ `sitemap.xml` com hreflang PT/EN e `lastmod` real
+- ✅ `robots.txt` segmentado: assistentes de IA liberados, coletores em massa
+  bloqueados, auditores com `Crawl-delay: 10`
+- ✅ `/llms.txt` com resumo, páginas, os 6 projetos e tópicos
+- ✅ `<noscript>` bilíngue descrevendo perfil, serviços e projetos
+- ✅ Prioridade de carregamento de imagens (`fetchPriority`) e atributos de
+  dimensão para evitar layout shift
+- ✅ Verificação de propriedade do Google no HTML
 
-#### ⚠️ Oportunidades
-- ⚠️ Open Graph tags ausentes (compartilhamento social)
-- ⚠️ Twitter Card tags ausentes
-- ⚠️ Sitemap.xml não gerado
-- ⚠️ Canonical tags em algumas páginas
+#### ⚠️ Oportunidades / pendências
+- ⚠️ Google Search Console ainda não conectado (depende de autorização do
+  proprietário) — sem dados de cliques, consultas e envio oficial do sitemap
+- ⚠️ Conteúdo novo: guia bilíngue "o que é engenharia de prompt"
+  (~74 mil buscas/mês), com `Article` schema e entrada no sitemap
+- ⚠️ Prévias sociais por página exigiriam renderização no servidor (SSR)
 
 ### Recomendações de Acessibilidade
 
