@@ -11,6 +11,11 @@ interface LazyImageProps {
   rootMargin?: string;
   /** Threshold for Intersection Observer */
   threshold?: number;
+  /**
+   * Mark the first above-the-fold image. It is fetched immediately with high
+   * priority (helps LCP); every other image stays lazy with low priority.
+   */
+  priority?: boolean;
 }
 
 export const LazyImage = ({ 
@@ -18,12 +23,14 @@ export const LazyImage = ({
   alt, 
   className = "", 
   blurDataURL, 
-  loading = "lazy",
+  loading,
   rootMargin = "300px",
-  threshold = 0.01
+  threshold = 0.01,
+  priority = false
 }: LazyImageProps) => {
+  const effectiveLoading: "lazy" | "eager" = loading ?? (priority ? "eager" : "lazy");
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(loading === "eager");
+  const [isInView, setIsInView] = useState(effectiveLoading === "eager");
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
