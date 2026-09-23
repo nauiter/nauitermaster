@@ -150,7 +150,7 @@ Navegadores modernos carregam WebP automaticamente. Para navegadores antigos, o 
 <LazyImage
   src={image}
   alt="Description"
-  loading="eager"
+  priority           // eager + fetchPriority="high"
   rootMargin="500px"
 />
 ```
