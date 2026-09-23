@@ -178,6 +178,7 @@ export const ProjectsSection = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         rootMargin="500px"
                         threshold={0.01}
+                        priority={index === 0}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0c1324] via-transparent to-transparent opacity-60"></div>
                       
