@@ -200,7 +200,8 @@ export const SEOHead = ({ forcedLanguage, pageType = 'home' }: SEOHeadProps) => 
           "sameAs": [
             "https://linkedin.com/in/nauiter-master-678a71144",
             "https://instagram.com/nauiter.master",
-            "https://facebook.com/nauiter.master"
+            "https://facebook.com/nauiter.master",
+            "https://www.youtube.com/@nyetfuture"
           ],
           "knowsAbout": currentLang === 'pt'
             ? ["Inteligência Artificial", "Arte Digital", "Prompt Engineering", "Automação com IA", "IA Criativa", "Educação em IA"]
