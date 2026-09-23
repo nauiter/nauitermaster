@@ -11,6 +11,11 @@ interface LazyImageProps {
   rootMargin?: string;
   /** Threshold for Intersection Observer */
   threshold?: number;
+  /**
+   * Mark the first above-the-fold image. It is fetched immediately with high
+   * priority (helps LCP); every other image stays lazy with low priority.
+   */
+  priority?: boolean;
 }
 
 export const LazyImage = ({ 
@@ -18,16 +23,18 @@ export const LazyImage = ({
   alt, 
   className = "", 
   blurDataURL, 
-  loading = "lazy",
+  loading,
   rootMargin = "300px",
-  threshold = 0.01
+  threshold = 0.01,
+  priority = false
 }: LazyImageProps) => {
+  const effectiveLoading: "lazy" | "eager" = loading ?? (priority ? "eager" : "lazy");
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(loading === "eager");
+  const [isInView, setIsInView] = useState(effectiveLoading === "eager");
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    if (loading === "eager") return;
+    if (effectiveLoading === "eager") return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -47,7 +54,7 @@ export const LazyImage = ({
     }
 
     return () => observer.disconnect();
-  }, [loading, rootMargin, threshold]);
+  }, [effectiveLoading, rootMargin, threshold]);
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
@@ -64,7 +71,8 @@ export const LazyImage = ({
         ref={imgRef}
         src={isInView ? src : undefined}
         alt={alt}
-        loading={loading}
+        loading={effectiveLoading}
+        fetchPriority={priority ? "high" : "low"}
         decoding="async"
         className="w-full h-full object-cover"
         initial={{ opacity: 0, scale: 1.1 }}

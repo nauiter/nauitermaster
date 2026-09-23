@@ -8,15 +8,20 @@ This repository contains the source code for Nauiter Master's professional portf
 
 This project is an interactive **Single Page Application (SPA)** featuring:
 - **"Cosmic" Design System:** A futuristic aesthetic with glassmorphism, neon gradients, and particle animations.
-- **Internationalization (i18n):** Native and fluid support for English (EN) and Portuguese (PT).
-- **Project Showcase:** An interactive carousel displaying 6+ active initiatives: *Sweet Life Animes*, *Sweet Life Academy*, *O Verme Passeia*, *Figueiredo Law*, *Avalia Macapá*, and *Chaos Oracle*.
+- **Internationalization (i18n):** Bilingual routes for English (`/en`) and Portuguese (`/pt`), with IP/browser language detection.
+- **Project Showcase:** An interactive carousel with the 6 active initiatives — *O Verme Passeia*, *Figueiredo Law*, *Avalia Macapá*, *Chaos Oracle*, *QA Master* and *Nyet Future*.
 - **Impact Metrics:** Animated data visualization regarding professional reach.
 - **Compliance:** Full LGPD implementation (Cookie Consent, Terms of Use, and Privacy Policy).
+- **SEO & GEO:** Per-route metadata, JSON-LD (Organization, Person, CreativeWork, Service, FAQPage, BreadcrumbList), bilingual sitemap with hreflang, segmented `robots.txt` and `/llms.txt` for AI assistants.
+
+> Nothing is being sold on the site at the moment: there are no mentorship
+> programs or prices. Contact happens through the channels listed in the
+> Contact section and the Lucy assistant.
 
 ## 🤖 AI Assistant & Admin Features
 
 ### Lucy AI Chat
-- Floating chat assistant for lead qualification
+- Floating chat assistant for contact and lead qualification
 - Extremely brief responses (2-3 sentences max)
 - Automatic lead capture from email detection in conversations
 - Success notification when lead is captured
@@ -25,9 +30,10 @@ This project is an interactive **Single Page Application (SPA)** featuring:
 ### Admin Panel (/fimo_admin)
 - **Dashboard**: Lead metrics, conversion rates, status breakdown
 - **Leads Management**: Search, filter, CSV export, conversation history
-- **Mentorship Tiers**: Edit pricing and features (PT/EN)
 - **Knowledge Base**: Configure Lucy's responses
 - **Settings**: Site-wide configurations
+- Mentorship tier management remains in the codebase but is disabled in the
+  public site (no pricing is offered)
 
 ### Security
 - Row Level Security (RLS) on all tables
@@ -83,7 +89,16 @@ To run this project locally, follow the steps below:
 - `/src/hooks`: Custom hooks (i18n, Animations, Observer).
 - `/src/lib`: Utilities, constants, and translation configurations.
 - `/src/pages`: Main application routes.
+- `/public`: `robots.txt`, `sitemap.xml`, `llms.txt`, social image, résumé PDF.
+
+## 📚 Documentation
+
+- [`docs/PERFORMANCE_SEO_GEO_2026-09.md`](docs/PERFORMANCE_SEO_GEO_2026-09.md) — latest performance, SEO, GEO and robots round (Sept 2026).
+- [`docs/IMAGE_OPTIMIZATION.md`](docs/IMAGE_OPTIMIZATION.md) — image budgets, compression commands and loading strategy.
+- [`ANALISE_TECNICA_PROJETO.md`](ANALISE_TECNICA_PROJETO.md) — full technical analysis (architecture, performance, SEO, LGPD, i18n).
+- [`docs/SECTION_SYSTEM.md`](docs/SECTION_SYSTEM.md) — layout/section conventions.
+- [`docs/GA4_EVENTS_TRACKING.md`](docs/GA4_EVENTS_TRACKING.md) — analytics events.
 
 ---
 
-© 2025 Nauiter Master. All Rights Reserved.
+© 2025-2026 Nauiter Master. All Rights Reserved.

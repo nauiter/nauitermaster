@@ -161,69 +161,77 @@ src/
 
 ## ⚡ Performance e Otimização
 
+> Atualizado em 2026-09-23. Detalhes completos em
+> [`docs/PERFORMANCE_SEO_GEO_2026-09.md`](docs/PERFORMANCE_SEO_GEO_2026-09.md).
+
 ### Core Web Vitals (Estimativa)
 
 | Métrica | Atual | Alvo | Status |
 |---------|-------|------|--------|
-| **LCP** (Largest Contentful Paint) | ~2.5s | <2.5s | ⚠️ Borderline |
+| **LCP** (Largest Contentful Paint) | ~1.4s | <2.5s | ✅ Bom |
 | **FID** (First Input Delay) | <100ms | <100ms | ✅ Bom |
 | **CLS** (Cumulative Layout Shift) | <0.1 | <0.1 | ✅ Excelente |
-| **FCP** (First Contentful Paint) | ~1.8s | <1.8s | ✅ Bom |
-| **TTI** (Time to Interactive) | ~3.5s | <3.5s | ⚠️ Borderline |
+| **FCP** (First Contentful Paint) | ~1.1s | <1.8s | ✅ Bom |
+| **TTI** (Time to Interactive) | ~2.2s | <3.5s | ✅ Bom |
 
-### 📦 Bundle Analysis
+Ganhos principais: GA4 carregado após `load`, partículas só no desktop e
+sob `IntersectionObserver`, imagens pesadas recomprimidas e bundle dividido
+em chunks estáveis de vendor.
+
+### 📦 Bundle Analysis (build de 2026-09-23, gzip)
 
 ```
-Tamanho estimado do bundle:
-├── main.js          ~350KB (comprimido: ~120KB)
-├── vendor.js        ~180KB (comprimido: ~60KB)
-├── particles.js     ~45KB  (lazy loaded) ✅
-└── images/          ~2.5MB ⚠️ CRÍTICO
+dist/assets/
+├── vendor-react.js        145 KB → gzip  47 KB
+├── vendor-supabase.js     202 KB → gzip  52 KB
+├── vendor-particles.js    150 KB → gzip  43 KB (lazy, desktop-only) ✅
+├── vendor-radix.js         79 KB → gzip  25 KB
+├── vendor-markdown.js      49 KB → gzip  14 KB
+├── vendor-motion.js        34 KB → gzip  12 KB
+├── vendor-carousel.js      22 KB → gzip   9 KB
+├── vendor.js              334 KB → gzip 105 KB
+├── index.js                81 KB → gzip  26 KB
+├── Index.js               107 KB → gzip  31 KB (rota /pt e /en)
+├── FimoAdmin.js            38 KB → gzip   9 KB (lazy) ✅
+└── index.css              110 KB → gzip  18 KB
 ```
 
-### 🖼️ Otimização de Imagens - PRIORIDADE ALTA
+`manualChunks` configurado em `vite.config.ts`: react, framer-motion,
+recharts/d3, @tsparticles, supabase, radix, embla e markdown em chunks
+próprios e cacheáveis.
 
-#### Problema Atual
+### 🖼️ Otimização de Imagens — ✅ RESOLVIDO
+
+Todas as imagens estão em WebP e dimensionadas para o uso real. As duas
+maiores foram recomprimidas em 2026-09-23:
+
 ```
-Imagens não otimizadas:
-├── nauiter-professional.png     ~850KB  (usado: 224x224px)
-├── sweet-life-animes-2.png      ~620KB  (usado: 350x233px)
-├── sweet-life-academy-2.jpg     ~580KB  (usado: 350x233px)
-├── o-verme-passeia-2.png        ~540KB  (usado: 350x233px)
-└── figueiredo-law-2.png         ~480KB  (usado: 350x233px)
-TOTAL: ~3.07MB ⚠️
+avalia-macapa.webp                 1.535 KB → 122 KB (1200x599)
+experience/avalia_macapa_logo.webp   347 KB →   7 KB (512x512)
 ```
 
-#### Solução Recomendada
+Total de imagens no bundle: ~0,5 MB (antes ~2,5 MB).
+
+Estratégia de carregamento:
+- Avatar do Hero: `preload` + `loading="eager"` + `fetchPriority="high"`.
+- Primeiro card de projeto: `priority` no `LazyImage` (eager + high).
+- Demais imagens: `lazy` + `fetchPriority="low"` + `decoding="async"`,
+  com `IntersectionObserver` de `rootMargin` 300-500px.
+
+Limites recomendados e comandos em
+[`docs/IMAGE_OPTIMIZATION.md`](docs/IMAGE_OPTIMIZATION.md).
+
+### 🚀 Code Splitting — ✅ IMPLEMENTADO
+
 ```typescript
-// 1. Converter para formatos modernos
-// nauiter-professional.png → .webp + .avif (redução: 70%)
-// Thumbnails → .webp + .avif (redução: 65%)
-
-// 2. Implementar responsive images
-<picture>
-  <source srcSet="avatar.avif" type="image/avif" />
-  <source srcSet="avatar.webp" type="image/webp" />
-  <img src="avatar.png" alt="..." loading="lazy" />
-</picture>
-
-// 3. Dimensionamento correto
-// Avatar: 224x224 → salvar em 448x448 (2x para retina)
-// Thumbnails: 350x233 → salvar em 700x466 (2x)
-```
-
-**Impacto Esperado:** Redução de ~2MB no carregamento inicial
-
-### 🚀 Code Splitting Adicional
-
-```typescript
-// ✅ Já implementado
-const Particles = lazy(() => import("@tsparticles/react"));
-
-// 🎯 Oportunidades adicionais
+// Rotas (src/App.tsx)
+const Index = lazy(() => import("./pages/Index"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
-const EcosystemCarousel = lazy(() => import("./components/EcosystemCarousel"));
+const FimoAdmin = lazy(() => import("./pages/FimoAdmin"));
+
+// Partículas: import dinâmico + desktop-only + IntersectionObserver
+const Particles = lazy(() => import("@tsparticles/react"));
 ```
 
 ---
@@ -240,22 +248,32 @@ const EcosystemCarousel = lazy(() => import("./components/EcosystemCarousel"));
 | **Foco Visível** | AA | ⚠️ | Alguns elementos sem outline |
 | **Texto Alternativo** | A | ✅ | Todas as imagens têm alt |
 
-### 🎯 SEO Score: 92/100
+### 🎯 SEO / GEO — varredura de fundações 100% aprovada (2026-09-23)
 
 #### ✅ Implementado
-- ✅ Schema.org/Person structured data
-- ✅ Meta tags dinâmicas
-- ✅ Semantic HTML5 (`<section>`, `<nav>`, `<header>`)
-- ✅ Image optimization attributes (`loading="lazy"`, `width`, `height`)
-- ✅ Google Search Console verification
-- ✅ robots.txt configurado
-- ✅ Clean URLs
+- ✅ Schema.org: `Organization`, `Person` (com `sameAs` incl. YouTube),
+  `CreativeWork` (6 projetos), `Service`, `FAQPage` (6 perguntas PT/EN),
+  `BreadcrumbList`
+- ✅ Meta tags dinâmicas por rota (`SEOHead.tsx`, `PageMeta.tsx`)
+- ✅ Open Graph + Twitter Card com imagem absoluta (`/og-image.png`)
+- ✅ Canonical auto-referente em todas as rotas públicas; `noindex` nos
+  redirecionadores e nas rotas administrativas
+- ✅ Semantic HTML5 e H1 único por página
+- ✅ `sitemap.xml` com hreflang PT/EN e `lastmod` real
+- ✅ `robots.txt` segmentado: assistentes de IA liberados, coletores em massa
+  bloqueados, auditores com `Crawl-delay: 10`
+- ✅ `/llms.txt` com resumo, páginas, os 6 projetos e tópicos
+- ✅ `<noscript>` bilíngue descrevendo perfil, serviços e projetos
+- ✅ Prioridade de carregamento de imagens (`fetchPriority`) e atributos de
+  dimensão para evitar layout shift
+- ✅ Verificação de propriedade do Google no HTML
 
-#### ⚠️ Oportunidades
-- ⚠️ Open Graph tags ausentes (compartilhamento social)
-- ⚠️ Twitter Card tags ausentes
-- ⚠️ Sitemap.xml não gerado
-- ⚠️ Canonical tags em algumas páginas
+#### ⚠️ Oportunidades / pendências
+- ⚠️ Google Search Console ainda não conectado (depende de autorização do
+  proprietário) — sem dados de cliques, consultas e envio oficial do sitemap
+- ⚠️ Conteúdo novo: guia bilíngue "o que é engenharia de prompt"
+  (~74 mil buscas/mês), com `Article` schema e entrada no sitemap
+- ⚠️ Prévias sociais por página exigiriam renderização no servidor (SSR)
 
 ### Recomendações de Acessibilidade
 

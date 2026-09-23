@@ -5,14 +5,36 @@ Este documento descreve as otimizações implementadas para melhorar a performan
 ## 📊 Status das Imagens
 
 ### ✅ Imagens Otimizadas (WebP)
-Todas as imagens do projeto foram convertidas para o formato WebP, oferecendo compressão superior:
+Todas as imagens do projeto estão em WebP, oferecendo compressão superior:
 
 - `portfolio-avatar.webp` - Avatar principal (Hero)
-- `sweet-life-animes.webp` - Projeto em destaque
-- `sweet-life-academy.webp` - Projeto em destaque  
 - `o-verme-passeia.webp` - Projeto em destaque
 - `figueiredo-law.webp` - Projeto em destaque
-- `beacons-white.webp` - Ícone social (convertido de PNG)
+- `avalia-macapa.webp` - Projeto em destaque
+- `chaos-oracle.webp` - Projeto em destaque
+- `qa-master.webp` - Projeto em destaque
+- `nyet-future.webp` - Projeto em destaque
+- `experience/*.webp` - Logowall de organizações
+- `beacons-white.png` - Ícone social
+
+### 🧮 Limites recomendados (2026-09)
+
+| Tipo | Largura máx. | Peso alvo |
+|------|--------------|-----------|
+| Card de projeto | 1200 px | ≤ 150 KB |
+| Logo do logowall | 512 px | ≤ 30 KB |
+| Avatar do Hero | 448 px (2x) | ≤ 40 KB |
+
+### 🗜️ Compressões aplicadas em 2026-09-23
+
+| Arquivo | Antes | Depois | Comando |
+|---------|-------|--------|---------|
+| `avalia-macapa.webp` | 1.535 KB (1858x927) | 122 KB (1200x599) | `ffmpeg -vf scale=1200:-2 -c:v libwebp -quality 80` |
+| `experience/avalia_macapa_logo.webp` | 347 KB (1024x1024) | 7 KB (512x512) | `ffmpeg -vf scale=512:512 -c:v libwebp -quality 85` |
+
+> Antes de recomprimir um logo, verifique se há canal alpha real
+> (`PIL Image.getchannel('A').getextrema()`); se houver, use
+> `-pix_fmt yuva420p` ou mantenha o original.
 
 ### 🎯 Estratégias de Carregamento
 
@@ -60,11 +82,12 @@ export const LazyImage = ({
   alt,
   rootMargin = "300px",   // Padrão: 300px
   threshold = 0.01,       // Padrão: 1% visível
+  priority = false,       // true = primeira imagem above-the-fold
   ...props 
 }) => {
-  // Intersection Observer com configuração agressiva
-  // Blur placeholder animado
-  // Otimizações de GPU com transform: translateZ(0)
+  // priority → loading="eager" + fetchPriority="high" (sem observer)
+  // default  → loading="lazy"  + fetchPriority="low"  (Intersection Observer)
+  // sempre   → decoding="async"
 }
 ```
 
@@ -74,6 +97,8 @@ export const LazyImage = ({
 - ✅ Configuração agressiva de `rootMargin` e `threshold`
 - ✅ Otimizações de GPU com `translateZ(0)` e `backfaceVisibility`
 - ✅ `decoding="async"` para não bloquear thread principal
+- ✅ `priority` com `fetchPriority="high"` apenas no primeiro slide
+  (`ProjectsSection`: `priority={index === 0}`); as demais ficam `low`
 - ✅ Suporte a `loading="eager"` para bypass do lazy loading
 
 ## 📈 Métricas de Performance
@@ -125,7 +150,7 @@ Navegadores modernos carregam WebP automaticamente. Para navegadores antigos, o 
 <LazyImage
   src={image}
   alt="Description"
-  loading="eager"
+  priority           // eager + fetchPriority="high"
   rootMargin="500px"
 />
 ```
