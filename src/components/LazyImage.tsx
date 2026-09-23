@@ -34,7 +34,7 @@ export const LazyImage = ({
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    if (loading === "eager") return;
+    if (effectiveLoading === "eager") return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -54,7 +54,7 @@ export const LazyImage = ({
     }
 
     return () => observer.disconnect();
-  }, [loading, rootMargin, threshold]);
+  }, [effectiveLoading, rootMargin, threshold]);
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
