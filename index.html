@@ -5,13 +5,25 @@
     <meta name="google-site-verification" content="wQTb_tk-7Io42VpE6lKdPgPUv3WbnroYNTVj7y-kios" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8H9Z89M76D"></script>
+    <!-- Google tag (gtag.js) - loaded after first paint to protect LCP -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-8H9Z89M76D');
+      (function () {
+        var loadGa = function () {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-8H9Z89M76D';
+          document.head.appendChild(s);
+        };
+        if (document.readyState === 'complete') {
+          setTimeout(loadGa, 0);
+        } else {
+          window.addEventListener('load', function () { setTimeout(loadGa, 0); }, { once: true });
+        }
+      })();
     </script>
     
     <!-- Content Security Policy -->
@@ -44,6 +56,12 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Resource Hints for backend and analytics -->
+    <link rel="preconnect" href="https://udzjrhvimujhofmlndqt.supabase.co" crossorigin>
+    <link rel="dns-prefetch" href="https://udzjrhvimujhofmlndqt.supabase.co">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
     
     <!-- Async Google Fonts Loading - Non-render-blocking with font-display swap -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
