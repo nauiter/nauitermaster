@@ -1,22 +1,36 @@
 # Nauiter Master
 
-> AI Strategist & Digital Artist with 14+ years in technology. Specialized in prompt engineering, creative AI automation, and full-stack development with React, TypeScript and Supabase.
+> AI Strategist and digital artist with 14+ years in technology, specialized in prompt engineering, creative AI automation and full-stack development with React, TypeScript and Supabase.
 
-Nauiter Master is the personal portfolio and professional hub of an AI strategist based in Macapá, Brazil, blending military telecommunications experience, philosophy, and digital art with modern AI workflows. The site offers an overview of active platforms, mentorship programs, and creative AI services, available in Portuguese and English.
+Nauiter Master is the personal portfolio and professional hub of an AI strategist based in Macapá, Brazil, blending military telecommunications experience, philosophy and digital art with modern AI workflows. The site presents his active platforms, professional background, certifications and creative projects, in Portuguese and English. Nothing is sold on the site: contact happens through the listed channels (email, LinkedIn, Instagram, Facebook) and the on-site assistant Lucy.
 
 ## Pages
 
-- [Home (English)](/en): Portfolio overview, projects, experience, services, and mentorship in English.
-- [Home (Portuguese)](/pt): Portfólio, projetos, experiência, serviços e mentoria em português.
-- [Privacy Policy (EN)](/en/privacy-policy): How user data is handled, LGPD-compliant.
-- [Privacy Policy (PT)](/pt/privacy-policy): Política de privacidade conforme LGPD.
-- [Terms of Use (EN)](/en/terms-of-use): Terms governing use of the site and services.
-- [Terms of Use (PT)](/pt/terms-of-use): Termos de uso do site e serviços.
+- [Home (English)](/en): Portfolio overview, AI tooling, projects, experience, skills and certifications in English.
+- [Home (Portuguese)](/pt): Portfólio, ferramentas de IA, projetos, experiência, competências e certificações em português.
+- [Privacy Policy (EN)](/en/privacy-policy): How user data is handled, GDPR/LGPD aligned.
+- [Privacy Policy (PT)](/pt/privacy-policy): Política de privacidade conforme a LGPD.
+- [Terms of Use (EN)](/en/terms-of-use): Terms governing use of the site and its content.
+- [Terms of Use (PT)](/pt/terms-of-use): Termos de uso do site e do conteúdo.
+
+## Projects
+
+- [O Verme Passeia](https://overmepasseia.com.br): Editorial project exploring philosophy and aesthetics through design.
+- [Advocacia Figueiredo](https://advocaciafigueiredo.adv.br): Law firm platform connecting law, ethics and AI-assisted technology.
+- [Avalia Macapá](https://avaliamacapa.com.br): Urban assessment web platform for mapping and rating local places and services.
+- [Oráculo do Caos / Chaos Oracle](https://oraculodocaos.com.br): Digital experience inspired by chaos theory for decision making.
+- [QA Master](https://audit-ace-77.lovable.app): Local-first platform for strategic auditing and quality control, with multi-project architecture and gamified QA flows.
+- [Nyet Future](https://www.youtube.com/@nyetfuture): Dark/atmospheric music channel built with Suno AI for the international darkwave, coldwave, doomer and post-punk scene.
 
 ## Topics
 
-- Prompt Engineering for ChatGPT, Claude, Midjourney, Leonardo, Runway
-- Creative AI automation with Make, Zapier, n8n
-- Web development: React, TypeScript, Supabase, PostgreSQL
-- AI mentorship and education
-- Digital art, philosophy, and design
+- Prompt engineering for ChatGPT, Claude, Gemini, Midjourney, Leonardo, Runway and Suno
+- Creative AI automation with Make, Zapier and n8n
+- Web and platform development: React, TypeScript, Tailwind, Supabase, PostgreSQL
+- Quality assurance, testing strategy and auditing workflows
+- Digital art, music production with AI, philosophy and design
+- Military telecommunications background applied to systems and reliability
+
+## Optional
+
+- [Résumé (PDF)](/Nauiter_Master_Profile.pdf): Professional profile and experience summary.
