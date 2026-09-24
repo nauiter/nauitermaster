@@ -187,6 +187,39 @@ export const SEOHead = ({ forcedLanguage, pageType = 'home' }: SEOHeadProps) => 
       <link rel="alternate" hrefLang="en" href={`${baseUrl}/en`} />
       <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/en`} />
 
+      {/* Structured Data - WebSite (brand identity / sitelinks) */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": `${baseUrl}/#website`,
+          "name": "Nauiter Master",
+          "alternateName": [
+            "Nauiter",
+            "Nauiter Master Portfolio",
+            "nauitermaster.com",
+            currentLang === 'pt' ? "Nauiter Master — Estrategista de IA" : "Nauiter Master — AI Strategist"
+          ],
+          "url": baseUrl,
+          "inLanguage": currentLang === 'pt' ? "pt-BR" : "en",
+          "description": currentSEO.description,
+          "publisher": { "@id": `${baseUrl}/#person` }
+        })
+      }} />
+
+      {/* Structured Data - ProfilePage (links site to author) */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          "@id": `${baseUrl}/#profilepage`,
+          "name": "Nauiter Master",
+          "url": fullUrl,
+          "isPartOf": { "@id": `${baseUrl}/#website` },
+          "mainEntity": { "@id": `${baseUrl}/#person` }
+        })
+      }} />
+
       {/* Structured Data - Person with Experience */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
