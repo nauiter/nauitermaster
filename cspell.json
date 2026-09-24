@@ -1,6 +1,6 @@
 {
   "version": "0.2",
-  "language": "en,pt",
+  "language": "en,pt-BR",
   "words": [
     "Nauiter",
     "LinkedIn",
@@ -56,20 +56,16 @@
     "*.webp",
     "*.ico"
   ],
-  "dictionaries": ["en", "pt"],
-  "dictionaryDefinitions": [
-    {
-      "name": "en",
-      "path": "./node_modules/cspell-dict-en-us/cspell-ext.json"
-    },
-    {
-      "name": "pt",
-      "path": "./node_modules/cspell-dict-pt-br/cspell-ext.json"
-    }
-  ],
+  "dictionaries": [],
   "files": [
     "src/**/*.{ts,tsx}",
     "src/lib/translations.ts"
   ],
-  "enableFiletypes": ["typescript", "typescriptreact"]
+  "enableFiletypes": [
+    "typescript",
+    "typescriptreact"
+  ],
+  "import": [
+    "@cspell/dict-pt-br/cspell-ext.json"
+  ]
 }
