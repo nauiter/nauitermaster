@@ -50,7 +50,7 @@ export const ProjectsSection = () => {
   const projects = [
     {
       image: oVermePasseia,
-      alt: "O Verme Passeia - Projeto explorando filosofia e estética através do design digital | Project exploring philosophy and aesthetics through digital design",
+      alt: "Nauiter Master — O Verme Passeia - Projeto explorando filosofia e estética através do design digital | Project exploring philosophy and aesthetics through digital design",
       title: t.projects.oVermePasseia.title,
       description: t.projects.oVermePasseia.description,
       tools: t.projects.oVermePasseia.tools,
@@ -61,7 +61,7 @@ export const ProjectsSection = () => {
     },
     {
       image: figueiredoLaw,
-      alt: "Figueiredo Law - Consultoria em direito, tecnologia e ética de IA | Law, technology and AI ethics consultancy",
+      alt: "Nauiter Master — Figueiredo Law - Consultoria em direito, tecnologia e ética de IA | Law, technology and AI ethics consultancy",
       title: t.projects.figueiredoLaw.title,
       description: t.projects.figueiredoLaw.description,
       tools: t.projects.figueiredoLaw.tools,
@@ -72,7 +72,7 @@ export const ProjectsSection = () => {
     },
     {
       image: avaliaMacapa,
-      alt: "Avalia Macapá - Plataforma web de avaliação urbana com React, TypeScript e Supabase | Urban assessment web platform with React, TypeScript and Supabase",
+      alt: "Nauiter Master — Avalia Macapá - Plataforma web de avaliação urbana com React, TypeScript e Supabase | Urban assessment web platform with React, TypeScript and Supabase",
       title: t.projects.avaliaMacapa.title,
       description: t.projects.avaliaMacapa.description,
       tools: t.projects.avaliaMacapa.tools,
@@ -83,7 +83,7 @@ export const ProjectsSection = () => {
     },
     {
       image: chaosOracle,
-      alt: "Chaos Oracle - Experiência digital inspirada na teoria do caos para tomada de decisões | Digital experience inspired by chaos theory for decision making",
+      alt: "Nauiter Master — Chaos Oracle - Experiência digital inspirada na teoria do caos para tomada de decisões | Digital experience inspired by chaos theory for decision making",
       title: t.projects.chaosOracle.title,
       description: t.projects.chaosOracle.description,
       tools: t.projects.chaosOracle.tools,
@@ -94,7 +94,7 @@ export const ProjectsSection = () => {
     },
     {
       image: qaMaster,
-      alt: "QA Master - Plataforma local-first de auditoria e controle de qualidade estratégico | Local-first platform for strategic auditing and quality control",
+      alt: "Nauiter Master — QA Master - Plataforma local-first de auditoria e controle de qualidade estratégico | Local-first platform for strategic auditing and quality control",
       title: t.projects.qaMaster.title,
       description: t.projects.qaMaster.description,
       tools: t.projects.qaMaster.tools,
@@ -105,7 +105,7 @@ export const ProjectsSection = () => {
     },
     {
       image: nyetFuture,
-      alt: "Nyet Future - Canal de música dark/atmospheric criado com Suno AI para o público internacional de darkwave e post-punk | Dark/atmospheric music channel built with Suno AI for the international darkwave and post-punk scene",
+      alt: "Nauiter Master — Nyet Future - Canal de música dark/atmospheric criado com Suno AI para o público internacional de darkwave e post-punk | Dark/atmospheric music channel built with Suno AI for the international darkwave and post-punk scene",
       title: t.projects.nyetFuture.title,
       description: t.projects.nyetFuture.description,
       tools: t.projects.nyetFuture.tools,
