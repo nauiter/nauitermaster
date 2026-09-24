@@ -347,7 +347,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'AI Strategist with 14+ years in technology, specialized in prompt engineering for creative workflows.',
-      description: 'Systems Analyst & AI Strategist | Developer of 6+ active platforms using React, TypeScript & Supabase | Content Creator',
+      description: 'Nauiter Master — AI Strategist and Systems Analyst based in Macapá, Brazil | Developer of 6+ active platforms using React, TypeScript & Supabase | Content Creator',
       downloadCV: 'Download CV',
       viewProjects: 'View My Projects',
       linkedinFollowers: 'LinkedIn Followers',
@@ -419,7 +419,7 @@ export const translations: Record<Language, Translations> = {
       proficiency: 'Proficiency',
     },
     projects: {
-      title: 'Showcase Projects',
+      title: 'Showcase Projects by Nauiter Master',
       subtitle: 'Intersection of AI, storytelling, and digital strategy.',
       creativeUniverse: 'Creative Universe',
       experimentalConcepts: 'Experimental Concepts',
@@ -472,7 +472,7 @@ export const translations: Record<Language, Translations> = {
       },
     },
     ecosystem: {
-      title: 'Creative & Strategic Ecosystem',
+      title: 'Creative & Strategic Ecosystem of Nauiter Master',
       subtitle: 'An interconnected network of brands, projects, and ideas.',
       centralNode: 'Creator, Strategist & AI Visionary',
       projects: {
@@ -585,7 +585,7 @@ export const translations: Record<Language, Translations> = {
       footer: ''
     },
     certifications: {
-      title: 'Certifications & Achievements',
+      title: 'Certifications & Achievements of Nauiter Master',
       subtitle: 'Professional credentials and recognized accomplishments in AI, technology, and leadership',
       viewCredential: 'View Credential',
       credentialId: 'Credential ID',
@@ -765,7 +765,7 @@ export const translations: Record<Language, Translations> = {
       ideasInMotion: 'Ideas in Motion',
     },
     experience: {
-      title: 'Experience & Partnerships',
+      title: 'Experience & Partnerships of Nauiter Master',
       subtitle: 'Organizations and brands I have collaborated with throughout my career',
     },
     contact: {
@@ -859,7 +859,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Nauiter Master',
       subtitle: 'Estrategista de IA com 14+ anos em tecnologia, especializado em prompt engineering para workflows criativos.',
-      description: 'Analista de Sistemas & Estrategista de IA | Desenvolvedor de 6+ plataformas ativas usando React, TypeScript & Supabase | Criador de Conteúdo',
+      description: 'Nauiter Master — Estrategista de IA e Analista de Sistemas em Macapá, Brasil | Desenvolvedor de 6+ plataformas ativas usando React, TypeScript & Supabase | Criador de Conteúdo',
       downloadCV: 'Baixar CV',
       viewProjects: 'Ver Meus Projetos',
       linkedinFollowers: 'Seguidores LinkedIn',
@@ -931,7 +931,7 @@ export const translations: Record<Language, Translations> = {
       proficiency: 'Proficiência',
     },
     projects: {
-      title: 'Projetos em Destaque',
+      title: 'Projetos em Destaque de Nauiter Master',
       subtitle: 'Interseção entre IA, narrativa e estratégia digital.',
       creativeUniverse: 'Universo Criativo',
       experimentalConcepts: 'Conceitos Experimentais',
@@ -984,7 +984,7 @@ export const translations: Record<Language, Translations> = {
       },
     },
     ecosystem: {
-      title: 'Ecossistema Criativo & Estratégico',
+      title: 'Ecossistema Criativo & Estratégico de Nauiter Master',
       subtitle: 'Uma rede interconectada de marcas, projetos e ideias.',
       centralNode: 'Criador, Estrategista & Visionário de IA',
       projects: {
@@ -1097,7 +1097,7 @@ export const translations: Record<Language, Translations> = {
       footer: ''
     },
     certifications: {
-      title: 'Certificações & Conquistas',
+      title: 'Certificações & Conquistas de Nauiter Master',
       subtitle: 'Credenciais profissionais e conquistas reconhecidas em IA, tecnologia e liderança',
       viewCredential: 'Ver Credencial',
       credentialId: 'ID da Credencial',
@@ -1277,7 +1277,7 @@ export const translations: Record<Language, Translations> = {
       ideasInMotion: 'Ideias em Movimento',
     },
     experience: {
-      title: 'Experiência & Parcerias',
+      title: 'Experiência & Parcerias de Nauiter Master',
       subtitle: 'Organizações e marcas com as quais colaborei ao longo da minha carreira',
     },
     contact: {
