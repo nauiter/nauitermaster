@@ -141,7 +141,7 @@ export const ExperienceSection: React.FC = () => {
                 >
                   <img
                     src={exp.logo}
-                    alt={`${exp.name} logo`}
+                    alt={`Nauiter Master — ${exp.name} logo`}
                     className="h-12 md:h-16 w-auto object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
                     loading="lazy"
                   />

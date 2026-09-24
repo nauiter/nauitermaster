@@ -121,7 +121,7 @@ export const ProjectsSection = () => {
       ref={sectionRef}
       id="projects"
       title={{
-        title: language === 'pt' ? 'Projetos em Destaque' : 'Showcase Projects',
+        title: t.projects.title,
         subtitle: t.projects.subtitle,
         gradient: "primary",
         align: "center",
