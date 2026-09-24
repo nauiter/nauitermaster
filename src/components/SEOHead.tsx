@@ -225,7 +225,9 @@ export const SEOHead = ({ forcedLanguage, pageType = 'home' }: SEOHeadProps) => 
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
+          "@id": `${baseUrl}/#person`,
           "name": "Nauiter Master",
+          "alternateName": "Nauiter",
           "jobTitle": currentLang === 'pt' ? "Estrategista de IA e Artista Digital" : "AI Strategist & Digital Artist",
           "description": currentSEO.description,
           "url": baseUrl,
