@@ -1,13 +1,16 @@
-## Diagnóstico
+# Adicionar GitHub (https://github.com/nauiter)
 
-- `nauitermaster.com`, `/pt` e `nauitermaster.lovable.app` estão no ar (abrem normalmente).
-- `www.nauitermaster.com` não responde: esse endereço nunca foi conectado ao site, e o DNS não aponta para ele. Quem digita "www" vê o site fora do ar.
+## O que muda para o visitante
+- Novo ícone do GitHub na seção de Contato, ao lado de LinkedIn/Instagram/Facebook.
+- Novo ícone do GitHub no rodapé, junto às outras redes.
+- Mesmo estilo, cores e animações dos ícones atuais; abre em nova aba.
 
-## O que fazer
+## Para Google e IAs
+- GitHub incluído na lista de perfis oficiais (`sameAs`) dos dados estruturados e do `index.html`.
+- GitHub listado no conteúdo de fallback (PT/EN) e no `llms.txt`.
 
-1. Conectar `www.nauitermaster.com` em Configurações do Projeto → Domínios (abro o assistente de conexão para você).
-2. No seu provedor de domínio, criar o registro A `www` → `185.158.133.1` (o assistente mostra os valores exatos).
-3. Depois que o DNS propagar, `www` vai redirecionar automaticamente para `nauitermaster.com`, que continua sendo o endereço principal.
-4. Conferir de novo os dois endereços e as páginas PT/EN.
-
-Nenhuma mudança no conteúdo ou no visual do site.
+## Detalhes técnicos
+- `src/lib/constants.ts`: `SOCIAL_LINKS.GITHUB = 'https://github.com/nauiter'`.
+- `ContactSection.tsx` e rodapé em `src/pages/Index.tsx`: ícone `Github` (lucide-react), `aria-label` bilíngue via traduções, alvo de toque 44x44 px.
+- `SEOHead.tsx` e `index.html` (JSON-LD `sameAs` + `<noscript>` PT/EN), `public/llms.txt`.
+- Verificação: build, Playwright 375/1440px conferindo o link.
