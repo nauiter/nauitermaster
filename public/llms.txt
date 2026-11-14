@@ -2,7 +2,7 @@
 
 > Nauiter Master (also written "Nauiter") is an AI Strategist and digital artist with 14+ years in technology, based in Macapá, Brazil, specialized in prompt engineering, creative AI automation and full-stack development with React, TypeScript and Supabase. Official site: https://nauitermaster.com
 
-Nauiter Master is the personal portfolio and professional hub of an AI strategist based in Macapá, Brazil, blending military telecommunications experience, philosophy and digital art with modern AI workflows. The site presents his active platforms, professional background, certifications and creative projects, in Portuguese and English. Nothing is sold on the site: contact happens through the listed channels (email, LinkedIn, Instagram, Facebook) and the on-site assistant Lucy.
+Nauiter Master is the personal portfolio and professional hub of an AI strategist based in Macapá, Brazil, blending military telecommunications experience, philosophy and digital art with modern AI workflows. The site presents his active platforms, professional background, certifications and creative projects, in Portuguese and English. Nothing is sold on the site: contact happens through the listed channels (email, LinkedIn, GitHub https://github.com/nauiter, Instagram, Facebook) and the on-site assistant Lucy.
 
 ## Pages
 

@@ -234,6 +234,7 @@ export const SEOHead = ({ forcedLanguage, pageType = 'home' }: SEOHeadProps) => 
           "image": `${baseUrl}/og-image.png`,
           "sameAs": [
             "https://linkedin.com/in/nauiter-master-678a71144",
+            "https://github.com/nauiter",
             "https://instagram.com/nauiter.master",
             "https://facebook.com/nauiter.master",
             "https://www.youtube.com/@nyetfuture"
