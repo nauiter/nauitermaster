@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Facebook, Instagram, Linkedin, ArrowRight } from "lucide-react";
+import { Mail, Facebook, Instagram, Linkedin, Github, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Section } from "@/components/ui/section";
@@ -171,6 +171,24 @@ export const ContactSection = () => {
             aria-label="Connect on LinkedIn"
           >
             <Linkedin size={28} />
+          </motion.a>
+          <motion.a
+            href={SOCIAL_LINKS.GITHUB}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={!isMobile ? { scale: 1.1, color: "#00C4FF" } : undefined}
+            onTouchStart={(e) => {
+              triggerMobileHaptic('light');
+              createRipple(e);
+            }}
+            onClick={(e) => {
+              createRipple(e);
+              trackSocialClick('github', 'contact_section');
+            }}
+            className="transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+            aria-label="GitHub"
+          >
+            <Github size={28} />
           </motion.a>
         </div>
       </motion.div>

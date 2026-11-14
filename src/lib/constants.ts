@@ -15,6 +15,7 @@ export const SOCIAL_LINKS = {
   EMAIL: 'mailto:nauitermaster@hotmail.com',
   FACEBOOK: 'https://facebook.com/nauiter.master',
   INSTAGRAM: 'https://instagram.com/nauiter.master',
+  GITHUB: 'https://github.com/nauiter',
   LINKEDIN: 'https://linkedin.com/in/nauiter-master-678a71144',
 } as const;
 
