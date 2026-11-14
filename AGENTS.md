@@ -1,0 +1,1 @@
+- Do not add custom `manualChunks` in vite.config.ts: splitting React from its dependents broke production load order and blanked the site.
